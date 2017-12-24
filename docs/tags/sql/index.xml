@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on World of Wang</title>
+    <link>https://wzhongke.github.io/tags/sql/</link>
+    <description>Recent content in Sql on World of Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright@Kevin Tan</copyright>
+    <lastBuildDate>Thu, 20 Jul 2017 16:05:42 +0000</lastBuildDate>
+    
+	<atom:link href="https://wzhongke.github.io/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mybatis</title>
+      <link>https://wzhongke.github.io/post/java/mybatis/</link>
+      <pubDate>Thu, 20 Jul 2017 16:05:42 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/mybatis/</guid>
+      <description>MyBatis是什么 MyBatis是定制化SQL、存储过程以及高级映射的持久层框架。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>nginx配置双向认证 并通过java访问 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81-%E5%B9%B6%E9%80%9A%E8%BF%87java%E8%AE%BF%E9%97%AE/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-76b9ae8ca1.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"><label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/">paramiko-批量操作终端</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/">css 动画</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/xpath/">XPath 笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/">创建者模式之生成器</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/">MySQL基础语句</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/">MySQL技巧</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/">jvm调优</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/linux-server/">linux 网络常用命令</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/">java 泛型</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/linux/">Linux</a> <span class="breadcrumb">nginx配置双向认证 并通过java访问</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><ul><li><a href="#安装openssl">安装openssl</a></li><li><a href="#使用脚本生成证书">使用脚本生成证书</a></li><li><a href="#配置nginx">配置nginx</a></li><li><a href="#是用chrome浏览器访问">是用chrome浏览器访问</a></li><li><a href="#使用java完成双向认证">使用java完成双向认证</a></li><li><a href="#参考网站">参考网站</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">nginx配置双向认证 并通过java访问 </span><span class="card-meta"><time><span>Sun Jun 18 2017</span></time><address><a href="https://wzhongke.github.io//categories/linux">linux</a>&nbsp;</address></span><article class="article"><p>最近项目开发中的接口要使用双向认证，因为搭建服务器的方式是nginx+resin，而java的keytool配置nginx的双向认证时，并不好用。所以使用了openssl来生成证书。</p><h2 id="安装openssl">安装openssl</h2><p>部分linux系统上已经默认安装了openssl，可以使用<code>openssl version</code>来查看机器上是否安装了openssl。如果没有安装，可以执行 <code>yum install nginx openssl -y</code> 安装</p><h2 id="使用脚本生成证书">使用脚本生成证书</h2><p>每次使用命令行安装都是一个巨大的考验，尤其是在输入各种信息的时候。输入错误就要Crtl+c重新来过。因此，将安装过程写成一个脚本，方便安装。<!-- more --> 1. 在nginx的conf目录下新建一个文件夹：<code>mkdir openssl &amp;&amp; cd openssl</code> 2. 将shell脚本和下面的配置文件拷贝到openssl目录下，可以根据自己修改sheel脚本中的<code>SUBJECT</code>和<code>CA</code>； 脚本执行过程中需要输入证书的域名，如果机器没有域名，那么输入ip。如果证书的ip或者域名与输入的内容不一致，是用java访问时，会报错 <code>javax.net.ssl.SSLPeerUnverifiedException: Certificate for &lt;*.*.*.*&gt; doesn't match any of the subject alternative names: []；</code> 需要输入两种密码，第一种是server.key的密码，第二种是client.key的密码，改密码要在是用证书时用到，需要记住。</p><pre><code class="language-bash">#!/bin/sh
+# create self-signed server certificate:
+read -p &quot;请输入证书的域 例如[www.example.com or 192.168.1.52]: &quot; DOMAIN
+mkdir newcerts private conf server
+# 根据自己的需求，来更改这些内容
+SUBJECT=&quot;/C=CN/ST=BJ/L=BJ/O=company/OU=company/CN=$DOMAIN&quot;
+CA=&quot;/C=CN/ST=BJ/L=BJ/O=company/OU=company/CN=$DOMAIN&quot;
+
+echo &quot;创建 CA 根证书...&quot;
+echo &quot;生成私钥 key 文件...&quot;
+openssl genrsa -out private/ca.key 2048  
+echo &quot;生成证书请求 csr 文件...&quot;
+openssl req -new -subj $CA -key private/ca.key -out private/ca.csr 
+
+echo &quot;生成凭证 crt 文件...&quot;
+openssl x509 -req -days 365 -in private/ca.csr -signkey private/ca.key -out private/ca.crt  
+
+echo &quot;为我们的 key 设置起始序列号和创建 CA 键库...&quot;
+
+rm -rf serial index.txt
+echo FACE &gt; serial
+touch index.txt
+
+echo &quot;服务器证书的生成...&quot;
+openssl genrsa -out server/server.key 2048 
+openssl req -new -subj $SUBJECT -key server/server.key -out server/server.csr  
+
+echo &quot;使用我们私有的 CA key 为刚才的 key 签名...&quot;
+openssl ca -in server/server.csr -cert private/ca.crt -keyfile private/ca.key -out server/server.crt -config &quot;./openssl.conf&quot; 
+
+echo &quot;客户端证书的生成 * 创建存放 key 的目录 users...&quot;
+mkdir users  
+echo &quot; 为用户创建一个 key...&quot;
+openssl genrsa -des3 -out ./users/client.key 2048 
+
+echo &quot;为 key 创建一个证书签名请求 csr 文件...&quot;
+openssl req -new -subj $SUBJECT -key ./users/client.key -out ./users/client.csr  
+
+echo &quot;使用我们私有的 CA key 为刚才的 key 签名...&quot;
+openssl ca -in ./users/client.csr -cert ./private/ca.crt -keyfile ./private/ca.key -out ./users/client.crt -config &quot;./openssl.conf&quot; 
+
+echo &quot;将证书转换为大多数浏览器都能识别的 PKCS12 文件...&quot;
+openssl pkcs12 -export -clcerts -in ./users/client.crt -inkey ./users/client.key -out ./users/client.p12  
+
+echo &quot;把以上生成的文件copy到nginx conf文件的ssl目录下面，如果ssl目录不存在请创建&quot;
+echo &quot;接下请配置nginx.conf操作:&quot;
+echo &quot; server {                                                                                     &quot;
+echo &quot;          ...                                           &quot;
+echo &quot;     ssl on;                                        &quot;
+echo &quot;     ssl_certificate ca/server/server.crt;                &quot;
+echo &quot;     ssl_certificate_key ca/server/server.key;            &quot;
+echo &quot;     ssl_client_certificate ca/private/ca.crt;             &quot;
+echo &quot;     ssl_verify_client on;                          &quot;
+echo &quot;          ...                                           &quot;
+echo &quot;     }                                               &quot;
+echo &quot;使用如下命令重新加载nginx配置&quot;
+echo &quot;nginx -s reload&quot;
+echo &quot;客户端使用： users/client.p12 和 private/ca.crt&quot;
+
+</code></pre><p>在相同的目录下放置如下配置，命名为openssl.conf：</p><pre><code class="language-conf">[ ca ] 
+default_ca      = foo                   # The default ca section 
+
+[ foo ] 
+dir            = ./         # top dir  
+database       = ./index.txt          # index file.  
+new_certs_dir  = ./newcerts           # new certs dir 
+
+certificate    = ./private/ca.crt         # The CA cert  
+serial         = ./serial             # serial no file  
+private_key    = ./private/ca.key  # CA private key  
+RANDFILE       = ./private/.rand      # random number file 
+
+default_days   = 365                     # how long to certify for  
+default_crl_days= 30                     # how long before next CRL  
+default_md     = sha1                     # message digest method to use  
+unique_subject = no                      # Set to 'no' to allow creation of  
+                                         # several ctificates with same subject. 
+policy         = policy_any              # default policy 
+
+[ policy_any ] 
+countryName = match  
+stateOrProvinceName = match  
+organizationName = match  
+organizationalUnitName = match  
+localityName            = optional  
+commonName              = supplied  
+emailAddress            = optional
+</code></pre><h2 id="配置nginx">配置nginx</h2><p>修改nginx的配置文件，在server配置如下信息</p><pre><code class="language-bash">ssl_certificate /path/to/openssl/server/server.crt;
+
+ssl_certificate_key /path/to/openssl/server/server.key;
+
+ssl_client_certificate  /path/to/openssl/private/ca.crt;
+
+ssl_verify_client on;    ## 开启客户端的验证
+
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+</code></pre><h2 id="是用chrome浏览器访问">是用chrome浏览器访问</h2><p>修改完成后，如果不配置证书，在浏览器中是不能访问的。报错： 400 Bad Request No required SSL certificate was sent 安装两个文件： client.p12和ca.crt，之后能够正常访问 <img src="https://thumbnail0.baidupcs.com/thumbnail/aa0e5bd8524d12cea6429c15e9682d9f?fid=2318483978-250528-393924946231140&amp;time=1497780000&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-hdynUkKCDnjIDRkD%2FWFc0V0CQb0%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=3914457463978335134&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100&amp;vuk=-&amp;ft=video" alt=""></p><h2 id="使用java完成双向认证">使用java完成双向认证</h2><p>将生成的证书： users/client.p12 和 private/ca.crt 拷贝出来。用java做双向认证时，会使用到这两个文件。 java 双向认证的代码如下：</p><pre><code class="language-bash">private final static String P12_PATH = &quot;client.p12&quot;;   //客户端证书路径
+private final static String P12_PWD = &quot;12345678&quot;; //客户端证书密码
+private final static String CA_PATH = &quot;ca.crt&quot;;   // 根证书路径
+
+public static String sslRequestGet(String url) throws Exception {
+    SSLContext ctx = getSSLContext(P12_PATH, CA_PATH);
+    LayeredConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(ctx);
+    HttpGet httpget = new HttpGet(url);
+    try (CloseableHttpClient httpClient = HttpClients.custom()
+            .setSSLSocketFactory(sslSocketFactory)
+            .build();CloseableHttpResponse response = httpClient.execute(httpget) ) {
+        HttpEntity entity = response.getEntity();
+        String jsonStr = EntityUtils.toString(response.getEntity(), &quot;UTF-8&quot;);//返回结果
+        EntityUtils.consume(entity);
+        return jsonStr;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return &quot;&quot;;
+}
+/** 加载客户端验证证书 **/
+private static SSLContext getSSLContext(String keyStorePath, String trustStorePath) throws NoSuchAlgorithmException, KeyStoreException, UnrecoverableKeyException, IOException, CertificateException, KeyManagementException {
+    KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+    InputStream is = new FileInputStream(keyStorePath);
+    keyStore.load(is, P12_PWD.toCharArray());
+    is.close();
+    keyManagerFactory.init(keyStore, P12_PWD.toCharArray());
+    SSLContext ctx = SSLContext.getInstance(&quot;TLS&quot;);
+    ctx.init(keyManagerFactory.getKeyManagers(), getTrustManagers(trustStorePath) , null);
+    return ctx;
+}
+/** 加载信任证书 **/
+private static TrustManager [] getTrustManagers (String ... crtPath) throws IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException {
+    if (crtPath == null || crtPath.length &lt; 1) {
+        return null;
+    }
+    CertificateFactory certificateFactory = CertificateFactory.getInstance(&quot;X.509&quot;);
+    KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+    keyStore.load(null);
+    for (int i=0, j=crtPath.length; i&lt;j; i++) {
+        String path = crtPath[i];
+        InputStream is = new FileInputStream(path);
+        keyStore.setCertificateEntry(Integer.toString(i), certificateFactory.generateCertificate(is));
+        is.close();
+    }
+    TrustManagerFactory trustManagerFactory =TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+    trustManagerFactory.init(keyStore);
+    return trustManagerFactory.getTrustManagers();
+}
+</code></pre><p>在VM options中添加执行参数： <code>-Djavax.net.debug=all -Djavax.net.ssl.trustStore=trustStore</code> 可以将双向认证的过程，在debug信息中打印出来 <img src="https://thumbnail0.baidupcs.com/thumbnail/557bfba3a7b82bdcc2b8b74029b89a8b?fid=2318483978-250528-1007737737813295&amp;time=1497780000&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-OmphjdusddoNYroutLQuFkZRTRA%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=3914448979859963184&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100&amp;vuk=-&amp;ft=video" alt=""></p><h2 id="参考网站">参考网站</h2><p><a href="https://blog.imdst.com/nginx-ssl-shuang-xiang-ren-zheng-key-sheng-cheng-he-pei-zhi/">Nginx SSL 双向认证，key 生成和配置</a></p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/linux">#linux</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/java/java%E4%BF%AE%E6%94%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/" rel="prev">java修改字符串编码</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/designpatterns/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/" rel="next">行为模式</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-80e85b24c7.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-9350854994277981",
+		enable_page_level_ads: true
+	});</script></body></html>

@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on World of Wang</title>
+    <link>https://wzhongke.github.io/post/</link>
+    <description>Recent content in Posts on World of Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright@Kevin Tan</copyright>
+    <lastBuildDate>Sun, 24 Dec 2017 15:13:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wzhongke.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hugo markdown 中使用javascript</title>
+      <link>https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/</link>
+      <pubDate>Sun, 24 Dec 2017 15:13:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/</guid>
+      <description>问题 在使用hugo制作个人博客时，不支持在markdown文件中直接引入&amp;lt;script&amp;gt;/*javascript code*/&amp;l</description>
+    </item>
+    
+    <item>
+      <title>paramiko-批量操作终端</title>
+      <link>https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/</link>
+      <pubDate>Wed, 06 Dec 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/</guid>
+      <description>paramiko Paramiko 是SSHv2协议的 python(2.7, 3.4+) 实现，提供了client和server的功能。使用该模块可以方便的进行ssh连接或者sftp协议的传输。 argparse argparse 模块可</description>
+    </item>
+    
+    <item>
+      <title>css 动画</title>
+      <link>https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Fri, 01 Dec 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/</guid>
+      <description>transitions 可以通过设置 transitions 来实现过渡效果。其用法如下： transition: [ &amp;lt;transition-property&amp;gt; | &amp;lt;transition-duration&amp;gt; | &amp;lt;transition-timing-function&amp;gt; | &amp;lt;transition-delay&amp;gt; ] .wrapper{position:relative;border:1px #aaa solid;width:500px;height:500px;margin:0 auto 10px;padding:10px}.shadow{-webkit-box-shadow:5px 5px 5px #aaa;-moz-box-shadow:5px 5px 5px #aaa;box-shadow:5px 5px 5px #aaa;margin-bottom:10px}.normal,.example2,.example3{width:100px;height:100px;position:absolute;top:210px;left:210px;border-radius:50px;background-color:red;text-align:center;transition:all 1s ease-in-out}.example2{background-color:blue;transition-property:top,left;transition-duration:1s,1s;transition-delay:0s,1s}.example3{background-color:purple;transition-property:top,left,border-radius,background-color;transition-duration:2s,1s,0.5s,0.5s;transition-delay:0s,0.5s,1s,1.5s}.wrapper:hover .normal{top:0;left:0}.wrapper:hover .example2{top:398px;left:398px}.wrapper:hover .example3{top:0;left:398px;border-radius:0}.wrapper p{line-height:70px;color:white;font-weight:bold;margin-left:0 0 10px}Normal Example2 Example3 transforms 可以通过 transforms 来实现变形效果。</description>
+    </item>
+    
+    <item>
+      <title>XPath 笔记</title>
+      <link>https://wzhongke.github.io/post/java/xpath/</link>
+      <pubDate>Thu, 16 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/xpath/</guid>
+      <description>XPath 是一门在 XML 文档中查找信息的语言。XPath 用于在 XML 文档中通过元素和属性进行导航。 XPath 节点 在XPath中有七种类型的节点：元素、属性、文本、命</description>
+    </item>
+    
+    <item>
+      <title>创建者模式之生成器</title>
+      <link>https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/</link>
+      <pubDate>Sat, 04 Nov 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+      <description>构建复杂对象的生成器 &amp;ndash; Builder 生成器模式适合于创建一个对象很复杂的时候。 意图 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表</description>
+    </item>
+    
+    <item>
+      <title>MySQL基础语句</title>
+      <link>https://wzhongke.github.io/post/mysql/mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Sun, 08 Oct 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/mysql/mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/</guid>
+      <description>MySQL数据库 MySQL 是典型的关系型数据库，因为其免费开源，所以被广泛的应用 数据库是按照数据结构来组织、存储和管理数据的仓库当然我们也可以将数据</description>
+    </item>
+    
+    <item>
+      <title>MySQL技巧</title>
+      <link>https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Sun, 08 Oct 2017 18:51:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/</guid>
+      <description>查询时间是今天的数据 sql select * from table_name where to_days(create_time) = to_days(now()); select * from table_name where date(create_time) = curdate(); 查询一周之内的数据 select * from table_name where DATE_SUB(CURDATE(), INTERVAL 7 DAY) &amp;lt;= date(create_time); 其中DATE_SUB(date,INTERVA</description>
+    </item>
+    
+    <item>
+      <title>jvm调优</title>
+      <link>https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/</link>
+      <pubDate>Thu, 21 Sep 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/</guid>
+      <description>在常见的线上问题中，如下问题比较常见： - 内存泄露 - 某个进程CPU突然飙升 - 线程死锁 - 响应变慢 如果遇到上述问题，我们可以基于监控工具来定位问题</description>
+    </item>
+    
+    <item>
+      <title>linux 网络常用命令</title>
+      <link>https://wzhongke.github.io/post/linux/linux-server/</link>
+      <pubDate>Thu, 21 Sep 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/linux-server/</guid>
+      <description>linux 常用网络命令 ifconfig, ifup, ifdown 这三个指令都是用来启动网络接口的。 1. ifconfig ifconfig主要是可以手动启动、观察与修改网络接口的相关参数。语法如下: ifconfig [interface] {up/down}</description>
+    </item>
+    
+    <item>
+      <title>java 泛型</title>
+      <link>https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Sun, 17 Sep 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/</guid>
+      <description>在java中使用泛型，可以避免使用Object或者强制类型转换。泛型最适用于集合类，比如List。 使用泛型编写代码增加了其可复用性，可以被许</description>
+    </item>
+    
+    <item>
+      <title>找出字符串最大回文</title>
+      <link>https://wzhongke.github.io/post/algorithms/%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%96%87/</link>
+      <pubDate>Sun, 17 Sep 2017 14:20:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/algorithms/%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%96%87/</guid>
+      <description>题目 给定一个字符串 s，找到s中最长的回文字符串。可以假设s的最长长度是1000。 Example1 : Input: &amp;ldquo;babad&amp;rdquo; Output: &amp;ldquo;bab&amp;rdquo; Note: &amp;ldquo;aba&amp;rdquo; 也是可以的答案 Example2 : Input: &amp;ldquo;cbbd&amp;rdquo; Output: &amp;ldquo;bb&amp;rdquo; 解法 假设前i个字符</description>
+    </item>
+    
+    <item>
+      <title>vuex</title>
+      <link>https://wzhongke.github.io/post/front/vuex/</link>
+      <pubDate>Wed, 30 Aug 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/vuex/</guid>
+      <description>Vuex 能做什么 Vuex将多个组件共享的状态从组件中抽离出来，，以一个全局单例的模式进行统一管理。 解决问题 - 多层嵌套组件间传参繁琐，且兄弟组件间的</description>
+    </item>
+    
+    <item>
+      <title>shell 编程</title>
+      <link>https://wzhongke.github.io/post/linux/shell/</link>
+      <pubDate>Sat, 19 Aug 2017 09:52:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/shell/</guid>
+      <description>shell script虽然是程序，但是它处理数据的速度是不够的。因为shell用的是外部的命令bash shell的一些默认工具，所以它经常会调用外部</description>
+    </item>
+    
+    <item>
+      <title>sublime 配置</title>
+      <link>https://wzhongke.github.io/post/sublime/</link>
+      <pubDate>Sat, 19 Aug 2017 09:52:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/sublime/</guid>
+      <description>配置markdown 安装package controll: 快捷键ctrl+\`打开Sublime控制台，输入下面代码： sublime 3 import urllib.request,os,hashlib; h = &#39;df21e130d211cfc94d9b0905775a7c0f&#39; + &#39;1e3d39e33b79698005270310898eea76&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );</description>
+    </item>
+    
+    <item>
+      <title>vim 使用快捷键</title>
+      <link>https://wzhongke.github.io/post/linux/vim%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Mon, 14 Aug 2017 18:51:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/vim%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>在我看来，vim是linux上内置的强大的文本编辑器。 基本操作 vim有三种模式：一般模式、编辑模式和命令行模式。 使用&amp;rsquo;i, I, o, O,</description>
+    </item>
+    
+    <item>
+      <title>git 版本管理工具</title>
+      <link>https://wzhongke.github.io/post/git/</link>
+      <pubDate>Sat, 12 Aug 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/git/</guid>
+      <description>git是比较常用的版本控制工具。 git的基本使用 git init : 创建新的git仓库 git clone path : 从远端服务器或本地检出仓库 git add filename 或者 git add * : 添加改动到缓存区</description>
+    </item>
+    
+    <item>
+      <title>单例实现方式</title>
+      <link>https://wzhongke.github.io/post/java/%E5%8D%95%E4%BE%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Sun, 30 Jul 2017 11:41:43 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/%E5%8D%95%E4%BE%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</guid>
+      <description>有时候需要采用延迟初始化来降低初始化类和创建对象的开销。双重检查锁定是常见的延时初始化技术。 基于volatile的单例，双锁检测 该方式中，必</description>
+    </item>
+    
+    <item>
+      <title>青海湖四日游</title>
+      <link>https://wzhongke.github.io/post/%E9%9D%92%E6%B5%B7%E5%9B%9B%E6%97%A5%E6%B8%B8/</link>
+      <pubDate>Sat, 22 Jul 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/%E9%9D%92%E6%B5%B7%E5%9B%9B%E6%97%A5%E6%B8%B8/</guid>
+      <description>最近趁着女朋友暑假，去青海湖周边自驾旅游一次。不过开车经常会迎着或者侧对着太阳，必须做好防晒的准备 都说去青海，来回必须有一次交通方式是火车。</description>
+    </item>
+    
+    <item>
+      <title>java中没有见过的用法</title>
+      <link>https://wzhongke.github.io/post/java/java%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A7%81%E8%BF%87%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Thu, 20 Jul 2017 17:16:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A7%81%E8%BF%87%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>interface &amp;amp; interface 在阅读Comparator源码时，无意间发现了如下这种用法： public static &amp;lt;T, U extends Comparable&amp;lt;? super U&amp;gt;&amp;gt; Comparator&amp;lt;T&amp;gt; comparing( Function&amp;lt;? super T, ? extends U&amp;gt; keyExtractor) { Objects.requireNonNull(keyExtractor); return (Comparator&amp;lt;T&amp;gt; &amp;amp; Serializable) (c1, c2) -&amp;gt; keyExtractor.apply(c1).compareTo(keyExtractor.apply(c2)); } 在这个方法中有 (Comparator&amp;lt;T&amp;gt; &amp;amp;</description>
+    </item>
+    
+    <item>
+      <title>mybatis</title>
+      <link>https://wzhongke.github.io/post/java/mybatis/</link>
+      <pubDate>Thu, 20 Jul 2017 16:05:42 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/mybatis/</guid>
+      <description>MyBatis是什么 MyBatis是定制化SQL、存储过程以及高级映射的持久层框架。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，</description>
+    </item>
+    
+    <item>
+      <title>Lambda表达式和Stream</title>
+      <link>https://wzhongke.github.io/post/java/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cstream/</link>
+      <pubDate>Thu, 20 Jul 2017 12:14:12 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cstream/</guid>
+      <description>流被设计为与lambda表达式一起使用，这使得日常编程更容易。 Lambda 表达式 匿名类的一个非常明显的问题是，如果匿名类的实现非常简单，例如只包含一个</description>
+    </item>
+    
+    <item>
+      <title>java线程池技术</title>
+      <link>https://wzhongke.github.io/post/java/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Mon, 03 Jul 2017 19:01:11 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%8A%80%E6%9C%AF/</guid>
+      <description>服务器在处理客户端请求时，经常面对的是客户端的任务简单，单一。如果针对每个任务，都创建一个线程执行，那么对于成千上万的客户端任务，服务器会创</description>
+    </item>
+    
+    <item>
+      <title>svg动画</title>
+      <link>https://wzhongke.github.io/post/svg%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Sun, 02 Jul 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/svg%E5%8A%A8%E7%94%BB/</guid>
+      <description>svg 字体动画 {% raw %} .center-btn-wrapper { width: 100%; top: 50%; text-align: center; font-size: 24px; } .center-btn-wrapper a { color: white; text-decoration: none; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.42); background-color: #D87B00; padding: 12px 30px; border-radius: 5px; } .center-btn-wrapper a:hover { background-color: #14516F; } /* 手机适配 / @media screen and (max-width: 768px) { .center-btn-wrapper { font-size: 18px; } } / 暂时隐</description>
+    </item>
+    
+    <item>
+      <title>java 文件处理</title>
+      <link>https://wzhongke.github.io/post/java/java-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</link>
+      <pubDate>Fri, 30 Jun 2017 11:41:43 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</guid>
+      <description>Path Path 是java7中java.nio.file包中的类，它是一个抽象构造。创建和处理Path不会马上绑定到对应的物理位置，如果试图读取一个未创</description>
+    </item>
+    
+    <item>
+      <title>一些有价值的参考网站</title>
+      <link>https://wzhongke.github.io/post/%E6%9C%89%E4%BB%B7%E5%80%BC%E7%9A%84%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Fri, 30 Jun 2017 11:41:43 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/%E6%9C%89%E4%BB%B7%E5%80%BC%E7%9A%84%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99/</guid>
+      <description>nginx配置之location及rewrite 阿里巴巴java开发规约-IDEA插件</description>
+    </item>
+    
+    <item>
+      <title>缓存算法</title>
+      <link>https://wzhongke.github.io/post/algorithms/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Fri, 30 Jun 2017 11:41:43 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/algorithms/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95/</guid>
+      <description>众所周知，内存的读取速度比硬盘类存储设备快的多。为了降低硬件设备的负载，提高响应速度，增加吞吐率，我们可以将最近使用过，并且将来还要使用的数</description>
+    </item>
+    
+    <item>
+      <title>行为模式</title>
+      <link>https://wzhongke.github.io/post/designpatterns/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 30 Jun 2017 11:41:43 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/designpatterns/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/</guid>
+      <description>行为模式设计到算法和对象间职责的分配，不仅描述对象或类的模式，还描述它们这间的通信模式。这些模式刻画了在运行时难以跟踪的复杂控制流。它们将你</description>
+    </item>
+    
+    <item>
+      <title>nginx配置双向认证 并通过java访问</title>
+      <link>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81-%E5%B9%B6%E9%80%9A%E8%BF%87java%E8%AE%BF%E9%97%AE/</link>
+      <pubDate>Sun, 18 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81-%E5%B9%B6%E9%80%9A%E8%BF%87java%E8%AE%BF%E9%97%AE/</guid>
+      <description>最近项目开发中的接口要使用双向认证，因为搭建服务器的方式是nginx+resin，而java的keytool配置nginx的双向认证时，并不</description>
+    </item>
+    
+    <item>
+      <title>java修改字符串编码</title>
+      <link>https://wzhongke.github.io/post/java/java%E4%BF%AE%E6%94%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Sun, 18 Jun 2017 19:01:11 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java%E4%BF%AE%E6%94%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/</guid>
+      <description>使用java处理接口返回数据时，经常会有编码转换的问题。 一开始以为如果将gbk编码的数据转换为utf8的数据，那么应该使用gbk编码获取数据</description>
+    </item>
+    
+    <item>
+      <title>HashMap 和 ConcurrentHashMap</title>
+      <link>https://wzhongke.github.io/post/java/concurrenthashmap/</link>
+      <pubDate>Sat, 17 Jun 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/concurrenthashmap/</guid>
+      <description>并发编程为什么使用ConcurrentHashMap HashMap并不是线程安全的，HashTable虽然是线程安全的，但是HashTabl</description>
+    </item>
+    
+    <item>
+      <title>apply和call</title>
+      <link>https://wzhongke.github.io/post/front/apply%E5%92%8Ccall%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Sat, 17 Jun 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/apply%E5%92%8Ccall%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>JavaScript中每个函数都包含两个非继承而来的方法：apply()和call(). apply()方法接收两个参数：运行调用函数的作用域</description>
+    </item>
+    
+    <item>
+      <title>hexo Hello World</title>
+      <link>https://wzhongke.github.io/post/hello-world/</link>
+      <pubDate>Sat, 17 Jun 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/hello-world/</guid>
+      <description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick Start Create a new post $ hexo new &amp;quot;My New Post&amp;quot; More info: Writing Run server $ hexo server More info: Server Generate static files $ hexo generate More info: Generating Deploy to</description>
+    </item>
+    
+    <item>
+      <title>二叉树的分层遍历</title>
+      <link>https://wzhongke.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%86%E5%B1%82%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Sat, 17 Jun 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%86%E5%B1%82%E9%81%8D%E5%8E%86/</guid>
+      <description>今天去面试的时候被问到二叉树的分层遍历，因为原来写Python脚本的时候自己用队列的方法写过一次 分层遍历。结果面试官说能不能用递归的方法，不</description>
+    </item>
+    
+    <item>
+      <title>javascript 常用技巧</title>
+      <link>https://wzhongke.github.io/post/front/javascript-%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/javascript-%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>javascript在使用中有各种各样的技巧：提高执行效率，降低执行频率等。 Web Storage 的使用 Web Storage的目的是克服由cookie带来的一些限</description>
+    </item>
+    
+    <item>
+      <title>linux 常用命令</title>
+      <link>https://wzhongke.github.io/post/linux/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>使用ubuntu的时候经常会把常用的一些命令忘掉或不知道有些参数的意思，又懒得看那枯燥的文档。因此记录下来备忘。 目录类 ls: 查看文件与目录 bash ls [-aAdfFhilnrRSt]</description>
+    </item>
+    
+    <item>
+      <title>markdown语法</title>
+      <link>https://wzhongke.github.io/post/markdown%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/markdown%E8%AF%AD%E6%B3%95/</guid>
+      <description>斜体 *这是斜体1* _这是斜体2_ 这是斜体1 这是斜体2 粗体 **这是粗体** __这是粗体__ 这是粗体 这是粗体 带删除线 ~~删除线.~~ 删除线. 下划</description>
+    </item>
+    
+    <item>
+      <title>正则表达式</title>
+      <link>https://wzhongke.github.io/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>元字符 元字符 说明 . 匹配除换行符以外的任意字符 \w 匹配字母或数字或下划线或汉字 \s 匹配任意的空白字符 \d 匹配数字 \b 匹配单词的开始或结束 ^ 匹配字符串的</description>
+    </item>
+    
+    <item>
+      <title>python3 安装protobuf模块</title>
+      <link>https://wzhongke.github.io/post/python/python3-%E5%AE%89%E8%A3%85protobuf%E6%A8%A1%E5%9D%97/</link>
+      <pubDate>Sat, 17 Jun 2017 19:02:10 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/python/python3-%E5%AE%89%E8%A3%85protobuf%E6%A8%A1%E5%9D%97/</guid>
+      <description>python3 网上没有现成的protobuf模块可以直接使用，我在安装时费了一番周折，故此记录下来。 记录下自己安装python3-protobuf的过程</description>
+    </item>
+    
+    <item>
+      <title>vue 学习笔记</title>
+      <link>https://wzhongke.github.io/post/front/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 21 Jan 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>属性和方法 每个vue实例都会代理其data对象的所有属性 var data = { a: 1 } var vm = new Vue({ data: data }) vm.a === data.a // -&amp;gt; true // setting the property also affects original data vm.a = 2 data.a // -&amp;gt; 2 // ... and vice-versa data.a =</description>
+    </item>
+    
+    <item>
+      <title>linux 忘记root密码</title>
+      <link>https://wzhongke.github.io/post/linux/linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Mon, 03 Aug 2015 09:19:14 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/</guid>
+      <description>如果忘记了linux的root密码, 有两种比较通用的方式来修改 使用grub 重启系统 进入grub菜单： 在启动时，点击e进入详细设置；将光标移动</description>
+    </item>
+    
+    <item>
+      <title>java中override与overload的区别</title>
+      <link>https://wzhongke.github.io/post/java/java%E4%B8%ADoverride%E4%B8%8Eoverload%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Thu, 23 Jul 2015 17:16:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java%E4%B8%ADoverride%E4%B8%8Eoverload%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>override（重写，覆盖） 方法名、参数、返回值相同。 子类方法不能缩小父类方法的访问权限。 子类方法不能抛出比父类方法更多的异常(但子类方法</description>
+    </item>
+    
+    <item>
+      <title>linux下执行脚本出现报：syntax error: unexpected end of file</title>
+      <link>https://wzhongke.github.io/post/linux/unexpected-end-of-file/</link>
+      <pubDate>Thu, 23 Jul 2015 17:16:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/unexpected-end-of-file/</guid>
+      <description>这是因为从Windows上拷贝过去的文件，会由于Windows与linux的回车和换行表示方法不一致导致的，可以通过执行dos2unix sh</description>
+    </item>
+    
+    <item>
+      <title>java中的先赋值再定义</title>
+      <link>https://wzhongke.github.io/post/java/java%E4%B8%AD%E7%9A%84%E5%85%88%E8%B5%8B%E5%80%BC%E5%86%8D%E5%AE%9A%E4%B9%89/</link>
+      <pubDate>Thu, 02 Apr 2015 11:32:36 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java%E4%B8%AD%E7%9A%84%E5%85%88%E8%B5%8B%E5%80%BC%E5%86%8D%E5%AE%9A%E4%B9%89/</guid>
+      <description>如下代码 public class MyTest{ { value = 3; System.out.println(&amp;quot;函数块&amp;quot;); } MyTest(){ System.out.println(&amp;q</description>
+    </item>
+    
+    <item>
+      <title>Python 讨厌的MemoryError</title>
+      <link>https://wzhongke.github.io/post/python/python-%E8%AE%A8%E5%8E%8C%E7%9A%84memoryerror/</link>
+      <pubDate>Wed, 01 Apr 2015 15:41:43 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/python/python-%E8%AE%A8%E5%8E%8C%E7%9A%84memoryerror/</guid>
+      <description>在用Python处理大数据时，本来16G的内存，内存还没使用四分之一就开始报MemoryError的错误，后来才知道32bit的Python</description>
+    </item>
+    
+    <item>
+      <title>pycurl https error: unable to get local issuer certificate </title>
+      <link>https://wzhongke.github.io/post/python/pycurl-https-error-unable-to-get-local-issuer-certificate/</link>
+      <pubDate>Sun, 28 Dec 2014 19:45:33 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/python/pycurl-https-error-unable-to-get-local-issuer-certificate/</guid>
+      <description>在 pycurl 访问 https 链接时可能会报： pycurl.error: (60, &amp;lsquo;SSL certificate problem: unable to get local issuer certificate&amp;rsquo;) 错误 一个比较好的解决方法是： import pycurl import certifi curl = pycurl.Curl() curl.setopt(pycurl.CAINFO, certifi.where()) curl.setopt(pycurl.URL, &#39;https://www.quora.com&#39;) curl.perform()</description>
+    </item>
+    
+    <item>
+      <title>pycurl 快速开始指南</title>
+      <link>https://wzhongke.github.io/post/python/pycurl-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 20 Dec 2014 11:37:28 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/python/pycurl-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%E6%8C%87%E5%8D%97/</guid>
+      <description>获取网络资源 安装好PycURL之后，我们就可以执行一些网络操作了。最简单的是通过一个网站的URL获取它的相关资源。使用PycURL执行一个网</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wzhongke.github.io/post/_photoshop%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/_photoshop%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description> Ctrl+r: 显示标尺 Shift+Tab:隐藏/显示浮动面板   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wzhongke.github.io/post/front/_vue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/_vue/</guid>
+      <description> title: vue.js
+draft: true 环境搭建 ## 安装cnpm npm install -g cnpm --registry=https://registry.npm.taobao.org ## 安装vue cnpm install -g vue-cli ## 初始化一个项目 vue init webpack my-project ## 下载依赖 cnpm install  Vue中重要的组件部分
+new Vue({ data: { a: 1, b: [] } methods: { doSomething: function() { this.a++; } }, watch: { &#39;a&#39;: function(val, oldVal) { console.log(val, oldVal); } } })  对html内容进行转义 &amp;lt;p v-text=&amp;quot;a&amp;quot;&amp;gt;&amp;lt;/p&amp;gt; # 保留html格式 &amp;lt;p v-html=&amp;quot;a&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>HTML 标签</title>
+      <link>https://wzhongke.github.io/post/front/html%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/html%E6%A0%87%E7%AD%BE/</guid>
+      <description>标签 &amp;lt;video&amp;gt;标签是HTML5的新标签，其属性如下： 属性 值 描述 autoplay autoplay 视频就绪后马上播放 controls controls 向用户展示控件，比如播放按钮等 height pixels 视</description>
+    </item>
+    
+    <item>
+      <title>spring</title>
+      <link>https://wzhongke.github.io/post/java/spring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/spring/</guid>
+      <description>spring 模块 Core Container Core Container由 spring-core, spring-beans, spring-context, spring-context-support 和 spring-expression (Spring Expression Language)模块组成。 spring-core 和 spring-beans 模块提供了框架的基本功能——包括IoC和依赖注入。 BeanFactory 是一个</description>
+    </item>
+    
+    <item>
+      <title>webpackage</title>
+      <link>https://wzhongke.github.io/post/webpackage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/webpackage/</guid>
+      <description>文件中的缩进是2，修改idea的配置之后不生效，需要修改文件 .editorconfig 创建webpack vue init webpack # 或者 vue init gurghet/webpack npm install # 安装依赖 如果有 less 文件，需要安装 npm install --save-dev</description>
+    </item>
+    
+    <item>
+      <title>创建型模式</title>
+      <link>https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>创建型模式包括：Abstract Factory、Builder、Factory Method、Prototype、Singleton 创建型模式</description>
+    </item>
+    
+    <item>
+      <title>碰到过的问题</title>
+      <link>https://wzhongke.github.io/post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>有时候碰到问题，只知道自己以前解决过。如何解决的，却是一点也想不起来了。故在此记录下，碰到过的问题，以待后续会用到。 Java 在java中，对于读取</description>
+    </item>
+    
+    <item>
+      <title>结构型模式</title>
+      <link>https://wzhongke.github.io/post/designpatterns/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/designpatterns/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>转换接口的适配器 &amp;ndash; Adapter 将一个类的接口转换成客户希望的另外一个接口，Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</description>
+    </item>
+    
+    <item>
+      <title>设计模式</title>
+      <link>https://wzhongke.github.io/post/designpatterns/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/designpatterns/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>曾经多少次有过这种感觉：你已经解决过一个问题但就是不能确切知道不在什么地方或怎么解决的，如果你能记起以前问题的细节和怎么解决的，你就可以利用</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,604 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>行为模式 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/designpatterns/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-76b9ae8ca1.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"><label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/">paramiko-批量操作终端</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/">css 动画</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/xpath/">XPath 笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/">创建者模式之生成器</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/">MySQL基础语句</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/">MySQL技巧</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/">jvm调优</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/linux-server/">linux 网络常用命令</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/">java 泛型</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/designpatterns/">Designpatterns</a> <span class="breadcrumb">行为模式</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#传递请求-chain-of-responsibility">传递请求 —— Chain of Responsibility</a><ul><li><a href="#适用性">适用性</a></li><li><a href="#结构">结构</a></li><li><a href="#参与者">参与者</a></li><li><a href="#效果">效果</a></li><li><a href="#实现">实现</a></li><li><a href="#代码示例">代码示例</a></li><li><a href="#相关模式">相关模式</a></li></ul></li><li><a href="#command">Command</a><ul><li><a href="#适用性-1">适用性</a></li><li><a href="#结构-1">结构</a></li><li><a href="#参与者-1">参与者</a></li><li><a href="#协作">协作</a></li><li><a href="#效果-1">效果</a></li><li><a href="#实现-1">实现</a></li><li><a href="#代码">代码</a></li><li><a href="#相关模式-1">相关模式</a></li></ul></li><li><a href="#interpreter">Interpreter</a><ul><li><a href="#适用性-2">适用性</a></li><li><a href="#结构-2">结构</a></li><li><a href="#参与者-2">参与者</a></li><li><a href="#协作-1">协作</a></li><li><a href="#效果-2">效果</a></li><li><a href="#实现-2">实现</a></li></ul></li><li><a href="#迭代器">迭代器</a><ul><li><a href="#适用性-3">适用性</a></li><li><a href="#结构-3">结构</a></li><li><a href="#参与者-3">参与者</a></li><li><a href="#效果-3">效果</a></li><li><a href="#实现-3">实现</a></li><li><a href="#代码示例-1">代码示例</a></li><li><a href="#相关模式-2">相关模式</a></li></ul></li><li><a href="#解耦复杂通信关系对象-mediator">解耦复杂通信关系对象——Mediator</a><ul><li><a href="#适用性-4">适用性</a></li><li><a href="#结构-4">结构</a></li><li><a href="#参与者-4">参与者</a></li><li><a href="#效果-4">效果</a></li><li><a href="#实现-4">实现</a></li><li><a href="#代码示例-2">代码示例</a></li><li><a href="#相关模式-3">相关模式</a></li></ul></li><li><a href="#记录对象内部状态-memento">记录对象内部状态——Memento</a><ul><li><a href="#适用性-5">适用性</a></li><li><a href="#结构-5">结构</a></li><li><a href="#参与者-5">参与者</a></li><li><a href="#效果-5">效果</a></li><li><a href="#实现-5">实现</a></li><li><a href="#代码示例-3">代码示例</a></li><li><a href="#相关模式-4">相关模式</a></li></ul></li><li><a href="#多个对象依赖于一个对象的状态-observer">多个对象依赖于一个对象的状态 —— Observer</a><ul><li><a href="#适用性-6">适用性</a></li><li><a href="#结构-6">结构</a></li><li><a href="#参与者-6">参与者</a></li><li><a href="#效果-6">效果</a></li><li><a href="#实现-6">实现</a></li><li><a href="#代码示例-4">代码示例</a></li><li><a href="#相关模式-5">相关模式</a></li></ul></li><li><a href="#不同状态间解耦-state">不同状态间解耦 —— State</a><ul><li><a href="#适用性-7">适用性</a></li><li><a href="#结构-7">结构</a></li><li><a href="#参与者-7">参与者</a></li><li><a href="#协作-2">协作</a></li><li><a href="#效果-7">效果</a></li><li><a href="#实现-7">实现</a></li><li><a href="#代码示例-5">代码示例</a></li><li><a href="#相关模式-6">相关模式</a></li></ul></li><li><a href="#一系列算法中取一个-strategy">一系列算法中取一个 —— Strategy</a><ul><li><a href="#适用性-8">适用性</a></li><li><a href="#结构-8">结构</a></li><li><a href="#参与者-8">参与者</a></li><li><a href="#效果-8">效果</a></li><li><a href="#实现-8">实现</a></li><li><a href="#代码示例-6">代码示例</a></li><li><a href="#相关模式-7">相关模式</a></li></ul></li><li><a href="#template-method">Template Method</a><ul><li><a href="#适用性-9">适用性</a></li><li><a href="#结构-9">结构</a></li><li><a href="#参与者-9">参与者</a></li><li><a href="#效果-9">效果</a></li><li><a href="#实现-9">实现</a></li><li><a href="#代码示例-7">代码示例</a></li><li><a href="#相关模式-8">相关模式</a></li></ul></li><li><a href="#visitor">Visitor</a><ul><li><a href="#适用性-10">适用性</a></li><li><a href="#结构-10">结构</a></li><li><a href="#参与者-10">参与者</a></li><li><a href="#效果-10">效果</a></li><li><a href="#实现-10">实现</a></li><li><a href="#代码示例-8">代码示例</a></li><li><a href="#相关模式-9">相关模式</a></li></ul></li><li><a href="#总结">总结</a></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">行为模式 </span><span class="card-meta"><time><span>Fri Jun 30 2017</span></time><address><a href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;</address></span><article class="article"><p>行为模式设计到算法和对象间职责的分配，不仅描述对象或类的模式，还描述它们这间的通信模式。这些模式<strong>刻画了在运行时难以跟踪的复杂控制流</strong>。它们将你的注意从控制流转移到对象间的联系方式上来。 <strong>行为类模式使用继承机制在类间分派行为。</strong> Template Method 逐步地定义算法，每一步调用一个抽象操作或一个原语操作，子类定义抽象操作以具体实现该算法。Interpreter将一个文法表示为一个类层次，并实现一个解释器作为这些类的实例上的操作。 <strong>行为对象模式使用对象复合而不是继承。</strong> 一些行为对象描述了一组对等的对象怎么相互协作以完成其中任一个对象都无法单独完成的任务。因此对等对象之间要了解对方，但那会增加它们的耦合度。Mediator在对等对象间引入一个mediator对象以避免出现这种情况，提供了所需的间接性。 Chain of Responsibility 提供更松的耦合，通过一条候选对象链隐式的向一个对象发送请求；Observer 模式定义并保持对象间的依赖关系，典型的例子是MVC；Stategy模式将算法封装在对象中，可以方便地指定和改变一个对象所使用的算法；Command模式将请求封装在对象中，这样它就可作为参数来传递，或者其他方式使用；State模式封装了一个对象的状态，使得当这个对象的状态改变时，该对象可以改变它的行为；Vistor封装分布于多个类这间的行为；Iterator抽象了访问和遍历一个集合中的对象的方式。</p><h1 id="传递请求-chain-of-responsibility">传递请求 —— Chain of Responsibility</h1><p>使多个对象都有机会处理请求，从而避免请求的发送者和接收者这间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p><h2 id="适用性">适用性</h2><p>以下情况适用于Responsibility链： - 有多个的对象可以处理一个请求，哪个对象处理该请求运行时刻自动确定 - 在不明确指定接收者的情况下，向多个对象中的一个提交一个请求 - 可处理一个请求的独享集合应被动态指定</p><h2 id="结构">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="136 41 465 282"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker></defs><path d="M136 41h465v282H136V41z" fill="none"/><path d="M317 95q0-4 4-4h137q4 0 4 4v60q0 4-4 4H321q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M317 121h145" stroke="#323232" stroke-width="2" fill="none"/><path d="M317 91h145v68H317z" fill="none"/><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" font-weight="bold" transform="translate(327 96.625)">Handler</text><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" font-weight="bold" transform="translate(327 130.625)">handleRequest()</text><path d="M480.5 237.5v-39.25h-91v-24.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M288.75 237.5v-39.25H389.5v-24.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#b)"/><path d="M156 104.75q0-4 4-4h83q4 0 4 4v33.5q0 4-4 4h-83q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="34.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(166 112.125)">Client</text><path d="M247 121.5h54.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#c)"/><path d="M462 114h77V61H430v14.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M421 77h160v40H421z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(421 87.625)">successor</text><path d="M399 241.5q0-4 4-4h155q4 0 4 4V299q0 4-4 4H403q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M399 267.5h163" stroke="#323232" stroke-width="2" fill="none"/><path d="M399 237.5h163V303H399z" fill="none"/><text fill="#323232" font-size="15" x="70.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(409 243.125)">ConcreteHandler2</text><text fill="#323232" font-size="15" x="70.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(409 275.875)">handleRequest()</text><path d="M208 241.5q0-4 4-4h155q4 0 4 4V299q0 4-4 4H212q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M208 267.5h163" stroke="#323232" stroke-width="2" fill="none"/><path d="M208 237.5h163V303H208z" fill="none"/><text fill="#323232" font-size="15" x="70.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(218 243.125)">ConcreteHandler1</text><text fill="#323232" font-size="15" x="70.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(218 275.875)">handleRequest()</text></svg><h2 id="参与者">参与者</h2><ul><li>Handler: 定义一个处理请求的接口；实现后继（可选）</li><li>ConcreteHandler: 如果可以处理请求，就处理；否则将该请求转发给它的后继者</li><li>Client: 向链上的具体处理者对象提交请求</li></ul><h2 id="效果">效果</h2><ol><li><strong>降低耦合度</strong>。职责链可简化对象相互连接，它们仅需保持一个指向后继者的引用，而不需保持它所有的候选者的引用</li><li><strong>增强了给对象指派职责的灵活性</strong>。可以通过在运行时刻对该链进行动态的增加或修改来增加或改变处理一个请求的那些职责。可以将这种机制与静态的特例化处理对象的继承机制结合起来使用。</li><li><strong>不保证被接受</strong>。 既然一个请求没有明确的接收者，那么就不能保证它一定会被处理。</li></ol><h2 id="实现">实现</h2><p>下面是责任链模式中要考虑的实现问题： 1. 实现后继者链： - 定义新的链接（通常在Handler中定义，但也可由ConcreteHandlers来定义） - 使用已有的链接。当已有的链接能够支持所需要的链时，完全可以使用这些链 2. 连接后继者。如果没有已有的引用可用，那么我们必须自己引入他们。这种情况下Handler不仅定义该请求的接口，通常也维护后继链接 3. 表示请求。有不同的方式可以表示请求：硬编码、以一个请求码为参数的函数、封装的对象，需要分析具体需求。</p><h2 id="代码示例">代码示例</h2><p><code>HelpHandler</code>类定义了处理帮助请求的接口，维护一个帮助主题，并保持对帮助处理对象链中它的后继者的引用：</p><pre><code class="language-java">public class HelpHandler {
+    public static int NO_HELP_TOPIC = -1;
+    private HelpHandler successor;
+    private int topic;
+
+    public HelpHandler(HelpHandler successor, int topic) {
+        this.successor = successor;
+        this.topic = topic;
+    }
+
+    public boolean hasHelp() {
+        return topic != NO_HELP_TOPIC;
+    }
+
+    public void handleHelp() {
+        System.out.println(&quot;HelpHandler help&quot;);
+        if (successor != null) {
+            successor.handleHelp();
+        }
+    }
+}
+</code></pre><p>所有的窗口组件都是Widget类的子类。Widget是HelpHandler子类，因为所有的用户界面都可有相关帮助：</p><pre><code class="language-java">public class Widget extends HelpHandler {
+    public Widget(HelpHandler successor, int topic) {
+        super(successor, topic);
+    }
+}
+</code></pre><p>Button是Widget类的子类，Button构造函数有两个参数：对它的窗口组件的引用和自身的帮助主题：</p><pre><code class="language-java">public class Button extends Widget {
+
+    public Button(HelpHandler successor, int topic) {
+        super(successor, topic);
+    }
+
+    @Override
+    public void handleHelp() {
+        if (hasHelp()) {
+            super.handleHelp();
+            // handle button help
+        } else {
+            super.handleHelp();
+        }
+    }
+}
+</code></pre><p>Dialog实现了一个类似的策略，只不过它的后继者不是一个窗口组件而是任意的帮助请求处理对象：</p><pre><code class="language-java">public class Dialog extends  Widget {
+    public Dialog(HelpHandler successor, int topic) {
+        super(successor, topic);
+    }
+
+    @Override
+    public void handleHelp() {
+        System.out.println(&quot;Dialog help&quot;);
+        if (hasHelp()) {
+            // handle help
+        } else {
+            super.handleHelp();
+        }
+    }
+}
+</code></pre><p>链的末端是 Application 类的一个实例，当帮助请求传递到这一层时，该应用可以提供一般性信息：</p><pre><code class="language-java">public class Application extends HelpHandler {
+    public Application(int topic) {
+        this(null, 1);
+    }
+    public Application(HelpHandler successor, int topic) {
+        super(successor, topic);
+    }
+    @Override
+    public void handleHelp() {
+        // show a list of help
+    }
+}
+</code></pre><p>我们可用如下方式使用责任链模式：</p><pre><code class="language-java">private static int PRINT_TOPIC = 1;
+private static int PAPER_ORIENTATION_TOPIC = 2;
+private static int APPLICATION_TOPIC = 3;
+public static void main(String [] args) {
+    Application application = new Application(APPLICATION_TOPIC);
+
+    Dialog dialog = new Dialog(application, PRINT_TOPIC);
+    Button button = new Button(dialog, PAPER_ORIENTATION_TOPIC);
+    button.handleHelp();
+}
+</code></pre><h2 id="相关模式">相关模式</h2><p>责任链模式常与Composite一起使用。这种情况下，一个构件的父构件可以作为它的后继</p><h1 id="command">Command</h1><p>将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤消操作</p><h2 id="适用性-1">适用性</h2><p>以下情况使用Command模式： - 抽象出待执行的动作以参数化某对象。 - 在不同时刻指定、排列和执行请求。 - <strong>支持取消操作</strong>。 - <strong>支持修改日志</strong>。 - <strong>用构建的原语操作上的高层操作构造一个系统</strong></p><h2 id="结构-1">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="147 79.25 759 257" width="100%" height="100%"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="20.60952974" markerHeight="10.88817567" viewBox="-2.30476487 -1.59149088 20.60952974 10.88817567" refX="16" refY="3.85259695"><path d="M0 3.85259695L8 0l8 3.85259695L8 7.7051939z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="g" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker></defs><path d="M147 79.25h759v257H147v-257z" fill="none"/><path d="M167 103.25q0-4 4-4h83q4 0 4 4v33.5q0 4-4 4h-83q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="34.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(177 110.625)">Client</text><path d="M232 140.5v88.75h58.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M306 200.5q0-4 4-4h101q4 0 4 4V258q0 4-4 4H310q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M306 226.5h109" stroke="#323232" stroke-width="2" fill="none"/><path d="M306 196.5h109V262H306z" fill="none"/><text fill="#323232" font-size="15" x="43.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(316 202.125)">Receiver</text><text fill="#323232" font-size="15" x="43.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(316 234.875)">action()</text><path d="M518 103.25q0-4 4-4h155q4 0 4 4v52q0 4-4 4H522q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M518 129.25h163" stroke="#323232" stroke-width="2" fill="none"/><path d="M518 99.25h163v60H518z" fill="none"/><text fill="#323232" font-size="15" x="70.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(528 104.875)">Command</text><text fill="#323232" font-size="15" x="70.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(528 134.875)">execute()</text><path d="M508.5 230.25q0-4 4-4h174q4 0 4 4v82q0 4-4 4h-174q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M508.5 256.25h182m-182 30h182" stroke="#323232" stroke-width="2" fill="none"/><path d="M508.5 226.25h182v90h-182z" fill="none"/><text fill="#323232" font-size="15" x="80" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(518.5 231.875)">ConcreteCommand</text><text fill="#323232" font-size="15" x="80" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(518.5 261.875)">execute()</text><text fill="#323232" font-size="15" x="80" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(518.5 291.875)">state</text><path d="M508.5 243h-78.26393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#b)"/><path d="M387 206h160v40H387z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(387 216.625)">receive</text><path d="M733 255h137l16 16v31H733v-47z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M870 255v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M733 255h137l16 16v31H733v-47z" stroke="#323232" stroke-width="2" fill="none"/><text fill="#323232" font-size="15" x="65.5" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(743 269.125)">receiver.action()</text><path d="M331 103.25q0-4 4-4h83q4 0 4 4v33.5q0 4-4 4h-83q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="34.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(341 110.625)">Invoker</text><path d="M440.30476487 120h62.45916715" stroke="#323232" stroke-width="2" fill="none" marker-start="url(#c)" marker-end="url(#d)"/><path d="M599.5 226.25v-51.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#e)"/><path d="M195 140.5V301h298.76393202" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-end="url(#f)"/><path d="M662 272h71" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#g)"/></svg><h2 id="参与者-1">参与者</h2><ul><li>Command: 声明执行操作的接口</li><li>ConcreteCommand: 将一个接收者对象绑定于一个动作；调用接收者相应的操作，以实现Execute</li><li>Client: 创建一个具体命令对象并设定它的接收者</li><li>Invoker: 要求该命令执行这个请求</li><li>Receiver: 知道如何实施与执行一个请求相关的操作，任何类可能作为一个接收者</li></ul><h2 id="协作">协作</h2><ul><li>Client创建一个ConcreteCommand对象并指定它的Receiver对象</li><li>某Invoker对象存储该ConcreteCommand对象</li><li>该I女OK而通过调用Command对象的execute操作来提交一个请求，若该命令是可撤销的，ConcreteCommand就在执行execute操作之前存储当前状态以用于取消该命令</li><li>ConcreteCommand 对象对调用它的Receiver的一些操作以执行该请求</li></ul><h2 id="效果-1">效果</h2><p>Command模式_有如下效果： 1. Command模式将调用操作的对象与知道如何实现该操作的对象解耦 2. Command是头等的对象，它们可像其他的对象一样被操控和扩展 3. 可将多个命令装配成一个符合命令。一般来说，复合命令是Composite模式的一个实例 4. 新增加Command很容易，无需改变已有的类</p><h2 id="实现-1">实现</h2><p>实现Command模式时需要考虑如下问题： 1. <strong>一个命令对象应达到何种程度</strong>。命令对象的能力可大可小，一个极端是它仅能确定一个接收者和执行该请求的动作；另一个极端是它能自己实现所有功能，根本不需要额外的接收者对象。 2. <strong>支持取消和重做</strong>。为了达到支持取消和重做的功能，ConcreteCommand类需要存储额外的状态信息： - 接收者对象，它真正执行处理该请求的各种操作 - 如果处理请求的操作会改变接收者对象的某些值，那么这些值也必须先存储起来。接收者还必须提供一些操作，以使该命令可以将接收者恢复到它先前的状态 若应用支持取消操作，那么需要存储一个已被执行命令的历史列表，该列表的最大长度决定了取消和重做的次数。 有时可能不得不将一个可撤销的命令在它可以被放入历史列表中之前先拷贝下来，这是因为执行原来的请求的命令对象将在撤销后执行其他请求，例如删除操作 3. <strong>避免取消操作过程中的错误积累</strong>。需要保证处理对象取消过程的原子性</p><h2 id="代码">代码</h2><p>首先定义一个抽象的<code>Command</code> 类</p><pre><code class="language-java">public abstract class Command {
+    public abstract void execute();
+}
+</code></pre><p><code>OpenCommand</code> 打开一个名字由用户指定的文档：</p><pre><code class="language-java">
+public class OpenCommand extends Command {
+
+    private Application application;
+    String response;
+
+    public OpenCommand(Application application) {
+        this.application = application;
+    }
+
+    private String askUser() {
+        return &quot;answer&quot;;
+    }
+
+    @Override
+    public void execute() {
+        String name = askUser();
+        // do some thing
+    }
+}
+</code></pre><p><code>MacroCommand</code> 管理一个子命令序列，提供了增加和删除子命令的操作：</p><pre><code class="language-java">public class MacroCommand extends Command {
+
+    private List&lt;Command&gt; cmds;
+
+    public void remove(Command c) {
+        cmds.remove(c);
+    }
+
+    public void add(Command c) {
+        cmds.add(c);
+    }
+
+    @Override
+    public void execute() {
+        for (Command command: cmds) {
+            command.execute();
+        }
+    }
+}
+</code></pre><h2 id="相关模式-1">相关模式</h2><p>Memento模式可以用来保持某个状态，命令用这一状态来取消它的效果</p><h1 id="interpreter">Interpreter</h1><p>给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。 如果一种特定类型的问题发生的频率足够高，那么值得将该问题的各个实例表述为一个简单语言中的句子。这样就可以构建一个解释器，通过解释这些句子来解决问题，比如正则表达式。 解释器模式描述了如何为简单的语言定义一个文法，如何为简单语言定义一个文法，如何在语言中表示一个句子，以及如何解释这些句子。解释器模式使用类来表示每一条文法规则。</p><h2 id="适用性-2">适用性</h2><p>当有一个语言需要解释执行，并且你可将该语言中的句子表示为一个抽象语法树时，可使用解释器模式。而当存在以下情况时该模式效果最好： 1. <strong>该文法简单对于复杂的文法，文法的类层次变得庞大而无法管理</strong>。 2. **解释器通常不是通过直接解释语法分析树实现的，而是首先将它们转换成另一种形式，比如状态机。</p><h2 id="结构-2">结构</h2>(<svg xmlns="http://www.w3.org/2000/svg" viewBox="129 78.25 548 327.25"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker></defs><path d="M129 78.25h548V405.5H129V78.25z" fill="none"/><path d="M343 172q0-4 4-4h182q4 0 4 4v60q0 4-4 4H347q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M343 206h190" stroke="#323232" stroke-width="2" fill="none"/><path d="M343 168h190v68H343z" fill="none"/><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" font-weight="bold" transform="translate(353 177.625)">AbstractExpression</text><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" font-weight="bold" transform="translate(353 211.625)">interpret(context)</text><path d="M449.5 321.5q0-4 4-4H653q4 0 4 4v60q0 4-4 4H453.5q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M449.5 355.5H657" stroke="#323232" stroke-width="2" fill="none"/><path d="M449.5 317.5H657v68H449.5z" fill="none"/><text fill="#323232" font-size="15" x="92.75" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(459.5 327.125)">NonterminalExpression</text><text fill="#323232" font-size="15" x="92.75" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(459.5 361.125)">interpret(context)</text><path d="M553.25 317.5v-40.75H438v-25.51393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M240 321.5q0-4 4-4h166.5q4 0 4 4v60q0 4-4 4H244q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M240 355.5h174.5" stroke="#323232" stroke-width="2" fill="none"/><path d="M240 317.5h174.5v68H240z" fill="none"/><text fill="#323232" font-size="15" x="76.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(250 327.125)">TerminalExpression</text><text fill="#323232" font-size="15" x="76.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(250 361.125)">interpret(context)</text><path d="M327.25 317.5v-40.75H438v-25.51393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#b)"/><path d="M149 182.75q0-4 4-4h83q4 0 4 4v33.5q0 4-4 4h-83q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="34.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(159 190.125)">Client</text><path d="M240 199.5h51.5v-.19736842h36.26393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#c)"/><path d="M343 102.25q0-4 4-4h83q4 0 4 4v33.5q0 4-4 4h-83q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="34.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(353 109.625)">Context</text><path d="M194.5 178.75V119h133.26393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/></svg>)<h2 id="参与者-2">参与者</h2><ul><li>AbstractExpression(抽象表达式): 声明一个抽象的解释操作，这个接口为抽象语法树中所有的节点所共享</li><li>TerminalExpression(终结符表达式): 实现与文法中的终结符相关联的解释操作；一个句子中的每个终结符需要该类的一个实例</li><li>NonterminalExpression(非终结符表达式)</li><li>Context: 包含解释器之外的一些全局信息</li><li>Client: 构建表示该文法定义的语言中一个特定的句子的抽象语法树。该抽象语法树由NonterminalExpression和TerminalExpression的实例装配而成</li></ul><h2 id="协作-1">协作</h2><ol><li>Client构建一个句子，由NonterminalExpression和TerminalExpression实例构建的一个语法树，然后初始化上下文并调用解释操作</li><li>每一非终结符表达式节点定义相应子表达式的解释操作，而各终结符表达式的解释操作构成递归的基础</li><li>每一节点的解释操作用上下文阿里存储和访问解释器的状态</li></ol><h2 id="效果-2">效果</h2><p>优点： 1. <strong>易于改变和扩展文法</strong>。 2. <strong>易于实现文法</strong>。 3. <strong>增加了新的解释表达式的方式</strong>。</p><p>缺点： 复杂的文法难以维护。当包含许多规则的文法时，为每一条规则定义一个类，将会使项目难以管理和维护。可以用其他模式来缓解这一问题，或者其他的技术，如语法分析程序或编译器生成器。</p><h2 id="实现-2">实现</h2><ol><li><strong>创建抽象语法树</strong>。解释器模式不小腹语法分析，抽象语法树可用一个表驱动的语法分析程序来生成，也可以用手写（递归下降法）语法分析程序创建，或直接由Client提供</li><li><strong>定义解释操作</strong>。如果经常要创建一种新的解释器，那么Visitor模式将解释放入一个独立的访问者对象更好一些。比如类型检测、优化、代码生成等等。恰当的做法是使用一个访问者以避免在每一个类都定义这些操作</li><li><strong>与Flyweight模式共享终结符</strong>。</li></ol><h1 id="迭代器">迭代器</h1><p>提供一种顺序访问一个聚合对象中各个元素，而又不需要暴露该对象的内部表示的方法。</p><h2 id="适用性-3">适用性</h2><p>迭代器模式可用来： - <strong>访问一个聚合对象的内容而无需暴露它的内部表示</strong> - <strong>支持对聚合对象的多种遍历</strong> - <strong>为遍历不同的聚合结构提供一个统一的接口</strong></p><h2 id="结构-3">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="3.75 71 552.75 337"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="g" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker></defs><path d="M3.75 71H556.5v337H3.75V71z" fill="none"/><path d="M378 95q0-4 4-4h147q4 0 4 4v111q0 4-4 4H382q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M378 121h155" stroke="#323232" stroke-width="2" fill="none"/><path d="M378 91h155v119H378z" fill="none"/><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" font-weight="bold" transform="translate(388 96.625)">Iterator</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold"><text y="15.375" transform="translate(388 128)">first()</text><text y="34.125" transform="translate(388 128)">next()</text><text y="52.875" transform="translate(388 128)">isDone()</text><text y="71.625" transform="translate(388 128)">currentItem()</text></g><path d="M455.5 249.25v-24.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M42 120.5q0-4 4-4h146q4 0 4 4v60q0 4-4 4H46q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M42 146.5h154" stroke="#323232" stroke-width="2" fill="none"/><path d="M42 116.5h154v68H42z" fill="none"/><text fill="#323232" font-size="15" x="66" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(52 122.125)">Aggregate</text><text fill="#323232" font-size="15" x="66" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(52 156.125)">createIterator()</text><path d="M238 133.75q0-4 4-4h83q4 0 4 4v33.5q0 4-4 4h-83q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="34.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(248 141.125)">Client</text><path d="M329 150.5h33.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#b)"/><path d="M238 150.5h-26.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#c)"/><path d="M23.75 241q0-4 4-4h182.5q4 0 4 4v68q0 4-4 4H27.75q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M23.75 275h190.5" stroke="#323232" stroke-width="2" fill="none"/><path d="M23.75 237h190.5v76H23.75z" fill="none"/><text fill="#323232" font-size="15" x="84.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(33.75 246.625)">ConcreteAggregate</text><text fill="#323232" font-size="15" x="84.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(33.75 284.625)">createIterator()</text><path d="M374.5 253.25q0-4 4-4h154q4 0 4 4v43.5q0 4-4 4h-154q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="70" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(384.5 265.625)">ConcreteIterator</text><path d="M375 265H229.23606798" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M214 288h145.76393202" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-end="url(#e)"/><path d="M23.75 351h269l16 16v21h-285v-37z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M292.75 351v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M23.75 351h269l16 16v21h-285v-37z" stroke="#323232" stroke-width="2" fill="none"/><text fill="#323232" font-size="15" x="131.5" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(33.75 360.125)">return new ConcreteIterator(this);</text><path d="M197.5 307v41" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#f)"/><path d="M119 237v-37.26393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#g)"/></svg><h2 id="参与者-3">参与者</h2><ul><li>Iterator: 迭代器定义访问和遍历元素的接口</li><li>ConcreteIterator: 具体迭代器实现接口；对该聚合遍历时跟踪当前位置</li><li>Aggregate: 聚合定义创建相应迭代器对象的接口</li><li>ConcreteAggregate: 具体聚合实现创建相应迭代器接口，该操作返回一个适当的ConcretIterator实例</li></ul><h2 id="效果-3">效果</h2><p>迭代器模式有三个重要作用： 1. <strong>它支持以不同的方式遍历一个集合</strong>。 2. <strong>迭代器简化了聚合的接口</strong>。 3. <strong>在同一个聚合上可以有多个遍历</strong>。每个迭代器保持它自己的遍历状态，可以同时进行多个遍历</p><h2 id="实现-3">实现</h2><p>迭代器的实现上有许多变化和选择： 1. <strong>谁控制迭代</strong>。迭代器根据是客户控制还是迭代器控制迭代可以分为：外部迭代器和内部迭代器。使用外部迭代器的客户必须主动推进遍历的步伐，显式地向迭代器请求下一个元素；而内部迭代器只需要向其提交一个待执行的操作，迭代器会对聚合中的每一个元素实施该操作 2. <strong>谁定义遍历算法</strong>。有两种定义遍历算法的地方：聚合本身和迭代器。迭代器负责遍历算法，那么将易于在相同的聚合上使用不同的迭代算法，同时也易于在不同的聚合上重用相同的算法。但是遍历算法可能需要访问私有变量，破坏聚合的封装性 3. <strong>迭代器健壮程度如何</strong>。一个健壮的迭代器要保证插入和删除操不会干扰遍历，且不需拷贝该聚合。大多数方法需要向这个聚合注册该迭代器，当插入或删除，该聚合 要么调整迭代器的内部状态，要么在内部的维护额外的信息以保证正确的遍历 4. <strong>迭代器可有特权访问</strong>。迭代器可被看为创建它的聚合的一个扩展，同聚合紧密耦合。 5. <strong>复合对象的迭代推荐使用内部迭代器</strong>。在Composite模式中的那些递归聚合结构上，外部迭代器难以实现。因为在该结构中不同对象处于嵌套聚合的多个不同层次，需要跟踪当前的对象必须存储一条纵贯该Composite的路径。 6. <strong>空迭代器</strong>。空迭代器是一个退化的迭代器，有助于处理边界条件。</p><h2 id="代码示例-1">代码示例</h2><ol><li>列表和迭代器接口 <code>java public class List&lt;T&gt; { private ArrayList&lt;T&gt; list; private int size; List(int size) { list = new ArrayList&lt;&gt;(); this.size = size; } int count() { return this.size; } int size() { return this.list.size(); } T get(int index) { return list.get(index); } void add(T item) { if (list.size() &gt;= this.size) { return ;} list.add(item); } // ... }</code> 迭代器接口： <code>java public interface Iterator&lt;T&gt; { void first(); void next(); boolean isDone(); T currentItem(); }</code></li><li><p>迭代器子类实现：</p><pre><code class="language-java">public class ListIterator&lt;T&gt; implements Iterator&lt;T&gt; {
+private List&lt;T&gt; list;
+private int current;
+
+ListIterator(List&lt;T&gt; aList) {
+    this.list = aList;
+    current = 0;
+}
+
+@Override
+public void first() {
+    current = 0;
+}
+
+@Override
+public void next() {
+    current ++;
+}
+
+@Override
+public boolean isDone() {
+    return current &gt;= list.size();
+}
+
+@Override
+public T currentItem() {
+    if (isDone()) {
+        return null;
+    }
+    return list.get(current);
+}
+}
+</code></pre></li><li><p>使用迭代器： ```java List<string>names = new List&lt;&gt;(4); names.add(&ldquo;First name&rdquo;); names.add(&ldquo;Last name&rdquo;);</string></p></li></ol><p>Iterator<string>iterator = new ListIterator&lt;&gt;(names); for (iterator.first(); !iterator.isDone(); iterator.next()) { System.out.println(iterator.currentItem()); }</string></p><pre><code>
+4. 避免限定于一种特定的列表实现，我们可以在`List`类中增加如下方法，这样继承`List`的类可以返回合适的迭代器：
+```java
+Iterator&lt;T&gt; createIterator() {
+  return new ListIterator&lt;T&gt;(this);
+}
+</code></pre><ol><li>使用内部的ListIterator，其方式是通过迭代器控制迭代，并对列表中的每一个元素施行同一个操作： 首先定义一个函数式接口： <code>java @FunctionalInterface public interface ProcessInterface&lt;T&gt; { public void doWork(T t); }</code> 定义一个迭代器： <code>java public class ListTraverser&lt;T&gt; { private ListIterator&lt;T&gt; iterator; ListTraverser(List&lt;T&gt; aList) { this.iterator = new ListIterator&lt;&gt;(aList); } public void processItem(ProcessInterface&lt;T&gt; process) { for (iterator.first();!iterator.isDone();iterator.next()) { process.doWork(iterator.currentItem()); } } }</code> 使用方式如下： <code>java ListTraverser&lt;String&gt; traverser = new ListTraverser&lt;&gt;(names); traverser.processItem((item)-&gt; System.out.println(&quot;name:&quot; + item));</code></li></ol><h2 id="相关模式-2">相关模式</h2><ul><li>Composite：迭代器长被应用到对象复合这样的递归结构上</li><li>Factory Method：多态迭代器依靠Factory Method来实例化适当的迭代器子类</li><li>Memento：常与迭代器模式一起使用。迭代器可使用Memento捕获一个迭代状态，迭代器在其内部存储Memento实例。</li></ul><h1 id="解耦复杂通信关系对象-mediator">解耦复杂通信关系对象——Mediator</h1><p>用一个中介对象来封装一系列的对象交互，中介者使各个对象不需要显示地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。 面向对象设计鼓励将行为分布到各个对象中，这种分布可能会导致对象间有许多链接。最坏的情况下，每个对象都知道其他所有对象，使得对象间的相互连接大大增加，导致维护困难。我们可以通过将集体行为封装到一个单独的中介者对象来避免这个问题。中介者对象负责控制和协调一组对象间的交互，使得组中的对象不再相互显示引用，降低耦合性。</p><h2 id="适用性-4">适用性</h2><p>以下情况适用于中介者模式： - 一组对象以定义良好但是复杂的方式进行通信，产生的相互依赖关系结构混乱且难以理解 - 一个对象引用其它很多对象并且直接与这些对象通信，导致难以复用 - 想定制一个分布在多个类中的行为，而又不想生成太多子类。</p><h2 id="结构-4">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="177.25 91 661.75 259"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker></defs><path d="M177.25 91H839v259H177.25V91z" fill="none"/><path d="M238 133.75q0-4 4-4h83q4 0 4 4v33.5q0 4-4 4h-83q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="34.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(248 141.125)">Mediator</text><path d="M552 131.5q0-4 4-4h121q4 0 4 4v38q0 4-4 4H556q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="53.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(562 141.125)">Colleague</text><path d="M197.25 256.125q0-4 4-4h164.5q4 0 4 4v36.75q0 4-4 4h-164.5q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="75.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(207.25 265.125)">ConcreteMediator</text><path d="M630 255.5q0-4 4-4h181q4 0 4 4v41q0 4-4 4H634q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="83.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(640 266.625)">ConcreteColleague2</text><path d="M426 255.5q0-4 4-4h171q4 0 4 4v38q0 4-4 4H430q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="78.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(436 265.125)">ConcreteColleague1</text><path d="M515.5 251.5v-39h101v-23.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M724.5 251.5v-39h-108v-23.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#b)"/><path d="M283.5 252.125v-65.63893202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#c)"/><path d="M369.75 274.5h41.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M351 296v34h314v-14.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#e)"/><path d="M552 150.5H344.23606798" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#f)"/><path d="M430.5 111h160v40h-160z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(430.5 121.625)">mediator</text></svg><h2 id="参与者-4">参与者</h2><ul><li><code>Mediator</code>(中介者): 中介者定义一个接口用于与各同事对象通信</li><li><code>ConcreteMediator</code>(具体中介者): 具体中介者通过协调各同事对象实现协作行为；了解并维护它的各个同事</li><li><code>Colleague</code>(同事类): 每一个同事类都知道它的中介者对象；每一个同事对象在需与其他同事通信时，与它的中介者通信</li></ul><h2 id="效果-4">效果</h2><p>中介者模式有忙不优点和缺点： 1. <strong>减少了子类生成</strong>。Mediator将原本分布于多个对象间的行为集中在一起，改变这些行为只需生成Meditator的子类即可 2. <strong>它将各Colleague解耦</strong>。 3. <strong>它简化了对象协议</strong>。一对多的关系更易于理解、维护和扩展。 4. <strong>它对对象如何协作进行了抽象</strong>。将中介作为一个独立的概念并将其封装在一个对象中，使你将注意从对象各自的行为转移到它们的交互上来。 5. <strong>它使控制集中化</strong></p><h2 id="实现-4">实现</h2><p>当一个感兴趣的事发生时，Colleague必须与其Mediator通信。 一种实现方法是使用Observer模式，将Mediator实现为一个Observer，各Colleagues作为Subject；另一种方式是在Mediator中定义一个特殊的通知接口，各Colleagues在通信时直接调用该接口，并将自身作为参数传递给Mediator。</p><h2 id="代码示例-2">代码示例</h2><p>抽象类<code>DialogDirector</code>定义了一个接口:</p><pre><code class="language-java">public abstract class DialogDirector {
+    public abstract void showDialog();
+    public abstract void widgetChanged(Widget widget);
+    protected abstract void createWidgets();
+}
+</code></pre><p><code>Widget</code>是窗口组件的抽象基类：</p><pre><code class="language-java">public class Widget {
+    private DialogDirector director;
+    public Widget(DialogDirector d) {
+        this.director = d;
+    }
+  // 调用中介者的 widgetChanged() 方法，通知中介者某个事件发生了
+    public void changed() {
+        this.director.widgetChanged(this);
+    }
+}
+</code></pre><p><code>ListBox</code>, <code>EntryField</code> 和 <code>Button</code>是 <code>Widget</code> 的子类：</p><pre><code class="language-java">public class ListBox extends Widget {
+    public ListBox(DialogDirector d) {
+        super(d);
+    }
+}
+
+public class EntryField extends Widget {
+    public EntryField(DialogDirector d) {
+        super(d);
+    }
+    // other method ...
+}
+
+public class Button extends Widget {
+    public Button(DialogDirector d) {
+        super(d);
+    }
+    void handleMouse () {
+        //...
+        // 调用通信接口
+        changed();
+    }
+}
+</code></pre><p><code>FontDialogDirectator</code> 类在对话框中的窗口组件间进行中介：</p><pre><code class="language-java">public class FontDialogDirectator extends DialogDirector {
+
+    private Button ok;
+    private Button cancel;
+    private ListBox fontList;
+    private EntryField fontName;
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void widgetChanged(Widget widget) {
+        if (widget == ok) {
+            // apply something change
+        } else if (widget == cancel) {
+            // apply cancel widget
+        } else if (widget == fontList) {
+    } else if (widget == fontName) {    }
+
+    }
+    @Override
+    protected void createWidgets() {
+        ok = new Button(this);
+        cancel = new Button(this);
+        fontList = new ListBox(this);
+        fontName = new EntryField(this);
+    }
+}
+</code></pre><p><strong><code>widgetChanged</code>方法的复杂度随对话框的复杂度增加而增加</strong>。大对话框不受欢迎的一个重要原因是中介者的复杂性可能会抵消该模式在其他方面带来的好处。</p><h2 id="相关模式-3">相关模式</h2><p>Facade与中介者的不同之处在于它是对一个对象子系统进行抽象，从而提供一个更为方便的接口，它的协议是单向的，而Mediator的协议是多向的。 Coleague可使用Observer模式与Mediator通信。</p><h1 id="记录对象内部状态-memento">记录对象内部状态——Memento</h1><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。 一个备忘录是一个对象，它存储了另一个对象在某个瞬间的内部状态，而后者成为备忘录的原发器。当需要设置原发器的检查点时，取消操作机制会向原发器请求一个备忘录。原发器用描述当前状态的信息初始化该备忘录。只有原发器可以向备忘录中存取信息，备忘录对其他对象不可见。</p><h2 id="适用性-5">适用性</h2><p>一下情况使用备忘录： - 必须保存一个对象在某一个时刻的状态，这样以后需要它时才能恢复到先前的状态。 - 如果一个用接口来让其它对象直接得到这些状态，将会暴露对象在实现细节并破坏对象的封装性。</p><h2 id="结构-5">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="125 52.30769231 657.30769231 148.79458042"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="20.60952974" markerHeight="10.88817567" viewBox="-2.30476487 -1.59149088 20.60952974 10.88817567" refX="16" refY="3.85259695"><path d="M0 3.85259695L8 0l8 3.85259695L8 7.7051939z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker></defs><path d="M125 52.3076923h657.3076923v148.79458043H125V52.3076923z" fill="none"/><path d="M145 87.10227273q0-4 4-4h237.76923077q4 0 4 4v90q0 4-4 4H149q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M145 113.10227273h245.76923077m-245.76923077 38h245.76923077" stroke="#323232" stroke-width="2" fill="none"/><path d="M145 83.10227273h245.76923077v98H145z" fill="none"/><text fill="#323232" font-size="15" x="111.88461538" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(155 88.72727273)">Originator</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="111.88461538" y="15.375" transform="translate(155 113.35227273)">setMemento(Memento m)</text><text x="111.88461538" y="34.125" transform="translate(155 113.35227273)">createMemento()</text></g><text fill="#323232" font-size="15" x="111.88461538" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(155 156.72727273)">state</text><path d="M450.45454545 87.10227273q0-4 4-4h97.90909091q4 0 4 4v90q0 4-4 4h-97.9090909q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M450.45454545 113.10227273h105.90909091m-105.9090909 38h105.9090909" stroke="#323232" stroke-width="2" fill="none"/><path d="M450.45454545 83.10227273h105.90909091v98h-105.9090909z" fill="none"/><text fill="#323232" font-size="15" x="41.95454545" y="15.375" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(460.45454545 88.72727273)">Memento</text><g fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle"><text x="41.95454545" y="15.375" transform="translate(460.45454545 113.35227273)">getState()</text><text x="41.95454545" y="34.125" transform="translate(460.45454545 113.35227273)">setState()</text></g><text fill="#323232" font-size="15" x="41.95454545" y="15.375" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(460.45454545 156.72727273)">state</text><path d="M653.42657343 88.24414438q0-4 4-4H758.3076923q4 0 4 4v34.20805181q0 4-4 4H657.42657343q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="43.44055944" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(663.42657343 95.97317029)">Caretaker</text><path d="M390.76923077 105.45454545h44.90379217" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-end="url(#a)"/><path d="M635.12180856 105.34817029h-30.33159877v.0364451h-33.40029566" stroke="#323232" stroke-width="2" fill="none" marker-start="url(#b)" marker-end="url(#c)"/><path d="M535.38461538 72.3076923h160v40h-160z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(535.38461538 82.9326923)">memento</text></svg><h2 id="参与者-5">参与者</h2><ul><li><code>Memento</code>(备忘录): 备忘录存储原发器对象的内部状态；防止原发器以外的其他对象访问备忘录。备忘录有两个接口：窄接口的宽接口。管理者(caretaker)只能看到窄接口，将备忘录传递给其他对象。原发器能够看到宽接口，允许它访问先前状态所需的所有数据。</li><li><code>Originator</code>(原发器): 原发器创建一个备忘录，用心记录当前时刻它的内部状态；使用备忘录恢复内部状态。</li><li><code>Caretaker</code>(负责人): 负责保存好备忘录的内容进行扣件或检查</li></ul><h2 id="效果-5">效果</h2><p>备忘录模式有以下一些效果： 1. <strong>保持封装边界</strong>。 使用备忘录可以避免暴露一些只应由原发器管理却又必须存储在原发器之外的信息。 2. <strong>它简化了原了器</strong>。 在其他保持封装性的设计中，Originator负责保持客户请求的内部状态版本。 3. <strong>使用备忘录可能代价很高</strong>。 如果原发器在生成备忘录时必须拷贝并存储大量的信息，或者客户非常频繁地创建备忘录和恢复原发器状态，可能会导致非常大的开销。 4. <strong>定义窄接口和宽接口</strong>。 在一些语言中可能 难以保证只有原发器可访问备忘录的状态 5. <strong>维护备忘录的潜在代价</strong>。 管理器负责删除它所维护的备忘录。然而，管理器不知道备忘录中有多少状态，因此一个本来很小的管理器，可能 会产生大量的存储开销。</p><h2 id="实现-5">实现</h2><p>当实现备忘录模式时应该考虑以下两个问题： 1. <strong>语言支持</strong>。 备忘录有两个接口：一个为原发器使用的宽接口；一个为其他对象使用的窄接口。Java中对此支持并不好，只能采用<code>protected</code>来支持宽接口。 2. <strong>存储增量式改变</strong>。如果备忘录的创建及其返回的顺序是可预测的，备忘录可以仅存储原发器内部状态的增量改变。</p><h2 id="代码示例-3">代码示例</h2><p>我们使用<code>MoveCommand</code>命令对象来执行/取消一个图形对象从一个位置到另一个位置的移动变换。命令对象存储它的目标、移动距离和一个<code>ConstraintSolverMemento</code>的实例，它是一个包含约束解释器状态的备忘录。</p><pre><code class="language-Java">/**
+ * ConstraintSolver 用操作将自身状态存储在外部的一个ConstraintSolverMemento实例中。
+ */
+public class ConstraintSolver {
+
+    private ConstraintSolver(){}
+    public void solve() {}
+    public void addConstraint (Graphic s, Graphic e) {}
+    public void removeConstraint(Graphic s, Graphic e) {}
+    public ConstraintSolverMemento createMemento() {
+        return new ConstraintSolverMemento();
+    }
+    public void setMemento(ConstraintSolverMemento memento) {}
+
+    public static ConstraintSolver getInstance() {
+        return new ConstraintSolver();
+    }
+}
+
+/**
+ * execute 在移动图形前先获取一个 ConstraintSolverMemento 备忘录，Unexecute 先将图形移回，再将约束解释器设回原来的状态，并让约束解释器解释这些约束。
+ */
+public class MoveCommand {
+
+    private ConstraintSolverMemento state;
+    private Point delta;
+    private Graphic target;
+    public MoveCommand(Graphic t, Point delta) {
+        this.delta = delta;
+        this.target = t;
+    }
+
+    void execute () {
+        ConstraintSolver solver = ConstraintSolver.getInstance();
+        // 存储当前的状态
+        state = solver.createMemento();
+        target.move(delta);
+        solver.solve();
+    }
+    void unexecute() {
+        ConstraintSolver solver = ConstraintSolver.getInstance();
+        target.move(delta);
+        solver.setMemento(state);
+        // 重新建立约束
+        solver.solve();
+    }
+}
+
+public class ConstraintSolverMemento {
+    // private constraint solver state
+}
+</code></pre><h2 id="相关模式-4">相关模式</h2><ol><li>Command: 命令可使用备忘录来为可撤消的操作维护状态</li><li>Iterator: 备忘录可用于迭代 <code>Java Collection&lt;ItemType&gt; aCollection; IteratioinState state; state = aCollection.createInitialState(); while (!aCollection.isDone(state)) { aCollection.currentItem(state).process(); aCollection.next(); }</code></li></ol><h1 id="多个对象依赖于一个对象的状态-observer">多个对象依赖于一个对象的状态 —— Observer</h1><p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。 将一个系统分割成一系列相互协作的类有一个常见的副作用：需要维护它们的一致性。我们不希望为了维持一致性而使各类紧密耦合，因为这样降低了它们的可用性。</p><h2 id="适用性-6">适用性</h2><p>以下情况下可以使用观察者模式： - 当一个抽象模型有两个方面，其中一个方面依赖于另一方面。将这二者封装在独立的对象中以使它们可以各自独立地改变和复用。 - <strong>当一个对象的改变需要同时改变其它对象，而不知道具体有多少对象有待改变</strong>。 - 当一个对象必须通知其它对象，而它又不能假定其它对象是谁。</p><h2 id="结构-6">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="122.5 31 736.5 380.10227273"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker></defs><path d="M122.5 31H859v380.10227273H122.5V31z" fill="none"/><path d="M142.5 289.10227273q0-4 4-4h151q4 0 4 4v98q0 4-4 4h-151q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M142.5 315.10227273h159m-159 40h159" stroke="#323232" stroke-width="2" fill="none"/><path d="M142.5 285.10227273h159v106h-159z" fill="none"/><text fill="#323232" font-size="15" x="68.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(152.5 290.72727273)">ConcreteSubject</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="68.5" y="15.375" transform="translate(152.5 315.35227273)">setState()</text><text x="68.5" y="34.125" transform="translate(152.5 315.35227273)">getState()</text></g><text fill="#323232" font-size="15" x="68.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(152.5 364.72727273)">subjectState</text><path d="M446.0909091 260.10227273q0-4 4-4h160.8181818q4 0 4 4v90q0 4-4 4H450.0909091q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M446.0909091 294.10227273h168.8181818m-168.8181818 30h168.8181818" stroke="#323232" stroke-width="2" fill="none"/><path d="M446.0909091 256.10227273h168.8181818v98H446.0909091z" fill="none"/><text fill="#323232" font-size="15" x="73.40909091" y="15.375" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(456.0909091 265.72727273)">ConcreteObserver</text><text fill="#323232" font-size="15" x="73.40909091" y="15.375" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(456.0909091 299.72727273)">update()</text><text fill="#323232" font-size="15" x="73.40909091" y="15.375" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(456.0909091 329.72727273)">observerState</text><path d="M144 69q0-4 4-4h148q4 0 4 4v97q0 4-4 4H148q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M144 95h156" stroke="#323232" stroke-width="2" fill="none"/><path d="M144 65h156v105H144z" fill="none"/><text fill="#323232" font-size="15" x="67" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(154 70.625)">Subject</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="67" y="15.375" transform="translate(154 104.375)">attach(Observer)</text><text x="67" y="34.125" transform="translate(154 104.375)">detach(Observer)</text><text x="67" y="52.875" transform="translate(154 104.375)">notify()</text></g><path d="M478.25 69q0-4 4-4h96.5q4 0 4 4v49q0 4-4 4h-96.5q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M478.25 95h104.5" stroke="#323232" stroke-width="2" fill="none"/><path d="M478.25 65h104.5v57h-104.5z" fill="none"/><text fill="#323232" font-size="15" x="41.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(488.25 70.625)">Observer</text><text fill="#323232" font-size="15" x="41.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(488.25 99.125)">update()</text><path d="M222 285.10227273v-99.86620475" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M530.5 256.10227273V137.23606798" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#b)"/><path d="M300 84h163.76393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#c)"/><path d="M261 51h160v40H261z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(261 61.625)">observers</text><path d="M446.0909091 305.10227273h-72.54545455V305h-57.30938657" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M323.5 271h160v40h-160z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(323.5 281.625)">subject</text><path d="M675 280h148l16 16v42H675v-58z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M823 280v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M675 280h148l16 16v42H675v-58z" stroke="#323232" stroke-width="2" fill="none"/><g fill="#323232" font-size="15" font-family="微软雅黑"><text y="15.375" transform="translate(685 290.25)">observerState=</text><text y="34.125" transform="translate(685 290.25)">subject.getState()</text></g><path d="M604.45454545 308H675" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#e)"/><path d="M327.5 139H479l16 16v57H327.5v-73z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M479 139v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M327.5 139H479l16 16v57H327.5v-73z" stroke="#323232" stroke-width="2" fill="none"/><g fill="#323232" font-size="15" font-family="微软雅黑"><text y="15.375" transform="translate(337.5 147.375)">for o in observers {</text><text y="34.125" transform="translate(337.5 147.375)">o.update();</text><text y="52.875" transform="translate(337.5 147.375)">}</text></g><path d="M274.72727273 155H327.5" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#f)"/></svg><h2 id="参与者-6">参与者</h2><ul><li><code>Subject</code>: 目标知道它的观察者，可以有任意多个观察者观察同一目标；提供注册和删除观察者对象的接口</li><li><code>Observer</code>: 为那些在目标发生改变时需获得通知的对象定义一个更新接口</li><li><code>ConcreteSubject</code>: 将有关状态存入各<code>ConcreteObserver</code>对象；当它的状态发生改变时，向它的各个观察者发出通知。</li><li><code>ConcreteObserver</code>: 维护一个指向<code>ConcreteSubject</code>对象的引用；存储有关状态，这些状态应与目标的状态保持一致；实现<code>Observer</code>的更新接口以使自身状态与目标的状态保持一致。</li></ul><h2 id="效果-6">效果</h2><p>Observer模式允许我们独立地改变目标和观察者。以下是观察者模式的一些优缺点： 1. <strong>目标和观察者间的抽象耦合</strong>。 一个目标仅仅知道它有一系列的观察者，每个都符合抽象的Observer类的简单接口，这样目标和观察者之间的耦合是抽象的和最小的。 2. <strong>支持广播通信</strong>。 通知被自动广播给所有已向该目标对象登记的有关对象。 3. <strong>意外的更新</strong>。因为一个观察者并不知道其它观察者的存在，它可能对改变目标的最终代价一无所知。在目标上一个看似无害的操作可能会引起一系列对观察者以及依赖于这些观察者的那些对象的更新。此外，如果依赖准则的定义或维护不当，常常会引起错误的更新。</p><h2 id="实现-6">实现</h2><ol><li><strong>创建目标到其观察者之间的映射</strong>。</li><li><strong>观察多个目标</strong>。 在某些情况下，一个观察者依赖于多个目标是有意义的。目标对象可以简单地将自己作为update操作的一个参数，让观察者知道应去检查哪一个目标。</li><li><strong>谁触发更新</strong>。 目标和它的观察者依赖于通知机制来保持一致，但哪一个对象调用notify来触发更新？有两个选择：<ul><li>由目标对象的状态设定操作在改变目标对象的状态后生动调用notify。这种方法的优点是客户不需要记住要在目标对象上调用notify，缺点是多个连续的操作会产生多次连续的更新，可能效率较低</li><li>主客户负责在适当的时候调用notify。这样做的优点是客户可以在一系列的状态改变写成后再上次性触发更新，避免了不必要的中间更新，缺点是给客户增加了负担。</li></ul></li><li><strong>对已删除的目标悬挂引用</strong>。 一种避免悬挂引用的方法是，当一个目标被删除时，让它通知它的观察者将对该目标的引用复位。</li><li><strong>在发出通知前确保目标的状态自身是一致的</strong>。 当<code>Subject</code>的子类调用继承的该项操作时，很容易无意中违反这条自身一致的准则： <code>java void operation(int newValue) { super.operation(newValue); super.update(); instVar += newValue; }</code> 我们可以用抽象的<code>Subject</code>类中的模板方法来发送通知以避免这种错误。</li><li><strong>避免特定于观察者的更新协议——推/拉模型</strong>。<ul><li>推模型：目标向观察者发送关于改变的详细信息，不管它们是否需要，其假定目标知道一些观察者需要的信息，该模型使得观察者相对难以复用，因为目标对观察者的假定并不一定正确。</li><li>拉模型：目标除最小通知外什么也不管，由观察者显式地向目标询问，拉模型可能效率较差，因为观察者对象需在没有目标对象帮助不确定什么改变了。</li></ul></li><li><strong>显式地指定感兴趣的改变</strong>。 可以扩展目标的注册接口，让各观察者注册为仅对特定的事感兴趣，以提高效率。</li><li><strong>封装复杂的更新语义</strong>。 当目标和观察者间的依赖关系特别复杂时，可能需要一个维护这些关系的对象。其目的是尽量减少观察者反映其目标状态变化所需的工作量。</li><li><strong>结合目标类和观察者类</strong>。 将目标类和观察者类结合到一个类中，这就允许我们定义一个既是目标又是观察者的对象，而不需要多重继承。</li></ol><h2 id="代码示例-4">代码示例</h2><p>定义一个Observer接口和一个Subject类：</p><pre><code class="language-java">public interface Observer {
+    void update(Subject subject);
+}
+
+public class Subject {
+    private List&lt;Observer&gt; os;
+
+    public Subject() {
+        os = new ArrayList&lt;&gt;();
+    }
+
+    public void attach(Observer observer) {
+        os.add(observer);
+    }
+
+    public void remove(Observer observer) {
+        os.remove(observer);
+    }
+
+    public void notifyObservers () {
+        for (Observer o: os) {
+            o.update(this);
+        }
+    }
+}
+
+</code></pre><p><code>ClockTimer</code>是一个用于存储和维护一天时间的具体目标：</p><pre><code class="language-java">public class ClockTimer extends Subject {
+
+    private LocalDateTime time = LocalDateTime.now();
+    public int getHour() {
+        return time.getHour();
+    }
+    public int getMinute() {
+        return time.getMinute();
+    }
+    public int getSecond () {
+        return time.getSecond();
+    }
+    public void tick () {
+        time = LocalDateTime.now();
+        notifyObservers();
+    }
+}
+</code></pre><p>我们可以定义两个观察者：</p><pre><code class="language-java">public class DigitalClock implements Observer {
+
+    private ClockTimer timer ;
+
+    public DigitalClock(ClockTimer timer) {
+        this.timer = timer;
+        timer.attach(this);
+    }
+
+    @Override
+    public void update (Subject subject) {
+        if (this.timer == subject) {
+            // do something
+            System.out.println(&quot;DigitalClock update:&quot; + timer.getHour() + &quot;:&quot; + timer.getMinute() + &quot;:&quot; + timer.getSecond());
+        }
+    }
+}
+
+public class AnalogClock implements Observer {
+
+    private ClockTimer timer ;
+
+    public AnalogClock(ClockTimer timer) {
+        this.timer = timer;
+        timer.attach(this);
+    }
+
+    @Override
+    public void update (Subject subject) {
+        if (this.timer == subject) {
+            // do something
+            System.out.println(&quot;AnalogClock update:&quot; + timer.getHour() + &quot;:&quot; + timer.getMinute() + &quot;:&quot; + timer.getSecond());
+        }
+    }
+}
+</code></pre><p>可以如下调用：</p><pre><code class="language-java">public static void main(String [] args) throws InterruptedException {
+        ClockTimer timer = new ClockTimer();
+        AnalogClock analogClock = new AnalogClock(timer);
+        DigitalClock digitalClock = new DigitalClock(timer);
+        while (true) {
+            Thread.sleep(1000);
+            timer.tick();
+        }
+}
+</code></pre><h2 id="相关模式-5">相关模式</h2><ol><li>Mediator: 通过封装复杂的更新语义，充当目标和观察者之间的中介者</li><li>Singleton: 中介者可使用Singleton模式来保证它是唯一的并且是可全局访问的。</li></ol><h1 id="不同状态间解耦-state">不同状态间解耦 —— State</h1><p>允许一个对象在其内部状态改变时，改变它的行为。对象看起来修改了它的类。</p><h2 id="适用性-7">适用性</h2><p>以下两种情况可以使用State模式： - 一个对象的行为取决于它的状态，并且它必须在运行时刻根据状态改变它的行为 - 一个操作中含有庞大的多分支的条件语句，且这些分支依赖于该对象的状态。这个状态通常用一个或多个枚举常量表示。State模式将每一个条件分支放入一个独立的类中，这使得你可以根据自身的情况将对象的状态作为一个对象，这一对象可以不依赖于其他对象而独立变化。</p><h2 id="结构-7">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="124 30 546.375 287"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="20.60952974" markerHeight="10.88817567" viewBox="-2.30476487 -1.59149088 20.60952974 10.88817567" refX="16" refY="3.85259695"><path d="M0 3.85259695L8 0l8 3.85259695L8 7.7051939z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker></defs><path d="M124 30h546.375v287H124V30z" fill="none"/><path d="M144 69q0-4 4-4h148q4 0 4 4v52q0 4-4 4H148q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M144 95h156" stroke="#323232" stroke-width="2" fill="none"/><path d="M144 65h156v60H144z" fill="none"/><text fill="#323232" font-size="15" x="67" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(154 70.625)">Context</text><text fill="#323232" font-size="15" x="67" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(154 100.625)">request()</text><path d="M434.25 69q0-4 4-4h96.5q4 0 4 4v52q0 4-4 4h-96.5q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M434.25 95h104.5" stroke="#323232" stroke-width="2" fill="none"/><path d="M434.25 65h104.5v60h-104.5z" fill="none"/><text fill="#323232" font-size="15" x="41.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(444.25 70.625)">State</text><text fill="#323232" font-size="15" x="41.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(444.25 100.625)">handle()</text><path d="M392.5 233.5v-54.25h94v-39.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M318.30476487 84h101.45916715" stroke="#323232" stroke-width="2" fill="none" marker-start="url(#b)" marker-end="url(#c)"/><path d="M268 50h160v40H268z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(268 60.625)">state</text><path d="M146.5 171H296l16 16v31H146.5v-47z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M296 171v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M146.5 171H296l16 16v31H146.5v-47z" stroke="#323232" stroke-width="2" fill="none"/><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" transform="translate(156.5 185.125)">state.handle()</text><path d="M274.72727273 116v57" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#d)"/><path d="M576.5 233.5v-54.25h-90v-39.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#e)"/><path d="M502.625 237.5q0-4 4-4h139.75q4 0 4 4V293q0 4-4 4h-139.75q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M502.625 263.5h147.75" stroke="#323232" stroke-width="2" fill="none"/><path d="M502.625 233.5h147.75V297h-147.75z" fill="none"/><text fill="#323232" font-size="15" x="62.875" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(512.625 239.125)">ConcreteStateB</text><text fill="#323232" font-size="15" x="62.875" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(512.625 270.875)">update()</text><path d="M318.625 237.5q0-4 4-4h139.75q4 0 4 4V293q0 4-4 4h-139.75q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M318.625 263.5h147.75" stroke="#323232" stroke-width="2" fill="none"/><path d="M318.625 233.5h147.75V297h-147.75z" fill="none"/><text fill="#323232" font-size="15" x="62.875" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(328.625 239.125)">ConcreteStateA</text><text fill="#323232" font-size="15" x="62.875" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(328.625 270.875)">update()</text></svg><h2 id="参与者-7">参与者</h2><ul><li><code>Context</code>(环境): 定义客户感兴趣的接口；维护一个<code>ConcreateState</code>子类，这个实例定义当前状态。</li><li><code>State</code>(状态): 定义一个接口以封装与<code>Context</code>的特定状态相关的行为。</li><li><code>ConcreteState</code>(具体子类): 每一个子类实现一个与<code>Context</code>的一个状态相关的行为</li></ul><h2 id="协作-2">协作</h2><ul><li><code>Context</code>将与状态相关的请求委托给当前的<code>ConcreteState</code>对象处理</li><li><code>Context</code>可将自身一个参数传递给处理该请求的状态对象，这样状态对象在必要时可访问<code>Context</code></li><li><code>Context</code>是客户使用的主要接口。客户可用状态对象来配置一个<code>Context</code>，一旦一个<code>Context</code>配置完毕，它的客户不再地需要直接与状态对象打交道</li></ul><h2 id="效果-7">效果</h2><ol><li><strong>它将与特定状态的相关行为局部化，并且将一同状态的行为分割开来</strong>。 State模式将所有与一个特定的状态相关的行为都放入一个对象中。因为所有与状态相关的代码都存在于某一个State子类中，所以通过定义新的子类可以很容易的新的状态和转换。State避免了巨大的条件语句所带来的问题，但该模式瘵不同的行为分布在多个State子类中，增加了子类的数目，相对于单个类来说不够紧凑。</li><li><strong>它使得状态转换显式化</strong>。 而且State对象可保证<code>Context</code>不会发生内部状态不一致的情况，因为状态转换是原子的。</li><li><strong>State对象可以被共享</strong>。如果State对象没有实例变量，即它们表示的状态完全以它们的类型来编码。那么各Context对象可以共享一个State对象。</li></ol><h2 id="实现-7">实现</h2><ol><li><strong>谁定义状态转换</strong>。State模式不指定哪一个参与者转换准则。如果该准则是固定的，那么它们可在Context中完全实现。然而若让State子类自身指定它们的后继状态以及何时进行转换，通常更灵活更合适。</li><li><strong>基于表的另一种方法</strong>。 我们可以使用表将输入映射状态转换。对每一个状态，一张表将每一个可能的输入映射到一个后继状态。这种方法将条件代码映射为一介查找表。但是查找表有一些缺点：<ul><li>用统一的、表格的形式表示转换逻辑使得转换准则变得不够明确而难以理解。</li><li>通常难以加入伴随状态转换的一些动作。 State模式对与状态相关的行为进行建模，而表驱动的方法着重于定义状态转换。</li></ul></li><li><strong>创建和销毁State对象</strong>. 如果对象存储大量的信息时，仅当需要State时才创建它们并随后销毁它们比较好；如果状态改变频繁，提前创建它们并始终不销毁它们比较好。</li></ol><h2 id="代码示例-5">代码示例</h2><p>我们定义类<code>TCPConnection</code>，它提供了一个传送数据的接口并修理改变状态的请求：</p><pre><code class="language-java">public class TCPConnection {
+    private TCPState state;
+
+    public TCPConnection() {
+    }
+
+    public void passiveOpen(TCPConnection tcpConnection) {
+        state.passiveOpen(tcpConnection);
+    }
+
+    public void close(TCPConnection tcpConnection) {
+        state.close(tcpConnection);
+    }
+
+    public void send(TCPConnection tcpConnection) {
+        state.send(tcpConnection);
+    }
+
+    protected void changeState(TCPState state) {
+        this.state = state;
+    }
+}
+</code></pre><p><code>TCPConnection</code>在<code>state</code>中保持一个<code>TCPState</code>类的实例，<code>TCPState</code>定义了一个状态和接口，<code>TCPEstablished</code>, <code>TCPListen</code>和<code>TCPClosed</code>定义了几个状态：</p><pre><code class="language-java">public class TCPEstablished extends TCPState {
+
+    private static TCPState established = new TCPEstablished();
+
+    public static TCPState getInstance() {
+        return established;
+    }
+
+    @Override
+    public void transmit(TCPConnection tcpConnection) {
+    }
+
+    @Override
+    public void passiveOpen(TCPConnection tcpConnection) {
+    }
+
+    @Override
+    public void close(TCPConnection tcpConnection) {
+        changeState(tcpConnection, TCPClosed.getInstance());
+    }
+
+    @Override
+    public void send(TCPConnection tcpConnection) {
+    }
+}
+
+public class TCPListen extends TCPState {
+
+    private static TCPState listen = new TCPEstablished();
+
+    public static TCPState getInstance() {
+        return listen;
+    }
+
+    @Override
+    public void transmit(TCPConnection tcpConnection) {
+    }
+
+
+    @Override
+    public void passiveOpen(TCPConnection tcpConnection) {
+    }
+
+    @Override
+    public void close(TCPConnection tcpConnection) {
+    }
+
+    @Override
+    public void send(TCPConnection tcpConnection) {
+        changeState(tcpConnection, TCPEstablished.getInstance());
+    }
+}
+
+public class TCPClosed extends TCPState {
+    private static TCPState closed = new TCPClosed();
+
+    public static TCPState getInstance() {
+        return closed;
+    }
+
+    @Override
+    public void transmit(TCPConnection tcpConnection) {
+
+    }
+
+    @Override
+    public void passiveOpen(TCPConnection tcpConnection) {
+        changeState(tcpConnection, TCPListen.getInstance());
+    }
+
+    @Override
+    public void close(TCPConnection tcpConnection) {
+
+    }
+
+    @Override
+    public void send(TCPConnection tcpConnection) {
+
+    }
+}
+</code></pre><p>在完成相关工作后，这些操作调用<code>changeState</code>来改变<code>TCPConnection</code>的状态。</p><h2 id="相关模式-6">相关模式</h2><p>Flyweight模式解释了何时以及怎样共享状态对象 状态对象通常是Singleton</p><h1 id="一系列算法中取一个-strategy">一系列算法中取一个 —— Strategy</h1><p>定义一系列的算法，把它们封装起来，并且使它们可相互替换，使得算法可独立于它的客户而变化。</p><h2 id="适用性-8">适用性</h2><p>Strategy模式适用于以下情况： - 许多相关的类仅仅是行为有异。“策略”提供了一种用多个行为中的一个来配置一个类的方法 - 需要使用一个算法的不同变体。当这些变体实现为一个算法的类层次时，可使用策略模式 - 算法使用客户不应该知道的数据。可使用策略模式以避免暴露复杂的、与算法相关的数据结构 - 一个类定义了多种行为，并且这些行为在这个类的操作中以多个条件语句的形式出现。将相关的条件分支移入它们各自的Strategy类中以代替这些条件语句。</p><h2 id="结构-8">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="169 31 715 278.5"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="20.60952974" markerHeight="10.88817567" viewBox="-2.30476487 -1.59149088 20.60952974 10.88817567" refX="16" refY="3.85259695"><path d="M0 3.85259695L8 0l8 3.85259695L8 7.7051939z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker></defs><path d="M169 31h715v278.5H169V31z" fill="none"/><path d="M189 69q0-4 4-4h148q4 0 4 4v52q0 4-4 4H193q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M189 95h156" stroke="#323232" stroke-width="2" fill="none"/><path d="M189 65h156v60H189z" fill="none"/><text fill="#323232" font-size="15" x="67" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(199 70.625)">Context</text><text fill="#323232" font-size="15" x="67" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(199 100.625)">contextInterface()</text><path d="M483.5 69q0-4 4-4H647q4 0 4 4v59q0 4-4 4H487.5q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M483.5 95H651" stroke="#323232" stroke-width="2" fill="none"/><path d="M483.5 65H651v67H483.5z" fill="none"/><text fill="#323232" font-size="15" x="72.75" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(493.5 70.625)">Strategy</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="72.75" y="15.375" transform="translate(493.5 94.75)">algorithmlInterface(</text><text x="72.75" y="34.125" transform="translate(493.5 94.75)">)</text></g><path d="M363.30476487 84h51.54631169v-.27941176h54.61500857" stroke="#323232" stroke-width="2" fill="none" marker-start="url(#a)" marker-end="url(#b)"/><path d="M310 51h160v40H310z" fill="none"/><text fill="#323232" font-size="15" x="79" y="15.375" font-family="微软雅黑" text-anchor="middle" transform="translate(310 61.625)">strategy</text><path d="M680.375 226.5q0-4 4-4H860q4 0 4 4v59q0 4-4 4H684.375q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M680.375 252.5H864" stroke="#323232" stroke-width="2" fill="none"/><path d="M680.375 222.5H864v67H680.375z" fill="none"/><text fill="#323232" font-size="15" x="80.8125" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(690.375 228.125)">ConcreteStrategyC</text><text fill="#323232" font-size="15" x="80.8125" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(690.375 261.625)">algorithmlInterface()</text><path d="M475 226.5q0-4 4-4h176.5q4 0 4 4v59q0 4-4 4H479q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M475 252.5h184.5" stroke="#323232" stroke-width="2" fill="none"/><path d="M475 222.5h184.5v67H475z" fill="none"/><text fill="#323232" font-size="15" x="81.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(485 228.125)">ConcreteStrategyB</text><text fill="#323232" font-size="15" x="81.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(485 261.625)">algorithmlInterface()</text><path d="M273 226.5q0-4 4-4h184.125q4 0 4 4v59q0 4-4 4H277q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M273 252.5h192.125" stroke="#323232" stroke-width="2" fill="none"/><path d="M273 222.5h192.125v67H273z" fill="none"/><text fill="#323232" font-size="15" x="85.0625" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(283 228.125)">ConcreteStrategyA</text><text fill="#323232" font-size="15" x="85.0625" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(283 261.625)">algorithmlInterface()</text><path d="M369.0625 222.5v-45.25H567.25v-30.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#c)"/><path d="M567.25 222.5v-75.26393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M772.1875 222.5v-45.25H567.25v-30.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#e)"/></svg><h2 id="参与者-8">参与者</h2><ul><li><code>Strategy</code>(策略): 定义所有支持的算法的公共接口。<code>Context</code>使用这个接口来调用某<code>ConcreteStrategy</code>定义的算法</li><li><code>ConcreteStrategy</code>(具体策略): 以<code>Strategy</code>接口实现某具体算法</li><li><code>Context</code>(上下文): 用一个<code>ConcreteStrategy</code>对象来配置；维护一个队<code>Strategy</code>对象的引用；可定义一个接口来让<code>Strategy</code>访问它的数据</li></ul><h2 id="效果-8">效果</h2><p>Strategy模式有下面的一些优点和缺点： 1. <strong>相关算法系列</strong>。 2. <strong>一个替换继承的方法</strong>。 继承提供了另一种支持多种算法或行为的方法，可以直接生成一个Context类的子类，从而给它以不同的行为。但这样会将行为硬编码到Context中，而将算法的实现与Context混合起来，使Context难以理解、难以维护和扩展。 3. <strong>消除了一些条件语句</strong> 4. <strong>客户有较大的选择空间，但是必须了解不同的Strategy</strong> 5. <strong>增加了对象数目</strong></p><h2 id="实现-8">实现</h2><ol><li>定义Strategy和Context接口：<ul><li>Context将数据放在参数中传递给Strategy，可以将Strategy和Context解耦，但是参数中可能会有些不需要的数据</li><li>将Context作为参数传递给Strategy，Strategy再显示地向Context请求数据。这时需要Context定义一个更精确的接口，这也将Strategy和Context更紧密地耦合在一起。</li></ul></li><li><strong>将Strategy作为泛型参数</strong>。 这需要满足两个条件：在编译时选择Strategy；不需要在运行时改变。</li><li><strong>Strategy对象可选</strong>。 如果Strategy并不是必须的，可在Context中定义缺省实现。</li></ol><h2 id="代码示例-6">代码示例</h2><p><code>Composition</code>类定义了一个上下文环境：</p><pre><code class="language-java">public class Composition {
+    private Compositor compositor;
+    public Composition(Compositor compositor) {
+        this.compositor = compositor;
+    }
+    public void repair() {
+        // do some action
+        compositor.Compose();
+        // do other thing
+    }
+    public void setCompositor(Compositor compositor) {
+        this.compositor = compositor;
+    }
+}
+</code></pre><p>算法策略如下：</p><pre><code class="language-java">/**
+ * Compositor 接口需要经过仔细设计，以支持子类可能实现的各种算法，不希望在生成一个新的子类就不得不修改这个接口
+ */
+public interface Compositor {
+    int Compose();
+}
+
+public class SimpleCompositor implements Compositor {
+    @Override
+    public int Compose() {
+        return 0;
+    }
+}
+
+public class TexCompositor implements Compositor {
+    @Override
+    public int Compose() {
+        return 1;
+    }
+}
+</code></pre><h2 id="相关模式-7">相关模式</h2><p>Flyweight： Strategy对象常常是很好的轻量级对象</p><h1 id="template-method">Template Method</h1><p>定义一个算法的骨架，将一些步骤延迟到子类中。TemplateMethod使得子类可以不改变一个算法的结构就可重定义该算法的某些特定步骤。</p><h2 id="适用性-9">适用性</h2><p>模板方法适用于如下情况： - 一次性实现一个算法的不变部分，并将可变的行为留给子类来实现 - 各子类中公共的行为应被提取出来并集中到一个公共父类中以避免代码重复 - 控制子类扩展，模板方法只在特定点调用“hook”操作。</p><h2 id="结构-9">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="120.5 62 482.5 269"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker></defs><path d="M120.5 62H603v269H120.5V62z" fill="none"/><path d="M140.5 86q0-4 4-4H342q4 0 4 4v90q0 4-4 4H144.5q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M140.5 112H346" stroke="#323232" stroke-width="2" fill="none"/><path d="M140.5 82H346v98H140.5z" fill="none"/><text fill="#323232" font-size="15" x="91.75" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(150.5 87.625)">AbstractClass</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="91.75" y="15.375" transform="translate(150.5 117.875)">templateMethod()</text><text x="91.75" y="34.125" transform="translate(150.5 117.875)">primitiveOperation1()</text><text x="91.75" y="52.875" transform="translate(150.5 117.875)">primitiveOperation2()</text></g><path d="M143.125 243.5q0-4 4-4h192.25q4 0 4 4V307q0 4-4 4h-192.25q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M143.125 269.5h200.25" stroke="#323232" stroke-width="2" fill="none"/><path d="M143.125 239.5h200.25V311h-200.25z" fill="none"/><text fill="#323232" font-size="15" x="89.125" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(153.125 245.125)">ConcreteClass</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="89.125" y="15.375" transform="translate(153.125 271.5)">primitiveOperation1()</text><text x="89.125" y="34.125" transform="translate(153.125 271.5)">primitiveOperation2()</text></g><path d="M243.25 239.5v-44.26393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M386 111h181l16 16v71H386v-87z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M567 111v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M386 111h181l16 16v71H386v-87z" stroke="#323232" stroke-width="2" fill="none"/><g fill="#323232" font-size="15" font-family="微软雅黑"><text y="15.375" transform="translate(396 117)">primitiveOperation1()</text><text y="34.125" transform="translate(396 117)">...</text><text y="52.875" transform="translate(396 117)">primitiveOperation2()</text><text y="71.625" transform="translate(396 117)">...</text></g><path d="M329 126h57" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#b)"/></svg><h2 id="参与者-9">参与者</h2><ul><li><code>AbstractClass</code>(抽象类): 定义抽象的<strong>原语操作</strong>，具体子类将重定义它们以实现一个算法的各个步骤；实现一个模板方法，定义一个算法的骨架，该模板方法不仅调用原语操作，也调用定义在<code>AbstractClass</code>或其他对象中的操作。</li><li><code>ConcreteClass</code>(具体类): 实现原语操作以完成算法中与特定子类相关的步骤</li></ul><p><code>ConcreteClass</code>靠<code>AbstractClass</code>来实现算法中不变的步骤。</p><h2 id="效果-9">效果</h2><p>模板方法是一种代码复用的基本技术。它在类库中尤为重要，它提取了类库中的公共行为。 模板方法也导致一种反向控制结构，一个父类调用一个子类的操作，而不是相反。 模板方法调用下列类型的操作： - 具体的操作（<code>ConcreteClass</code>或对客户类的操作） - 具体的<code>AbstractClass</code>的操作（通常对子类有用的操作） - 原语操作 - Factory Method - <strong>钩子操作</strong>: 提供缺省操作，子类可以在必要时进行扩展，一个钩子操作在缺省操作通常是一个空操作。</p><p><strong>模板方法应该指明那些操作是钩子操作（可以被重定义），哪些是抽象操作（必须重定义）</strong>。一般是在父类中调用钩子操作，子类重定义这个钩子操作。</p><h2 id="实现-9">实现</h2><p>有三个问题值得注意： 1. <strong>使用访问控制</strong> 一个模板方法调用的原始原语操作可以被定义为保护成员，这保证它们只被模板方法调用。 2. <strong>尽量减少原语操作</strong> 定义模板方法的一个重要目的是尽量减少一个子类具体实现该算法时必须重定义的那些原语操作的数目。 3. <strong>命名约定</strong> 可以给应被重定义的那些操作的名字上加一个前缀以识别它们。</p><h2 id="代码示例-7">代码示例</h2><p><code>View</code> 中定义了两个操作，<code>doDisplay</code>钩子操作实施真正的功能：</p><pre><code class="language-java">public class View {
+
+    public void display () {
+        setFocus();
+        doDisplay();
+        resetFocus();
+    }
+    void setFocus() {}
+  /* 定义一个缺省操作 */
+    void doDisplay() {}
+    void resetFocus() {}
+}
+</code></pre><p><code>MyView</code> 重新定义了 <code>doDisplay</code> 操作:</p><pre><code class="language-java">public class MyView extends View {
+    @Override
+    protected void doDisplay() {
+        // render the view's contents
+    }
+}
+</code></pre><h2 id="相关模式-8">相关模式</h2><ol><li>Factory Method 模式常被模板方法调用。</li><li>Strategy: 模板方法使用继承来改变算法的一部分，Strategy使用委托来改变整个算法。</li></ol><h1 id="visitor">Visitor</h1><p>表示一个作用于某对象结果中的各元素的操作，使你可以不改变各元素的类的前提下定义作用于这些元素的新操作。 使用Visitor模式，必须定义两个类层次：一个对应于接受操作的元素（Node层次），另一个对应于定义对元素操作的访问者（NodeVisitor层次）。</p><h2 id="适用性-10">适用性</h2><p>下列情况使用Visitor: - 一个对象结构包含很多类对象，他们有不同的接口，而你想对这些对象实施一些依赖于其具体类的操作。 - 需要对一个对象结构中的对象进行很多不同的并且不相关的操作，而你想避免让这些操作“污染”这些对象的类。Visitor使得你可以将相关的操作集中起来定义在一个类中。当该对象结构被很多应用共享时，用Visitor模式让每个应用仅包含需要用到的操作。 - <strong>定义对象结构的类很少改变，但经常需要在此结构上定义新的操作</strong>。改变对象结构类需要重定义所有访问者的接口，这三只熊需要很大的代价。如果对象结构类经常改变，那么可能还是在这些类中定义这些操作较好。</p><h2 id="结构-10">结构</h2><svg xmlns="http://www.w3.org/2000/svg" viewBox="26 44 825 644"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="g" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.23606798" markerHeight="10.55083655" viewBox="-1 -1.37638192 16.23606798 10.55083655" refX="-1" refY="3.89903635"><path d="M12 3.89903635L0 7.79807271V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="h" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker><marker id="i" markerUnits="userSpaceOnUse" orient="auto" markerWidth="10" markerHeight="10" viewBox="-1 -1 10 10" refX="8" refY="4"><path d="M0 4a4 4 0 0 1 4-4 4 4 0 1 1-4 4" stroke="#323232" stroke-width="2" fill="#fff"/></marker></defs><path d="M26 44h825v644H26V44z" fill="none"/><path d="M304.5 68q0-4 4-4H643q4 0 4 4v73q0 4-4 4H308.5q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M304.5 94H647" stroke="#323232" stroke-width="2" fill="none"/><path d="M304.5 64H647v81H304.5z" fill="none"/><text fill="#323232" font-size="15" x="160.25" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(314.5 69.625)">Visitor</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="160.25" y="15.375" transform="translate(314.5 100.75)">visitConcreteElementA(ConcreteElementA)</text><text x="160.25" y="34.125" transform="translate(314.5 100.75)">visitConcreteElementB(ConcreteElementB)</text></g><path d="M120 229.5q0-4 4-4h339q4 0 4 4V309q0 4-4 4H124q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M120 255.5h347" stroke="#323232" stroke-width="2" fill="none"/><path d="M120 225.5h347V313H120z" fill="none"/><text fill="#323232" font-size="15" x="162.5" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(130 231.125)">ConcreteVisitor1</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="162.5" y="15.375" transform="translate(130 265.5)">visitConcreteElementA(ConcreteElementA)</text><text x="162.5" y="34.125" transform="translate(130 265.5)">visitConcreteElementB(ConcreteElementB)</text></g><path d="M293.5 225.5v-40.25h182.25v-25.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M259 622h238l16 16v30H259v-46z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M497 622v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M259 622h238l16 16v30H259v-46z" stroke="#323232" stroke-width="2" fill="none"/><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" transform="translate(269 635.625)">v.visitConcreteElementA(this)</text><path d="M485.0625 229.5q0-4 4-4H827q4 0 4 4V309q0 4-4 4H489.0625q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M485.0625 255.5H831" stroke="#323232" stroke-width="2" fill="none"/><path d="M485.0625 225.5H831V313H485.0625z" fill="none"/><text fill="#323232" font-size="15" x="161.96875" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(495.0625 231.125)">ConcreteVisitor2</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="161.96875" y="15.375" transform="translate(495.0625 265.5)">visitConcreteElementA(ConcreteElementA)</text><text x="161.96875" y="34.125" transform="translate(495.0625 265.5)">visitConcreteElementB(ConcreteElementB)</text></g><path d="M658.03125 225.5v-40.25H475.75v-25.01393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#b)"/><path d="M456.25 382.5q0-4 4-4H587q4 0 4 4V438q0 4-4 4H460.25q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M456.25 408.5H591" stroke="#323232" stroke-width="2" fill="none"/><path d="M456.25 378.5H591V442H456.25z" fill="none"/><text fill="#323232" font-size="15" x="56.375" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(466.25 384.125)">Element</text><text fill="#323232" font-size="15" x="56.375" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(466.25 415.875)">accept(Visitor)</text><path d="M322.125 505.25q0-4 4-4H490q4 0 4 4V580q0 4-4 4H326.125q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M322.125 539.25H494" stroke="#323232" stroke-width="2" fill="none"/><path d="M322.125 501.25H494V584H322.125z" fill="none"/><text fill="#323232" font-size="15" x="74.9375" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(332.125 510.875)">ConcreteElementA</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="74.9375" y="15.375" transform="translate(332.125 542.875)">accept(Visitor v)</text><text x="74.9375" y="34.125" transform="translate(332.125 542.875)">operationA()</text></g><path d="M542.125 505.25q0-4 4-4H712q4 0 4 4V580q0 4-4 4H546.125q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M542.125 531.25H716" stroke="#323232" stroke-width="2" fill="none"/><path d="M542.125 501.25H716V584H542.125z" fill="none"/><text fill="#323232" font-size="15" x="75.9375" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(552.125 506.875)">ConcreteElementB</text><g fill="#323232" font-size="15" font-family="微软雅黑" font-weight="bold" text-anchor="middle"><text x="75.9375" y="15.375" transform="translate(552.125 538.875)">accept(Visitor v)</text><text x="75.9375" y="34.125" transform="translate(552.125 538.875)">operationA()</text></g><path d="M408.0625 501.25v-29.625H523.625v-14.38893202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#c)"/><path d="M629.0625 501.25v-29.625H523.625v-14.38893202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M225.5625 392q0-4 4-4h144q4 0 4 4v36.5q0 4-4 4h-144q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="65" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(235.5625 400.875)">ObjectStructure</text><path d="M377.5625 410.25h63.45143202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#e)"/><path d="M46 89q0-4 4-4h88q4 0 4 4v31q0 4-4 4H50q-4 0-4-4z" stroke="#323232" stroke-width="2" fill="#f5927b"/><text fill="#323232" font-size="15" x="37" y="15.375" font-family="微软雅黑" font-weight="bold" text-anchor="middle" transform="translate(56 95.125)">Client</text><path d="M142 104.5h147.26393202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#f)"/><path d="M94 124v286.25h116.32643202" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#g)"/><path d="M546 622h226l16 16v30H546v-46z" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M772 622v16h16" stroke="#323232" stroke-width="2" fill="#f5927b"/><path d="M546 622h226l16 16v30H546v-46z" stroke="#323232" stroke-width="2" fill="none"/><text fill="#323232" font-size="15" y="15.375" font-family="微软雅黑" transform="translate(556 635.625)">v.visitConcreteElementB(this)</text><path d="M478.5 558.5v62" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#h)"/><path d="M697 558v64" stroke="#323232" stroke-width="2" stroke-dasharray="10.0 4.0" fill="none" marker-start="url(#i)"/></svg><h2 id="参与者-10">参与者</h2><ul><li><code>Vistor</code>(访问者): 为对象结构中的<code>ConcreteElement</code>的每一个类声明一个Visit操作。该操作的名字和特征标识了发送Visit请求给该访问者的那个类。这使得访问者可以确定正被访问元素的具体的类。这样访问者就可以通过该元素的特定接口直接访问它。</li><li><code>ConcreteVisitor</code>(具体访问者): 实现每个由Visitor声明的操作。每个操作实现本算法的一部分，而该算法片段乃是对应于结构中对象的类。ConcreteVisitor为该算法提供了上下文并存储它的局部状态。这一状态常常在遍历该结构的过程中累积结果</li><li><code>Element</code>(元素): 定义一个accept操作</li><li><code>ConcreteElement</code>(具体元素): 实现accept操作</li><li><code>ObjectStructure</code>(对象结构): 能枚举它的元素；可以提供一个高层的接口，允许访问者访问它的元素；可以是一个复合或是一个集合。</li></ul><h2 id="效果-10">效果</h2><ol><li><strong>访问者模式使得易于增加新的操作</strong></li><li><strong>访问者集中相关的操作而分离无关的操作</strong> 相关行为不是分布定义在该对象结构的各个类上，而是集中在一个访问者中。无关行为却被分别放在它们各自的访问者子类中。</li><li><strong>增加新的ConcreteElement类很困难</strong> 每新增一个ConcreteElement类都要在Visitor中添加一个新的抽象操作，并在每一个ConcreteVistor类中实现相应的操作。<strong>Element类层次是稳定的，才适合用访问者模式</strong></li><li><strong>可以访问不具有相同父类的对象</strong></li><li><strong>累积状态</strong> 当访问者访问对象结构中的每一个元素时，它可能会累积状态。</li><li><strong>破坏封装</strong> 访问者方法假定ConcreteElement接口提供足够的功能，常常会迫使你提供访问元素内部状态的公共操作。</li></ol><h2 id="实现-10">实现</h2><p><strong>谁负责遍历对象结构</strong> 我们可以使用一下三个中的任一个遍历对象：对象结构中，访问者中，一个独立的迭代器对象中。 通常由对象结构复杂迭代。一个集合只需对它的元素进行迭代，并对每一个元素调用accept。复合对象通常让accept操作遍历该元素的各子构建并对它们中的每一个递归地调用accept。</p><h2 id="代码示例-8">代码示例</h2><pre><code class="language-java">public abstract class Equipment {
+
+    private String name;
+
+    public Equipment(String name) {
+        this.name = name;
+    }
+
+    public abstract void accept(EquipmentVisitor visitor);
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class FloppyDisk extends Equipment {
+
+    public FloppyDisk(String name) {
+        super(name);
+    }
+
+    @Override
+    public void accept(EquipmentVisitor visitor) {
+        visitor.visitFloppyDisk(this);
+    }
+
+    public int netPrice() {
+        return new Random().nextInt();
+    }
+}
+
+public class Chassis extends Equipment {
+
+    private List&lt;Equipment&gt;  equipments;
+
+    public Chassis(String name) {
+        super(name);
+    }
+
+    public int discountPrice() {
+        return new Random().nextInt();
+    }
+
+    @Override
+    public void accept(EquipmentVisitor visitor) {
+        for (Equipment equipment: equipments) {
+            equipment.accept(visitor);
+        }
+    }
+}
+</code></pre><pre><code class="language-java">public interface EquipmentVisitor {
+
+    void visitFloppyDisk(FloppyDisk f);
+    void visitChassis(Chassis c);
+}
+
+public class PricingVisitor implements EquipmentVisitor {
+
+    private int total = 0;
+    @Override
+    public void visitFloppyDisk(FloppyDisk f) {
+        total += f.netPrice();
+    }
+
+    @Override
+    public void visitChassis(Chassis c) {
+        total += c.discountPrice();
+    }
+}
+</code></pre><h2 id="相关模式-9">相关模式</h2><p>Composite: 访问者可以用对一个由Composite模式定义的对象结构进行操作 Interpreter: 访问者可以用于解释器</p><h1 id="总结">总结</h1><p><strong>封装变化</strong>是许多行为模式的主题。当一个程序的某个方面的特征经常发生改变时，这些模式就定义一个封装这个方面的对象。 - Strategy 对象封装一个算法 - State 对象封装一个与状态相关的行为 - Mediator 对象封装对象间的协议 - Iterator 对象封装访问和遍历一个聚集对象的各个构件的方法。</p><p><strong>解耦发送者和接收者</strong> 解耦是设计中永恒的主题。 - Command 对象提供一个提交请求的简单接口，将发送者和接收者解耦 - Observer 通过一个接口来通知目标中发生的改变，从而将发送者与接收者解耦 - Mediator 让对象通过一个Mediator对象间接的互相引用，从而对它们解耦 - 职责链模式通过沿一个潜在的接收者链传递请求而将发送者与接收者解耦</p><p><strong>模式组合</strong> 除了少数例外情况，各个行为设计模式之间是相互补充和相互加强的关系。 一个职责链中的类可能包括至少一个Template Method的应用。该模板方法可使用原语操作确定该对象是否应处理该请求并选择应转发的对象。 职责链使用Command模式将请求表示为对象。</p><p>ddf</p><p>&ndash;</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#设计模式</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81-%E5%B9%B6%E9%80%9A%E8%BF%87java%E8%AE%BF%E9%97%AE/" rel="prev">nginx配置双向认证 并通过java访问</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/algorithms/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95/" rel="next">缓存算法</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-80e85b24c7.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-9350854994277981",
+		enable_page_level_ads: true
+	});</script></body></html>

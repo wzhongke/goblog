@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on World of Wang</title>
+    <link>https://wzhongke.github.io/categories/linux/</link>
+    <description>Recent content in Linux on World of Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright@Kevin Tan</copyright>
+    <lastBuildDate>Sat, 19 Aug 2017 09:52:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wzhongke.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>shell 编程</title>
+      <link>https://wzhongke.github.io/post/linux/shell/</link>
+      <pubDate>Sat, 19 Aug 2017 09:52:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/shell/</guid>
+      <description>shell script虽然是程序，但是它处理数据的速度是不够的。因为shell用的是外部的命令bash shell的一些默认工具，所以它经常会调用外部</description>
+    </item>
+    
+    <item>
+      <title>vim 使用快捷键</title>
+      <link>https://wzhongke.github.io/post/linux/vim%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Mon, 14 Aug 2017 18:51:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/vim%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>在我看来，vim是linux上内置的强大的文本编辑器。 基本操作 vim有三种模式：一般模式、编辑模式和命令行模式。 使用&amp;rsquo;i, I, o, O,</description>
+    </item>
+    
+    <item>
+      <title>nginx配置双向认证 并通过java访问</title>
+      <link>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81-%E5%B9%B6%E9%80%9A%E8%BF%87java%E8%AE%BF%E9%97%AE/</link>
+      <pubDate>Sun, 18 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE%E5%8F%8C%E5%90%91%E8%AE%A4%E8%AF%81-%E5%B9%B6%E9%80%9A%E8%BF%87java%E8%AE%BF%E9%97%AE/</guid>
+      <description>最近项目开发中的接口要使用双向认证，因为搭建服务器的方式是nginx+resin，而java的keytool配置nginx的双向认证时，并不</description>
+    </item>
+    
+    <item>
+      <title>linux 常用命令</title>
+      <link>https://wzhongke.github.io/post/linux/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>使用ubuntu的时候经常会把常用的一些命令忘掉或不知道有些参数的意思，又懒得看那枯燥的文档。因此记录下来备忘。 目录类 ls: 查看文件与目录 bash ls [-aAdfFhilnrRSt]</description>
+    </item>
+    
+    <item>
+      <title>linux 忘记root密码</title>
+      <link>https://wzhongke.github.io/post/linux/linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Mon, 03 Aug 2015 09:19:14 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/</guid>
+      <description>如果忘记了linux的root密码, 有两种比较通用的方式来修改 使用grub 重启系统 进入grub菜单： 在启动时，点击e进入详细设置；将光标移动</description>
+    </item>
+    
+    <item>
+      <title>linux下执行脚本出现报：syntax error: unexpected end of file</title>
+      <link>https://wzhongke.github.io/post/linux/unexpected-end-of-file/</link>
+      <pubDate>Thu, 23 Jul 2015 17:16:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/unexpected-end-of-file/</guid>
+      <description>这是因为从Windows上拷贝过去的文件，会由于Windows与linux的回车和换行表示方法不一致导致的，可以通过执行dos2unix sh</description>
+    </item>
+    
+  </channel>
+</rss>

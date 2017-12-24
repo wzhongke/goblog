@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on World of Wang</title>
+    <link>https://wzhongke.github.io/categories/javascript/</link>
+    <description>Recent content in Javascript on World of Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright@Kevin Tan</copyright>
+    <lastBuildDate>Wed, 30 Aug 2017 19:42:25 +0000</lastBuildDate>
+    
+	<atom:link href="https://wzhongke.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vuex</title>
+      <link>https://wzhongke.github.io/post/front/vuex/</link>
+      <pubDate>Wed, 30 Aug 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/vuex/</guid>
+      <description>Vuex 能做什么 Vuex将多个组件共享的状态从组件中抽离出来，，以一个全局单例的模式进行统一管理。 解决问题 - 多层嵌套组件间传参繁琐，且兄弟组件间的</description>
+    </item>
+    
+    <item>
+      <title>apply和call</title>
+      <link>https://wzhongke.github.io/post/front/apply%E5%92%8Ccall%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Sat, 17 Jun 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/apply%E5%92%8Ccall%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>JavaScript中每个函数都包含两个非继承而来的方法：apply()和call(). apply()方法接收两个参数：运行调用函数的作用域</description>
+    </item>
+    
+    <item>
+      <title>javascript 常用技巧</title>
+      <link>https://wzhongke.github.io/post/front/javascript-%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/javascript-%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>javascript在使用中有各种各样的技巧：提高执行效率，降低执行频率等。 Web Storage 的使用 Web Storage的目的是克服由cookie带来的一些限</description>
+    </item>
+    
+    <item>
+      <title>vue 学习笔记</title>
+      <link>https://wzhongke.github.io/post/front/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 21 Jan 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>属性和方法 每个vue实例都会代理其data对象的所有属性 var data = { a: 1 } var vm = new Vue({ data: data }) vm.a === data.a // -&amp;gt; true // setting the property also affects original data vm.a = 2 data.a // -&amp;gt; 2 // ... and vice-versa data.a =</description>
+    </item>
+    
+  </channel>
+</rss>

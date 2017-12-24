@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on World of Wang</title>
+    <link>https://wzhongke.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on World of Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright@Kevin Tan</copyright>
+    <lastBuildDate>Sun, 17 Sep 2017 14:20:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wzhongke.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>找出字符串最大回文</title>
+      <link>https://wzhongke.github.io/post/algorithms/%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%96%87/</link>
+      <pubDate>Sun, 17 Sep 2017 14:20:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/algorithms/%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%96%87/</guid>
+      <description>题目 给定一个字符串 s，找到s中最长的回文字符串。可以假设s的最长长度是1000。 Example1 : Input: &amp;ldquo;babad&amp;rdquo; Output: &amp;ldquo;bab&amp;rdquo; Note: &amp;ldquo;aba&amp;rdquo; 也是可以的答案 Example2 : Input: &amp;ldquo;cbbd&amp;rdquo; Output: &amp;ldquo;bb&amp;rdquo; 解法 假设前i个字符</description>
+    </item>
+    
+    <item>
+      <title>缓存算法</title>
+      <link>https://wzhongke.github.io/post/algorithms/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Fri, 30 Jun 2017 11:41:43 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/algorithms/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95/</guid>
+      <description>众所周知，内存的读取速度比硬盘类存储设备快的多。为了降低硬件设备的负载，提高响应速度，增加吞吐率，我们可以将最近使用过，并且将来还要使用的数</description>
+    </item>
+    
+    <item>
+      <title>HashMap 和 ConcurrentHashMap</title>
+      <link>https://wzhongke.github.io/post/java/concurrenthashmap/</link>
+      <pubDate>Sat, 17 Jun 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/concurrenthashmap/</guid>
+      <description>并发编程为什么使用ConcurrentHashMap HashMap并不是线程安全的，HashTable虽然是线程安全的，但是HashTabl</description>
+    </item>
+    
+    <item>
+      <title>二叉树的分层遍历</title>
+      <link>https://wzhongke.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%86%E5%B1%82%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Sat, 17 Jun 2017 19:48:32 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%88%86%E5%B1%82%E9%81%8D%E5%8E%86/</guid>
+      <description>今天去面试的时候被问到二叉树的分层遍历，因为原来写Python脚本的时候自己用队列的方法写过一次 分层遍历。结果面试官说能不能用递归的方法，不</description>
+    </item>
+    
+  </channel>
+</rss>

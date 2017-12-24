@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on World of Wang</title>
+    <link>https://wzhongke.github.io/categories/markdown/</link>
+    <description>Recent content in Markdown on World of Wang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright@Kevin Tan</copyright>
+    <lastBuildDate>Sat, 17 Jun 2017 19:42:25 +0000</lastBuildDate>
+    
+	<atom:link href="https://wzhongke.github.io/categories/markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>markdown语法</title>
+      <link>https://wzhongke.github.io/post/markdown%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/markdown%E8%AF%AD%E6%B3%95/</guid>
+      <description>斜体 *这是斜体1* _这是斜体2_ 这是斜体1 这是斜体2 粗体 **这是粗体** __这是粗体__ 这是粗体 这是粗体 带删除线 ~~删除线.~~ 删除线. 下划</description>
+    </item>
+    
+  </channel>
+</rss>

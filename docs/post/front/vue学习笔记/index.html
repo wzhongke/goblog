@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>vue 学习笔记 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/front/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-76b9ae8ca1.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"><label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/">paramiko-批量操作终端</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/">css 动画</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/xpath/">XPath 笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/">创建者模式之生成器</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/">MySQL基础语句</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/">MySQL技巧</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/">jvm调优</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/linux-server/">linux 网络常用命令</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/">java 泛型</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/front/">Front</a> <span class="breadcrumb">vue 学习笔记</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><ul><li><a href="#属性和方法">属性和方法</a></li><li><a href="#实例的生命周期">实例的生命周期</a></li><li><a href="#模板语法">模板语法</a></li><li><a href="#插值">插值</a><ul><li><a href="#文本">文本</a></li><li><a href="#纯html">纯HTML</a></li><li><a href="#属性">属性</a></li><li><a href="#使用javascript表达式">使用JavaScript表达式</a></li><li><a href="#指令">指令</a></li><li><a href="#参数-arguments">参数 arguments</a></li><li><a href="#修饰符">修饰符</a></li><li><a href="#过滤器">过滤器</a></li></ul></li><li><a href="#计算属性和监控">计算属性和监控</a><ul><li><a href="#计算属性">计算属性</a></li><li><a href="#示例">示例</a></li><li><a href="#计算属性-vs-方法">计算属性 vs 方法</a></li></ul></li><li><a href="#计算属性-vs-watched属性">计算属性 vs Watched属性</a><ul><li><a href="#计算属性的setter">计算属性的Setter</a></li></ul></li><li><a href="#watchers">Watchers</a></li></ul></li><li><a href="#class与style绑定">Class与Style绑定</a><ul><li><a href="#绑定class">绑定class</a><ul><li><a href="#对象语法">对象语法</a></li><li><a href="#数组语法">数组语法</a></li><li><a href="#用在组件上">用在组件上</a></li></ul></li><li><a href="#绑定内联样式">绑定内联样式</a><ul><li><a href="#对象语法-1">对象语法</a></li><li><a href="#自动添加前缀">自动添加前缀</a></li></ul></li></ul></li><li><a href="#条件渲染">条件渲染</a><ul><li><a href="#v-if">v-if</a></li><li><a href="#在-template-中使用-v-if-条件组">在<code>&lt;template&gt;</code>中使用<code>v-if</code>条件组</a></li><li><a href="#用-key-管理可复用的元素">用<code>key</code>管理可复用的元素</a></li><li><a href="#v-show"><code>v-show</code></a></li><li><a href="#v-if-vs-v-show"><code>v-if</code> vs <code>v-show</code></a></li></ul></li><li><a href="#列表渲染">列表渲染</a><ul><li><a href="#v-for"><code>v-for</code></a></li><li><a href="#基本用法">基本用法</a></li><li><a href="#template-v-for">Template v-for</a></li><li><a href="#对象迭代-v-for">对象迭代<code>v-for</code></a></li><li><a href="#整数迭代-v-for">整数迭代<code>v-for</code></a></li><li><a href="#组件和-v-for">组件和<code>v-for</code></a></li><li><a href="#v-for-与-v-if-一同使用"><code>v-for</code>与<code>v-if</code>一同使用</a></li><li><a href="#key">key</a></li><li><a href="#数组更新检测">数组更新检测</a><ul><li><a href="#变异方法">变异方法</a></li><li><a href="#重塑数组">重塑数组</a></li><li><a href="#注意事项">注意事项</a></li></ul></li><li><a href="#显示过滤-排序结果">显示过滤/排序结果</a></li></ul></li><li><a href="#事件处理器">事件处理器</a><ul><li><a href="#监听事件">监听事件</a></li><li><a href="#方法事件处理器">方法事件处理器</a></li><li><a href="#内联处理器方法">内联处理器方法</a></li><li><a href="#事件修饰符">事件修饰符</a></li><li><a href="#键值修饰符">键值修饰符</a></li><li><a href="#修饰健">修饰健</a></li><li><a href="#鼠标监听">鼠标监听</a></li><li><a href="#在html中监听事件的好处">在HTML中监听事件的好处</a></li></ul></li><li><a href="#表单控件绑定">表单控件绑定</a><ul><li><a href="#基础用法">基础用法</a><ul><li><a href="#文本-1">文本</a></li><li><a href="#多行文本">多行文本</a></li><li><a href="#复选框">复选框</a></li></ul></li><li><a href="#组件">组件</a></li><li><a href="#使用组件">使用组件</a><ul><li><a href="#全局注册">全局注册</a></li><li><a href="#局部注册">局部注册</a></li><li><a href="#dom-模板解析说明">DOM 模板解析说明</a></li><li><a href="#data-必须是函数"><code>data</code>必须是函数</a></li><li><a href="#构成组件">构成组件</a></li></ul></li><li><a href="#prop">prop</a><ul><li><a href="#使用prop传递数据">使用prop传递数据</a></li><li><a href="#驼峰式-vs-短划线式">驼峰式 vs 短划线式</a></li><li><a href="#动态prop">动态prop</a></li><li><a href="#单向数据流">单向数据流</a></li><li><a href="#prop-验证">prop 验证</a></li></ul></li><li><a href="#自定义事件">自定义事件</a><ul><li><a href="#使用-v-on-绑定自定义事件">使用<code>v-on</code>绑定自定义事件</a></li><li><a href="#使用自定义事件的表单输入组件">使用自定义事件的表单输入组件</a></li><li><a href="#使用slot分发内容">使用slot分发内容</a></li></ul></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">vue 学习笔记 </span><span class="card-meta"><time><span>Sat Jan 21 2017</span></time><address><a href="https://wzhongke.github.io//categories/javascript">javascript</a>&nbsp;</address></span><article class="article"><h2 id="属性和方法">属性和方法</h2><p>每个vue实例都会代理其data对象的所有属性</p><pre><code class="language-vue">var data = { a: 1 }
+var vm = new Vue({
+  data: data
+})
+vm.a === data.a // -&gt; true
+// setting the property also affects original data
+vm.a = 2
+data.a // -&gt; 2
+// ... and vice-versa
+data.a = 3
+vm.a // -&gt; 3
+</code></pre><p>在vue中只有被代理的属性才会被监控，如果在创建Vue后，再data中新添加属性，是不会被监控的，也就是更新值没有任何响应。可以通过$watch方法加入响应 。 Vue中自带一些以<code>$</code>开头的属性和方法：</p><pre><code class="language-vue">var data = { a: 1 }
+var vm = new Vue({
+  el: '#example',
+  data: data
+})
+vm.$data === data // -&gt; true
+vm.$el === document.getElementById('example') // -&gt; true
+// $watch is an instance method
+vm.$watch('a', function (newVal, oldVal) {
+  // this callback will be called when `vm.a` changes
+})
+</code></pre><h2 id="实例的生命周期">实例的生命周期</h2><p>下面的图是vue实例的整个生命周期。 <img src="http://vuejs.org/images/lifecycle.png" alt=""> 在vue实例创建的过程中，有一些hook会被调用。我们可以通过修改这些hook来执行自定义的操作。 hook有<code>created</code>, <code>mounted</code>, <code>updated</code>, <code>destroyed</code>.</p><pre><code class="language-vue">var vm = new Vue({
+  data: {
+    a: 1
+  },
+  created: function () {
+    // `this` points to the vm instance
+    console.log('a is: ' + this.a)
+  }
+})
+// -&gt; &quot;a is: 1&quot;
+</code></pre><h2 id="模板语法">模板语法</h2><p>所有的vue模板都是有效的HTML代码。Vue通过模板引擎将Vue的模板编译成虚拟DOM渲染函数。结合响应系统，Vue能够智能地找出重新渲染的最小代价，并将其重新渲染到DOM上。 如果喜欢使用原生的JavaScript，可以使用JSX语法直接写渲染函数。</p><h2 id="插值">插值</h2><h3 id="文本">文本</h3><p>数据绑定最常见的形式就是使用两个大括号（Mustache）括起来的文本形式</p><pre><code>&lt;span&gt;Message: {{msg}} &lt;/span&gt;
+</code></pre><p>括号中的msg将会被数据对象的<code>msg</code>属性替换掉。绑定的数据对象上<code>msg</code>属性发生了改变，插值处的内容都会更新。 使用<code>v-once</code>指令可以只执行一次插值，后续数据对象的<code>msg</code>属性发生变化，插值处的内容也不会更改</p><pre><code class="language-vue">&lt;span v-once&gt;This will never change: {{msg}}&lt;/span&gt;
+</code></pre><h3 id="纯html">纯HTML</h3><p>使用Mustache语法的文本数据将会被解释为纯文本，如果想要输出HTML，需要使用<code>v-html</code>指令：</p><pre><code>&lt;div v-html=&quot;rawHtml&quot;&gt;&lt;/div&gt;
+</code></pre><p>使用该方式插入的HTML数据绑定会被忽略。注意，你不能使用 v-html 来复合局部模板，因为 Vue 不是基于字符串的模板引擎。组件更适合担任 UI 重用与复合的基本单元。 &gt;动态渲染的任意 HTML 会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容插值。</p><h3 id="属性">属性</h3><p>在HTML的属性上使用<code>v-bind</code>指令，而不是Mustache</p><pre><code>&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;
+</code></pre><p>如果绑定的数据类型是boolean类型，如果值为false，该属性将会被移除</p><h3 id="使用javascript表达式">使用JavaScript表达式</h3><p>可以在Mustache中使用<strong>JavaScript表达式</strong></p><pre><code>{{number+1}}
+{{ok ? 'yes':'no}}
+{{msg.split('').reverse().join('')}}
+&lt;div v-bind:id=&quot;'list-'+id&quot;&gt;&lt;/div&gt;
+</code></pre><blockquote><p>模板表达式都被放在沙盒中，只能访问全局变量的一个白名单，如<code>Math</code>和<code>Date</code>。自定义的全局变量不能够被访问到。</p><h3 id="指令">指令</h3><p>指令是以<code>vr-</code>开头的属性，指令的属性值应该会是一个单独的JavaScript表达式。指令的功能是在其表达式的值改变时将其对应的DOM进行重新渲染</p><pre><code>&lt;p v-if=&quot;seen&quot;&gt;Now you see me&lt;/p&gt;
+</code></pre><h3 id="参数-arguments">参数 arguments</h3><p>有些指令能接收一个“参数”，在指令后以冒号指明。例如，<code>v-bind</code>指令被用来响应地更新 HTML 属性：</p><pre><code>&lt;a v-bind:href=&quot;url&quot;&gt;&lt;/a&gt;  缩写 &lt;a :href=&quot;url&quot;&gt;&lt;/a&gt;
+&lt;a v-on:click=&quot;doSomething&quot;&gt;&lt;/a&gt; 缩写 &lt;a @click=&quot;doSomething&quot;&gt;&lt;/a&gt;
+</code></pre><p>在这里href是参数，将该元素的href属性与url的值进行绑定</p><h3 id="修饰符">修饰符</h3><p>修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()</p><pre><code>&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;
+</code></pre><h3 id="过滤器">过滤器</h3><p>过滤器可以用在Mustache插值和<code>v-bind</code>表达式中，由管道符号 <code>|</code>指定。过滤器的设计目的就是为了用于文本转换，如果需要使用复杂的数据变换，应该是使用计算属性。 因为过滤器是JavaScript函数，因此可以向其传递参数。</p><pre><code>{{msg | capitalize | filterA | filterB('arg1', 'arg2' }}
+&lt;div v-bind:id=&quot;rawId | formatId&quot;&gt;&lt;/div&gt;
+
+new Vue({
+  // ...
+  filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  }
+})
+</code></pre></blockquote><h2 id="计算属性和监控">计算属性和监控</h2><h3 id="计算属性">计算属性</h3><p>在模板内使用表达式是非常方斌啊的，但是他们只能用来做简单的计算。在模板中放入太多的逻辑会让模板过重且难以维护。例如：</p><pre><code class="language-javascript">&lt;div id=&quot;example&quot;&gt;
+    {{message.split('').reverse().join('')}}
+&lt;/div&gt;
+</code></pre><p>这种情况下模板不再是直观简洁的。当你想要在模板中多次反向显示<code>message</code>的时候，问题会变得更糟糕。 因此，对于复杂逻辑，建议使用计算属性。</p><h3 id="示例">示例</h3><pre><code class="language-html">&lt;div id=&quot;example&quot;&gt;
+    &lt;p&gt;Original message: &quot;{{ message }}&quot;&lt;/p&gt;
+    &lt;p&gt;Computed reversed message: &quot;{{ reversedMessage }}&quot;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre><code class="language-javascript">var vm = new Vue({
+   el: &quot;#example&quot;,
+    data: {
+        message: &quot;hello&quot;
+    },
+    computed: {
+        reversedMessage: function () {
+            // this 指向vm实例
+            return this.message.split('').reverse().join('');
+        }
+    }
+});
+</code></pre><p>在上面的例子中，我们声明了一个计算属性<code>reversedMessage</code>，函数<code>vm.reversedMessage</code>作为属性<code>reversedMessage</code>的getter方法。 <code>vm.reversedMessage</code>的值依赖于<code>message</code>的值，当<code>message</code>发生变化时，<code>vm.reversedMessage</code>的绑定也会更新。</p><h3 id="计算属性-vs-方法">计算属性 vs 方法</h3><p>可以通过表达式调用方法来实现同样的效果。而<strong>计算属性是基于他们的依赖进行缓存的</strong>，计算属性只有在他依赖的发生改变时，才会重新求值。多次访问<code>reversedMessage</code>计算属性会立即返回之前计算的结果，而不会再重新计算。 缓存是为了避免重复计算，尤其是性能开销比较大的计算。</p><h2 id="计算属性-vs-watched属性">计算属性 vs Watched属性</h2><p>Vue 确实提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：watch 属性。当有些数据需要基于其他数据改变而改变时，可能会滥用<code>watch</code>。然而，使用计算属性比使用<code>watch</code>更好。如下例：</p><pre><code>&lt;div id=&quot;demo&quot;&gt;{{ fullName }}&lt;/div&gt;
+</code></pre><pre><code class="language-javascript">var vm1 = new Vue({
+   el: '#demo',
+    data: {
+        firstName: 'Foo',
+        lastName: 'Bar',
+        fullName: 'Foo Bar'
+    },
+    watch: {
+        firstName: function (val) {
+            this.fullName = val + ' ' + this.lastName
+        },
+        lastName: function (val) {
+            this.fullName = this.firstName + ' ' + val
+        }
+    }
+});
+</code></pre><p>上面的代码是命令式，重复的，与计算属性相比较：</p><pre><code class="language-javascript">var vm = new Vue({
+    el: '#demo',
+    data: {
+        firstName: 'Foo',
+        lastName: 'Bar'
+    },
+    computed: {
+        fullName: function () {
+            return this.firstName + ' ' + this.lastName
+        }
+    }
+})
+</code></pre><h3 id="计算属性的setter">计算属性的Setter</h3><p>计算属性默认只有getter方法，但是也可以根据需要定义setter</p><pre><code class="language-JavaScript">computed: {
+    fullName: {
+        get: function () {
+            return this.firstName + ' ' + this.lastName
+        },
+        set: function (newValue) {
+            var names = newValue.split(' ');
+            this.firstName = names[0];
+            this.lastName = names[names.length - 1]
+        }
+    }
+}
+</code></pre><p>当运行<code>vm.fullName = 'John Doe'</code>时，set方法会被调用，vm.firstName和vm.lastName的值也会更新。</p><h2 id="watchers">Watchers</h2><p>在大多数情况下，计算属性都比watch更合适。但是在执行异步操作或者开销较大时，watch更合适。</p><pre><code class="language-html">&lt;div id=&quot;watch-example&quot;&gt;
+  &lt;p&gt;
+    Ask a yes/no question:
+    &lt;input v-model=&quot;question&quot;&gt;
+  &lt;/p&gt;
+  &lt;p&gt;{{ answer }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre><code>&lt;!-- Since there is already a rich ecosystem of ajax libraries    --&gt;
+&lt;!-- and collections of general-purpose utility methods, Vue core --&gt;
+&lt;!-- is able to remain small by not reinventing them. This also   --&gt;
+&lt;!-- gives you the freedom to just use what you're familiar with. --&gt;
+&lt;script src=&quot;https://unpkg.com/axios@0.12.0/dist/axios.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/lodash@4.13.1/lodash.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'I cannot give you an answer until you ask a question!'
+  },
+  watch: {
+    // 如果 question 发生改变，这个函数就会运行
+    question: function (newQuestion) {
+      this.answer = 'Waiting for you to stop typing...'
+      this.getAnswer()
+    }
+  },
+  methods: {
+    // _.debounce 是一个通过 lodash 限制操作频率的函数。
+    // 在这个例子中，我们希望限制访问yesno.wtf/api的频率
+    // ajax请求直到用户输入完毕才会发出
+    // 学习更多关于 _.debounce function (and its cousin
+    // _.throttle), 参考: https://lodash.com/docs#debounce
+    getAnswer: _.debounce(
+      function () {
+        var vm = this
+        if (this.question.indexOf('?') === -1) {
+          vm.answer = 'Questions usually contain a question mark. ;-)'
+          return
+        }
+        vm.answer = 'Thinking...'
+        axios.get('https://yesno.wtf/api')
+          .then(function (response) {
+            vm.answer = _.capitalize(response.data.answer)
+          })
+          .catch(function (error) {
+            vm.answer = 'Error! Could not reach the API. ' + error
+          })
+      },
+      // 这是我们为用户停止输入等待的毫秒数
+      500
+    )
+  }
+})
+&lt;/script&gt;
+</code></pre><h1 id="class与style绑定">Class与Style绑定</h1><p>因为元素的class和style都是属性，所以可以使用<code>v-bind</code>处理他们。但是由于字符串拼接容易出错，因此vue对此专门进行了加强。表达式的结果类型除了字符串外，还可以是对象或数组。</p><h2 id="绑定class">绑定class</h2><h3 id="对象语法">对象语法</h3><p>可以通过传给<code>v-bind:class</code>一个对象，动态地切换class。也可以在对象中传入更多属性用来动态切换多个class，<code>v-bind:class</code>指令可以与普通的class属性共存。。</p><pre><code>&lt;div class=&quot;static&quot; v-bind:class=&quot;{ active:isActive, 'text-danger': hasError}&gt;&lt;/div&gt;
+</code></pre><p>上面的语法表示 class <code>active</code> 的更新将取决于数据属性 <code>isActive</code> 是否为真值 。 也可以绑定一个对象，也可以绑定返回对象的计算属性：</p><pre><code>&lt;div v-bind:class=&quot;classObject&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+data: {
+    isActive: true,
+    error: null
+},
+computed: {
+    classObject: function () {
+        return {
+            active: this.isActive &amp;&amp; !this.error,
+            'text-danger': this.error &amp;&amp; this.error.type === 'fatal',
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre><h3 id="数组语法">数组语法</h3><p>将一个数据传递给<code>v-bind:class</code>，以应用一个class列表</p><pre><code>&lt;div v-bind:class=&quot;[activeClass, errorClass]&quot;&gt;
+data: {
+    activeClass: 'active',
+    errorClass: 'text-danger'
+}
+</code></pre><p>渲染为：</p><pre><code>&lt;div class=&quot;active text-danger&quot;&gt;&lt;/div&gt;
+</code></pre><p>如果要根据条件切换列表中的class，可以用三元表达式：</p><pre><code>&lt;div v-bind:class=&quot;[isActive?activeClass:'', errorClass]&quot;&gt;
+</code></pre><p><code>isActive</code>为true时，才添加<code>activeClass</code> 当有多个条件时，这样写比较繁琐。可以在数组语法中使用对象语法。</p><h3 id="用在组件上">用在组件上</h3><p>在一个定制的组件上用到<code>class</code>属性的时候，这些类将被添加到根元素上，这个元素上已经存在的类不会被覆盖。</p><pre><code>Vue.component('myComponent', {
+    template: '&lt;p class=&quot;foo bar&quot;&gt;Hi&lt;/p&gt;'
+})
+</code></pre><p>然后使用该组件渲染时，添加一下class：</p><pre><code>&lt;myComponent class=&quot;baz boo&quot;&gt;&lt;/myComponent&gt;
+</code></pre><p>HTML最终将会被渲染为</p><pre><code>&lt;p class=&quot;foo bar baz boo&quot;&gt;Hi&lt;/p&gt;
+</code></pre><p>自定义组件，同样可以绑定HTML class：</p><pre><code>&lt;myComponent class=&quot;baz boo&quot; v-bind:class=&quot;{active:isActive}&quot;&gt;&lt;/myComponent&gt;
+</code></pre><h2 id="绑定内联样式">绑定内联样式</h2><h3 id="对象语法-1">对象语法</h3><p><code>v-bind:style</code>的对象语法非常像CSS，CSS属性名可以用驼峰式（camelCase）或者短横分隔符命名(kabab-case):</p><pre><code>&lt;div v-bind:style=&quot;{color:activeColor, fontSize:fontSize+'px'}&quot;&gt;&lt;/div&gt;
+</code></pre><p>也可以直接绑定一个对象</p><pre><code>&lt;div v-bind:style=&quot;styleObject&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+data:{
+    styleObject:{
+       color: 'red',
+       fontSize: '13px'
+    }
+}
+</code></pre><h3 id="自动添加前缀">自动添加前缀</h3><p>当<code>v-bind:style</code>使用的属性需要添加特定前缀时，如<code>transform</code>，Vue会自动添加</p><h1 id="条件渲染">条件渲染</h1><h2 id="v-if">v-if</h2><p>可以使用<code>v-if</code>来判断是否展示某个元素，当然也可以组合<code>v-else</code>，<code>v-else</code>元素必须紧跟在<code>v-if</code>或者<code>v-else-if</code>后边</p><pre><code>div v-if=&quot;type === 'A'&quot;&gt;A&lt;/div&gt;
+&lt;div v-else-if=&quot;type === 'B'&quot;&gt;B&lt;/div&gt;
+&lt;div v-else&gt;Not A/B&lt;/div&gt;
+</code></pre><h2 id="在-template-中使用-v-if-条件组">在<code>&lt;template&gt;</code>中使用<code>v-if</code>条件组</h2><p>如果想要切换多个元素，可以使用<code>&lt;v-template&gt;</code>元素来包装元素，并在上边使用<code>v-if</code>，最终渲染的HTML并不会包含<code>&lt;template&gt;</code></p><pre><code>&lt;template v-if=&quot;ok&quot;&gt;
+   &lt;h1&gt;Title&lt;/h1&gt;
+   &lt;p&gt;Paragraph 1&lt;/p&gt;
+&lt;/tempalte&gt;
+</code></pre><h2 id="用-key-管理可复用的元素">用<code>key</code>管理可复用的元素</h2><p>Vue会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。例如，允许用户在不同的登录方式之间切换</p><pre><code>&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
+  &lt;label&gt;Username&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your username&quot;&gt;
+&lt;/template&gt;
+&lt;template v-else&gt;
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your email address&quot;&gt;
+&lt;/template&gt;
+</code></pre><p>在上面两个切换时，不会清除用户已经输入的内容，两个模板使用了相同的元素，<code>&lt;input&gt;</code>不会被替换，只是替换了它的<code>placehoder</code>. 如果这样不符合实际需求，可以使用<code>key</code>属性来表明元素不要复用</p><pre><code>&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
+  &lt;label&gt;Username&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your username&quot; key=&quot;username-input&quot;&gt;
+&lt;/template&gt;
+&lt;template v-else&gt;
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;
+&lt;/template&gt;
+</code></pre><h2 id="v-show"><code>v-show</code></h2><p><code>v-show</code>也会根据条件展示元素：</p><pre><code>&lt;h1 v-show=&quot;ok&quot;&gt;Hello!&lt;/h1&gt;
+</code></pre><p>不同的是，<code>v-show</code>的元素会始终保留在渲染的DOM中。该指令只是简单地切换元素的CSS属性<code>display</code>，它不支持<code>&lt;template&gt;</code>语法</p><h2 id="v-if-vs-v-show"><code>v-if</code> vs <code>v-show</code></h2><p><code>v-if</code> 是“真正的”条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。 <code>v-if</code>也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。 相比之下，<code>v-show</code>就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。 一般来说，<code>v-if</code>有更高的切换开销，而<code>v-show</code>有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用<code>v-show</code>较好；如果在运行时条件不太可能改变，则使用<code>v-if</code>较好。</p><h1 id="列表渲染">列表渲染</h1><h2 id="v-for"><code>v-for</code></h2><p>用<code>v-for</code>指令根据一组数组的选项列表进行渲染，<code>v-for</code>指令需要以<code>item in items</code>形式的特殊语法，<code>items</code>是源数据数组并且<code>item</code>是数组元素迭代的别名。</p><h2 id="基本用法">基本用法</h2><p>在<code>v-for</code>块中，对副作用域属性具有完全访问权限，<code>v-for</code>还支持一个可选的第二个参数作为索引。 可以用<code>of</code> 代替<code>in</code>.</p><pre><code>&lt;ul id=&quot;list_1&quot;&gt;
+    &lt;li v-for=&quot;(item,index) in/of items&quot;&gt;
+       {{ index }}. {{ item.message }}
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>其中数据为：</p><pre><code>var list_1 = new Vue({
+    el: '#list_1',
+    data: {
+        items: [
+            {message: 'Foo' },
+            {message: 'Bar' }
+        ]
+    }
+});
+</code></pre><h2 id="template-v-for">Template v-for</h2><p>可以在<template>标签中使用<code>v-for</code>来渲染多个模块。</template></p><pre><code>&lt;ul&gt;
+    &lt;template v-for=&quot;item in items&quot;&gt;
+        &lt;li&gt;{{item.message}}&lt;/li&gt;
+        &lt;li&gt;other info&lt;/li&gt;
+    &lt;/template&gt;
+&lt;/ul&gt;
+</code></pre><h2 id="对象迭代-v-for">对象迭代<code>v-for</code></h2><p>可以用<code>v-for</code>来迭代一个对象的属性。</p><pre><code>&lt;ul id=&quot;repeat-object&quot; class=&quot;demo&quot;&gt;
+&lt;div v-for=&quot;(value, key, index) in object&quot;&gt;
+  {{ index }}. {{ key }} : {{ value }}
+&lt;/div&gt;
+&lt;/ul&gt;
+</code></pre><pre><code>var object = new Vue({
+  el: '#repeat-object',
+  data: {
+    object: {
+      FirstName: 'John',
+      LastName: 'Doe',
+      Age: 30
+    }
+  }
+})
+</code></pre><blockquote><p>注意：使用<code>v-for</code>迭代数据或者对象属性时，修改属性时，可以这样： <code>list_1.items.push({message:'data'});</code>类型要与items中的类型一致。</p><h2 id="整数迭代-v-for">整数迭代<code>v-for</code></h2><pre><code>&lt;div&gt;
+  &lt;span v-for=&quot;n in 10&quot;&gt;{{ n }}&lt;/span&gt;
+&lt;/div&gt;
+</code></pre><p>上面的例子是从1开始的。</p><h2 id="组件和-v-for">组件和<code>v-for</code></h2><p>在自定义组件里，可以像使用任何普通元素一样使用<code>v-for</code>。组件中使用<code>v-for</code>不能自动将数据传递到数组里，因为组件有自己的作用域。为了传递数据到组件，需要用到<code>props</code>:</p><pre><code>&lt;myComponent v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;&lt;/myComponent&gt;
+&lt;myComponent
+  v-for=&quot;(item, index) in items&quot;
+  v-bind:item=&quot;item&quot;
+  v-bind:index=&quot;index&quot;
+  v-bind:key=&quot;item.id&quot;&gt;
+&lt;/myComponent&gt;
+</code></pre><p>下边是一个完整的例子：</p><pre><code>&lt;div id=&quot;todo-list-example&quot;&gt;
+  &lt;input
+    v-model=&quot;newTodoText&quot;
+    v-on:keyup.enter=&quot;addNewTodo&quot;
+    placeholder=&quot;Add a todo&quot;
+  &gt;
+  &lt;ul&gt;
+    &lt;li
+      is=&quot;todo-item&quot;
+      v-for=&quot;(todo, index) in todos&quot;
+      v-bind:title=&quot;todo&quot;
+      v-on:remove=&quot;todos.splice(index, 1)&quot;
+    &gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.component('todo-item', {
+  template: `
+    &lt;li&gt;
+      {{ title }}
+      &lt;button v-on:click=&quot;$emit('remove')&quot;&gt;X&lt;/button&gt;
+    &lt;/li&gt;
+  `,
+  props: ['title']
+});
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      'Do the dishes',
+      'Take out the trash',
+      'Mow the lawn'
+    ]
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push(this.newTodoText)
+      this.newTodoText = ''
+    }
+  }
+});
+&lt;/script&gt;
+</code></pre><h2 id="v-for-与-v-if-一同使用"><code>v-for</code>与<code>v-if</code>一同使用</h2><p>当这两个指令在同一个节点时，<code>v-for</code>的优先级比<code>v-if</code>高。在每个<code>v-for</code>循环中，<code>v-if</code>都会运行。</p><pre><code>&lt;li v-for=&quot;todo in todos&quot; v-if=&quot;!todo.isComplete&quot;&gt;{{todo}}&lt;/li&gt;
+</code></pre><p>上边的代码只展示了isComplete为false的值。 如果想根据条件判断是否执行循环，可以用<code>&lt;template&gt;</code>包裹元素<code>v-if</code>:</p><pre><code>&lt;ul v-if=&quot;shouldRenderTodos&quot;&gt;
+  &lt;li v-for=&quot;todo in todos&quot;&gt;
+    {{ todo }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h2 id="key">key</h2><p><code>v-for</code>在更新已渲染过的元素列表时，它默认用“就地复用”的策略。如果数据项的顺序被改变，Vue不移动DOM元素来匹配数据顺序，而是简单复用每个元素，并确保它在特定索引下显示已经被渲染过的每个元素。 这个默认的模式是有效的，但是只适用于不依赖子组件状态或临时 DOM 状态（例如：表单输入值）的列表渲染输出。 为了能够跟踪每个节点，从而能重用和重排序现有元素，需要为每项提供一个唯一<code>key</code>属性。每个<code>key</code>值都有唯一id</p><pre><code>&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;
+  &lt;!-- 内容 --&gt;
+&lt;/div&gt;
+</code></pre><h2 id="数组更新检测">数组更新检测</h2><h3 id="变异方法">变异方法</h3><p>Vue包含一组观察数组的变异方法，他们也会触发视图更新： - <code>push()</code> - <code>pop()</code> - <code>shift()</code> - <code>unshift()</code> - <code>splice()</code> - <code>sort()</code> - <code>reverse()</code></p><h3 id="重塑数组">重塑数组</h3><p>如果不是变异方法，那么不会触发视图更新，可以用新数组替换旧数组。Vue采用了一些智能启发式方式来最大化DOM元素重用，所以替换是一个相对高效的方式：</p><pre><code>example1.items = example1.items.filter(function (item) {
+  return item.message.match(/Foo/)
+})
+</code></pre><h3 id="注意事项">注意事项</h3><p>由于 JavaScript 的限制， Vue 不能检测以下变动的数组： 1. 利用索引直接设置一个项时，例如：<code>vm.items[indexOfItem] = newValue</code> 2. 修改数组的长度时，例如：<code>vm.items.length = newLength</code> 对于第一类问题，可以用一下方法触发更新：</p><pre><code>// Vue.set
+Vue.set(example1.items, indexOfItem, newValue)
+// Array.prototype.splice 变异方法
+example1.items.splice(indexOfItem, 1, newValue)
+</code></pre><p>对于第二类问题，可以使用<code>splice</code></p><pre><code>example1.items.splice(newLength)
+</code></pre></blockquote><h2 id="显示过滤-排序结果">显示过滤/排序结果</h2><p>若果要显示一个数组的过滤或排序副本，而不实际改变或重置原始数据。在这种情况下，可以创建返回过滤或排序数组的计算属性。</p><pre><code>&lt;li v-for=&quot;n in evenNumbers&quot;&gt;{{ n }}&lt;/li&gt;
+&lt;script&gt;
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+computed: {
+  evenNumbers: function () {
+    return this.numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+&lt;/script&gt;
+</code></pre><p>若计算属性不使用，例如： 在嵌套<code>v-for</code>循环中，可以使用method方法</p><pre><code>&lt;li v-for=&quot;n in even(numbers)&quot;&gt;{{ n }}&lt;/li&gt;
+&lt;script&gt;
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+methods: {
+  even: function (numbers) {
+    return numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+&lt;/script&gt;
+</code></pre><h1 id="事件处理器">事件处理器</h1><h2 id="监听事件">监听事件</h2><p>可以用<code>v-on</code>指令监听DOM事件来触发事件：</p><pre><code>&lt;div id=&quot;example-1&quot;&gt;
+  &lt;button v-on:click=&quot;counter += 1&quot;&gt;增加 1&lt;/button&gt;
+  &lt;p&gt;这个按钮被点击了 {{ counter }} 次。&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
+  }
+})
+&lt;/script&gt;
+</code></pre><h2 id="方法事件处理器">方法事件处理器</h2><p>对于复杂的事件处理逻辑，可以使用<code>v-on</code>来接收一个方法调用。</p><pre><code>&lt;div id=&quot;example-2&quot;&gt;
+  &lt;!-- `greet` 是在下面定义的方法名 --&gt;
+  &lt;button v-on:click=&quot;greet&quot;&gt;Greet&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  // 在 `methods` 对象中定义方法
+  methods: {
+    greet: function (event) {
+      // `this` 在方法里指当前 Vue 实例
+      alert('Hello ' + this.name + '!')
+      // `event` 是原生 DOM 事件
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+&lt;/script&gt;
+</code></pre><h2 id="内联处理器方法">内联处理器方法</h2><p>除了直接绑定到一个方法，也可以用内联的JavaScript语句，如果庶在内联语句中范文原生DOM事件event，可以将特殊变量<code>$event</code>传入方法中：</p><pre><code>&lt;div id=&quot;example-3&quot;&gt;
+  &lt;button v-on:click=&quot;say('hi')&quot;&gt;Say hi&lt;/button&gt;
+  &lt;button v-on:click=&quot;say('what', $event)&quot;&gt;Say what&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+new Vue({
+  el: '#example-3',
+  methods: {
+    say: function (message, event) {
+      if (event) event.preventDefault();
+      alert(message);
+    }
+  }
+})
+&lt;/script&gt;
+</code></pre><h2 id="事件修饰符">事件修饰符</h2><p>可以通过<code>v-on</code>的事件修饰符来调用<code>event.preventDefault()</code> 或 <code>event.stopPropagation()</code>: - <code>.stop</code> - <code>.prevent</code> - <code>.capture</code> - <code>.self</code> - <code>.once</code></p><pre><code>&lt;!-- 阻止单击事件冒泡 --&gt;
+&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;
+&lt;!-- 提交事件不再重载页面 --&gt;
+&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;
+&lt;!-- 修饰符可以串联  --&gt;
+&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;
+&lt;!-- 只有修饰符 --&gt;
+&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+&lt;!-- 添加事件侦听器时使用事件捕获模式 --&gt;
+&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;
+&lt;!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 --&gt;
+&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;
+&lt;!-- 点击事件将只会触发一次（2.1.4新增） --&gt;
+&lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;
+</code></pre><p><strong>使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。用 @click.prevent.self 会阻止所有的点击，而 @click.self.prevent 只会阻止元素上的点击。</strong></p><h2 id="键值修饰符">键值修饰符</h2><p>在监听键盘事件时，经常需要监测常见的键值。Vue中可以用<code>v-on</code>来监听键盘事件.</p><pre><code>&lt;!-- 只有在 keyCode 是 13 时调用 vm.submit() --&gt;
+&lt;input v-on:keyup.13=&quot;submit&quot;&gt;
+&lt;!-- 同上 --&gt;
+&lt;input v-on:keyup.enter=&quot;submit&quot;&gt;
+&lt;!-- 缩写语法 --&gt;
+&lt;input @keyup.enter=&quot;submit&quot;&gt;
+</code></pre><p>全部的按键别名： - <code>.enter</code> - <code>.tab</code> - <code>.delete</code> - <code>.esc</code> - <code>.space</code> - <code>.up</code> - <code>.down</code> - <code>.left</code> - <code>.right</code> 除此之外，还可以用<code>config.keyCodes</code>对象[自定义键值修饰符别名](&ldquo;<a href="https://cn.vuejs.org/v2/api/#keyCodes&quot;">https://cn.vuejs.org/v2/api/#keyCodes&quot;</a>)</p><pre><code>// 可以使用 v-on:keyup.f1
+Vue.config.keyCodes.f1 = 112
+</code></pre><h2 id="修饰健">修饰健</h2><p>在2.1.0中，新增了鼠标和辅助健的监听事件 - <code>.ctrl</code> - <code>.alt</code> - <code>.shift</code> - <code>.meta</code></p><pre><code>&lt;!-- Alt + C --&gt;
+&lt;input @keyup.alt.67=&quot;clear&quot;&gt;
+&lt;!-- Ctrl + Click --&gt;
+&lt;div @click.ctrl=&quot;doSomething&quot;&gt;Do something&lt;/div&gt;
+</code></pre><p>修饰键比正常的按键不同；修饰键和 keyup 事件一起用时，事件引发时必须按下正常的按键。换一种说法：如果要引发 keyup.ctrl，必须按下 ctrl 时释放其他的按键；单单释放 ctrl 不会引发事件。</p><h2 id="鼠标监听">鼠标监听</h2><p>在2.1.0中，可以监听鼠标的按键 - <code>.left</code> - <code>.right</code> - <code>.middle</code></p><h2 id="在html中监听事件的好处">在HTML中监听事件的好处</h2><p>你可能注意到这种事件监听的方式违背了关注点分离（separation of concern）传统理念。不必担心，因为所有的 Vue.js 事件处理方法和表达式都严格绑定在当前视图的 ViewModel 上，它不会导致任何维护上的困难。实际上，使用 v-on 有几个好处： 1. 扫一眼 HTML 模板便能轻松定位在 JavaScript 代码里对应的方法。 2. 因为你无须在 JavaScript 里手动绑定事件，你的 ViewModel 代码可以是非常纯粹的逻辑，和 DOM 完全解耦，更易于测试。 3. 当一个 ViewModel 被销毁时，所有的事件处理器都会自动被删除。你无须担心如何自己清理它们。</p><h1 id="表单控件绑定">表单控件绑定</h1><h2 id="基础用法">基础用法</h2><p><code>v-model</code>指令可以在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。它是负责监听用户的输入事件以更新数据，并特别处理一些极端的例子的语法糖。 <strong>对于要求 IME （如中文、 日语、 韩语等） 的语言，你会发现那v-model不会在 ime 构成中得到更新。如果你也想实现更新，请使用 input事件。</strong></p><h3 id="文本-1">文本</h3><pre><code>&lt;input v-model=&quot;message&quot; placeholder=&quot;edit me&quot;&gt;
+&lt;p&gt;Message is: {{ message }}&lt;/p&gt;
+</code></pre><h3 id="多行文本">多行文本</h3><pre><code>&lt;span&gt;Multiline message is:&lt;/span&gt;
+&lt;p style=&quot;white-space: pre&quot;&gt;{{ message }}&lt;/p&gt;
+&lt;br&gt;
+&lt;textarea v-model=&quot;message&quot; placeholder=&quot;add multiple lines&quot;&gt;&lt;/textarea&gt;
+</code></pre><p><strong>在文本区域插值(<textarea></textarea>) 并不会生效，应用 v-model 来代替</strong></p><h3 id="复选框">复选框</h3><p>单个勾选框，逻辑值</p><pre><code>&lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot; v-model=&quot;checked&quot;&gt;
+&lt;label for=&quot;checkbox&quot;&gt;{{ checked }}&lt;/label&gt;
+</code></pre><p>多个勾选框，绑定到同一个数组</p><pre><code>&lt;input type=&quot;checkbox&quot; id=&quot;jack&quot; value=&quot;Jack&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;jack&quot;&gt;Jack&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;john&quot; value=&quot;John&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;john&quot;&gt;John&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;mike&quot; value=&quot;Mike&quot; v-model=&quot;checkedNames&quot;&gt;
+&lt;label for=&quot;mike&quot;&gt;Mike&lt;/label&gt;
+&lt;br&gt;
+&lt;span&gt;Checked names: {{ checkedNames }}&lt;/span&gt;
+&lt;script&gt;
+new Vue({
+  el: '...',
+  data: {
+    checkedNames: []
+  }
+})
+&lt;/script&gt;
+</code></pre><p><strong>[其他表单情况](&ldquo;<a href="https://cn.vuejs.org/v2/guide/forms.html&quot;">https://cn.vuejs.org/v2/guide/forms.html&quot;</a>)</strong></p><h2 id="组件">组件</h2><p>组件（Component）是Vue.js最强大的功能之一。组件可以扩展HTML元素，封装可重用的代码。组件是自定义的元素，Vue.js编译器为它添加特殊功能。在有些情况下，组件也可以是原生HTML元素的形式，以is特性扩展。</p><h2 id="使用组件">使用组件</h2><h3 id="全局注册">全局注册</h3><p>要注册一个全局组件，可以使用<code>Vue.component(tagName, options)</code>。</p><pre><code>Vue.component('my-component', {
+  // 选项
+})
+</code></pre><p>组件在注册后，便可以在父实例的模块中自定义元素。<strong>要保证在初始化根实例之前注册了组件</strong></p><pre><code>&lt;div id=&quot;example&quot;&gt;
+  &lt;my-component&gt;&lt;/my-component&gt;
+&lt;/div&gt;
+&lt;script&gt;
+// 注册
+Vue.component('my-component', {
+  template: '&lt;div&gt;A custom component!&lt;/div&gt;'
+})
+// 创建根实例
+new Vue({
+  el: '#example'
+})
+&lt;/script&gt;
+</code></pre><h3 id="局部注册">局部注册</h3><p>没有必要所有的组件都注册在全局中，可以通过使用组件实例选项注册，可以使组件仅在另一个实例/组件的作用域中可用。这种封装也适用于其它可注册的 Vue 功能，如指令。</p><pre><code>var Child = {
+  template: '&lt;div&gt;A custom component!&lt;/div&gt;'
+}
+new Vue({
+  // ...
+  components: {
+    // &lt;my-component&gt; 将只在父模板可用
+    'my-component': Child
+  }
+})
+</code></pre><h3 id="dom-模板解析说明">DOM 模板解析说明</h3><p>使用DOM作为模板时，会受到HTML的一些限制。因为Vue只要在浏览器解析和标准化HTML之后才能获取模板内容。尤其是<code>&lt;ul&gt;, &lt;ol&gt;, &lt;table&gt;, &lt;select&gt;</code>限制了能被它包裹的元素。 在自定义组件中使用这些首限制的元素时会导致一些问题：</p><pre><code>&lt;table&gt;
+    &lt;my-row&gt;...&lt;/my-row&gt;
+&lt;/table&gt;
+</code></pre><p>自定义组件<code>&lt;my-row&gt;</code>被认为是无效的内容，在渲染的时候会出现问题。可以用下面的方法来绕过HTML的限制</p><pre><code>&lt;table&gt;
+  &lt;tr is=&quot;my-row&quot;&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><h3 id="data-必须是函数"><code>data</code>必须是函数</h3><p>通过Vue构造器传入的各种选项大多数可以在组件里用。<code>data</code>是一个例外，他必须是函数。</p><pre><code>Vue.component('my-component', {
+  template: '&lt;span&gt;{{ message }}&lt;/span&gt;',
+  data: {
+    message: 'hello'
+  }
+})
+</code></pre><p>在上述代码中，Vue会停止运行，并在控制台报警。可以通过以下方式绕开Vue的警告</p><pre><code>&lt;div id=&quot;example-2&quot;&gt;
+  &lt;simple-counter&gt;&lt;/simple-counter&gt;
+  &lt;simple-counter&gt;&lt;/simple-counter&gt;
+  &lt;simple-counter&gt;&lt;/simple-counter&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var data = { counter: 0 }
+Vue.component('simple-counter', {
+  template: '&lt;button v-on:click=&quot;counter += 1&quot;&gt;{{ counter }}&lt;/button&gt;',
+  // 技术上 data 的确是一个函数了，因此 Vue 不会警告，
+  // 但是我们返回给每个组件的实例的却引用了同一个data对象
+  data: function () {
+    return data
+  }
+})
+new Vue({
+  el: '#example-2'
+})
+&lt;/script&gt;
+</code></pre><p>由于这三个组件共享了同一个<code>data</code>，因此增加一个counter会影响所有的组件。</p><h3 id="构成组件">构成组件</h3><p>组件意味着协同工作，组件之间需要通讯。在Vue中，父子组件的关系可以总结为props down，eventsup。父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。 <img src="https://cn.vuejs.org/images/props-events.png" alt="Alt text"></p><h2 id="prop">prop</h2><h3 id="使用prop传递数据">使用prop传递数据</h3><p>组件实例的作用域是孤立的，这意味着不能(也不应该)在子组件的模板内直接引用父组件的数据。要让子组件使用父组件的数据，我们需要通过子组件的props选项。 子组件要显示地用<code>props</code>选项声明它期待获取的数据。</p><pre><code>&lt;child message=&quot;hello!&quot;&gt;&lt;/child&gt;
+&lt;script&gt;
+Vue.component('child', {
+  // 声明 props
+  props: ['message'],
+  // 就像 data 一样，prop 可以用在模板内
+  // 同样也可以在 vm 实例中像 “this.message” 这样使用
+  template: '&lt;span&gt;{{ message }}&lt;/span&gt;'
+})
+&lt;/script&gt;
+</code></pre><h3 id="驼峰式-vs-短划线式">驼峰式 vs 短划线式</h3><p>HTML特性是不区分大小写。所以，当不使用字符串模板，驼峰式命名的prop需要转换为相应的短划线式命名：</p><pre><code>&lt;!-- kebab-case in HTML --&gt;
+&lt;child my-message=&quot;hello!&quot;&gt;&lt;/child&gt;
+&lt;script&gt;
+Vue.component('child', {
+  // camelCase in JavaScript
+  props: ['myMessage'],
+  template: '&lt;span&gt;{{ myMessage }}&lt;/span&gt;'
+})
+&lt;/script&gt;
+</code></pre><h3 id="动态prop">动态prop</h3><p>在模板中，要动态绑定父组件的数据到子模板的props，与绑定到任何普通的HTML特性相似，用<code>v-bind</code>。当父组件的数据变化时，该变化也会传导给子组件：</p><pre><code>&lt;div&gt;
+  &lt;input v-model=&quot;parentMsg&quot;&gt;
+  &lt;br&gt;
+  &lt;child v-bind:my-message=&quot;parentMsg&quot;&gt;&lt;/child&gt;
+&lt;/div&gt;
+</code></pre><h3 id="单向数据流">单向数据流</h3><p>prop是单向绑定的：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件修改父组件的状态。 另外，<strong>每次父组件更新时，子组件的所有<code>prop</code>都会更新为最新值。这意味着你不应该在子组件内部改变<code>prop</code></strong>。 1. 定义一个局部变量，并用 prop 的值初始化它：</p><pre><code>props: ['initialCounter'],
+data: function () {
+  return { counter: this.initialCounter }
+}
+</code></pre><ol><li><p>定义一个计算属性，处理 prop 的值并返回。</p><pre><code>props: ['size'],
+computed: {
+normalizedSize: function () {
+return this.size.trim().toLowerCase()
+}
+}
+</code></pre><h3 id="prop-验证">prop 验证</h3><p>可以为组件的props指定验证规格，如果传入的数据不符合规格，Vue会发出警告。 要指定验证规格，需要用对象的形式，而不是字符串数组。</p><pre><code>Vue.component('example', {
+props: {
+// 基础类型检测 （`null` 意思是任何类型都可以）
+propA: Number,
+// 多种类型
+propB: [String, Number],
+// 必传且是字符串
+propC: {
+  type: String,
+  required: true
+},
+// 数字，有默认值
+propD: {
+  type: Number,
+  default: 100
+},
+// 数组／对象的默认值应当由一个工厂函数返回
+propE: {
+  type: Object,
+  default: function () {
+    return { message: 'hello' }
+  }
+},
+// 自定义验证函数
+propF: {
+  validator: function (value) {
+    return value &gt; 10
+  }
+}
+}
+})
+</code></pre><p><code>type</code>可用的原生构造器有： String, Number, Boolean, Fucntion, Object, Array， <code>type</code>也可以是一个自定义构造函数，使用<code>instanceof</code>检测</p><h2 id="自定义事件">自定义事件</h2><p>使用自定义事件将数据从子组件传递到父组件。绑定的事件是父组件的methods方法</p><h3 id="使用-v-on-绑定自定义事件">使用<code>v-on</code>绑定自定义事件</h3></li><li><p>使用<code>$on(eventName)</code>监听事件</p></li><li><p>使用<code>$emit(eventName)</code> 触发事件</p><pre><code>&lt;div id=&quot;counter-event-example&quot;&gt;
+&lt;p&gt;{{ total }}&lt;/p&gt;
+&lt;button-counter v-on:increment=&quot;incrementTotal&quot;&gt;&lt;/button-counter&gt;
+&lt;button-counter v-on:increment=&quot;incrementTotal&quot;&gt;&lt;/button-counter&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.component('button-counter', {
+template: '&lt;button v-on:click=&quot;increment&quot;&gt;{{ counter }}&lt;/button&gt;',
+data: function () {
+return {
+  counter: 0
+}
+},
+methods: {
+increment: function () {
+  this.counter += 1
+  this.$emit('increment')
+}
+},
+})
+new Vue({   // 父组件
+el: '#counter-event-example',
+data: {
+total: 0
+},
+methods: {
+incrementTotal: function () {
+  this.total += 1
+}
+}
+})
+&lt;/script&gt;
+</code></pre><p>可以使用<code>.native</code>修饰<code>v-on</code>来在某个组件的根元素上监听一个原生事件。</p><pre><code>&lt;my-component v-on:click.native=&quot;doTheThing&quot;&gt;&lt;/my-component&gt;
+</code></pre><h3 id="使用自定义事件的表单输入组件">使用自定义事件的表单输入组件</h3><p>自定义事件可以用来创建自定义的表单输入组件，使用<code>v-model</code>来进行数据双向绑定.</p><pre><code>&lt;input v-model=&quot;something&quot;&gt;
+</code></pre><p>可以看做是以下实例的语法糖：</p><pre><code>&lt;input v-bind:value=&quot;something&quot; v-on:input=&quot;something = $event.target.value&quot;&gt;
+</code></pre><p>所以要让组件的<code>v-model</code>生效，它必须：</p></li><li><p>接收一个<code>value</code>属性</p></li><li><p>在有新的value时触发<code>input</code>事件 ```</p><div id="app"><currency-input label="Price" v-model="price"></currency-input><currency-input label="Shipping" v-model="shipping"></currency-input><currency-input label="Handling" v-model="handling"></currency-input><currency-input label="Discount" v-model="discount"></currency-input><p></p></div></li></ol><p></p><p>Total: ${{ total }}</p></article></div><p></p><pre><code></code></pre><p>Vue.component(&lsquo;currency-input&rsquo;, { template: &lsquo;<br></p><div><br><label v-if="label">{{ label }}</label><br>$<br><input \ ref="input" \ v-bind:value="value" \ v-on:input="updateValue($event.target.value)" \ v-on:focus="selectAll" \ v-on:blur="formatValue" \><br></div><br>&lsquo;, props: { value: { type: Number, default: 0 }, label: { type: String, default: &ldquo; } }, mounted: function () { this.formatValue() }, methods: { updateValue: function (value) { var result = currencyValidator.parse(value, this.value) if (result.warning) { this.$refs.input.value = result.value } this.$emit(&lsquo;input&rsquo;, result.value) }, formatValue: function () { this.$refs.input.value = currencyValidator.format(this.value) }, selectAll: function (event) { // Workaround for Safari bug // <a href="http://stackoverflow.com/questions/1269722/selecting-text-on-focus-using-jquery-not-working-in-safari-and-chrome">http://stackoverflow.com/questions/1269722/selecting-text-on-focus-using-jquery-not-working-in-safari-and-chrome</a> setTimeout(function () { event.target.select() }, 0) } } })<p></p><p>new Vue({ el: &lsquo;#app&rsquo;, data: { price: 0, shipping: 0, handling: 0, discount: 0 }, computed: { total: function () { return (( this.price * 100 + this.shipping * 100 + this.handling * 100 - this.discount * 100 ) / 100).toFixed(2) } } })</p><pre><code>### 非父子组件通信
+如果两个组件不是父子关系，可以使用一个空的Vue实例作为中间通信。在复杂的情况下，我们应该考虑使用专门的 状态管理模式.
+</code></pre><p>var bus = new Vue(); / 触发组件 A 中的事件 bus.$emit(&lsquo;id-selected&rsquo;, 1) // 在组件 B 创建的钩子中监听事件 bus.$on(&lsquo;id-selected&rsquo;, function (id) { // &hellip; }) ```</p><h3 id="使用slot分发内容">使用slot分发内容</h3></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/javascript">#javascript</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/linux/linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/" rel="prev">linux 忘记root密码</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/python/python3-%E5%AE%89%E8%A3%85protobuf%E6%A8%A1%E5%9D%97/" rel="next">python3 安装protobuf模块</a></span></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-80e85b24c7.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-9350854994277981",
+		enable_page_level_ads: true
+	});</script></body></html>

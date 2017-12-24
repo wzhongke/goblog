@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>java 泛型 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-76b9ae8ca1.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"><label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/">paramiko-批量操作终端</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/">css 动画</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/xpath/">XPath 笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/">创建者模式之生成器</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/">MySQL基础语句</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/">MySQL技巧</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/">jvm调优</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/linux-server/">linux 网络常用命令</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/">java 泛型</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/java/">Java</a> <span class="breadcrumb">java 泛型</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><ul><li><a href="#定义泛型类">定义泛型类</a></li><li><a href="#定义泛型方法">定义泛型方法</a></li><li><a href="#泛型代码和java虚拟机">泛型代码和java虚拟机</a><ul><li><a href="#类型擦除">类型擦除</a></li><li><a href="#泛型表达式的擦除ty">泛型表达式的擦除TY</a></li><li><a href="#泛型方法的擦除">泛型方法的擦除</a></li></ul></li><li><a href="#使用泛型的限制">使用泛型的限制</a><ul><li><a href="#类型参数不能是原始类型">类型参数不能是原始类型</a></li><li><a href="#运行时类型查询仅适用于原始类型">运行时类型查询仅适用于原始类型</a></li><li><a href="#不能创建泛型类型的数组">不能创建泛型类型的数组</a></li><li><a href="#可使用可变参方法">可使用可变参方法</a></li><li><a href="#不能实例化泛型变量">不能实例化泛型变量</a></li><li><a href="#泛型类的静态变量或方法中不能使用类型变量">泛型类的静态变量或方法中不能使用类型变量</a></li><li><a href="#不能抛出或者捕获泛型类的实例">不能抛出或者捕获泛型类的实例</a></li><li><a href="#注意类型擦除后方法相同签名">注意类型擦除后方法相同签名</a></li></ul></li><li><a href="#泛型类中的继承规则">泛型类中的继承规则</a></li><li><a href="#通配符类型">通配符类型</a><ul><li><a href="#通配符类型的上界限">通配符类型的上界限</a></li><li><a href="#无界限通配符">无界限通配符</a></li><li><a href="#通配符捕获">通配符捕获</a></li></ul></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">java 泛型 </span><span class="card-meta"><time><span>Sun Sep 17 2017</span></time><address><a href="https://wzhongke.github.io//categories/java">java</a>&nbsp;</address></span><article class="article"><p>在java中使用泛型，可以避免使用<code>Object</code>或者强制类型转换。泛型最适用于集合类，比如<code>List</code>。 使用泛型编写代码增加了其可复用性，可以被许多不同类型的对象使用。举例来说，不想对<code>String</code>和<code>File</code>的集合分别编程，可以使用<code>ArrayList</code>来处理各种类型的集合。</p><p>使用泛型编程有三种技术层次： 1. 只知道如何使用泛型，而不知道它们为什么可以这么使用； 2. 当在使用泛型的过程中，遇到一些不能解决的问题，就需要了解泛型的具体使用法则； 3. 可以自己实现泛型和其方法。</p><p><strong>只有那些涉及到很多类型的通用代码，才适合用泛型来处理</strong>。</p><h2 id="定义泛型类">定义泛型类</h2><p>泛型类是含有一个或多个类型变量（如下例中<code>T</code>）的类。</p><pre><code class="language-java">public class Pair&lt;T&gt; {
+    private T first;
+    private T second;
+
+    public Pair(T first, T second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public T getFirst () {return this.first;}
+    public T getSecond () {return this.second;}
+    public void setFirst(T newValue) { first = newValue; }
+    public void setSecond(T newValue) { second = newValue; }
+}
+</code></pre><p>当然了，我们可以定义多个类型变量，像 <code>Pair&lt;T,U&gt;</code>。</p><h2 id="定义泛型方法">定义泛型方法</h2><p>可以在方法上中使用类型参数，该方法即可以在泛型类中定义，也可以在普通类中定义。其中<code>T</code>是在修饰符(<code>public static</code>)后，在返回类型前。</p><pre><code class="language-java">class ArrayAlg {
+    public static &lt;T&gt; T getMiddle(T... a) {
+        return a[a.length/2];
+    }
+}
+</code></pre><p>下面的方式避免了返回结果是 <code>Object</code>：</p><pre><code class="language-java">public static &lt;T&gt; T convertXmlStrToObject(Class&lt;T&gt; clazz, String xmlStr) {
+    // do something
+}
+</code></pre><p>该方法可以用如下方式调用：</p><pre><code class="language-java">String middle = ArrayAlg.&lt;String&gt;getMiddle(&quot;1&quot;, &quot;2&quot;, &quot;4&quot;);
+// 因为编译器可以根据参数类型推断出 T 的类型，所以类型参数可以省略
+String middle2 = ArrayAlg.getMiddle(&quot;1&quot;, &quot;2&quot;, &quot;4&quot;);
+</code></pre><p>像上述调用，依靠编译器推断类型时，尽量使用同一类型。 像<code>Number middle = GenericMethod.getMiddle(3.14, 1729, 0);</code> 这种调用，编译器会将参数自动装箱成<code>(Double, Integer, Integer)</code>, 然后找到这些类型所共有的父类——<code>Number</code>或<code>Comparable</code>。 所以可以将结果赋给 <code>Number</code> 或者 <code>Comparable</code>. 否则会报错： &gt; ``` Error:(10, 56) java: 不兼容的类型: 推断类型不符合上限 推断: java.lang.Number&amp;java.lang.Comparable&lt;? extends java.lang.Number&amp;java.lang.Comparable&lt;?&gt;&gt; 上限: java.lang.Double,java.lang.Object</p><pre><code>
+## 类型变量的界限
+当我们想要寻找数组中最小值时，就需要泛型变量是继承了`Comparable`的，这时候就可以使用如下方法对类型变量进行类型限制。
+```java
+public static &lt;T extends Comparable&gt; T min (T[] a) {
+    if (a == null || a.length == 0) return null;
+    T smallest = a[0];
+    for (int i=1; i&lt;a.length; i++) {
+        if (smallest.compareTo(a[i]) &gt; 0) smallest = a[i];
+    }
+    return smallest;
+}
+</code></pre><p>虽然<code>extends</code>一般用在类上，而不是接口。但是类型变量界限使用的是关键字<code>extends</code>，只是因为它更适合表达子类型概念，这样就不用新增一个关键字来表示类型变量界限。 当类型变量有多个界定，用<code>&amp;</code>分割： <code>T extends Comparable &amp; Serializable</code>。 类似java中的继承，可以有任意多个接口限定，但是只能有一个类限定。如果有类限定，那么这个类限定的位置必须是界限列表的第一个。</p><h2 id="泛型代码和java虚拟机">泛型代码和java虚拟机</h2><p>在java虚拟机中并没有泛型类型，所有的对象都是普通的类。编译器会对泛型类或方法进行类型擦除。</p><h3 id="类型擦除">类型擦除</h3><p>当定义一个泛型后，对应的原始类型会被虚拟机自动创建。原始类型的类名同其对应的泛型的类型是一致的，只是将类型参数移除，并且用它们的限定类型代替类型参数。</p><pre><code class="language-java">public class Interval&lt;T extends Comparable &amp; Serializable, U&gt; implements Serializable {
+    private T lower;
+    private T upper;
+    private U other;
+    public Interval(T first, U second) {
+        if (first.compareTo(second) &lt;= 0) { lower = first; upper = second; }
+        else { lower = second; upper = first; }
+    }
+}
+</code></pre><p>上列中，类型擦除后，<code>T</code> 使用其第一个限定界限<code>Comparable</code>代替；<code>U</code>因为没有限定，所以用<code>Object</code>代替。类型擦除之后的代码如下：</p><pre><code class="language-java">public class Interval implements Serializable {
+    private Comparable lower;
+    private Comparable upper;
+    private Object other;
+    public Interval(Comparable first, Obejct second) {
+        // do something
+    }
+}
+</code></pre><h3 id="泛型表达式的擦除ty">泛型表达式的擦除TY</h3><p>当调用一个泛型方法时，编译器会在返回类型擦除之后，插入类型转换的代码。</p><pre><code class="language-java">Pair&lt;Employee&gt; pairs = new Pair&lt;&gt;();
+Employee pair = pairs.getFirst();
+</code></pre><p><code>getFirst()</code>方法返回的类型经过类型擦除之后是 <code>Object</code>，编译器自动插入了<code>Employee</code>的类型转换： <code>Employee pair = (Employee)pairs.getFirst()</code>. 当然了，对于直接访问泛型属性，编译器的处理也是相似的。</p><h3 id="泛型方法的擦除">泛型方法的擦除</h3><p>泛型方法的擦除方式同泛型类类似。 <code>public static &lt;T extends Comparable&gt; T min (T[] a)</code>方法擦除后是 <code>public static Comparable T min(Comparable[] a)</code>. 但是，当我们在继承泛型类时，只是擦除类型，泛型方法会有问题。例如下面的例子</p><pre><code class="language-java">class DateInterval extends Pair&lt;LocalDate&gt; {
+    public void setSecond(LocalDate second) {
+        // do something
+    }
+}
+</code></pre><p>上述类执行类型擦除之后，如下：</p><pre><code class="language-java">class DateInterval extends Pair { // after erasure 
+    public void setSecond(LocalDate second) {
+        // do something
+    }
+}
+</code></pre><p>如果泛型类<code>Pair&lt;LocalDate&gt;</code>中，恰好有一个方法，类型擦除后是 <code>public void setSecond(Object second)</code>。显然，这两个方法因为参数签名不一致，是两个不同的方法。但是，这两个方式不应该不是一个方法。</p><pre><code class="language-java">Pair&lt;LocalDate&gt; pair = new DateInterval(. . .);; // OK--assignment to superclass
+pair.setSecond(aDate);
+</code></pre><p>上述方法中，我们想要调用的是<code>DateInterval</code>中的<code>setSecond(LocalDate second)</code>。但是，类型擦除后，调用的应该会是<code>setSecond(Object second)</code>。为了修正这个问题，编译器会为<code>DateInterval</code>生成一个桥接(bridge method)方法： <code>public void setSecond(Object second) { setSecond((Date) second); }</code></p><p>概括来说，Java中泛型的类型擦除会遵循以下原则： - 虚拟机中并没有泛型类，只有普通类 - 所有的类型参数都会被其界限替代 - 合成桥接方法以保持多态 - 需要的时候，会插入类型转换</p><h2 id="使用泛型的限制">使用泛型的限制</h2><p>大多数的限制是类型擦除导致的。</p><h3 id="类型参数不能是原始类型">类型参数不能是原始类型</h3><p>不能将原始类型作为参数类型，只能有<code>Pair&lt;Double&gt;</code>，而不能用<code>Pair&lt;double&gt;</code>。因为类型擦除之后，<code>Pair</code>类是<code>Object</code>类型的属性，不能用来存储<code>double</code>的值。</p><h3 id="运行时类型查询仅适用于原始类型">运行时类型查询仅适用于原始类型</h3><p>类型查询仅适用于原始类型，如<code>a instanceof Pair&lt;String&gt;</code>是错误的，只能判断<code>a</code>是否是<code>Pair</code>的实例，而不能判断<code>a</code>是否是<code>Pair&lt;String&gt;</code>类型的。</p><pre><code class="language-java">Pair&lt;String&gt; stringPair = ...;
+Pair&lt;Empolyee&gt; employeePair = ...;
+stringPair.getClass() == employeePair.getClass() // true, 他们是相等的，getClass都会返回 Pair.class
+</code></pre><h3 id="不能创建泛型类型的数组">不能创建泛型类型的数组</h3><p>不能实例化泛型类型的数组，<code>Pair&lt;String&gt;[] table = new Pair&lt;String&gt;[10];</code> 是错误的。 当上述代码执行类型擦除之后，<code>table</code>的类型是<code>Pair[]</code>，我们可以将它转换成<code>Object[]</code>。 但是，数组会记住其元素的类型，如果存储一个错误类型的元素，会抛出一个<code>ArraySotreException</code>异常。 如<code>objectArr[0]=&quot;hello&quot;;</code> 只有数组的创建是不合法的，我们还是可以声明<code>Pair&lt;String&gt;[]</code> 类型的数组，但是不能用<code>new Pair&lt;String&gt;[10]</code>来将其初始化。 &gt; 可以声明通配符类型数组，然后将其转换成对应的类型 &gt; <code>java &gt; Pair&lt;String&gt;[] table = (Pair&lt;String&gt;[]) new Pair&lt;?&gt;[10]; &gt;</code> &gt; 但是这种方式是不安全的，如果想调用<code>Pair</code>中的方法，会抛出<code>ClassCastException</code>. &gt; 如果想用泛型的数组，可以使用<code>ArrayList</code>，它是安全并且有效的。</p><h3 id="可使用可变参方法">可使用可变参方法</h3><p>Java不支持泛型数组的初始化，但是可以使用可变参数作为方法的参数。代码可以正常运行，但是会有警告。</p><pre><code class="language-java">@SafeVarargs
+public static &lt;T&gt; void addAll(T... ts) {
+    for (t: ts) {
+        this.add(t);
+    }
+}
+</code></pre><h3 id="不能实例化泛型变量">不能实例化泛型变量</h3><p>不能用<code>new T()</code>方法创建实例。这是因为类型擦除会将<code>T</code>变成<code>Object</code>。显然<code>new Object()</code>并不是我们想要的结果。 我们可以通过其他的方式来创建泛型实例：</p><pre><code class="language-java">public static &lt;T&gt; Pair&lt;T&gt; makePair(Class&lt;T&gt; cl){
+    try { return new Pair&lt;&gt;(cl.newInstance(), cl.newInstance()); }
+    catch (Exception ex) { return null; }
+}
+// 调用方式如下：
+Pair&lt;String&gt; p = Pair.makePair(String.class);
+</code></pre><h3 id="泛型类的静态变量或方法中不能使用类型变量">泛型类的静态变量或方法中不能使用类型变量</h3><p>我们不能在泛型类中的静态变量或者方法使用类型变量，下面的方式是错误的：</p><pre><code class="language-java">public class Singleton&lt;T&gt; {
+    private static T singleInstance; // Error
+    public static T getSingleInstance() { // Error
+  
+    if (singleInstance == null) construct new instance of T
+    return singleInstance;
+    }
+}
+</code></pre><p>如果这样的方式是可以的，那么我们可以定义一个<code>Singleton&lt;Random&gt;</code>来共享一个随机数生成器，<code>Singleton&lt;File&gt;</code>来共享一个文件处理器。但这肯定是不可能的，类型擦除之后，只有一个<code>Singleton</code>类和一个<code>singleInstance</code>属性。</p><h3 id="不能抛出或者捕获泛型类的实例">不能抛出或者捕获泛型类的实例</h3><p>定义一个继承<code>Throwable</code>的泛型类是不合法的：</p><pre><code class="language-java">public class GenericException&lt;T&gt; extends Exception {} // Error
+</code></pre><p>但是我们可以用在异常处理中使用泛型：</p><pre><code class="language-java">public static &lt;T extends Throwable&gt; void doWork(T t) throws T  {// OK
+    try {
+        // do work
+    } catch (Throwable realCause) {
+        t.initCause(realCause);
+        throw t;
+    }
+}
+</code></pre><h3 id="注意类型擦除后方法相同签名">注意类型擦除后方法相同签名</h3><p>泛型类型被擦除之后，可能会导致方法签名一直。如果<code>Pair</code>类中添加<code>eqauls</code>方法：</p><pre><code class="language-java">public class Pair&lt;T&gt; {
+    public boolean equals(T value) {
+        return first.equals(value) &amp;&amp; second.equals(value);
+    }
+    ...
+}
+</code></pre><p>当<code>Pair&lt;T&gt;</code>类型擦除之后，其<code>equals</code>方法变为 <code>boolean equals(Object o)</code> 同<code>Object</code>中的<code>equals</code>方法一直。 解决方法是命名成其他名字。 为了防止擦除带来的方法冲突，我们强加了一个限制。即类或类型变量不能同时是同一个接口的不同参数化的两种子类型。</p><pre><code class="language-java">class Employee implements Comparable&lt;Employee&gt; { . . . }
+class Manager extends Employee implements Comparable&lt;Manager&gt;{ . . . } // Error
+</code></pre><p>上例子中，<code>Manager</code> 需要实现<code>Comparable&lt;Manager&gt;</code>和<code>Comparable&lt;Employee&gt;</code>，这两个接口就是同一接口的两个不同参数化的接口。 虽然类型擦除之后，看起来是合法的：</p><pre><code class="language-java">class Employee implements Comparable { . . . }
+class Manager extends Employee implements Comparable { . . . }
+</code></pre><p>但是桥接方法是冲突的，实现<code>Comparable&lt;X&gt;</code>接口的类，会有一个桥接方法：</p><pre><code class="language-java">public int comparTo(Object other) {return compareTo((X) other);}
+</code></pre><h2 id="泛型类中的继承规则">泛型类中的继承规则</h2><p>在使用泛型类型的时候，需要了解一些继承的规则。如果有两个类： <code>Employee</code>和<code>Manager</code>，<code>Manager</code>是<code>Employee</code>子类。<code>Pair&lt;Manager&gt;</code>也是<code>Pair&lt;Employee&gt;</code>的子类么？ 实际上，在<code>Pair&lt;S&gt;</code>和<code>Pair&lt;T&gt;</code>之间没有任何的关系，不管<code>S</code>和<code>T</code>是什么关系。</p><h2 id="通配符类型">通配符类型</h2><p>通配符类型是指可以有不同的类型参数。通配符类型使用方式为<code>Pair&lt;? extends Employee&gt;</code>，它表示类型参数是<code>Employee</code>的子类的任何通用<code>Pair</code>类型，比如： <code>Pair&lt;Manager&gt;</code>。 我们可以把<code>Pair&lt;Manager&gt;</code>看做是<code>Pair&lt;? extends Employee&gt;</code> 的子类。因此，我们可以把<code>Pair&lt;Manager&gt;</code>的实例传入下面的方法中：</p><pre><code class="language-java">public static void print(Pair&lt;? extends Employee&gt; p) {
+    // do something
+}
+</code></pre><h3 id="通配符类型的上界限">通配符类型的上界限</h3><p>通配符的界限同类型变量的界限相似，不过通配符界限可以指定一个下限： <code>? super Manager</code>。该通配符表示所有<code>Manager</code>的父类。 含有父类界限的通配符与上述的通配符类型正好相反。我们可以为方法提供参数，但是不能使用其返回值。比如<code>Pair&lt;? super Manager&gt;</code>的方法可以表述如下：</p><pre><code class="language-java">void setFirst(? super Manager);
+? super Manager getFirst();
+</code></pre><p>编译器不能知道<code>setFirst</code>参数准确的类型，因此不能接受具有<code>Employee</code>或<code>Object</code>类型的参数调用。该方法只能传递<code>Manager</code>或者其子类型的对象。对于调用<code>getFirst</code>将会返回一个<code>Object</code>对象，因为我们不知道它的返回类型是什么。</p><pre><code class="language-java">public static void minmaxBonus(Manager [] a, Pair&lt;? super Manager&gt; result) {
+    if (a.length == 0) return ;
+    Manager min = a[0];
+    Manager max = a[0];
+    for (int i=1; i&lt;a.length; i++) {
+        if (min.getBonus() &gt; a[i].getBonus()) min = a[i];
+        if (max.getBonus() &lt; a[i].getBonus()) max = a[i];
+    }
+    result.setFirst(min);
+    result.setSecond(max);
+}
+</code></pre><p>其类图如下所示：</p><p><img src="https://yuml.me/diagram/nofunky/class/%5BPair(raw)%5D%5E-%5BPair%3C%3F%3E%5D%2C%5BPair%3C%3F%3E%5D%5E-%5BPair%3C%3F%20super%20Manager%3E%5D%2C%5BPair%3C%3F%20super%20Manager%3E%5D%5E-%5BPair%3CEmployee%3E%5D%2C%5BPair%3C%3F%20super%20Manager%3E%5D%5E-%5BPair%3CObject%3E%5D"></p><p>一般来说，<strong>父类界定的通配符类型可以<code>set</code>对象，而子类型界定的通配符类型可以让你<code>get</code>对象</strong></p><p><code>Comparable</code>接口本身就是一个泛型：</p><pre><code class="language-java">public interface Comparable&lt;T&gt; {
+    public int compareTo(T other);
+}
+</code></pre><p>使用<code>T extends Comparable</code>方式，经过类型擦除后是：</p><pre><code class="language-java">public interface Comparable {
+    public int compareTo(Object other);
+}
+</code></pre><p>所以，对于<code>ArrayAlg</code>类中的<code>min</code>方法，我们可以将其定义为：</p><pre><code class="language-java">public static &lt;T extends Comparable&lt;T&gt;&gt; T min(T[] a)
+</code></pre><p>这样比<code>T extends Comparable</code>更为全面，而且对于大多数类来说都能很好的工作。但是对于<code>LocalDate</code>对象来说，并不适用。<code>LocalDate</code>实现了<code>ChronoLocalDate</code>接口，<code>ChronoLocalDate</code>接口继承了<code>Comparable&lt;ChronoLocalDate&gt;</code>，因此<code>LocalDate</code>实现了<code>Comparable&lt;ChronoLocalDate&gt;</code>而不是<code>Comparable&lt;LocalDate&gt;</code>。 在这种情况下，使用下面的方法更适用：</p><pre><code class="language-java">public static &lt;T extends Comparable&lt;? super T&gt;&gt; T min(T[] a) {}
+</code></pre><p>这样经过类型擦除之后：</p><pre><code class="language-java">public int compareTo(LocalDate other);
+</code></pre><p>虽然这样看起来很繁琐，但是这样声明能够消除调用方法时对参数的不必要限制。</p><h3 id="无界限通配符">无界限通配符</h3><p>无界限通配符，如<code>Pair&lt;?&gt;</code>。无界限通配符与原始类型<code>Pair</code>一样。但是，这两个类型是不同的，<code>Pair&lt;?&gt;</code>的方法如下：</p><pre><code class="language-java">? getFirst();
+void setFirst(?);
+</code></pre><p><code>getFirst</code>方法的返回值只能是<code>Object</code>，而<code>setFirst</code>方法不能被调用，即使是<code>Object</code>作为参数也不行，当然<code>null</code>是可以的。这是<code>Pair&lt;?&gt;</code>与原始的<code>Pair</code>类型的不同。</p><p>无界限通配符一般会用来做非常简单的操作，例如，判断值是不是<code>null</code>:</p><pre><code class="language-java">public static boolean hasNulls(Pair&lt;?&gt; p) {
+    return p.getFirst() == null || p.getSecond() == null;
+}
+</code></pre><h3 id="通配符捕获">通配符捕获</h3><p>我们有一个交换<code>Pair</code>元素的方法：</p><pre><code class="language-java">public static void swap(Pair&lt;?&gt; p)
+</code></pre><p>通配符不是一个类型变量，我们不能用<code>?</code>作为一个类型，也就是下面的代码是不合法的：</p><pre><code class="language-java">? t = p.getFirst(); // Error
+p.setFirst(p.getSecond());
+p.setSecond(t);
+</code></pre><p>我们在交换元素时，必须要将其中一个元素保存成临时变量。为了解决这个问题，我们可以编写一个辅助方法<code>swapHelper</code>:</p><pre><code class="language-java">public static &lt;T&gt; void swapHelper (Pair&lt;T&gt; p) {
+    T t = p.getFirst();
+    p.setFirst(p.getSecond());
+    p.setSecond(t);
+}
+</code></pre><p><code>swapHelper</code>是一个泛型方法，而<code>swap</code>不是，现在我们可以在<code>swap</code>中调用<code>swapHelper</code>:</p><pre><code class="language-java">public static void swap(Pair&lt;?&gt; p) { swapHelper(p);}
+</code></pre><p>在上述方法中，<code>swapHelper</code>中的<code>T</code>捕获了<code>swap</code>中的通配符类型。编译器不知道通配符是什么类型，但它是一种确定的类型，当T表示该类型时，<t>swapHelper的定义是完美的。 当然，在这个例子中，我们没有必要使用<code>Pair&lt;?&gt;</code>，可以直接定义<code>&lt;T&gt; void swapHelper</code>。但是，如果某个方法中像如下定义：</t></p><pre><code class="language-java">public static void maxmin(Manager[] a, Pair&lt;? super Manager&gt; result) {
+    PairAlg.swap(result); // swapHepler 捕获了通配符类型
+} 
+</code></pre><p>下边的例子给了前边所描述的内容：</p><pre><code class="language-java">
+public class GenericMethod {
+    public static void main(String[] args) {
+        Manager ceo = new Manager(&quot;Gus Greedy&quot;, 800000, 2003, 12, 15);
+        Manager cfo = new Manager(&quot;Sid Sneaky&quot;, 600000, 2003, 12, 15);
+        Pair&lt;Manager&gt; buddies = new Pair&lt;&gt;(ceo, cfo);
+        printBuddies(buddies);
+
+        ceo.setBonus(1000000);
+        cfo.setBonus(500000);
+        Manager[] managers = {ceo, cfo};
+
+        Pair&lt;Employee&gt; result = new Pair&lt;&gt;();
+        minmaxBonus(managers, result);
+        System.out.println(&quot;first: &quot; + result.getFirst().getName()
+            + &quot;, second: &quot; + result.getSecond().getName());
+        maxminBonus(managers, result);
+        System.out.println(&quot;first: &quot; + result.getFirst().getName()
+            + &quot;, second: &quot; + result.getSecond().getName());
+    }
+
+    public static void printBuddies(Pair&lt;? extends Employee&gt; p) {
+        Employee first = p.getFirst();
+        Employee second = p.getSecond();
+        System.out.println(first.getName() + &quot; and &quot; + second.getName() + &quot; are buddies.&quot;);
+    }
+
+    public static void minmaxBonus(Manager[] a, Pair&lt;? super Manager&gt; result) {
+        if (a.length == 0) return;
+        Manager min = a[0];
+        Manager max = a[0];
+        (Continues)
+            .8 Wildcard Types 449
+        Listing 8.3 (Continued)
+        for (int i = 1; i &lt; a.length; i++) {
+            if (min.getBonus() &gt; a[i].getBonus()) min = a[i];
+            if (max.getBonus() &lt; a[i].getBonus()) max = a[i];
+        }
+        result.setFirst(min);
+        result.setSecond(max);
+    }
+
+    public static void maxminBonus(Manager[] a, Pair&lt;? super Manager&gt; result) {
+        minmaxBonus(a, result);
+        PairAlg.swapHelper(result); // OK--swapHelper captures wildcard type
+    }
+}
+
+class PairAlg {
+    public static boolean hasNulls(Pair&lt;?&gt; p) {
+        return p.getFirst() == null || p.getSecond() == null;
+    }
+
+    public static void swap(Pair&lt;?&gt; p) {
+        swapHelper(p);
+    }
+
+    public static &lt;T&gt; void swapHelper(Pair&lt;T&gt; p) {
+        T t = p.getFirst();
+        p.setFirst(p.getSecond());
+        p.setSecond(t);
+    }
+}
+
+</code></pre></article></div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/algorithms/%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%96%87/" rel="prev">找出字符串最大回文</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/linux/linux-server/" rel="next">linux 网络常用命令</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-80e85b24c7.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-9350854994277981",
+		enable_page_level_ads: true
+	});</script></body></html>

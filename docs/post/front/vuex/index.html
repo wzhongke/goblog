@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>vuex | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/front/vuex/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-76b9ae8ca1.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"><label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/">paramiko-批量操作终端</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/">css 动画</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/xpath/">XPath 笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/">创建者模式之生成器</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E5%9F%BA%E7%A1%80%E8%AF%AD%E5%8F%A5/">MySQL基础语句</a> <a class="collection-item" href="https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/">MySQL技巧</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/">jvm调优</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/linux-server/">linux 网络常用命令</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/java-%E6%B3%9B%E5%9E%8B/">java 泛型</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/front/">Front</a> <span class="breadcrumb">vuex</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><ul><li><a href="#vuex-能做什么">Vuex 能做什么</a></li><li><a href="#核心概念">核心概念</a></li><li><a href="#单一状态树-state">单一状态树 &ndash; state</a></li><li><a href="#在-vue-组件中获得-vuex-状态">在 Vue 组件中获得 Vuex 状态</a></li><li><a href="#getter">getter</a></li><li><a href="#更改store变量的值-同步方式mutation">更改store变量的值 &ndash; 同步方式mutation</a><ul><li><a href="#mutations-遵循vue响应规则">mutations 遵循vue响应规则</a></li></ul></li><li><a href="#更改store变量的值-异步方式actions">更改store变量的值 &ndash; 异步方式actions</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">vuex </span><span class="card-meta"><time><span>Wed Aug 30 2017</span></time><address><a href="https://wzhongke.github.io//categories/javascript">javascript</a>&nbsp; <a href="https://wzhongke.github.io//categories/vue">vue</a>&nbsp;</address></span><article class="article"><h2 id="vuex-能做什么">Vuex 能做什么</h2><p>Vuex将多个组件共享的状态从组件中抽离出来，，以一个全局单例的模式进行统一管理。 解决问题 - 多层嵌套组件间传参繁琐，且兄弟组件间的状态传递无能为力。 - 父子组件直接引用或者通过事件来变更和同步状态的多份拷贝，这种方式非常脆弱，代码不易维护 <img src="https://vuex.vuejs.org/images/vuex.png" alt=""></p><h2 id="核心概念">核心概念</h2><h2 id="单一状态树-state">单一状态树 &ndash; state</h2><p>单一状态树是全局唯一的变量，唯一的数据源，每个应用仅包含一个store实例</p><h2 id="在-vue-组件中获得-vuex-状态">在 Vue 组件中获得 Vuex 状态</h2><p>Vuex 通过调用 <code>Vue.use(Vuex)</code> 将store注入到子组件中，子组件可以通过<code>this.$store</code>访问到store中的内容：</p><pre><code class="language-javascript">const Counter = {
+    template: `&lt;div&gt; {{count}}&lt;/div&gt;`,
+    computed: {
+        count() {
+            return this.$store.state.count
+        }
+    }
+}
+const app = new Vue({
+  el: '#app',
+  // 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件
+  store,
+  components: { Counter },
+  template: `
+    &lt;div class=&quot;app&quot;&gt;
+      &lt;counter&gt;&lt;/counter&gt;
+    &lt;/div&gt;
+  `
+})
+</code></pre><h2 id="getter">getter</h2><p>当我们需要从store中提取出一些状态，可以在computed中进行过滤计算。但是如果多个组件要使用该属性，那么就会导致代码冗余。可以在store中敌营getter来解决该问题。 而且getter会将计算的值缓存起来，当其依赖的值发生改变才会被重新计算。</p><pre><code class="language-javascript">const store = new Vuex.Store({
+  state: {
+    todos: [
+      { id: 1, text: '...', done: true },
+      { id: 2, text: '...', done: false }
+    ]
+  },
+  getters: {
+      doneTodosCount: (state, getters) =&gt; {
+          return getters.doneTodos.length
+      }
+  }
+})
+// 在组件中使用
+computed: {
+    doneTodoCount() {
+        return this.$store.getters.doneTodosCount
+    }
+}
+</code></pre><h2 id="更改store变量的值-同步方式mutation">更改store变量的值 &ndash; 同步方式mutation</h2><p>更改 Vuex 的 store 中的状态的唯一方法是提交mutation：每个mutation都有一个字符串的<strong>事件类型</strong>和<strong>回调函数</strong>，该函数接受一个state作为第一个参数</p><pre><code class="language-javascript">const store = new Vuex.Store({
+    state: {
+        count: 1
+    },
+    mutations: {
+        increment (state) {
+            state.count++  // 变更状态
+        }
+    }
+})
+// 在组件中需要用如下方式调用：
+store.commit(&quot;increment&quot;)
+</code></pre><p>如果提交的内容含有参数：</p><pre><code class="language-javascript">mutations: {
+  increment (state, n) {
+    state.count += n
+  }
+}
+
+this.$store.commit(&quot;increment&quot;, 1)
+// 对象方式提交
+mutations: {
+  increment (state, payload) {
+    state.count += payload.amount
+  }
+}
+this.$store.commit(&quot;increment&quot; {amount: 10})
+this.$store.commit({
+    type: 'increment',
+    amount: 10
+})
+</code></pre><h3 id="mutations-遵循vue响应规则">mutations 遵循vue响应规则</h3><ol><li>最好提前在你的 store 中初始化好所有所需属性。</li><li><p>当需要在对象上添加新属性时，你应该</p><ul><li>使用 <code>Vue.set(obj, 'newProp', 123)</code></li><li><p>以新对象替换老对象 <code>state.obj = { ...state.obj, newProp: 123 }</code></p><h2 id="更改store变量的值-异步方式actions">更改store变量的值 &ndash; 异步方式actions</h2><p>action可以包含任意异步操作。 定义action：</p><pre><code class="language-javascript">const store = new Vuex.Store({
+state: {
+count: 0
+},
+mutations: {
+increment (state) {
+    state.count++
+}
+},
+actions: {
+increment (context) {
+    context.commit('increment')
+},
+incrementAsync ({ commit }) {
+    setTimeout(() =&gt; {
+        commit('increment')
+    }, 1000)
+}
+}
+})
+</code></pre><p>调用actions ```javascript store.dispatch(&lsquo;increment&rsquo;) // 以载荷形式分发 store.dispatch(&lsquo;incrementAsync&rsquo;, { amount: 10 })</p></li></ul></li></ol><p>// 以对象形式分发 store.dispatch({ type: &lsquo;incrementAsync&rsquo;, amount: 10 })</p><pre><code>在组件中使用action，可以用`this.$store.dispatch('xxx')` 分发 action，或者使用 `mapActions` 辅助函数将组件的 `methods` 映射为 `store.dispatch` 调用:
+```javascript
+import { mapActions } from 'vuex'
+
+export default {
+    methods: {
+        ...mapActions([
+            'increment' // 映射 this.increment() 为 this.$store.dispatch('increment')
+        ]),
+        ...mapActions({
+            add: 'increment' // 映射 this.add() 为 this.$store.dispatch('increment')
+        })
+    }
+}
+</code></pre></article></div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/algorithms/%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%80%E5%A4%A7%E5%9B%9E%E6%96%87/" rel="next">找出字符串最大回文</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-80e85b24c7.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-9350854994277981",
+		enable_page_level_ads: true
+	});</script></body></html>

@@ -1,0 +1,65 @@
+baseURL = "https://wzhongke.github.io/"
+languageCode = "zh-cn"
+title = "World of Wang"
+disqusShortname = 'wzhongke'
+# if true, auto-detect Chinese/Japanese/Korean Languages in the content. (.Summary and .WordCount can work properly in CJKLanguage)
+hasCJKLanguage = true
+
+# DO　NOT MODIFY THIS CONFIG（不要修改这个配置）
+publishDir = "docs"
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[Params]
+  author = "壹冶知秋"
+  subtitle = "Do not ride on fear..."
+  copyright = "Copyright@Kevin Tan"
+  logo = "/img/sign.jpg"
+  profile_bg = "/img/profile-bg.jpg"
+
+# 主菜单
+[[menu.main]]
+    name = "Home"
+    weight = 1
+    pre = "<i class='material-icons'>home</i>"
+    url = "/"
+
+[[menu.main]]
+    name = "Archive"
+    weight = 2
+    pre = "<i class='material-icons'>archive</i>"
+    url = "/archive/"
+
+[[menu.main]]
+    name = "About"
+    weight = 3
+    pre = "<i class='material-icons'>person</i>"
+    url = "/about/"
+
+#  友情链接
+[[menu.friend]]
+  name = "Frantic1048"
+  url = "https://frantic1048.logdown.com/"
+
+
+# 社交账号
+[[menu.social]]
+  pre = "<svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>"
+  name = "Github"
+  identifier = "@wzhongke"
+  url = "https://github.com/wzhongke"
+
+# 文章归类类目
+[[menu.taxonomy]]
+  pre = "<i class='material-icons'>local_offer</i>"
+  name = "Tag"
+  identifier="tags"
+
+[[menu.taxonomy]]
+  pre = "<i class='material-icons'>class</i>"
+  name = "Category"
+  identifier="categories"
+
