@@ -33,8 +33,6 @@ const loadLunrDB = (() => {
         }, Object.create(null)),
         index: lunr(function() {
           this.field('title', { boost: 10 });
-          this.field('tags', { boost: 5 });
-          this.field('content');
           this.ref('uri');
           pages.forEach(page => this.add(page));
         })
@@ -83,7 +81,7 @@ const setSearchBoard = () => {
 
   $in.keyup(() => {
     const query = $in.val().trim();
-    if (query.length < 2) {
+    if (query.length < 1) {
       clear();
       return;
     }
