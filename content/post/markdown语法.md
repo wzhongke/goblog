@@ -194,6 +194,13 @@ $$2^n$$123
 $$2^n$$123
 \(2^5\)123
 
+在 vscode 中使用 markdown 公式预览插件： markdown+Math
+```shell
+cd $HOME/.vscode/extensions
+git clone https://github.com/goessner/mdmath.git
+cd mdmath
+npm install
+```
 
 ## 插入UML
 在写markdown文档时，可能会用到UML图，但是我们不想使用图片，因为这样我们要使用在线图片或者自己有限的空间。那么我们可以使用svg。
