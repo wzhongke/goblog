@@ -5,7 +5,6 @@ tags: ["工具"]
 categories: ["工具"]
 ---
 
-
 ## 使用MathJax插入公式
 MathJax 插入的公式有两种形式：行内公式和独立公式。
 1. 默认的行内公式是使用 `$...$`或 `\(...\)` 符号包裹内容。如 $a^2=b^2+c^2$
@@ -88,12 +87,24 @@ $\nearrow$ | `\nearrow` |  $\searrow$  | `\searrow`
 $\swarrow$ | `\swarrow` | $\nwarrow$   | `\nwarrow`
 
 ## 运算
-
-$$ f(x)=\left\{
-\begin{aligned}
-x & = & \cos(t) \\
-y & = & \sin(t) \\
-z & = & \frac xy
+{{<html>}}
+$$ e[i,j]=\left\{ \begin{aligned}
+q_{i-1} & = & if j=i-1 \\
+\min_{i\le r \le j}((e[i,r-1]+e[r+1,j]+\omega(i,j))) & = & if i\le j 
 \end{aligned}
 \right.
 $$
+
+$$e[i,j]=\left\{ \begin{array}{ll}
+q_{i-1}& \textrm{if $j=i-1$}\\
+\min_{i\le r\le j}(e[i,r-1]+e[r+1,j]+\omega(i,j)) & \textrm{if $i\le j$}
+\end{array} \right.
+$$
+{{<\html>}}
+
+
+## 其他
+原始符号不会随着公式大小而缩放，可以使用 `\left( ... \right)` 来代替 `()`:
+$$\{\sum_{i=0}^n\}$$
+
+$$\left\{\sum_{i=0}^n\right\}$$

@@ -185,12 +185,25 @@ MathJax通过JavaScript将特定的符号转换成HTML，SVG或者MathML，来�
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 ```
+
+`$`行内表达式默认是不启用的，需要在引入 Mathjax 后添加如下代码：
+```
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']]
+      }
+    });
+</script>
+```
+
 有两种类型的表达式：一种是行内的；一种是单独一行的。
 默认的数学分隔符是：`$$...$$` 和 `\[...\]`，行内数学表达式是`\(...\)`。例如：
 ```
 $$2^n$$123
 \(2^5\)123
 ```
+
 $$2^n$$123
 \(2^5\)123
 

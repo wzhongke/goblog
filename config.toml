@@ -20,6 +20,9 @@ publishDir = "docs"
   logo = "/img/sign.jpg"
   profile_bg = "/img/profile-bg.jpg"
 
+[blackfriday]
+  noIntraEmphasis = "enabled"
+
 # 主菜单
 [[menu.main]]
     name = "Home"
