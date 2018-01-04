@@ -19,6 +19,7 @@ const cp = require('child_process');
 const fs = require('fs');
 const toml = require('toml');
 const lunr = require('hugo-lunr');
+var path = require('path');
 
 const bs = require('browser-sync').create();
 
@@ -153,6 +154,25 @@ $.task('htmlmin', () => {
 $.task('lunr', cb => {
   const h = new lunr();
   const file = `${prod ? publish.root : dest.root}/index.json`;
+  h.readFile = function(filePath){
+    console.log("nothing---");
+    var self = this;
+      var ext = path.extname(filePath);
+      var uri = '/' + filePath.substring(0,filePath.lastIndexOf('.')).replace(" ", "-").toLocaleLowerCase();
+      uri = uri.replace(self.baseDir +'/', '');
+      var title;
+      if (ext == '.md') {
+        var data = fs.readFileSync(filePath);
+        var meta = data.toString().trim().split("---");
+        if (meta.length > 1) {
+          var datas = meta[1].trim().split("\n");
+          datas = datas[0].trim().split(":");
+          if (datas[0] && datas[0].trim() === 'title') {
+            title = datas[1].trim();
+          }
+      }
+    }
+  }
   h.index('content/post/**', file);
   cb();
 });

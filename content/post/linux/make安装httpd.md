@@ -55,6 +55,11 @@ categories: ["linux"]
     make install
     ```
 
+4. 启动
+    ```shell
+    cd /opt/httpd/bin
+    ./apachectl start
+    ```
 
 ## 问题
 安装`apr-util`过程中碰到了`xml/apr_xml.c:35:19: error: expat.h: No such file or directory`这样的问题，这是因为缺少了库文件。

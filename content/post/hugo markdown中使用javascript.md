@@ -10,5 +10,5 @@ tags: ["markdown"]
 # 解决办法
 使用hugo中的Shortcodes：
 1. 在 `layouts` 文件夹中，新建一个 `shortcodes` 文件夹
-2. 新建一个文件，暂时叫 `javascript.html`。名字可以随意，文件后缀名要用`html`。文件内容为`{{.Inner}}`
-3. 在markdown中，通过如下方式使用：`{{< javascript >}}<script>/*javascript code*/</script>{{< /javascript >}}`。其中`{{< javascript >}}`的`javascript`同第二步中的文件名一致
+2. 新建一个文件，暂时叫 `html.html`。名字可以随意，文件后缀名要用`html`。文件内容为`{{.Inner}}`
+3. 在markdown中，通过如下方式使用：`{{< html >}}<script>/*javascript code*/</script>{{< /html >}}`。其中`{{< html >}}`的`html`同第二步中的文件名一致
