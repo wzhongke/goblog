@@ -319,14 +319,400 @@ try {
 Lock 接口具有不同于 synchronized 关键字不具备的特性：
 
 特性               |  描述
-:-----————————————|:----------------
+:-----------------|:----------------
 尝试非阻塞地获取锁   | 当前线程尝试获取锁，如果这一时刻锁没有被其他线程获取到，则成功获取并持有锁
 能被中断地获取锁     | 与 synchronized 不同，获取到锁的线程能够响应中断，当获取到锁的线程被中断时，中断异常将会抛出，同时锁会被释放
 超时获取锁          | 当指定的截止时间之前获取锁，如果截止时间仍无法获取锁，则返回
 
 Lock 接口的 API 如下：
+方法名             |  描述
+:-----------------|:----------------
+`void lock()`     | 获取锁，调用该方法的线程会获取锁，获得锁后，从该方法返回
+`void lockInterruptibly()`| 在锁的获取中可以中断当前线程
+`boolean tryLock()` | 尝试非阻塞地获取锁，调用方法后立即返回
+`void unlock()`   | 释放锁
+`Condition newCondition()` | 获取等待通知组件，该组件和当前锁绑定，当前线程只有获得了锁，才能调用该组件的`wait()`方法，调用后，当前线程将释放锁
+
+## 队列同步器
+队列同步器 (`AbstractQueuedSynchronizer`) 是用来构建锁或其他同步组件的基础框架，它使用一个`int`成员变量表示同步状态，通过内置的FIFO队列来完成资源获取线程的排队工作。
+其主要的使用方式是，子类继承队列同步器并实现其抽象方法来管理同步状态。
+同步器是实现锁的关键，锁是面向使用者的，同步器是面向锁的实现者的。
+独占锁是同一时刻只能有一个线程获取到锁，其他线程只能在同步队列中等待：
 ```java
-
-
+class Mutex implements Lock, Serializable {
+    // 同步器
+    private static class Sync extends AbstractQueuedSynchronizer {
+        // 是否处于占用状态
+        @Override
+        protected boolean isHeldExclusively () {
+            return getState() == 1;
+        }
+        @Override
+        public boolean tryAcquire (int acquires) {
+            if (compareAndSetState(0, 1)) {
+                setExclusiveOwnerThread(Thread.currentThread());
+                return true;
+            }
+            return false;
+        }
+        @Override
+        protected boolean tryRelease (int release) {
+            if (getState() == 0) {
+                throw new IllegalMonitorStateException();
+            }
+            setExclusiveOwnerThread(null);
+            setState(0);
+            return true;
+        }
+        // 返回一个Condition，每个condition都包含一个condition队列
+        Condition newCondition () {
+            return new ConditionObject();
+        }
+    }
+     // 仅需要将操作代理到Sync上即可
+    private final Sync sync = new Sync();
+    public void lock () {sync.acquire(1);}
+    public boolean tryLock() {return sync.tryAcquire(1);}
+    public void unlock() {sync.release(1);}
+    public Condition newCondition () {return sync.newCondition();}
+    public boolean isLocked() {return sync.isHeldExclusively();}
+    public boolean hasQueuedThreads () { return sync.hasQueuedThreads(); }
+    public void lockInterruptible() throws InterruptedException {
+        sync.acquireInterruptibly(1);
+    }
+    public boolean tryLock (long timeout, TimeUnit unit) throws InterruptedException {
+        return sync.tryAcquireNanos(1, unit.toNanos(timeout));
+    }
+}
 ```
 
+这是类似`CountDownLatch`的锁，只是它只需要单个信号触发：
+```java
+public class BooleanLatch {
+
+    private static class Sync extends AbstractQueuedSynchronizer {
+        boolean isSignalled () {
+            return getState() != 0;
+        }
+        @Override
+        protected int tryAcquireShared (int ignore) {
+            return isSignalled() ? 1: -1;
+        }
+
+        @Override
+        protected boolean tryReleaseShared (int ignore) {
+            setState(1);
+            return true;
+        }
+    }
+
+    private final Sync sync = new Sync();
+    public boolean isSignalled () {
+        return sync.isSignalled();
+    }
+    public void signal() {
+        sync.releaseShared(1);
+    }
+
+    public void await() throws InterruptedException {
+        sync.acquireSharedInterruptibly(1);
+    }
+}
+```
+
+## 重入锁
+重入锁 `ReentrantLock` 支持一个线程对使用该锁的资源重复加锁。
+`Mutex`锁， 在一个线程使用其`lock()`方法获得锁后，释放该锁之前，如果再次调用`lock()`方法就会被自己阻塞，而重入锁可以再次获取到锁。
+重入锁释放时，需要释放其获取该锁的次数，才能成功释放该锁。如果线程重复获取了n次锁，需要释放n次。
+
+## 读写锁
+读写锁维护了两个锁：读锁和写锁。读锁是可重入共享锁，允许多个线程同时进入；写锁是可重入排他锁，只允许一个线程进入。读写锁在**读多于写的情况下提高了吞吐量**。
+
+在没有写线程访问时，读锁总会被成功获取；在写锁已经被其他线程获取到时，则进入等待状态。
+
+**锁降级**是指持有写锁时，再获取读锁，最后释放写锁的过程。
+```java
+class CachedData {
+    Object data;
+    volatile boolean cacheValid;
+    final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+
+    void processCachedData() {
+        rwl.readLock().lock();
+        if (!cacheValid) {
+            // Must release read lock before acquiring write lock
+            rwl.readLock().unlock();
+            rwl.writeLock().lock();
+            try {
+                // Recheck state because another thread might have
+                // acquired write lock and changed state before we did.
+                if (!cacheValid) {
+                // some thing else
+                cacheValid = true;
+                }
+                // Downgrade by acquiring read lock before releasing write lock
+                rwl.readLock().lock();
+            } finally {
+                rwl.writeLock().unlock(); // Unlock write, still hold read
+            }
+        }
+
+        try {
+            // read data and do something else
+            use(data);
+        } finally {
+            rwl.readLock().unlock();
+        }
+    }
+ }
+```
+
+锁降级是必要的，主要是为了保证数据的可见性，如果当前线程不获取读锁而是直接释放写锁，假设另一个线程获取了写锁并修改了数据，那么当前线程就无法感知数据更新，而产生脏读等问题。
+读写锁不支持持有读锁时获取写锁，目的也是保证数据可见性，如果读锁已经被多个线程获取，其中任意线程成功获取了写锁并更新了数据，其更新的数据对其他读线程不可见。
+
+## Condition 接口
+`Condition` 定义了等待/通知两种类型的方法，当线程调用这些方法时，需要提前获取到 `Condition` 对象关联的锁。`Condition` 对象是通过 `Lock` 对象的 `newCondition()` 方法产生的。其使用方式如下：
+```java
+Lock lock = new ReentrantLock();
+Condition condition = lock.newCondition();
+
+public void conditionWait() throws InterruptedException {
+    lock.lock();
+    try{
+        // 使用时必须用lock.lock()加锁
+        // 调用 await() 方法后，当前线程会**释放锁并在此等待**
+        // 其他线程调用了 signal() 后，该线程从await() 方法返回，需要在返回前获得锁
+        condition.await();
+    } finally {
+        lock.unlock();
+    }
+}
+
+public void conditionSignal() {
+    lock.lock();
+    try {
+        condition.signal();
+    } finally {
+        lock.unlock();
+    }
+}
+```
+
+# Java 并发容器和框架
+Java中有很多的并发容器和框架。
+
+## ConcurrentHashMap
+`ConcurrentHashMap`是线程安全且高效的`HashMap`。
+`HashMap`在并发执行`put`操作时会引起死循环，因为多线程会导致`HashMap`的`Node`链表形成环形结构，这会导致`Node`的`next`节点永远不为空，产生获取`Node`的死循环。
+
+`HashTable`在竞争激烈的并发环境下效率低下，是因为所有访问`HashTable`的线程都使用的是同一把锁。`ConcurrentHashMap`使用了锁分段技术，将数据分成若干段存储，然后给每段数据分配一把锁，这样不同线程访问不同段的数据不用加锁。
+
+`ConcurrentHashMap` 的使用方式同 `HashMap`，只是它可以在多线程竞争的环境中安全运行。
+
+## ConcurrentLinkedQueue
+`ConcurrentLinkedQueue` 是一个线程安全的队列。
+
+## Fork/Join 框架
+Fork/Join 框架是一个用于并行执行任务的框架，它可以把大任务分解成若干个小任务，最终汇总每个小任务的结果以组合任务的结果，类似于MapReduce。
+
+Fork/Join 框架可以分两步使用：
+1. 分隔任务：使用fork类将任务分割成子任务，若子任务还是很大，则将子任务再分割，知道任务足够小
+2. 执行任务并合并结果：分割的子任务放到双端队列中，然后启动几个线程分别从队列的两端取任务并执行。子任务将执行结果放到一个队列中，启动一个线程从该队列中取结果并合并结果。
+
+```java
+public class CountTask extends RecursiveTask<Integer> {
+    private static final int THRESHOLD = 2;
+    private int start;
+    private int end;
+
+    public CountTask(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    @Override
+    protected Integer compute() {
+        int sum = 0;
+        boolean canCompute = (end - start) <= THRESHOLD;
+        // 判断任务是否足够小，如果足够小就执行任务，否则就分割成两个子任务。
+        // 子任务调用 fork 方法，会进入子任务的 compute 方法
+        if (canCompute) {
+            for (int i=start; i<=end; i++) {
+                sum += i;
+            }
+        } else {
+            int middle = (start + end) / 2;
+            CountTask leftTask = new CountTask(start, middle);
+            CountTask rightTask = new CountTask(middle + 1, end);
+            leftTask.fork();
+            rightTask.fork();
+            int leftResult = leftTask.join();
+            int rightResult = rightTask.join();
+            sum = leftResult + rightResult;
+        }
+        return sum;
+    }
+
+    public static void main(String [] args) {
+        ForkJoinPool pool = new ForkJoinPool();
+        CountTask task = new CountTask(1, 10);
+        Future<Integer> result = pool.submit(task);
+        // 判断执行过程中是否出现异常
+        if (task.isCompletedAbnormally()) {
+            System.out.println(task.getException());
+        }
+        try {
+            System.out.printf(String.valueOf(result.get()));
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+## 13个原子操作类
+1. 原子更新基本类型： `AtomicBoolean`, `AtomicInteger`, `AtomicLong`:
+    ```java
+    AtomicInteger ai = new AtomicInteger();
+    // 原子方式将当前值加1，并返回加1后的值
+    ai.getAndIncrement();
+    // 原子方式将当前值加2，并返回相加后的结果
+    ai.addAndGet(2);
+    ai.compareAndSet(int expect, int update);
+    ai.getAndSet(int newValue);
+    ```
+2. 原子更新数组： `AtomicLongArray`, `AtomicReferenceArray`, `AtomicIntegerArray`
+    ```java
+    int [] arr = new int[] {1,2,3,4};
+    AtomicIntegerArray aia = new AtomicIntegerArray(arr);
+    
+    aia.getAndSet(0, 3);
+    // 3
+    aia.get(0);
+    // 3
+    arr[0];
+    ```
+3. 原子更新引用：`AtomicReference`, `AtomicReferenceFieldUpdater`, `AtomicMarkableReference`
+    ```java
+    AtomicReference<User> aUser = new AtomicReference<User>();
+    User user = new User();
+    aUser.set(user);
+    User userUpdate = new User();
+    aUser.compareAndSet(user, userUpdate);
+    ```
+4. 原子更新字段类：`AtomicIntegerFieldUpdater`, `AtomicLongFieldUpdater`, `AtomicStampedReference`(更新带有版本号的引用类):
+    ```java
+    AtomicIntegerFieldUpdater u = AtomicIntegerFieldUpdater.newUpdater(User.class, "age");
+    User user = new User("name", 20);
+    u.getAndIncrement(user);
+    ```
+
+# 并发工具类
+JDK 的并发包中提供了几个并发工具类： `CountDownLatch`, `CyclicBarrier` 和 `Semaphore`。
+
+## `CountDownLatch` —— 等待多线程完成
+`CountDownLatch` 允许一个或多个线程等待其他线程完成操作。
+```java
+// CountDownLatch 构造器接收一个int类型参数。需要等待n个点，就传入n
+CountDownLatch latch = new CountDownLatch(2);
+
+new Thread(() -> {
+    System.out.println(1);
+    // 每次调用 countDown(), n 就会减一
+    latch.countDown();
+    System.out.println(2);
+    latch.countDown();
+}).start();
+// await 方法会阻塞当前线程，直到 n 变为 0
+latch.await();
+```
+
+`CountDownLatch` 可以用在n个线程中，等n个线程执行完毕，执行其他操作。
+
+## `CyclicBarrier` —— 同步屏障
+让一组线程到达一个屏障时被阻塞，直到最后一个线程到达屏障，所有被屏障拦截的线程才会继续运行。
+`CyclicBarrier` 的计数器可以使用 `reset()` 方法重置。相比`CountDownLatch`，`CyclicBarrier` 能够处理更为复杂的业务场景，其方法也更多些。
+```java
+// 如果构造器中有两个参数，第二个参数的Runnable用于在线程到达屏障时，优先执行
+CyclicBarrier barrier = new CyclicBarrier(2, new First());
+new Thread(()->{
+    try {
+        barrier.await();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    System.out.println(1);
+}).start();
+try {
+    barrier.await();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+System.out.println(2);
+
+static class First implements Runnable {
+    @Override
+    public void run() {
+        System.out.println(3);
+    }
+}
+```
+
+## `Semaphore` —— 控制并发线程数
+Semaphore——信号量——用来控制同时访问特定资源的线程数量。`Semaphore`适合于做流量控制，特别是公用资源有限的情景。
+```java
+ExecutorService threadPool =Executors.newFixedThreadPool(30);
+// 只允许10个线程同时进入
+Semaphore s = new Semaphore(10);
+for (int i = 0; i<THREAD_COUNT; i++) {
+    threadPool.execute(()->{
+        try {
+            s.acquire();
+            System.out.println("save data");
+            s.release();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    });
+}
+threadPool.shutdown();
+```
+
+## `Exchanger` —— 线程间交换数据
+`Exchanger` 是一个用于线程间协作的工具类，用于线程间的数据交换。
+它提供一个同步点，在这个点线程交换数据。两个线程通过`exchange()`方法交换数据，如果第一个线程先执行`exchange()`方法，它会一直等待第二个线程执行`exchange()`方法。
+
+```java
+Exchanger<String> exgr = new Exchanger<>();
+ExecutorService threadPool = Executors.newFixedThreadPool(2);
+threadPool.execute(()->{
+    try{
+        String A = "银行流水";
+        exgr.exchange(A);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+});
+threadPool.execute(()->{
+    try{
+        String B = "银行流水B";
+        String A = exgr.exchange(B);
+        System.out.println("A: " + A + " B: " + B);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+});
+threadPool.shutdown();
+```
+
+# 线程池
+使用线程池可以降低资源消耗、提高响应速度、提高线程的可管理性。
+
+可以通过 `new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, milliseconds, runnableTaskQueue, handler)` 来创建一个线程池。
+线程池的参数如下：
+- `corePoolSize` (线程池的基本大小)：提交一个任务到线程池时，线程池会新建一个线程来执行任务，即使有其他空闲的线程。等待需要执行的任务数大于线程池基本大小时，就不在创建。调用 `prestartAllCoreThreads()` 方法，线程池会提前创建并启动所有基本线程。
+- `runnableTaskQueue` (任务队列)：用于保存等待执行任务的阻塞队列，有如下几个队列可用：
+    - `ArrayBlockingQueue`：基于数组结构的有界阻塞队列，以FIFO原则对元素排序
+    - `LinkedBlockingQueue`：基于链表结构的阻塞队列，按FIFO排列元素，吞吐量通常高于`ArrayBlockingQueue`.(`Executors.newFixedThreadPool()`)
+    - `SynchronousQueue`：不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直阻塞。(`Executors.newCachedThreadPool()`)
+    - `PriorityBlockingQueue`：具有优先级的无限阻塞队列

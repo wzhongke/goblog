@@ -68,4 +68,13 @@ navigator.connection.downlinkMax
 ```
 
 ## 问题
-对于含有小数的值，不用等于判断
+1. 对于含有小数的值，不用等于判断
+2. 使用 Zepto 监控图片 load 时间时，可能会有不触发的问题，可以使用如下方式处理：
+    ```javascript
+    // 使用 one 保证该事件只被触发一次
+    $("img").one("load", function() {
+        // do something
+    }).each (function(){
+        this.complete && $(this).trigger("load");
+    }) 
+    ```
