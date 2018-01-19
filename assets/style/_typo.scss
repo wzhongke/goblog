@@ -1,5 +1,5 @@
 .article {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.7em
 }
 
@@ -101,19 +101,16 @@ h1 .article .headerlink {
 }
 
 .article ol,
-.article p,
 .article ul {
-    margin-top: 1.5em
+    margin: 5px 5px;
 }
 
-.article li,
-.article li ol,
-.article li ul {
-    margin-top: .75em
+.article p {
+    margin-top: 1.5em;
 }
 
 .article li {
-    margin-left: 18px
+    margin-left: 30px
 }
 
 .article li p {
