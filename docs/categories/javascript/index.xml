@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright@Kevin Tan</copyright>
-    <lastBuildDate>Wed, 30 Aug 2017 19:42:25 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Apr 2018 12:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wzhongke.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>webpack</title>
+      <link>https://wzhongke.github.io/post/front/webpack/</link>
+      <pubDate>Fri, 13 Apr 2018 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/webpack/</guid>
+      <description>安装 使用如下命令安装webpack到当前目录下 npm install webpack --save 如果需要使用 webpack 命令行，需要全局安装 npm install webpack-cli -g 如果因为权限问题，安装失败，则需要使用如下命</description>
+    </item>
+    
+    <item>
+      <title>nodejs 学习笔记</title>
+      <link>https://wzhongke.github.io/post/front/nodejs/</link>
+      <pubDate>Thu, 08 Mar 2018 12:01:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/nodejs/</guid>
+      <description>创建一个应用 使用Node.js时，不仅仅在实现一个应用，同时还实现了整个HTTP服务。 Node.js有如下三部分组成： 1. 引入required</description>
+    </item>
     
     <item>
       <title>vuex</title>

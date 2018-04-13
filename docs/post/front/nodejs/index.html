@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>nodejs 学习笔记 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/front/nodejs/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-0876bf4ac8.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/nodejs/">nodejs 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a> <a class="collection-item" href="https://wzhongke.github.io/post/mathjax/">mathjax 符号说明</a> <a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/front/">Front</a> <span class="breadcrumb">nodejs 学习笔记</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#创建一个应用">创建一个应用</a></li><li><a href="#npm">NPM</a><ul><li><a href="#回调函数">回调函数</a></li><li><a href="#事件驱动">事件驱动</a></li><li><a href="#buffer-缓冲区">Buffer 缓冲区</a></li><li><a href="#stream">stream</a></li><li><a href="#模块系统">模块系统</a></li><li><a href="#nodejs-路由">NodeJs 路由</a></li><li><a href="#express框架简单应用">Express框架简单应用</a></li><li><a href="#nodejs-多进程">nodejs 多进程</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">nodejs 学习笔记 </span><span class="card-meta"><time><span>Thu Mar 8 2018</span></time><address><a href="https://wzhongke.github.io//categories/javascript">javascript</a>&nbsp;</address></span><article class="article"><h1 id="创建一个应用">创建一个应用</h1><p>使用Node.js时，不仅仅在实现一个应用，同时还实现了整个HTTP服务。</p><p>Node.js有如下三部分组成： 1. 引入required模块 2. 创建服务器 3. 接收请求和响应请求</p><pre><code class="language-js">// 引入required模块
+var http = require(&quot;http&quot;);
+// 创建服务器
+http.createServer(function (request, response) {
+    // 发送HTTP头部
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+
+    // 发送响应体
+    response.end('Hello World!\n');
+}).listen(8080);
+
+// 终端打印如下信息
+console.log('Server running at http://localhost:8080/');
+</code></pre><h1 id="npm">NPM</h1><p>NPM 是NodeJs的包管理工具，可以下载第三方包，或者命令程序，也可以将自己编写的包或命令程序上传到NPM服务器。</p><p>使用 NPM 安装模块的命令如下：</p><pre><code># 本地安装
+npm install &lt;Module Name&gt;
+# 全局安装
+npm install &lt;Module Name&gt; -g
+# 查看全局模块安装信息
+npm list -g
+</code></pre><p>本地安装会将安装包放到运行安装命令目录的 <code>node_modules</code> 下。</p><p><code>package.json</code> 位于模块目录下，用于定义包的属性，语法为json，其属性说明如下： - name : 包名 - version : 包的版本号 - description : 包的描述 - homepage : 包的官网url - author : 包的作者名 - contributors : 包的其他贡献者 - <strong>dependencies</strong> : 包的依赖列表，npm会自动将依赖包安装到node_module目录下 - repository : 包代码存放的位置 - <strong>main</strong> : 指定了程序的主入口文件， <code>require('moduleName)</code> 会加载这个文件，默认值是模块根目录下面的index.js - keywords : 关键字</p><h2 id="回调函数">回调函数</h2><p>NodeJs是异步编程，其直接体现就是回调函数。所谓回调函数是在任务执行完成后就会被调用的函数，NodeJs所有的API都支持回调函数。</p><pre><code class="language-js">let fs = require(&quot;fs&quot;);
+
+fs.readFile(&quot;file.txt&quot;, function(err, data) {
+    if (err) return console.error(err);
+    console.log(data.toString());
+});
+
+console.log(&quot;程序执行结束&quot;);
+</code></pre><h2 id="事件驱动">事件驱动</h2><p>NodeJs 使用事件驱动模型，当web server 接到请求，就将其关闭然后处理，随后去服务下一个 web 请求。 当这个请求处理完成后，它会被放回处理队列，当达到队列开头，结果会被返回给用户。</p><p><img src="http://www.runoob.com/wp-content/uploads/2015/09/event_loop.jpg" alt="Alt text"></p><p>NodeJs 中有许多内置的事件，可以通过引入 <code>events</code> 模块来实例化 <code>EventEmitter</code> 来绑定和监听事件：</p><pre><code class="language-js">let events = require('events');
+// 初始化 EventEmitter 对象
+let eventEmitter = new events.EventEmitter();
+// 绑定事件处理程序
+eventEmitter.on('eventName', eventHandler);
+// 触发事件
+eventEmitter.emit('eventName');
+</code></pre><p><code>events</code> 模块只提供了一个对象 <code>EventEmitter</code>，该对象有如下方法：</p><ol><li><code>addListener(eventName, listener)</code> : 为指定事件添加一个监听器到监听数组的尾部</li><li><code>on(eventName, listener)</code> : 为指定事件注册一个监听器</li><li><code>once(eventName, listener)</code> : 为指定事件注册一个单次监听器，该监听器只会触发一次</li><li><code>removeListener(eventName, listener)</code> : 移除指定事件的某个监听器</li><li><code>removeAllListener([eventName])</code> : 移除所有的监听器</li><li><code>listeners(event)</code> : 返回指定事件的监听器数组</li></ol><h2 id="buffer-缓冲区">Buffer 缓冲区</h2><p>JavaScript只有字符串类型数据，不支持二进制数据，<code>Buffer</code> 是NodeJs中处理二进制数据的类。使用方式如下：</p><pre><code class="language-js">// 创建一个长度为10，且初始值为0的Buffer
+const buf1 = Buffer.alloc(10);
+
+// 创建一个长度为10，用0x1填充的 Buffer
+const buf2 = Buffer.alloc(10, 1);
+
+// 创建一个长度为10，未初始化的 Buffer（Buffer可能会有旧数据）
+const buf3 = Buffer.allocUnsafe(10);
+
+// 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer
+const buf4 = Buffer.from([1,2,3]);
+
+// 创建一个utf8字节的Buffer
+const buf5 = Buffer.from('test');
+
+// 写入缓冲区, writeSize 是实际写入的大小
+let writeSize = buf.write(string [, offset [, length]][, encoding]);
+
+// 从缓冲区读取数据
+buf.toString([encoding[, start[, end]]]);
+console.log(buf5.toString('hex'));
+
+// 将Buffer转换成JSON对象
+let json = buf.toJSON();
+
+// 缓存区合并
+Buffer.concat(list [, totalLength]);
+
+let buf6 = Buffer.concat([buf1, buf2]);
+
+// 拷贝缓冲区，将buf中的内容拷贝到targetBuffer中
+buf.copy(targetBuffer [, targetStart [, sourceStart [, sourceEnd]]]);
+buf1.copy(buf2, 2);
+
+// 剪切缓冲区，返回一个新的缓冲区，**它和旧缓冲区指向同一内存**
+buf.slice([start [,end]]);
+buf1.slice(1,2);
+
+// 返回缓冲区的长度
+console.log(buf1.length);
+</code></pre><h2 id="stream">stream</h2><p>所有的stream都是 EventEmitter 的实例，其常见的事件有： - <code>data</code> : 当流中有数据可读时触发 - <code>end</code> : 没有更多数据可读时触发 - <code>error</code> : 在接受和写入的过程中发生错误时触发 - <code>finish</code> : 所有数据已被写入到底层系统时触发</p><p>链式流是连接输出流到另外一个流并创建多个流操作链的机制，一般用于管道操作。</p><pre><code class="language-js">let fs = require('fs');
+let data = '';
+
+let readerStream = fs.createReadStream('input.txt');
+readerStream.setEncoding('UTF8');
+
+readerStream.on('data', function (chunk) {
+    data += chunk;
+});
+
+let writerStream = fs.createWriteStream('output.txt', {'flags': 'a'});
+
+readerStream.on('end', function(){
+    console.log(data);
+    writerStream.write(data, 'UTF8');
+    writerStream.end();
+
+    writerStream.on('finish', function() {
+        console.log('write done.');
+    });
+
+    writerStream.on('error', function(err) {
+        console.log(err.stack);
+    });
+
+    console.log('write end.');
+});
+
+readerStream.on('error', function(err){
+    console.log(err.stack);
+});
+
+console.log('read end');
+
+// 流 会自动关闭么
+// 使用管道拷贝文件
+readerStream.pipe(writerStream);
+
+// 链式流
+let zlib = require('zlib');
+// 文件压缩
+fs.createReadStream('input.txt')
+    .pipe(zlib.createGzip())
+    .pipe(fs.createWriteStream('input.txt.gz'));
+
+console.log('file compress done.')
+
+// 解压缩
+fs.createReadStream('input.txt.gz')
+  .pipe(zlib.createGunzip())
+  .pipe(fs.createWriteStream('input2.txt'));
+
+console.log(&quot;文件解压完成。&quot;);
+</code></pre><h2 id="模块系统">模块系统</h2><p>模块是NodeJs的基本组成部分，和文件是一一对应的，也就是说一个Node.js文件就是一个模块。这个文件可以是JavaScript、JSON或者编译过的C/C++扩展。 可以通过如下方式创建一个简单的hello.js模块：</p><pre><code class="language-js">function Hello () {
+    var name;
+    this.setName = function(thyName) {
+        name = thyName;
+    }
+    this.sayHello = function () {
+        console.log('Hello ' + name);
+    }
+}
+</code></pre><p>然后我们就可以直接获取这个对象了</p><pre><code class="language-js">let Hello = require('./hello');
+hello = new Hello();
+hello.setName('your name');
+hello.sayHello();
+</code></pre><p><code>require</code> 方法接受以下参数： - <code>http</code>、<code>fs</code>、<code>path</code> 等原生模块 - <code>./mod</code> 或 <code>../mod</code> 等相对路径的文件模块 - <code>/path/to/mod</code> 绝对路径 - <code>mod</code> 非原生模块的文件模块。</p><h2 id="nodejs-路由">NodeJs 路由</h2><p>可以通过 <code>url.parse(request.url).pathname</code> 获取请求的路径，通过 <code>url.parse(request.url).query</code> 获取请求参数。</p><p>可以通过 <code>querystring.parse(query)['param']</code> 来获取请求参数的值。</p><h2 id="express框架简单应用">Express框架简单应用</h2><p>Express是一个简单灵活的nodejs WEB应用框架，提供了一些创建各种Web应用，和丰富HTTP的强大特性。 Express框架： - 可以设置中间件来响应HTTP请求 - 定义了路由表用于执行不同的HTTP请求动作 - 通过向模块传递参数来动态渲染HTML页面</p><ol><li>安装： <code>npm install express --save</code></li><li>简单应用： ```js let express = require(&lsquo;express&rsquo;); let app = express();</li></ol><p>app.get(&lsquo;/&rsquo;, function(req, res) { res.send(&lsquo;Hello World&rsquo;); }); let server = app.listen(8081, function() { let host = server.address().address; let port = server.address().port;</p><pre><code>console.log(&quot;应用实例，访问地址为 http://%s:%s&quot;, host, port);
+</code></pre><p>});</p><pre><code>
+3. 路由
+```js
+app.get('/', function (req, res) {
+    console.log(&quot;主页 GET 请求&quot;);
+    res.send('Hello GET');
+});
+//  POST 请求
+app.post('/', function (req, res) {
+    console.log(&quot;主页 POST 请求&quot;);
+    res.send('Hello POST');
+});
+
+//  /del_user 页面响应
+app.get('/del_user', function (req, res) {
+    console.log(&quot;/del_user 响应 DELETE 请求&quot;);
+    res.send('删除页面');
+});
+
+// 对页面 abcd, abxcd, ab123cd, 等响应 GET 请求
+app.get('/ab*cd', function(req, res) {   
+   console.log(&quot;/ab*cd GET 请求&quot;);
+   res.send('正则匹配');
+});
+</code></pre><ol><li><p>静态文件</p><pre><code class="language-js">// 静态文件，路径为去除static的路径
+app.use(express.static('static'));
+</code></pre></li><li><p>文件上传 ```js // 文件上传 let multer = require(&lsquo;multer&rsquo;); let fs = require(&lsquo;fs&rsquo;); app.use(bodyParser.urlencoded({entended: false})); app.use(multer({dest: &lsquo;/tem/&rsquo;}).array(&lsquo;image&rsquo;));</p></li></ol><p>app.post(&lsquo;/file_upload&rsquo;, function(req, res) { console.log(req.files[0]);</p><pre><code>let des_file = __dirname + &quot;/&quot; + req.files[0].originalname;
+fs.readFile(req.files[0].path, function(err, data) {
+    fs.writeFile(des_file, data, function(err) {
+        if (err) {
+            console.log(err);
+        } else {
+            response = {
+                message: 'File Upload successfully!',
+                filename: req.files[0].originalname
+            };
+        }
+        console.log(response);
+        res.type('application/json;charset=utf8');
+        res.end(JSON.stringify(response));
+    })
+})
+</code></pre><p>}) ```</p><h2 id="nodejs-多进程">nodejs 多进程</h2><p>NodeJs 是以单线程的模式运行的，但它使用的是事件驱动来处理并发，我们可以在多核CPU系统上创建多个子进程，提高性能。 Node 提供了 child_process 模块来创建子进程，方法如下： - <code>exec</code> : 使用子进程执行命令，缓存子进程的输出，并将子进程的输出以回调函数参数的形式返回 - <code>spawn</code> : 使用指定的命令行参数创建新进程 - <code>fork</code> : <code>spawn</code> 的特殊形式，用于在子进程中运行的模块</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/javascript">#javascript</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/" rel="prev">css使用方式总结</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" rel="next">字符串匹配算法</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']]
+      }
+    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-676cb0804b.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9350854994277981",
+        enable_page_level_ads: true
+    });</script></body></html>

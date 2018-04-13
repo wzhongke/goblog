@@ -19,6 +19,7 @@ git是比较常用的版本控制工具。
 
 ## git ignore
 1. `git rm -r`: 可以将一个文件夹添加到不追踪内容之中。如果出现 `fatal: pathspec 'dir' did not match any files`，可能是因为该文件夹已经在不追踪内容之中了。
+2. 增加 `.gitignore` 文件，添加无需追踪文件规则。[参考地址](https://github.com/github/gitignore)
 
 ## git 分支
 分支是用来将特性开发绝缘开来的。在创建仓库的时候，master是默认的。
@@ -36,4 +37,3 @@ git是比较常用的版本控制工具。
 ## git替换本地改动
 1. `git checkout -- <filename>` : 使用HEAD中的最新内容替换掉工作目录中的文件，已添加到缓存区的改动，以及新文件不受影响。
 2. `git fetch origin`    `git reset –hard origin/master`丢弃所有的本地改动与提交，可以到服务器上获取最新的版本并将你本地主分支指向它: 
-

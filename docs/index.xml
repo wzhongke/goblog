@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright@Kevin Tan</copyright>
-    <lastBuildDate>Thu, 11 Jan 2018 08:37:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Apr 2018 12:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wzhongke.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>webpack</title>
+      <link>https://wzhongke.github.io/post/front/webpack/</link>
+      <pubDate>Fri, 13 Apr 2018 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/webpack/</guid>
+      <description>安装 使用如下命令安装webpack到当前目录下 npm install webpack --save 如果需要使用 webpack 命令行，需要全局安装 npm install webpack-cli -g 如果因为权限问题，安装失败，则需要使用如下命</description>
+    </item>
+    
+    <item>
+      <title>字符串匹配算法</title>
+      <link>https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 12 Apr 2018 11:39:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</guid>
+      <description>最近在做结果过滤时，碰到了一些字符串匹配效率低下的问题。在网上查找了一些字符串匹配的算法，有KMP算法，多模AC匹配算法等。 BMP算法 坏字符</description>
+    </item>
+    
+    <item>
+      <title>nodejs 学习笔记</title>
+      <link>https://wzhongke.github.io/post/front/nodejs/</link>
+      <pubDate>Thu, 08 Mar 2018 12:01:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/nodejs/</guid>
+      <description>创建一个应用 使用Node.js时，不仅仅在实现一个应用，同时还实现了整个HTTP服务。 Node.js有如下三部分组成： 1. 引入required</description>
+    </item>
+    
+    <item>
+      <title>css使用方式总结</title>
+      <link>https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 08 Mar 2018 11:28:11 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/</guid>
+      <description>写在前面的话 在使用css的过程中，总会有一些需要查询或者迈过的坑，产生一些想法和处理问题的方式，亦或自己的经验和体会。将自己实践过程中碰到过</description>
+    </item>
+    
+    <item>
+      <title>spring 学习笔记</title>
+      <link>https://wzhongke.github.io/post/java/springlearn/</link>
+      <pubDate>Sun, 21 Jan 2018 16:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/springlearn/</guid>
+      <description>IoC (Inversion of Control), 也叫 DI (Dependency injection)，对象通过构造函数参数，工厂方法参数或者在工厂方法构造或返回的实例上设置属性来定义他们之间的依赖关系，容</description>
+    </item>
     
     <item>
       <title>树算法</title>
@@ -64,6 +109,15 @@
       
       <guid>https://wzhongke.github.io/post/algorithms/%E5%9B%BE/</guid>
       <description>图的表示 我们用$V$表示图的结点数，$E$表示图的边的条数。 对于图$G=(V,E)$，可以用两种标准表示方法表示：将图作为邻接链表的组合；将</description>
+    </item>
+    
+    <item>
+      <title>nginx 配置</title>
+      <link>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 21 Dec 2017 11:08:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE/</guid>
+      <description>nginx配置之 location nginx 的 location 配置可以有如下多种方式： # 精确匹配 location = / { # 精确匹配 / ，主机名后不能有任何字符串 operateA; } # 通用匹配，未匹配到其他loca</description>
     </item>
     
     <item>
@@ -153,7 +207,7 @@
       <pubDate>Thu, 21 Sep 2017 12:00:00 +0000</pubDate>
       
       <guid>https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/</guid>
-      <description>在常见的线上问题中，如下问题比较常见： - 内存泄露 - 某个进程CPU突然飙升 - 线程死锁 - 响应变慢 如果遇到上述问题，我们可以基于监控工具来定位问题</description>
+      <description>垃圾回收 CMS 收集器无法处理浮动垃圾（Floating Garbage），可能会出现 Concurrent Mode Failure 失败，而导致另一次 STW 的 Full GC 的产生。 由于 CMS 并发清理阶段用户</description>
     </item>
     
     <item>
@@ -418,7 +472,7 @@
     </item>
     
     <item>
-      <title>markdown语法</title>
+      <title>markdown 语法</title>
       <link>https://wzhongke.github.io/post/markdown%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sat, 17 Jun 2017 19:42:25 +0000</pubDate>
       
@@ -543,6 +597,15 @@ new Vue({ data: { a: 1, b: [] } methods: { doSomething: function() { this.a++; }
       
       <guid>https://wzhongke.github.io/post/front/html%E6%A0%87%E7%AD%BE/</guid>
       <description>标签 &amp;lt;video&amp;gt;标签是HTML5的新标签，其属性如下： 属性 值 描述 autoplay autoplay 视频就绪后马上播放 controls controls 向用户展示控件，比如播放按钮等 height pixels 视</description>
+    </item>
+    
+    <item>
+      <title>java 计算对象占用内存</title>
+      <link>https://wzhongke.github.io/post/java/java-%E8%AE%A1%E7%AE%97%E5%86%85%E5%AD%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/java-%E8%AE%A1%E7%AE%97%E5%86%85%E5%AD%98/</guid>
+      <description>可以使用如下代码计算对象占用内存： import java.lang.instrument.Instrumentation; import java.lang.reflect.Array; import java.lang.reflect.Field; import java.lang.reflect.Modifier; import java.util.IdentityHashMap; import java.util.Map; import java.util.Stack; /** * 借助 Instrumentation 接口的 getObjectSize 方法计算对象占用空间 * 原来的 sizeOf 只能计算本对象占用空间， 无法计</description>
     </item>
     
     <item>

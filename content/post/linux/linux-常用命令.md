@@ -112,6 +112,14 @@ ln [-sf] 源文件 目标文件(符合连接文件)
     -f: 如果目标文件存在，就将目标文件删除后再创建
 ```
 
+6. 清空文件
+清空文件有三种方式：
+```bash
+cat /dev/null > clear.txt
+echo "" > clear.txt
+> clear.txt
+```
+
 ## 命令与文件查询
 1. which：可以查询脚本文件的位置，比如 `ifconfig` 命令的位置。但是不能够查询bash内置的命令，比如`cd`
     ```bash
@@ -691,6 +699,35 @@ kill -SIGHUP $(ps aux | grep 'syslog' | grep -v 'grep' | awk '{print $2}')
 # 关闭一个命令开启的所有进程
 killall -i -9 bash
 ```
+
+## 文件格式化处理 -- `grep`, `sed`, `awk`
+```bash
+ob.resin.201803281530
+cat adcost | awk '{sum+=$1} END {print "Avg= ", sum/NR}'
+
+awk 'BEGIN {max = 0} {if ($1+0 > max+0) max=$1} END {print "Max=", max}' adcost
+sed -rn 's/.*cost:([0-9]+).*$/\0@@@\1/p'  | awk 'BEGIN {FS="@@@"} $2 > 1000 {print $1}' | grep -P 'cost:[0-9]+' --color
+```
+
+### `grep` 命令
+
+
+### `awk` 命令
+`awk` 内建了如下变量：
+
+变量符号     | 变量说明
+:-----------|:-------------
+`$0`        | 当前行的内容
+`$1~$n`     | 当前行的第n个字段，字段间由 `FS` 分隔
+`FS`        | 字段分隔符，默认是空格或者Tab
+`NF`        | 当前记录中字段个数，即列数
+`NR`        | 行号，从1开始，有多个文件，该值也会累加
+`FNR`       | 当前记录数，文件自己的行号
+`RS`        | 行的分隔符，默认是换行
+`OFS`       | 输出字段分隔符，默认是空格
+`ORS`       | 输出行的分隔符，默认是换行符
+`FILENAME`  | 当前文件名
+
 
 ## 其他快捷方式
 1. 使用快捷键 `ctrl+r` 可以快速使用历史命令

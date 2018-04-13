@@ -22,6 +22,24 @@
     </item>
     
     <item>
+      <title>nginx 配置</title>
+      <link>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 21 Dec 2017 11:08:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/nginx%E9%85%8D%E7%BD%AE/</guid>
+      <description>nginx配置之 location nginx 的 location 配置可以有如下多种方式： # 精确匹配 location = / { # 精确匹配 / ，主机名后不能有任何字符串 operateA; } # 通用匹配，未匹配到其他loca</description>
+    </item>
+    
+    <item>
+      <title>linux 网络常用命令</title>
+      <link>https://wzhongke.github.io/post/linux/linux-server/</link>
+      <pubDate>Thu, 21 Sep 2017 12:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/linux/linux-server/</guid>
+      <description>linux 常用网络命令 ifconfig, ifup, ifdown 这三个指令都是用来启动网络接口的。 1. ifconfig ifconfig主要是可以手动启动、观察与修改网络接口的相关参数。语法如下: ifconfig [interface] {up/down}</description>
+    </item>
+    
+    <item>
       <title>shell 编程</title>
       <link>https://wzhongke.github.io/post/linux/shell/</link>
       <pubDate>Sat, 19 Aug 2017 09:52:00 +0000</pubDate>

@@ -1,0 +1,433 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>spring 学习笔记 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/java/springlearn/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-0876bf4ac8.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/nodejs/">nodejs 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a> <a class="collection-item" href="https://wzhongke.github.io/post/mathjax/">mathjax 符号说明</a> <a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/java/">Java</a> <span class="breadcrumb">spring 学习笔记</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#bean">Bean</a><ul><li><a href="#命名-bean">命名 Bean</a></li><li><a href="#构造器初始化-bean">构造器初始化 Bean</a></li><li><a href="#静态工厂方法初始化-bean">静态工厂方法初始化 Bean</a></li><li><a href="#非静态工厂方法初始化-bean">非静态工厂方法初始化 Bean</a></li></ul></li><li><a href="#依赖注入">依赖注入</a><ul><li><a href="#基于构造器的依赖注入">基于构造器的依赖注入</a></li><li><a href="#基于-setter-的依赖注入">基于 Setter 的依赖注入</a><ul><li><a href="#idref-元素"><code>idref</code> 元素</a></li><li><a href="#ref-其他bean的引用"><code>ref</code> 其他bean的引用</a></li><li><a href="#内部bean">内部bean</a></li></ul></li><li><a href="#集合-collections">集合 <code>Collections</code></a><ul><li><a href="#集合合并">集合合并</a></li><li><a href="#depends-on-属性"><code>depends-on</code> 属性</a></li><li><a href="#懒初始化-bean">懒初始化 bean</a></li><li><a href="#自动注入-autowiring">自动注入 Autowiring</a></li><li><a href="#方法注入">方法注入</a></li></ul></li><li><a href="#bean-生命周期">Bean 生命周期</a><ul><li><a href="#使用aop代理将短生命周期的bean注入到长生命周期的bean中">使用AOP代理将短生命周期的bean注入到长生命周期的bean中</a></li><li><a href="#自定义生命周期">自定义生命周期</a></li></ul></li><li><a href="#定制bean的特性">定制bean的特性</a><ul><li><a href="#aware">Aware</a></li></ul></li><li><a href="#bean-继承定义">Bean 继承定义</a></li></ul></li><li><a href="#注解">注解</a><ul><li><a href="#组件扫描">组件扫描</a></li><li><a href="#bean-1"><code>@Bean</code></a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">spring 学习笔记 </span><span class="card-meta"><time><span>Sun Jan 21 2018</span></time></span><article class="article"><p>IoC (Inversion of Control), 也叫 DI (Dependency injection)，对象通过构造函数参数，工厂方法参数或者在工厂方法构造或返回的实例上设置属性来定义他们之间的依赖关系，容器在创建bean时，注入这些依赖。</p><h1 id="bean">Bean</h1><p>Spring中Bean的定义使用接口 <code>BeanDefinition</code> 表示的，它具有如下的属性： - 一个class名 - 表明bean在容器中的行为 (scope, lifecycle callbacks等) - 依赖的bean</p><h2 id="命名-bean">命名 Bean</h2><p>每个 Bean 都有一个或多个标识，这些标识在 Bean 的容器中必须是唯一的。在基于XML的配置中，可以用 <code>id</code> 或者 <code>name</code> 属性来指定 Bean 的标识。<code>id</code> 属性只可以指定一个，<code>name</code> 可以为 Bean 指定多个标识，通过 <code>,</code>, <code>;</code> 或者空格分隔。</p><p>如果 Bean 的定义中，没有指定name或者id，容器会自动为 Bean 生成一个标识。 Bean 的命名惯例同Java变量类似，采用驼峰式。</p><p>有时候需要为其他地方定义的bean引入一个别名。 通常，在大型系统中每个子系统都有自己的一组对象定义，需要使用别名。可使用如下方式引入别名：</p><pre><code class="language-xml">&lt;!-- fromName 是其他Bean定义中的名字， toName 是在本定义中的名字 --&gt;
+&lt;alias name=&quot;fromName&quot; alias=&quot;toName&quot;&gt;
+</code></pre><p>如果要定义一个内部静态类的 Bean，需要用 <code>$</code> 符号分隔类和内部类： <code>com.example.Foo$Bar</code></p><h2 id="构造器初始化-bean">构造器初始化 Bean</h2><p>使用构造器初始化Bean，一般情况下需要提供一个无参构造器。如果 <code>Foo</code> 有一个有参构造器，如下：</p><pre><code class="language-java">package examples.instantiating;
+public class ExampleBean {
+    /** Number of years to calculate the Ultimate Answer */
+    private int years;
+    /**  The Answer to Life, the Universe, and Everything */
+    private String ultimateAnswer;
+    public ExampleBean(int years, String ultimateAnswer) {
+        this.years = years;
+        this.ultimateAnswer = ultimateAnswer;
+    }
+}
+
+</code></pre><p>我们可以用类型匹配方式构造 <code>ExampleBean</code></p><pre><code class="language-xml">&lt;bean id=&quot;exampleBean&quot; class=&quot;examples.instantiating.ExampleBean&quot;&gt;
+    &lt;constructor-arg type=&quot;int&quot; value=&quot;75000&quot;/&gt;
+    &lt;constructor-arg type=&quot;java.lang.String&quot; value=&quot;42&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><h2 id="静态工厂方法初始化-bean">静态工厂方法初始化 Bean</h2><p>使用静态工厂方法初始化 Bean 时，需要在 <code>class</code> 指定含有静态工厂方法的类，并在 <code>factory-method</code> 属性中指定工厂方法的名字。 对于含有静态方法的类 <code>StaticFactoryMethod</code> :</p><pre><code class="language-java">package examples.instantiating;
+public class StaticFactoryMethod {
+    private static StaticFactoryMethod instance = new StaticFactoryMethod();
+
+    private StaticFactoryMethod() {}
+
+    public static StaticFactoryMethod createInstance() {
+        return instance;
+    }
+}
+</code></pre><p>那么它的XML定义的Bean为：</p><pre><code class="language-xml"> &lt;bean id=&quot;staticFactoryMethod&quot; 
+    class=&quot;examples.instantiating.StaticFactoryMethod&quot; 
+    factory-method=&quot;createInstance&quot; /&gt;
+</code></pre><h2 id="非静态工厂方法初始化-bean">非静态工厂方法初始化 Bean</h2><p>非静态工厂方法初始化 Bean 时，需要使用容器中已有的 Bean。如下</p><pre><code class="language-java">package examples.instantiating;
+
+public class NonStaticFactoryMethod {
+
+    private NonStaticFactoryMethod instance1 = new NonStaticFactoryMethod();
+    private NonStaticFactoryMethod instance2 = new NonStaticFactoryMethod();
+
+    public NonStaticFactoryMethod getInstance1() {
+        return instance1;
+    }
+
+    public NonStaticFactoryMethod getInstance2() {
+        return instance2;
+    }
+}
+</code></pre><p>XML 配置如下：</p><pre><code class="language-xml">&lt;bean id=&quot;nonStaticFactoryMethod&quot; class=&quot;examples.instantiating.NonStaticFactoryMethod&quot; /&gt;
+&lt;bean id=&quot;service1&quot; factory-bean=&quot;nonStaticFactoryMethod&quot; factory-method=&quot;getInstance1&quot; /&gt;
+&lt;bean id=&quot;service2&quot; factory-bean=&quot;nonStaticFactoryMethod&quot; factory-method=&quot;getInstance2&quot; /&gt;
+</code></pre><h1 id="依赖注入">依赖注入</h1><p>依赖注入主要有两种方式：基于构造器的依赖注入 和 基于 Setter 的依赖注入</p><h2 id="基于构造器的依赖注入">基于构造器的依赖注入</h2><p>对于类 <code>ExampleBean</code>，除了使用类型匹配注入方式，还可以采用以下方式。</p><p>可以使用参数位置匹配方式构造 <code>ExampleBean</code></p><pre><code class="language-xml"> &lt;!-- 构造器实例化 bean - 参数位置方式匹配 --&gt;
+&lt;bean id=&quot;exampleBean2&quot; class=&quot;examples.instantiating.ExampleBean&quot;&gt;
+    &lt;constructor-arg index=&quot;0&quot; value=&quot;75000&quot;/&gt;
+    &lt;constructor-arg index=&quot;1&quot; value=&quot;42&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><p>还可以使用参数名匹配方式，使用该方式需要在启用debug flag的情况下编译代码，否则需要在在 <code>ExampleBean</code> 的构造器上加上注解：<code>@ConstructorProperties({&quot;years&quot;, &quot;ultimateAnswer&quot;})</code></p><pre><code class="language-xml">&lt;!-- 构造器实例化 bean - 参数名方式匹配 --&gt;
+&lt;bean id=&quot;exampleBean3&quot; class=&quot;examples.instantiating.ExampleBean&quot;&gt;
+    &lt;constructor-arg name=&quot;years&quot; value=&quot;7500000&quot;/&gt;
+    &lt;constructor-arg name=&quot;ultimateAnswer&quot; value=&quot;42&quot;/&gt;
+&lt;/bean&gt;
+</code></pre><h2 id="基于-setter-的依赖注入">基于 Setter 的依赖注入</h2><p>基于 Setter 的依赖注入是容器在调用无参构造器或者无参静态工厂方法后，再调用setter方法将属性注入到Bean中。</p><pre><code class="language-xml">&lt;!-- 基于 setter 方式的注入 --&gt;
+&lt;bean id=&quot;exampleBean4&quot; class=&quot;examples.instantiating.ExampleBean&quot;&gt;
+    &lt;property name=&quot;years&quot; value=&quot;750000&quot;/&gt;
+    &lt;property name=&quot;ultimateAnswer&quot; value=&quot;44&quot;/&gt;
+&lt;/bean&gt;
+</code></pre><p>因为我们可以混合使用构造器注入和setter注入，所以比较好的方式是：必须的依赖使用构造器注入；可选的依赖用setter注入。</p><p><strong>singleton-scope 的Bean会在容器创建的时候创建，同web.xml的<code>&lt;load-on-start&gt;1&lt;/load-on-start&gt;</code></strong></p><blockquote><p>如果两个用构造方式注入的类有循环依赖，那么会抛出 <code>BeanCurrentlyInCreationException</code> 异常，使用setter方式注入，不会有循环依赖的问题。</p></blockquote><p>我们可以用如下方式简化依赖注入：</p><pre><code class="language-xml">&lt;!-- 基于 setter 方式的注入 --&gt;
+&lt;bean id=&quot;exampleBean5&quot; class=&quot;examples.instantiating.ExampleBean&quot;
+        p:years=&quot;7000&quot;
+        p:ultimateAnswer=&quot;45&quot;&gt;
+&lt;/bean&gt;
+</code></pre><h3 id="idref-元素"><code>idref</code> 元素</h3><p><code>idref</code>标签允许容器在部署阶段验证引用的bean是真实存在的。使用 <code>&lt;property name=&quot;..&quot; value=&quot;...&quot;&gt;</code> 在部署阶段不会做验证。假如<code>exampleBean6</code>是<code>prototype</code>类型，那么可能会在部署之后才会抛出异常。</p><pre><code class="language-xml">&lt;bean id=&quot;targetBean&quot; class=&quot;examples.instantiating.ExampleRef&quot;/&gt;
+
+&lt;bean id=&quot;exampleBean6&quot; class=&quot;examples.instantiating.ExampleBean&quot;&gt;
+    &lt;property name=&quot;ref&quot;&gt;
+        &lt;idref bean=&quot;targetBean&quot; /&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><h3 id="ref-其他bean的引用"><code>ref</code> 其他bean的引用</h3><p><code>ref</code> 是 <code>&lt;constructor-arg/&gt;</code> 或 <code>&lt;property/&gt;</code>中的元素，可以指定该bean引用的其他bean。</p><pre><code class="language-xml">    &lt;bean id=&quot;exampleBean7&quot; class=&quot;examples.instantiating.ExampleBean&quot;&gt;
+        &lt;property name=&quot;ref&quot;&gt;
+            &lt;ref bean=&quot;targetBean&quot;/&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+</code></pre><h3 id="内部bean">内部bean</h3><p>我们可以把 <code>&lt;bean /&gt;</code> 元素写到 <code>&lt;property /&gt;</code> 或者 <code>&lt;constructor-arg&gt;</code> 元素中：</p><pre><code class="language-xml">&lt;bean id=&quot;outer&quot; class=&quot;examples.instantiating.ExampleBean&quot;&gt;
+    &lt;property name=&quot;target&quot;&gt;
+        &lt;bean class=&quot;examples.instantiating.ExampleRef&quot; /&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p>内部bean没有必要定义id或者name属性，即使定义了，容器也会忽略它们。</p><h2 id="集合-collections">集合 <code>Collections</code></h2><p>一个map的key或者value，一个set的值，可以通过下列之一为其赋值： <code>bean ref idref list set map props value null</code> 集合中使用的Javabean是：</p><pre><code class="language-java">public class ComplexObject {
+
+    private Properties adminEmails;
+
+    private List someList;
+
+    private Map someMap;
+
+    private Set someSet;
+
+    private List nullList;
+}
+</code></pre><p>如果没有类型限制，那么可以向集合中注入任意的类型。如果加上类型限制后，只能向集合中注入相应的类型。比如：<code>List&lt;String&gt; someList</code> 只能注入 <code>String</code> 类型的值。</p><h3 id="集合合并">集合合并</h3><p>Spring支持集合的合并，一个集合可以定义一个<code>&lt;list/&gt;</code>, <code>&lt;map/&gt;</code>, <code>&lt;set/&gt;</code> 或者 <code>&lt;props&gt;</code>，然后子类可以通过继承来合并父类中的集合</p><pre><code class="language-xml">&lt;!-- 合并集合 --&gt;
+&lt;bean id=&quot;parent&quot; abstract=&quot;true&quot; class=&quot;examples.instantiating.ComplexObject&quot;&gt;
+    &lt;property name=&quot;adminEmails&quot;&gt;
+        &lt;props&gt;
+            &lt;prop key=&quot;administrator&quot;&gt;adminstrator@example.com&lt;/prop&gt;
+            &lt;prop key=&quot;support&quot;&gt;support@example.com&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+&lt;!-- child 的 adminEmails 中的元素为：
+    administrator=administrator@example.com
+    sales=sales@example.com
+    support=support@example.com
+--&gt;
+&lt;bean id=&quot;child&quot; parent=&quot;parent&quot;&gt;
+    &lt;property name=&quot;adminEmails&quot;&gt;
+        &lt;!-- the merge is specified on the child collection definition --&gt;
+        &lt;props merge=&quot;true&quot;&gt;
+            &lt;prop key=&quot;sales&quot;&gt;sales@example.com&lt;/prop&gt;
+            &lt;prop key=&quot;support&quot;&gt;support@example.co.uk&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><pre><code class="language-xml">&lt;bean id=&quot;moreComplexObject&quot; class=&quot;example.ComplexObject&quot;&gt;
+    &lt;!-- results in a setAdminEmails(java.util.Properties) call --&gt;
+    &lt;property name=&quot;adminEmails&quot;&gt;
+        &lt;props&gt;
+            &lt;prop key=&quot;administrator&quot;&gt;administrator@example.org&lt;/prop&gt;
+            &lt;prop key=&quot;support&quot;&gt;support@example.org&lt;/prop&gt;
+            &lt;prop key=&quot;development&quot;&gt;development@example.org&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+    &lt;!-- results in a setSomeList(java.util.List) call --&gt;
+    &lt;property name=&quot;someList&quot;&gt;
+        &lt;list&gt;
+            &lt;value&gt;a list element followed by a reference&lt;/value&gt;
+            &lt;ref bean=&quot;myDataSource&quot; /&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+    &lt;!-- results in a setSomeMap(java.util.Map) call --&gt;
+    &lt;property name=&quot;someMap&quot;&gt;
+        &lt;map&gt;
+            &lt;entry key=&quot;an entry&quot; value=&quot;just some string&quot;/&gt;
+            &lt;entry key =&quot;a ref&quot; value-ref=&quot;myDataSource&quot;/&gt;
+        &lt;/map&gt;
+    &lt;/property&gt;
+    &lt;!-- results in a setSomeSet(java.util.Set) call --&gt;
+    &lt;property name=&quot;someSet&quot;&gt;
+        &lt;set&gt;
+            &lt;value&gt;just some string&lt;/value&gt;
+            &lt;ref bean=&quot;myDataSource&quot; /&gt;
+        &lt;/set&gt;
+    &lt;/property&gt;
+    &lt;!-- 注入 null --&gt;
+    &lt;property name=&quot;nullList&quot;&gt;
+        &lt;null/&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><h3 id="depends-on-属性"><code>depends-on</code> 属性</h3><p>如果一个bean对于其他bean是有依赖的，但是这个依赖不能通过 <code>&lt;ref/&gt;</code> 等方式在配置中体现出来，那么可以使用 <code>depends-on</code> 属性来明确指定依赖：</p><pre><code class="language-xml">&lt;bean id=&quot;dependsObject&quot; class=&quot;examples.instantiating.ComplexObject&quot; depends-on=&quot;exampleBean5&quot;&gt;
+    &lt;property name=&quot;someSet&quot;&gt;
+        &lt;set&gt;
+            &lt;ref bean=&quot;exampleBean5&quot; /&gt;
+        &lt;/set&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><h3 id="懒初始化-bean">懒初始化 bean</h3><p>默认情况下，容器会在初始化时创建所有的 <code>singleton</code> bean。可以通过使用<code>lazy-init=&quot;ture&quot;</code> 来阻止容器在启动时初始化该bean，这时容器会在该bean第一次被请求时创建。</p><h3 id="自动注入-autowiring">自动注入 Autowiring</h3><p>Spring 容器可以自动注入引用的bean，有如下优点： - 自动注入可以很大程度上减少指定属性或者构造器参数 - 当更新对象的引用时，不用修改配置</p><p>使用XML配置时，可以通过指定 <code>&lt;bean/&gt;</code> 标签的 <code>autowire</code> 属性来定义自动注入模式，注入模式有如下 4 种：</p><table><thead><tr><th align="left">模式</th><th align="left">说明</th></tr></thead><tbody><tr><td align="left">no</td><td align="left">(默认)不自动注入。bean的引用必须用<code>ref</code>定义。对于大型应用，建议使用默认值，因为这样能够更清晰和明确地指定对象的引用。</td></tr><tr><td align="left">byName</td><td align="left">根据属性名注入，Spring为要注入的属性寻找与属性名相同的bean，然后将其注入。</td></tr><tr><td align="left">byType</td><td align="left">容器中有且仅有一个bean的名字同属性名一致，才注入属性。如果多于1个，则会抛出异常并终止程序；如果没有匹配的bean，则不设置属性</td></tr><tr><td align="left">constructor</td><td align="left">与 <code>byType</code> 类似，只是它被用在构造参数上</td></tr></tbody></table><p>自动注入也有些限制： - 在<code>property</code> 和 <code>constructor-arg</code> 中明确指定依赖会覆盖自动注入的依赖。自动注入不能够注入基本类型、<code>String</code>类型和 <code>Classes</code> - 自动注入不如明确注入精确。 - Spring容器生成的文档可能不会包含自动注入的信息 - setter方法或者构造器参数可能会匹配到多个符合条件的bean，Spring容器会在这种情况下抛出异常。</p><p>在Spring的XML中，设置<code>&lt;bean /&gt;</code> 的 <code>autowire-candidate</code> 属性为 <code>false</code>，容器会将改bean在自动注入中不可用。</p><h3 id="方法注入">方法注入</h3><p>容器中的大多数bean是 singletons 的。当一个 singleton 的bean 引用另一个 singleton 的bean，或者一个非 singleton 的bean 引用另一个非 singleton 的bean，可以将一个bean设置为另一个的属性。但是两个bean的生命周期不同时，就会有问题。假如一个 singleton 的bean A 需要使用一个非 singleton 的bean B，容器只会在初始化的时候创建一个A，并将B注入到A中，而不会每次使用A时，将一个新的B注入到A中。</p><p>一个解决方案是放弃部分IoC，让A实现容器的 <code>ApplicationContextAware</code> 接口使得容器知道，每次A在调用B时，都会返回一个B的新的实例。</p><pre><code class="language-java">public class MethodInjection implements ApplicationContextAware {
+
+    private ApplicationContext applicationContext;
+
+    public void process () {
+        ExampleBean bean = createExampleBean();
+        // do something
+    }
+
+    protected ExampleBean createExampleBean () {
+        // notice the Spring API dependency!
+        return this.applicationContext.getBean(&quot;exampleBean4&quot;, ExampleBean.class);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+}
+</code></pre><p>以上方式明显依赖了Spring容器中的类，我们还可以使用 Lookup 方法注入。Spring框架使用CGLIB库生成bytecode来动态生成覆盖了对应方法的子类来实现方法注入。使用该方法时，对应的bean不能是 <code>final</code>，覆盖的方法也不能是 <code>final</code> 的。 该方式不能用在工厂方法中，<code>@Bean</code>方式也不会生效。</p><pre><code class="language-java">public class MethodInjectionWithLookup {
+
+    public void process () {
+        ExampleBean bean = createExampleBean();
+        System.out.println(bean);
+        // do something
+    }
+
+    // 1. 使用xml注入
+    protected ExampleBean createExampleBean () {
+        // notice the Spring API dependency!
+        return null;
+    }
+
+    // 2. 使用 Lookup 注解
+    @Lookup(&quot;exampleBeanInject&quot;)
+    protected ExampleBean createExampleBean1 () {
+        // notice the Spring API dependency!
+        return null;
+    }
+}
+</code></pre><p>使用方式如下：</p><pre><code class="language-xml">&lt;bean id=&quot;exampleBeanInject&quot; class=&quot;examples.instantiating.ExampleBean&quot; scope=&quot;prototype&quot;&gt;
+    &lt;property name=&quot;years&quot; value=&quot;750000&quot;/&gt;
+    &lt;property name=&quot;ultimateAnswer&quot; value=&quot;44&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;methodInjection&quot; class=&quot;examples.instantiating.MethodInjectionWithLookup&quot;&gt;
+    &lt;lookup-method name=&quot;createExampleBean&quot; bean=&quot;exampleBeanInject&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><p>还使用lookup method injection 实现将容器管理的bean的任意方法替换为另一个方法。详见Spring的<a href="https://docs.spring.io/spring/docs/5.0.2.RELEASE/spring-framework-reference/core.html#beans-factory-arbitrary-method-replacement">说明文档</a></p><h2 id="bean-生命周期">Bean 生命周期</h2><p>使用Spring容器不仅可以控制依赖，还可以控制所创建的bean的生命周期，Spring提供了6种生命周期，其中4种专门用于Web服务。</p><table><thead><tr><th align="left">Scope</th><th align="left">说明</th></tr></thead><tbody><tr><td align="left">singleton</td><td align="left">(默认)，每个Spring IoC容器中一个bean定义对应一个对象实例</td></tr><tr><td align="left">prototype</td><td align="left">一个bean定义对应任意数量的对象实例，每次请求引用bean A 的对象都会创建一个新的A的实例</td></tr><tr><td align="left">request</td><td align="left">每个HTTP request 都有一个根据bean定义所创建的对象实例，即对象实例的生命周期同 request 的生命周期相同</td></tr><tr><td align="left">session</td><td align="left">对象实例同 HTTP Session 具有相同的生命周期</td></tr><tr><td align="left">application</td><td align="left">对象实例同 <code>ServletContext</code> 具有相同的生命周期</td></tr><tr><td align="left">websocket</td><td align="left">对象实例同 <code>WebSocket</code> 具有相同的生命周期</td></tr></tbody></table><p>对于prototype bean 来说，容器只负责初始化配置组装一个 prototype对象实例，然后将实例交给 client，之后就不再跟踪该对象。因此，如果配置了 <code>destruction</code> 回调属性，是不生效的。可以使用 post-processor 来处理销毁对象实例的需求。</p><h3 id="使用aop代理将短生命周期的bean注入到长生命周期的bean中">使用AOP代理将短生命周期的bean注入到长生命周期的bean中</h3><p>我们需要通过注入一个代理对象的方式实现将短生命周期的对象实例注入到较长生命周期的bean中，该代理对象需要具有与较短生命周期相同的公共接口，并把方法调用映射到实际对象上。 该方式一般是通过CGLIB代理来生成代理对象的，该方式只能代理<code>public</code>方法调用，非 <code>public</code> 方法调用不能委托到真正的对象上。</p><pre><code class="language-xml">&lt;!-- 使用代理的方式 --&gt;
+&lt;!-- Scoped beans as dependencies --&gt;
+&lt;!-- an prototype-scoped bean exposed as a proxy --&gt;
+&lt;bean id=&quot;scopedBean&quot; class=&quot;examples.instantiating.ExampleBean&quot; scope=&quot;prototype&quot;&gt;
+    &lt;property name=&quot;years&quot; value=&quot;750000&quot;/&gt;
+    &lt;property name=&quot;ultimateAnswer&quot; value=&quot;44&quot;/&gt;
+    &lt;aop:scoped-proxy /&gt;
+&lt;/bean&gt;
+
+&lt;!-- a singleton-scoped bean injected with a proxy to the above bean --&gt;
+&lt;bean id=&quot;proxy&quot; class=&quot;examples.instantiating.ScopeProxy&quot; scope=&quot;singleton&quot;&gt;
+    &lt;property name=&quot;bean&quot; ref=&quot;scopedBean&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><p>测试方法如下：</p><pre><code class="language-java">@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({&quot;classpath:dispatcher-servlet.xml&quot;})
+public class ScopeProxyTest {
+
+    @Autowired
+    private ScopeProxy proxy;
+
+    @Test
+    public void testProxy () {
+        System.out.println(proxy.getBean());
+        System.out.println(proxy.getBean());
+    }
+}
+</code></pre><h3 id="自定义生命周期">自定义生命周期</h3><p>通过实现 <code>org.springframework.beans.factory.conf.Scope</code>接口的方式自定义一个生命周期，主要实现如下方法：</p><pre><code class="language-java">public class CustomScope implements Scope {
+    /**
+     * 返回作用域范围内的对象
+     */
+    @Override
+    public Object get(String name, ObjectFactory&lt;?&gt; objectFactory) {
+        return null;
+    }
+
+    /**
+     * 从作用域范围内移除对象
+     */
+    @Override
+    public Object remove(String name) {
+        return null;
+    }
+
+    /**
+     * 对象销毁时，调用其注册的销毁方法
+     */
+
+    @Override
+    public void registerDestructionCallback(String name, Runnable callback) {
+    }
+
+    /**
+     * 获取上下文中的对象
+     */
+    @Override
+    public Object resolveContextualObject(String key) {
+        return null;
+    }
+
+    /**
+     * 作用域的标识，不同的作用域返回标识不同
+     */
+    @Override
+    public String getConversationId() {
+        return null;
+    }
+}
+</code></pre><p>可以用java方法在Spring容器中注册自定义的生命周期:</p><pre><code class="language-java">Scope customScope = new CustomScope();
+beanFactory.registerScope(&quot;custom&quot;, customScope);
+</code></pre><p>也可以在XML中注册：</p><pre><code class="language-xml">&lt;bean class=&quot;org.springframework.beans.factory.config.CustomScopeConfigurer&quot;&gt;
+    &lt;property name=&quot;scopes&quot;&gt;
+        &lt;map&gt;
+            &lt;entry key=&quot;thread&quot;&gt;
+                &lt;bean class=&quot;org.springframework.context.support.SimpleThreadScope&quot;/&gt;
+            &lt;/entry&gt;
+        &lt;/map&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;customScopeBean&quot; class=&quot;examples.instantiating.ExampleBean&quot; scope=&quot;custom&quot; /&gt;
+</code></pre><h2 id="定制bean的特性">定制bean的特性</h2><p>我们可以实现Spring的<code>InitializingBean</code> 和 <code>DisposableBean</code> 接口来管理bean的声明周期。容器在初始化bean之后，会调用<code>afterPropertiesSet()</code>方法，在销毁bean之前会调用<code>destory()</code>。但这种方式会将程序同Spring容器耦合。还可以使用注解或XML配置方式来达到相同的目的。</p><pre><code class="language-xml">&lt;bean id=&quot;initBean&quot; class=&quot;examples.instantiating.ExampleBean&quot; init-method=&quot;init&quot;/&gt;
+</code></pre><pre><code class="language-java">@PostConstruct
+public void init() {
+    // do some initialization work
+}
+</code></pre><p>销毁对象之前的操作也类似：</p><pre><code class="language-xml">&lt;bean id=&quot;initBean&quot; class=&quot;examples.instantiating.ExampleBean&quot; destroy-method=&quot;destroy&quot;/&gt;
+</code></pre><pre><code class="language-java">@PreDestroy
+public void destroy() {
+    // do some initialization work
+}
+</code></pre><p>也可以用 <code>&lt;beans default-init-method=&quot;init&quot; default-destroy-method=&quot;destroy&quot;&gt;&lt;/beans&gt;</code> 方式来扫描所有的bean的 <code>init()</code> 方法和<code>destroy()</code>方法。</p><h3 id="aware">Aware</h3><p>当 <code>ApplicationContext</code> 创建一个实现了 <code>org.springframework.context.ApplicationContextAware</code> 接口的实例时，实例可以获得该 <code>ApplicationContext</code></p><pre><code class="language-java">public class BeanApplicationContextAware implements ApplicationContextAware, BeanNameAware{
+
+    private String name;
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        applicationContext.getApplicationName();
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        // 获取到定义的name
+        this.name = name;
+        System.out.println(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+</code></pre><p>还可以通过 <code>applicationContext</code> 获取文件资源，发布应用事件，访问 <code>MessageSource</code>等。 实现 <code>BeanNameAware</code> 可以获取到bean定义时的<code>id</code>，如果没有<code>id</code>则取第一个<code>name</code> 属性。</p><p>可用的 Aware 接口如下表：</p><table><thead><tr><th align="left">Name</th><th align="left">注入的依赖</th></tr></thead><tbody><tr><td align="left">ApplicationContextAware</td><td align="left"><code>ApplicationContext</code></td></tr><tr><td align="left">ApplicationEventPublisherAware</td><td align="left"><code>ApplicationEventPublisher</code></td></tr><tr><td align="left">BeanClassLoaderAware</td><td align="left"><code>BeanClassLoader</code></td></tr><tr><td align="left">BeanFactoryAware</td><td align="left"><code>BeanFactory</code></td></tr><tr><td align="left">BeanNameAware</td><td align="left">bean 的名字</td></tr><tr><td align="left">BootstrapContextAware</td><td align="left">只在 JCA 中使用</td></tr><tr><td align="left">LoadTimeWeaverAware</td><td align="left"></td></tr><tr><td align="left">MessageSourceAware</td><td align="left">配置消息策略</td></tr><tr><td align="left">NotificationPublisherAware</td><td align="left">Spring JMX 通知发布者</td></tr><tr><td align="left">ServletConfigAware</td><td align="left"><code>ServletConfig</code></td></tr><tr><td align="left">ServletContextAware</td><td align="left"><code>ServletContext</code></td></tr></tbody></table><h2 id="bean-继承定义">Bean 继承定义</h2><p>我们可以在XML中定义继承关系的bean，这样的子类会继承父类的所有属性值：</p><pre><code class="language-xml">&lt;bean id=&quot;inheritedTestBean&quot; abstract=&quot;true&quot;
+        class=&quot;org.springframework.beans.TestBean&quot;&gt;
+    &lt;property name=&quot;name&quot; value=&quot;parent&quot;/&gt;
+    &lt;property name=&quot;age&quot; value=&quot;1&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;inheritsWithDifferentClass&quot;
+        class=&quot;org.springframework.beans.DerivedTestBean&quot;
+        parent=&quot;inheritedTestBean&quot; init-method=&quot;initialize&quot;&gt;
+    &lt;property name=&quot;name&quot; value=&quot;override&quot;/&gt;
+    &lt;!-- the age property value of 1 will be inherited from parent --&gt;
+&lt;/bean&gt;
+</code></pre><p>一个子类bean会继承scope，构造器参数值，属性值和从父类继承的方法。</p><h1 id="注解">注解</h1><p>注解注入是在XML注入之前执行的，因此XML配置会覆盖注解相同的配置。</p><pre><code class="language-java">public class Annotation {
+
+    private ExampleBean exampleBean;
+
+    /**
+     * `@Resource` 如果没有name属性指定，那么会先寻找name与属性名相同的bean；如果没有，那么就根据类型寻找
+     */
+    @Resource
+    private ExampleBean noPrimary;
+
+    /**
+     * `@Autowired` 可以注入Map类型，只要map的key是String类型
+     */
+    @Autowired
+    private Map&lt;String, ExampleBean&gt; beanMap;
+
+    @Autowired
+    private Set&lt;ExampleBean&gt; beanSet;
+
+    public Annotation() {}
+
+    /**
+     * `@Autowired` 可以用在构造器上，也可以用在 setter 方法上，也可以用在属性上
+     * `@Autowired` 是根据类型匹配的，默认的required是false
+     */
+    @Autowired(required = false)
+    public Annotation(@Nullable ExampleBean exampleBean) {
+        this.exampleBean = exampleBean;
+    }
+
+    /**
+     * `@Required` 注解用在属性的setter方法上，表示该属性必须已经被注入
+     * `@Qualifier()` 注解可以根据bean的name或者id注入，比 `@Primary` 更灵活
+     */
+    @Autowired
+    @Required
+    public void setExampleBean (@Qualifier(&quot;no-primary&quot;) ExampleBean exampleBean) {
+        this.exampleBean = exampleBean;
+    }
+
+    public ExampleBean getExampleBean() {
+        return exampleBean;
+    }
+
+    public ExampleBean getNoPrimary() {
+        return noPrimary;
+    }
+}
+</code></pre><p>对应的xml配置为：</p><pre><code class="language-xml">&lt;!-- @Autowired 注解如果有多个匹配的类型，可以使用primary来注入该bean --&gt;
+&lt;bean class=&quot;examples.instantiating.ExampleBean&quot; primary=&quot;true&quot;&gt;
+    &lt;constructor-arg type=&quot;int&quot; value=&quot;75000&quot;/&gt;
+    &lt;constructor-arg type=&quot;java.lang.String&quot; value=&quot;42&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;bean class=&quot;examples.instantiating.ExampleBean&quot; id=&quot;no-primary&quot; name=&quot;noPrimary&quot;&gt;
+    &lt;constructor-arg type=&quot;int&quot; value=&quot;25000&quot;/&gt;
+    &lt;constructor-arg type=&quot;java.lang.String&quot; value=&quot;42&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><h2 id="组件扫描">组件扫描</h2><p><code>@Component</code> 是spring管理组件的通用注解，<code>@Repository</code>、<code>@Service</code>、<code>@Controller</code> 是 <code>@Component</code> 的更为具体的注解。<code>@Repository</code> 一般用在持久层（DAO）。 在java中定义扫描组件</p><pre><code class="language-java">@ComponentScan(basePackages = &quot;examples&quot;,
+    includeFilters = @Filter(type = FilterType.REGEX, pattern = &quot;.*Example.*&quot;),
+    excludeFilters = {@Filter(Repository.class), @Filter(AppConfig.class)})
+public class AppConfig {
+
+}
+</code></pre><p>在xml中定义扫描组件</p><pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+
+    &lt;context:component-scan base-package=&quot;example&quot;&gt;
+        &lt;context:include-filter type=&quot;regex&quot;
+                                expression=&quot;.*Example.*&quot;/&gt;
+        &lt;context:exclude-filter type=&quot;annotation&quot;
+                                expression=&quot;org.springframework.stereotype.Repository&quot;/&gt;
+    &lt;/context:component-scan&gt;
+&lt;/beans&gt;
+</code></pre><h2 id="bean-1"><code>@Bean</code></h2><p><code>@Bean</code> 一般需要在被 <code>@Configuration</code> 注解的类中使用，否则就是 lite 状态的Bean。这时候Spring容器对Bean的管理会缺失。</p><p><code>@Bean</code>是用在方法上的注解，一般情况下，生成的Bean的名字同方法名一致。</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/java">#java</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/" rel="prev">树算法</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/" rel="next">css使用方式总结</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']]
+      }
+    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-676cb0804b.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9350854994277981",
+        enable_page_level_ads: true
+    });</script></body></html>

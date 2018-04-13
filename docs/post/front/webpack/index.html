@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>webpack | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/front/webpack/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-0876bf4ac8.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+    
+    var outer = document.createElement('div');
+    outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
+    document.documentElement.appendChild(outer);
+    window.scrollWidth = outer.offsetWidth - outer.clientWidth;
+    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/nodejs/">nodejs 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a> <a class="collection-item" href="https://wzhongke.github.io/post/mathjax/">mathjax 符号说明</a> <a class="collection-item" href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/">hugo markdown 中使用javascript</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">10</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/front/">Front</a> <span class="breadcrumb">webpack</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#安装">安装</a></li><li><a href="#打包文件">打包文件</a></li><li><a href="#管理资源">管理资源</a><ul><li><a href="#安装css">安装css</a></li><li><a href="#加载图片">加载图片</a></li><li><a href="#加载字体">加载字体</a></li><li><a href="#加载数据资源">加载数据资源</a></li></ul></li><li><a href="#管理输出">管理输出</a><ul><li><a href="#htmlwebpackplugin-插件"><code>HtmlWebpackPlugin</code> 插件</a></li><li><a href="#插件">插件</a></li></ul></li><li><a href="#开发">开发</a><ul><li><a href="#source-map">source map</a></li><li><a href="#开发工具">开发工具</a></li><li><a href="#观察者模式">观察者模式</a></li><li><a href="#使用-webpack-dev-server">使用 <code>webpack-dev-server</code></a></li><li><a href="#webpack-dev-middleware"><code>webpack-dev-middleware</code></a></li></ul></li><li><a href="#生产环境构建">生产环境构建</a><ul><li><a href="#指定环境">指定环境</a></li></ul></li><li><a href="#代码分离">代码分离</a><ul><li><a href="#防止重复">防止重复</a></li><li><a href="#懒加载">懒加载</a></li></ul></li><li><a href="#缓存">缓存</a><ul><li><a href="#输出文件替换">输出文件替换</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">webpack </span><span class="card-meta"><time><span>Fri Apr 13 2018</span></time><address><a href="https://wzhongke.github.io//categories/javascript">javascript</a>&nbsp;</address></span><article class="article"><h1 id="安装">安装</h1><p>使用如下命令安装webpack到当前目录下</p><pre><code>npm install webpack --save
+</code></pre><p>如果需要使用 <code>webpack</code> 命令行，需要全局安装</p><pre><code>npm install webpack-cli -g
+</code></pre><p>如果因为权限问题，安装失败，则需要使用如下命令：</p><pre><code>sudo npm install webpack-cli -g
+</code></pre><h1 id="打包文件">打包文件</h1><p>使用npm打包文件时，可以在 <code>package.json</code> 中如下配置：</p><pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;webpack --config webpack.config.js&quot;, 
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;dev&quot;: &quot;webpack --mode development&quot;,
+    &quot;build&quot;: &quot;webpack --mode production&quot;
+}
+</code></pre><p>这样我们可以使用 <code>npm run dev</code> 命令来运行 webpack，而不用再输入各种参数。 其中 <code>webpack.config.js</code> 的配置如下（具体配置在配置中说明）：</p><pre><code class="language-js">const path = require('path')
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
+    },
+    module: {
+        rules: []
+    }
+}
+</code></pre><h1 id="管理资源">管理资源</h1><h2 id="安装css">安装css</h2><p>为了从 JavaScript 模块中 <code>import</code> 一个 CSS 文件，你需要在 <code>module</code> 配置中 安装并添加 <code>style-loader</code> 和 <code>css-loader</code></p><pre><code>npm install --save-dev style-loader css-loader
+</code></pre><p>webpack 根据正则表达式来确定应该查找哪些文件，并将其提供给指定的 loader。配置如下：</p><pre><code class="language-js"> module: {
+    rules: [
+         test: /\.css$/,
+         use: [
+           'style-loader',
+           'css-loader'
+         ]
+       }
+     ]
+   }
+</code></pre><p>上述配置中，以 <code>.css</code> 结尾的全部文件，都将被提供给 <code>style-loader</code> 和 <code>css-loader</code>。 这使你可以在依赖于此样式的文件中 <code>import './style.css'</code>。现在，当该模块运行时，含有 CSS 字符串的 <code>&lt;style&gt;</code>标签，将被插入到 html 文件的 <code>&lt;head&gt;</code> 中。</p><h2 id="加载图片">加载图片</h2><p>使用 <code>file-loader</code>，我们可以轻松地将图片或者图标等内容混合到 CSS 中：</p><pre><code>npm install --save-dev file-loader
+</code></pre><p>使用js写成如下方式，<code>webpack</code> 会将图片的md5作为其新的名称，打包到指定的目录下：</p><pre><code class="language-js">import _ from 'lodash'; // Lodash, now imported by this script
+import './style.css';
+import MyImage from './page.png'
+
+function component() {
+    var element = document.createElement('div');
+
+    // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.classList.add('hello')
+
+    // 将图像添加到我们现有的 div。
+    var myIcon = new Image();
+    myIcon.src = MyImage;
+
+    element.appendChild(myIcon);
+    return element;
+}
+
+document.body.appendChild(component());
+</code></pre><h2 id="加载字体">加载字体</h2><p><code>file-loader</code> 和 <code>url-loader</code> 可以接收并加载任何文件，然后将其输出到构建目录。这就是说，我们可以将它们用于任何类型的文件，包括字体。</p><pre><code class="language-js">{
+    test: /\.(woff|woff2|eot|ttf|otf)$/,
+    use: [
+        'file-loader'
+    ]
+}
+</code></pre><h2 id="加载数据资源">加载数据资源</h2><p>因为 JSON 是内置的，可以直接用 <code>import Data from './data.json'</code> 来引入 JSON 数据。如果是 <code>xml</code> 或者 <code>csv</code> 格式的数据文件，则需要 <code>csv-loader</code> 和 <code>xml-loader</code> :</p><pre><code>npm install --save csv-loader xml-loader
+</code></pre><p>在 <code>webpack.config.js</code> 的 <code>rules</code> 加入如下规则：</p><pre><code class="language-js">{
+  test: /\.(csv|tsv)$/,
+  use: [
+    'csv-loader'
+  ]
+},
+{
+  test: /\.xml$/,
+  use: [
+    'xml-loader'
+  ]
+}
+</code></pre><h1 id="管理输出">管理输出</h1><p>到目前为止，我们在 <code>index.html</code> 文件中手动引入所有资源，然而随着应用程序增长，并且一旦开始对文件名使用哈希(hash)]并输出多个 <code>bundle</code>，手动地对 <code>index.html</code> 文件进行管理，一切就会变得困难起来。然而，可以通过一些插件，会使这个过程更容易操控。 新建文件 <code>src/print.js</code> ：</p><pre><code class="language-js">export default function printMe() {
+  console.log('I get called from print.js!');
+}
+</code></pre><p>并在 <code>index.js</code> 中引用该文件：</p><pre><code class="language-js">import _ from 'lodash';
+import printMe from './print.js';
+
+function component() {
+    var element = document.createElement('div');
+    var btn = document.createElement('button');
+
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = printMe;
+
+    element.appendChild(btn);
+
+    return element;
+}
+
+document.body.appendChild(component());
+</code></pre><p>更新 <code>dist/index.html</code> 引入 <code>print.js</code> 文件：</p><pre><code class="language-html">&lt;!doctype html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Output Management&lt;/title&gt;
+        &lt;script src=&quot;./print.bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script src=&quot;./app.bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre><p>然后调整 <code>webpack.config.js</code> 配置来加入新的入口文件和更改输出文件名字：</p><pre><code class="language-js">entry: {
+    app: './src/index.js',
+    print: './src/print.js'
+},
+output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+}
+</code></pre><p>运行 <code>npm run dev</code> 可以看到在 <code>dist</code> 目录下生成了生成 <code>print.bundle.js</code> 和 <code>app.bundle.js</code> 文件。</p><h2 id="htmlwebpackplugin-插件"><code>HtmlWebpackPlugin</code> 插件</h2><p><code>[HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin)</code> 对于每次编译都要改变hash值的文件特别有用，该插件会创建一个全新的文件，并将所有的bundle都自动添加到文件中。 使用 <code>npm install html-webpack-plugin --save</code> 安装插件</p><pre><code class="language-js">const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: {
+        app: './src/index.js',
+        print: './src/print.js'
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Output Management'
+        })
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
+};
+</code></pre><h2 id="插件">插件</h2><p>由于每次新生成的文件都放到 <code>dist</code> 目录下，会导致 <code>dist</code> 目录非常乱。推荐的做法是每次生成新文件之前，清理 <code>dist</code> 目录。 使用 <code>npm install clean-webpack-plugin --save</code> 来安装插件。 配置如下：</p><pre><code class="language-js">const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+    entry: {
+        app: './src/index.js',
+        print: './src/print.js'
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'Output Management'
+        })
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
+};
+</code></pre><h1 id="开发">开发</h1><h2 id="source-map">source map</h2><p>使用 webpack 打包时，可能很难追踪到警告或者错误在源代码中的位置。JavaScript 提供了 source map 的功能，将编译后的代码映射到原始代码，这样可以更容易地定位问题。 我们可以通过在 <code>webpack.config.js</code> 的 <code>exports</code> 中加入如下代码来启用 source map 功能：</p><pre><code class="language-js">module.exports = {
+    devtool: 'inline-source-map',
+    ...
+}
+</code></pre><h2 id="开发工具">开发工具</h2><p>每次修改都运行 <code>npm run dev</code> 会非常麻烦，webpack 有几个不同的选项可以帮助我们在代码发生变化后，自动编译： 1. webpack&rsquo;s Watch Mode 2. webpack-dev-server 3. webpack-dev-middleware</p><h2 id="观察者模式">观察者模式</h2><p>你可以指示 webpack &ldquo;watch&rdquo; 依赖图中的所有文件以进行更改。如果其中一个文件被更新，代码将被重新编译，所以你不必手动运行整个构建。</p><p>我们添加一个用于启动 webpack 的观察模式的 npm script 脚本：</p><pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;watch&quot;: &quot;webpack --mode development --watch&quot;,
+    &quot;build&quot;: &quot;webpack --mode production &quot;
+},
+</code></pre><p>在命令行中运行 <code>npm run watch</code>，就会看到 webpack 编译代码，然而却不会退出命令行。这是因为 script 脚本还在观察文件。如果修改了文件，那么可以看到 webpack 自动重新编译后的文件。</p><p>唯一的缺点是，为了看到修改后的实际效果，你需要刷新浏览器。</p><h2 id="使用-webpack-dev-server">使用 <code>webpack-dev-server</code></h2><p><code>webpack-dev-server</code> 提供了一个简单的 web 服务，并能够实时重新加载。使用如下命令安装：</p><pre><code>npm install webpack-dev-server --save-dev
+</code></pre><p>修改 <code>webpack.config.js</code> 文件，增加如下内容：</p><pre><code class="language-js">module.exports = {
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist'
+    }
+    ...
+}
+</code></pre><p>以上配置告知 <code>webpack-dev-server</code>，在 localhost:8080 下建立服务，并将 <code>dist</code> 目录下的文件，作为可访问文件。</p><p>在 <code>package.json</code> 文件中，加入如下脚本：</p><pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;webpack-dev-server --open --config webpack.config.js&quot;
+}
+</code></pre><p>就可以通过命令 <code>npm start</code> 来运行开发服务器。</p><h2 id="webpack-dev-middleware"><code>webpack-dev-middleware</code></h2><p><code>webpack-dev-middleware</code> 是一个容器，它可以把 webpack 处理后的文件传递给一个服务器(server)。 <code>webpack-dev-server</code> 在内部使用了它，同时，它也可以作为一个单独的包来使用，以便进行更多自定义设置来实现更多的需求。接下来是一个 <code>webpack-dev-middleware</code> 配合 express server 的示例。</p><pre><code class="language-js">const express = require('express');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+
+const app = express();
+const config = require('./webpack.conf.js');
+const compiler = webpack(config);
+
+// Tell express to use the webpack-dev-middleware and use the webpack.config.js
+// configuration file as a base.
+app.use(webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath
+}));
+
+// Serve the files on port 3000.
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!\n');
+});
+</code></pre><p>通过运行 <code>node server.js</code> 就可以完成自动检测文件变化并且编译文件。</p><h1 id="生产环境构建">生产环境构建</h1><p>而在生产环境中，我们的目标则转向于关注更小的 bundle，更轻量的 source map，以及更优化的资源，以改善加载时间。由于要遵循逻辑分离，我们通常建议为每个环境编写彼此独立的 webpack 配置。 为了遵循不重复原则，我们将保留一个通用配置。为了将通用配置同其他配置合并在一起，使用了 <code>webpack-merge</code> 工具：</p><pre><code>npm install webpack-merge --save
+</code></pre><p>在根目录下新建三个文件：<code>webpack.common.js</code>, <code>webpack.prod.js</code>, <code>webpack.dev.js</code> 其中 <code>webpack.common.js</code> 内容如下：</p><pre><code class="language-js">const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: {
+        app: './src/index.js'
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'Production'
+        })
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
+};
+</code></pre><p><code>webpack.dev.js</code> 文件如下：</p><pre><code class="language-js">const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist'
+    }
+});
+</code></pre><p><code>webpack.prod.js</code> 文件如下：</p><pre><code class="language-js">const merge = require('webpack-merge');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+    devtool: 'source-map',
+    plugins: [
+        new UglifyJSPlugin({
+            sourceMap: true,
+        })
+    ]
+});
+</code></pre><p><strong>避免在生产中使用 inline-*** 和 eval-***，因为它们可以增加 bundle 大小，并降低整体性能</strong></p><p>修改 <code>package.json</code> 文件，将脚本定义为新的配置：</p><pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;webpack-dev-server --open --config webpack.dev.js&quot;,
+    &quot;build&quot;: &quot;webpack --mode production  --config webpack.prod.js&quot;
+},
+</code></pre><h2 id="指定环境">指定环境</h2><p>许多 library 将通过与 <code>process.env.NODE_ENV</code> 环境变量关联，以决定 library 中应该引用哪些内容。例如，当不处于生产环境中时，某些 library 为了使调试变得容易，可能会添加额外的日志记录(log)和测试(test)。其实，当使用 <code>process.env.NODE_ENV === 'production'</code> 时，一些 library 可能针对具体用户的环境进行代码优化，从而删除或添加一些重要代码。我们可以使用 webpack 内置的 DefinePlugin 为所有的依赖定义这个变量：</p><pre><code class="language-js">/* webpack.prod.js */
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+    devtool: 'source-map',
+    plugins: [
+        new UglifyJSPlugin({
+            sourceMap: true
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+        })
+    ]
+})
+</code></pre><h1 id="代码分离">代码分离</h1><p>有三种常用的代码分离方法： - 入口起点：使用 entry 配置手动地分离代码。 - 防止重复：使用 CommonsChunkPlugin 去重和分离 chunk。 - 动态导入：通过模块的内联函数调用来分离代码。</p><p>入口起点分离最简单直观：</p><pre><code class="language-js">/* webpack.config.js */
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: {
+        index: './src/index.js',
+        another: './src/another-module.js'
+    },
+    plugins: [
+        new HTMLWebpackPlugin({
+            title: 'Code Splitting'
+        })
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
+};
+</code></pre><p>上述配置会生成两个文件：<code>index.bundle.js</code> 和 <code>another.bundle.js</code>。但是这种方式存在两个问题： - 如果入口 chunks 之间包含重复的模块，那些重复模块都会被引入到各个 bundle 中 - 不能将核心应用程序逻辑进行动态拆分代码。</p><h2 id="防止重复">防止重复</h2><p><code>CommonsChunkPlugin</code> 插件可以将公共的依赖模块提取到已有的入口 <code>chunk</code> 中，或者提取到一个新生成的 <code>chunk</code>。 修改 <code>webpack.config.js</code> 文件：</p><pre><code class="language-js">plugins: [
+    new HTMLWebpackPlugin({
+        title: 'Code Splitting'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'common' // 指定公共 bundle 的名称。
+    })
+],
+</code></pre><p>上述配置在执行后，会将 两个入口文件的公共模块提取出来并生成一个新的 <code>common.bundle.js</code> 作为公共模块。</p><h2 id="懒加载">懒加载</h2><p>懒加载或者按需加载，是一种很好的优化网页或应用的方式。这种方式实际上是先把你的代码在一些逻辑断点处分离开，然后在一些代码块中完成某些操作后，立即引用或即将引用另外一些新的代码块。这样加快了应用的初始加载速度，减轻了它的总体体积，因为某些代码块可能永远不会被加载。</p><p>对 <code>print.js</code> 来说，只有当用户点击按钮时，才会用到该文件，我们可以将其抽离出来，作为懒加载的模块。</p><pre><code class="language-js">/*index.js*/
+btn.onclick = e =&gt; import(/* webpackChunkName: &quot;print&quot; */ './print').then(module =&gt; {
+    var print = module.default;
+    print();
+});
+</code></pre><h1 id="缓存">缓存</h1><p>浏览器使用缓存技术以降低网络流量，使网站加载速度更快。如果我们在部署新版本时不更改资源的文件名，浏览器可能会认为它没有被更新，就会使用它的缓存版本。由于缓存的存在，当你需要获取新的代码时，就会显得很棘手。</p><h2 id="输出文件替换">输出文件替换</h2><p>通过使用 <code>output.filename</code> 进行文件名替换，可以确保浏览器获取到修改后的文件。<code>[hash]</code> 替换可以用于在文件名中包含一个构建相关(build-specific)的 hash，但是更好的方式是使用 <code>[chunkhash]</code> 替换，在文件名中包含一个 chunk 相关(chunk-specific)的哈希。</p><pre><code class="language-js">/* webpack.config.js */
+output: {
+    /* filename: 'bundle.js', */
+    filename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, 'dist')
+}
+</code></pre><p>修改 <code>webpack.config.js</code> 后，可以看到生成的文件名中含有文件的 hash 值。</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/javascript">#javascript</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" rel="prev">字符串匹配算法</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']]
+      }
+    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-676cb0804b.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9350854994277981",
+        enable_page_level_ads: true
+    });</script></body></html>

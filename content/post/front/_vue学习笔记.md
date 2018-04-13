@@ -8,7 +8,7 @@ draft: true
 
 ## 属性和方法
 每个vue实例都会代理其data对象的所有属性
-```vue
+```js
 var data = { a: 1 }
 var vm = new Vue({
   data: data
@@ -24,11 +24,11 @@ vm.a // -> 3
 <!-- more -->
 在vue中只有被代理的属性才会被监控，如果在创建Vue后，再data中新添加属性，是不会被监控的，也就是更新值没有任何响应。可以通过$watch方法加入响应 。
 Vue中自带一些以`$`开头的属性和方法：
-```vue
+```js
 var data = { a: 1 }
 var vm = new Vue({
-  el: '#example',
-  data: data
+    el: '#example',
+    data: data
 })
 vm.$data === data // -> true
 vm.$el === document.getElementById('example') // -> true
@@ -42,7 +42,7 @@ vm.$watch('a', function (newVal, oldVal) {
 下面的图是vue实例的整个生命周期。
 ![](http://vuejs.org/images/lifecycle.png)
 在vue实例创建的过程中，有一些hook会被调用。我们可以通过修改这些hook来执行自定义的操作。 hook有`created`, `mounted`, `updated`, `destroyed`.
-```vue
+```js
 var vm = new Vue({
   data: {
     a: 1
@@ -61,60 +61,72 @@ var vm = new Vue({
 ## 插值
 ### 文本
 数据绑定最常见的形式就是使用两个大括号（Mustache）括起来的文本形式
-```
+```html
 <span>Message: {{msg}} </span>
 ```
+
 括号中的msg将会被数据对象的`msg`属性替换掉。绑定的数据对象上`msg`属性发生了改变，插值处的内容都会更新。
 使用`v-once`指令可以只执行一次插值，后续数据对象的`msg`属性发生变化，插值处的内容也不会更改
-```vue
+```html
 <span v-once>This will never change: {{msg}}</span>
 ```
+
 ### 纯HTML
 使用Mustache语法的文本数据将会被解释为纯文本，如果想要输出HTML，需要使用`v-html`指令：
-```
+```html
 <div v-html="rawHtml"></div>
 ```
+
 使用该方式插入的HTML数据绑定会被忽略。注意，你不能使用 v-html 来复合局部模板，因为 Vue 不是基于字符串的模板引擎。组件更适合担任 UI 重用与复合的基本单元。
->动态渲染的任意 HTML 会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容插值。
+> 动态渲染的任意 HTML 会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容插值。
 ### 属性
 在HTML的属性上使用`v-bind`指令，而不是Mustache
-```
+```html
 <div v-bind:id="dynamicId"></div>
 ```
+
 如果绑定的数据类型是boolean类型，如果值为false，该属性将会被移除
+
 ### 使用JavaScript表达式
 可以在Mustache中使用**JavaScript表达式**
-```
+```js
 {{number+1}}
 {{ok ? 'yes':'no}}
 {{msg.split('').reverse().join('')}}
 <div v-bind:id="'list-'+id"></div>
 ```
->模板表达式都被放在沙盒中，只能访问全局变量的一个白名单，如`Math`和`Date`。自定义的全局变量不能够被访问到。
+
+> 模板表达式都被放在沙盒中，只能访问全局变量的一个白名单，如`Math`和`Date`。自定义的全局变量不能够被访问到。
+
 ### 指令
 指令是以`vr-`开头的属性，指令的属性值应该会是一个单独的JavaScript表达式。指令的功能是在其表达式的值改变时将其对应的DOM进行重新渲染
-```
+```html
 <p v-if="seen">Now you see me</p>
 ```
+
 ### 参数 arguments
 有些指令能接收一个“参数”，在指令后以冒号指明。例如，`v-bind`指令被用来响应地更新 HTML 属性：
-```
+```html
 <a v-bind:href="url"></a>  缩写 <a :href="url"></a>
 <a v-on:click="doSomething"></a> 缩写 <a @click="doSomething"></a>
 ```
+
 在这里href是参数，将该元素的href属性与url的值进行绑定
+
 ### 修饰符
 修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()
-```
+```html
 <form v-on:submit.prevent="onSubmit"></form>
 ```
+
 ### 过滤器
 过滤器可以用在Mustache插值和`v-bind`表达式中，由管道符号 `|`指定。过滤器的设计目的就是为了用于文本转换，如果需要使用复杂的数据变换，应该是使用计算属性。
 因为过滤器是JavaScript函数，因此可以向其传递参数。
-```
+```html
 {{msg | capitalize | filterA | filterB('arg1', 'arg2' }}
 <div v-bind:id="rawId | formatId"></div>
 
+<script>
 new Vue({
   // ...
   filters: {
@@ -125,17 +137,18 @@ new Vue({
     }
   }
 })
+</script>
 ```
 
 ## 计算属性和监控
 ### 计算属性
-
 在模板内使用表达式是非常方斌啊的，但是他们只能用来做简单的计算。在模板中放入太多的逻辑会让模板过重且难以维护。例如：
-```javascript
+```html
 <div id="example">
     {{message.split('').reverse().join('')}}
 </div>
 ```
+
 这种情况下模板不再是直观简洁的。当你想要在模板中多次反向显示`message`的时候，问题会变得更糟糕。
 因此，对于复杂逻辑，建议使用计算属性。
 ### 示例
@@ -159,17 +172,19 @@ var vm = new Vue({
     }
 });
 ```
+
 在上面的例子中，我们声明了一个计算属性`reversedMessage`，函数`vm.reversedMessage`作为属性`reversedMessage`的getter方法。
 `vm.reversedMessage`的值依赖于`message`的值，当`message`发生变化时，`vm.reversedMessage`的绑定也会更新。
+
 ### 计算属性 vs 方法
 可以通过表达式调用方法来实现同样的效果。而**计算属性是基于他们的依赖进行缓存的**，计算属性只有在他依赖的发生改变时，才会重新求值。多次访问`reversedMessage`计算属性会立即返回之前计算的结果，而不会再重新计算。
 缓存是为了避免重复计算，尤其是性能开销比较大的计算。
+
 ## 计算属性 vs Watched属性
 Vue 确实提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：watch 属性。当有些数据需要基于其他数据改变而改变时，可能会滥用`watch`。然而，使用计算属性比使用`watch`更好。如下例：
-```
+```html
 <div id="demo">{{ fullName }}</div>
-```
-```javascript
+<script>
 var vm1 = new Vue({
    el: '#demo',
     data: {
@@ -186,9 +201,11 @@ var vm1 = new Vue({
         }
     }
 });
+</script>
 ```
+
 上面的代码是命令式，重复的，与计算属性相比较：
-```javascript
+```js
 var vm = new Vue({
     el: '#demo',
     data: {
@@ -202,9 +219,10 @@ var vm = new Vue({
     }
 })
 ```
+
 ### 计算属性的Setter
 计算属性默认只有getter方法，但是也可以根据需要定义setter
-```JavaScript
+```js
 computed: {
     fullName: {
         get: function () {
@@ -218,7 +236,9 @@ computed: {
     }
 }
 ```
-当运行`vm.fullName = 'John Doe'`时，set方法会被调用，vm.firstName和vm.lastName的值也会更新。
+
+当运行`vm.fullName = 'John Doe'`时，set方法会被调用，`vm.firstName` 和 `vm.lastName` 的值也会更新。
+
 ## Watchers
 在大多数情况下，计算属性都比watch更合适。但是在执行异步操作或者开销较大时，watch更合适。
 ```html
@@ -230,7 +250,8 @@ computed: {
   <p>{{ answer }}</p>
 </div>
 ```
-```
+
+```html
 <!-- Since there is already a rich ecosystem of ajax libraries    -->
 <!-- and collections of general-purpose utility methods, Vue core -->
 <!-- is able to remain small by not reinventing them. This also   -->
@@ -286,12 +307,13 @@ var watchExampleVM = new Vue({
 ## 绑定class
 ### 对象语法
 可以通过传给`v-bind:class`一个对象，动态地切换class。也可以在对象中传入更多属性用来动态切换多个class，`v-bind:class`指令可以与普通的class属性共存。。
-```
+```html
 <div class="static" v-bind:class="{ active:isActive, 'text-danger': hasError}></div>
 ```
+
 上面的语法表示 class `active` 的更新将取决于数据属性 `isActive` 是否为真值 。
 也可以绑定一个对象，也可以绑定返回对象的计算属性：
-```
+```html
 <div v-bind:class="classObject"></div>
 <script>
 data: {
@@ -311,51 +333,59 @@ computed: {
 
 ### 数组语法
 将一个数据传递给`v-bind:class`，以应用一个class列表
-```
+```html
 <div v-bind:class="[activeClass, errorClass]">
 data: {
     activeClass: 'active',
     errorClass: 'text-danger'
 }
 ```
+
 渲染为：
-```
+```html
 <div class="active text-danger"></div>
 ```
+
 如果要根据条件切换列表中的class，可以用三元表达式：
-```
+```html
 <div v-bind:class="[isActive?activeClass:'', errorClass]">
 ```
+
 `isActive`为true时，才添加`activeClass`
 当有多个条件时，这样写比较繁琐。可以在数组语法中使用对象语法。
 
 ### 用在组件上
 在一个定制的组件上用到`class`属性的时候，这些类将被添加到根元素上，这个元素上已经存在的类不会被覆盖。
-```
+```js
 Vue.component('myComponent', {
     template: '<p class="foo bar">Hi</p>'
 })
 ```
+
 然后使用该组件渲染时，添加一下class：
-```
+```html
 <myComponent class="baz boo"></myComponent>
 ```
+
 HTML最终将会被渲染为
-```
+```html
 <p class="foo bar baz boo">Hi</p>
 ```
+
 自定义组件，同样可以绑定HTML class：
-```
+```html
 <myComponent class="baz boo" v-bind:class="{active:isActive}"></myComponent>
 ```
+
 ## 绑定内联样式
 ### 对象语法
 `v-bind:style`的对象语法非常像CSS，CSS属性名可以用驼峰式（camelCase）或者短横分隔符命名(kabab-case):
-```
+```html
 <div v-bind:style="{color:activeColor, fontSize:fontSize+'px'}"></div>
 ```
+
 也可以直接绑定一个对象
-```
+```html
 <div v-bind:style="styleObject"></div>
 <script>
 data:{
@@ -365,25 +395,28 @@ data:{
     }
 }
 ```
+
 ### 自动添加前缀
 当`v-bind:style`使用的属性需要添加特定前缀时，如`transform`，Vue会自动添加
 
 # 条件渲染
 ## v-if
 可以使用`v-if`来判断是否展示某个元素，当然也可以组合`v-else`，`v-else`元素必须紧跟在`v-if`或者`v-else-if`后边
-```
-div v-if="type === 'A'">A</div>
+```html
+<div v-if="type === 'A'">A</div>
 <div v-else-if="type === 'B'">B</div>
 <div v-else>Not A/B</div>
 ```
+
 ## 在`<template>`中使用`v-if`条件组
 如果想要切换多个元素，可以使用`<v-template>`元素来包装元素，并在上边使用`v-if`，最终渲染的HTML并不会包含`<template>`
-```
+```html
 <template v-if="ok">
    <h1>Title</h1>
    <p>Paragraph 1</p>
 </tempalte>
 ```
+
 ## 用`key`管理可复用的元素
 Vue会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。例如，允许用户在不同的登录方式之间切换
 ```

@@ -1,9 +1,10 @@
 ---
 title: linux 网络常用命令
 date: 2017-09-21 12:00:00
-tags: ["other"]
-categories: ["other"]
+tags: ["linux"]
+categories: ["linux"]
 ---
+
 # linux 常用网络命令
 ## `ifconfig`, `ifup`, `ifdown`
 这三个指令都是用来启动网络接口的。
