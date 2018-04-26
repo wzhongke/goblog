@@ -13,7 +13,7 @@ HashMap并不是线程安全的，HashTable虽然是线程安全的，但是Hash
 <!-- more -->
 ### HashTable效率低下
 以下是HashTable的`put()`和`get()`方法的源码。可以看到我们经常用到的`put()`和`get()`方法的同步是对象的同步。在线程竞争激烈的情况下，当一个线程访问HashTable的同步方法时，其他访问同步方法的线程只能进入阻塞或轮询状态。因此，HashTable在多线程下的效率非常低，连读写锁都没有采用。
-```
+```java
 public synchronized V put(K key, V value) {
     // Make sure the value is not null
     if (value == null) {
@@ -31,10 +31,11 @@ public synchronized V get(Object key) {
     return null;
 }
 ```
+
 ### ConcurrentHashMap的锁分段技术
 锁分段技术就是容器中使用多把锁，每个锁用于容器中的部分数据。这样当多个线程并发访问不同数据段的数据时，线程就不会竞争锁，提高并发访问效率。
 在ConcurrentHashMap的`put()`方法中，对于向非空桶中加入数据时，才使用同步锁。
-```
+```java
 final V putVal(K key, V value, boolean onlyIfAbsent) {
     if (key == null || value == null) throw new NullPointerException();
     int hash = spread(key.hashCode());
@@ -100,4 +101,5 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
     return null;
 }
 ```
+
 而ConcurrentHashMap的`get()`方法是没有锁的。这是因为`get()`方法中使用的共享变量都定义成`volatile`类型，而`volatile`类型的变量能够在多线程之间保持可见性，能够保证多个线程读取的时候不会读到过期的值。

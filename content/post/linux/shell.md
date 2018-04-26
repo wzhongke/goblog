@@ -15,6 +15,7 @@ shell 经常被用来管理系统，而不是处理数据。
    - 相对路径 `./shell.sh`
    - 放到`PATH`路径下，直接执行 `shell.sh`
 2. 通过`bash shell.sh`或者 `sh shell.sh`来执行
+
 ## shell基本说明
 ```shell
 #!/bin/bash
@@ -23,9 +24,12 @@ shell 经常被用来管理系统，而不是处理数据。
 read -p "name: " name
 echo -e "\nname is $name"
 ```
+
 shell 脚本通常以`#!/bin/bash` 开头，来声明这个文件使用bash语法。在文件执行时，能够加载bash的相关环境配置文件
+
 ## test测试命令
 test命令经常用来检测文件或者是其相关属性
+
 ### 检测文件类型  `test -e filename`
 测试标志      | 代表含义
 :-------------|:------------------
@@ -35,7 +39,6 @@ test命令经常用来检测文件或者是其相关属性
 -L            | 该文件名是否存在且为一个连接文件
 
 ### 检测文件权限 `test -r filename`
-
 测试标志      | 代表含义
 :-------------|:------------------
 -r            | 检测文件名是否存在且具有可读权限
@@ -199,6 +202,7 @@ do
     'do something'
 done   
 ```
+
 可以对其他输出内容进行遍历
 ```shell
 users=$( cut -d ':' -f1 /etc/passwd )
@@ -226,6 +230,7 @@ do
     s=$( ($s+$i))
 done
 ```
+
 ## shell脚本调试
 可以利用shell脚本参数来检查shell的正确性
 ```shell

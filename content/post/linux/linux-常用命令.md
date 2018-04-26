@@ -706,7 +706,10 @@ ob.resin.201803281530
 cat adcost | awk '{sum+=$1} END {print "Avg= ", sum/NR}'
 
 awk 'BEGIN {max = 0} {if ($1+0 > max+0) max=$1} END {print "Max=", max}' adcost
-sed -rn 's/.*cost:([0-9]+).*$/\0@@@\1/p'  | awk 'BEGIN {FS="@@@"} $2 > 1000 {print $1}' | grep -P 'cost:[0-9]+' --color
+sed -rn 's/.*SecurityPostFilter#([0-9]+).*$/\0@@@\1/p'  | awk 'BEGIN {FS="@@@"}  {sum+=$2} END {print "AVG= ", sum/NR}' 
+| awk '{sum+=$1} END {print "Avg= ", sum/NR}'
+
+grep -P 'cost:[0-9]+' --color
 ```
 
 ### `grep` 命令
