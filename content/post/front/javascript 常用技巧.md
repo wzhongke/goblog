@@ -5,6 +5,7 @@ tags: ["javascript"]
 categories: ["javascript"]
 ---
 javascript在使用中有各种各样的技巧：提高执行效率，降低执行频率等。
+
 ## Web Storage 的使用
 Web Storage的目的是克服由cookie带来的一些限制，当数据需要被严格控制在客户端，无须将数据返回到服务器时。
 <!-- more -->
@@ -78,3 +79,47 @@ navigator.connection.downlinkMax
         this.complete && $(this).trigger("load");
     }) 
     ```
+
+## 节流函数
+```js
+var throttle = function (time, func){
+    var timeoutId= null;
+    return function() {
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(function(){
+            func();
+        }, time);
+    };
+};
+
+// 使用
+throttle(100, function () {
+    if (!elementInViewport2(video[0])) {
+        video[0].pause();
+    }
+})();
+```
+
+## 元素是否在可视区域
+```js
+function elementInViewport2(el) {
+    var top = el.offsetTop;
+    var left = el.offsetLeft;
+    var width = el.offsetWidth;
+    var height = el.offsetHeight;
+
+    while(el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+    }
+
+    return (
+        top < (window.pageYOffset + window.innerHeight) &&
+        left < (window.pageXOffset + window.innerWidth) &&
+        (top + height) > window.pageYOffset &&
+        (left + width) > window.pageXOffset
+    );
+}
+```

@@ -8,7 +8,7 @@ categories: ["linux"]
 使用ubuntu的时候经常会把常用的一些命令忘掉或不知道有些参数的意思，又懒得看那枯燥的文档。因此记录下来备忘。<br>
 <!-- more -->
 
-## 目录类
+# 目录类
 1. ls: 查看文件与目录
     ```bash
     ls [-aAdfFhilnrRSt] 目录或文件
@@ -58,7 +58,7 @@ categories: ["linux"]
     mkdir -m 711 dir_name
     ```
 
-## 复制删除移动
+# 复制删除移动
 1. 复制 cp
     ```bash
     #只复制一个文件或文件夹
@@ -120,7 +120,7 @@ echo "" > clear.txt
 > clear.txt
 ```
 
-## 命令与文件查询
+# 命令与文件查询
 1. which：可以查询脚本文件的位置，比如 `ifconfig` 命令的位置。但是不能够查询bash内置的命令，比如`cd`
     ```bash
     which [-a] command
@@ -165,7 +165,7 @@ echo "" > clear.txt
     find . | xargs grep xxx: 查找当前目录下含有x的文件
     ```
 
-## 更改权限
+# 更改权限
 权限分数为： r(read)=4, w(write)=2, x(execute)=1
     ```bash
     chgrp [-R（递归更改)] groupname dirname/filename: 改变文件所属用户组
@@ -175,7 +175,7 @@ echo "" > clear.txt
     chmod u=rwx,g=rw,o=x file: u(user) g(group) o(others) =(设置) +(增加) -(取消)
     ```
 
-## 数据流重定向
+# 数据流重定向
 - `1>` : 以覆盖的方式将正确的数据输出到指定的文件或设备上
 - `1>>` : 以累加的方式将正确的数据输出到指定的文件或设备上
 - `2>` : 以覆盖的方式将错误的数据输出到指定的文件或设备上
@@ -183,13 +183,13 @@ echo "" > clear.txt
 - `command > list 2>&1` ： 将正确信息和错误信息都输入到list文件中
 - `command 2> /dev/null` : 不保存错误信息
 
-## 命令执行判断依据： `;` `&&` `||`
+# 命令执行判断依据： `;` `&&` `||`
 - `com1;com2`  不考虑命令的相关性，连续执行命令 
 - `com1&&com2` 前一个命令执行正确($?=0)，才执行第二个命令
 - `com1||com2` 前一个命令执行不正确($?!=0)，才执行第二个命令
 
 
-## 查看文件内容
+# 查看文件内容
 1. cat
     ```bash
     cat [-AbEnTv] 文件
@@ -239,7 +239,7 @@ echo "" > clear.txt
 
 另外可以修改 /etc/issue文件来改变终端的提示信息
 
-## 压缩
+# 压缩
 1. zip
     ```bash
     zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$] [-b <工作目录>] [-ll] [-n <字尾字符串>] [-t <日期时间>] [-<压缩效率>] [压缩文件名] [待压缩文件...] [-i <范本样式>] [-x <范本样式>]
@@ -263,9 +263,9 @@ echo "" > clear.txt
     **-r: 递归处理，将指定目录下的所有文件和子目录一并处理。**
     -t<日期时间>: 把压缩文件的日期设成指定的日期
     -y: 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。
-    ## 示例
-    zip -r search.zip search/  ## 将search目录打包的zip文件中
-    zip -r -x *.css search.zip search/ ## 打包search目录，单不包含css文件
+    # 示例
+    zip -r search.zip search/  # 将search目录打包的zip文件中
+    zip -r -x *.css search.zip search/ # 打包search目录，单不包含css文件
     ```
 
 2. 使用zipsplit分割压缩的zip文件
@@ -298,13 +298,13 @@ tar参数中 -x,-c,-t不能同时出现。
     -P: 保留绝对路径
     --exclude=FILE: 在压缩过程中，不打包FILE
 
-    ## 示例
+    # 示例
     tar -zcv -f filename.tar.gz 要压缩的文件或目录名 #压缩
     tar  -zxv -f filename.tar.gz -C 欲解压的目录  # 解压
     tar -jcv -f system.tar.bz2 --exclude=/etc* --exclude=gz* /etc/root
     ```
 
-## 访问网络内容 `wget` `curl`
+# 访问网络内容 `wget` `curl`
 `wget` 用于从网络上下载资源，若没有指定目录，默认为当前目录
 ```bash
 wget [参数] [url地址]
@@ -340,7 +340,7 @@ wget [参数] [url地址]
     --post-data="" : 通过post方式提交数据
 ```
 
-## 管道命令 `|` - `cut` `grep` `sort` `uniq`
+# 管道命令 `|` - `cut` `grep` `sort` `uniq`
 每个`|`后面接的第一个数据必须是能够接受standard input数据的命令，而且管道命令只能处理standard output，对于error output会忽略
 1. `cut` 
     ```bash
@@ -381,7 +381,7 @@ wget [参数] [url地址]
         -c: 进行计数
     ```
 
-## 时间
+# 时间
 `date`命令能够通过`date +Format`设置输出格式
 ```bash
 date +Format
@@ -404,7 +404,7 @@ date -s 06/17/2017
 date -s 19:42:25
 ```
 
-## 磁盘与目录容量
+# 磁盘与目录容量
 1. `df` : 列出文件系统的整体磁盘使用量
     ```shell
     df [-ahikHTm] [目录或文件名]
@@ -423,11 +423,11 @@ date -s 19:42:25
         -S : 尚不理解
         -k/m : 以MB/KB的容量显示文件系统
 
-    du -sh ./*  ## 可以查看当前目录下文件大小，对于磁盘满了，寻找大文件很有用
+    du -sh ./*  # 可以查看当前目录下文件大小，对于磁盘满了，寻找大文件很有用
     ```
 
 
-## `lsof` (list open files)
+# `lsof` (list open files)
 在linux下，任何事物都以文件的形式存在，通过文件不仅可以访问常规数据，还可以访问网络连接和硬件。如TCP和UDP套接字等。系统在后台都为该应用程序分配了一个文件描述符，该文件描述符提供了大量关于这个应用程序本身的信息。
 ```bash
 lsof
@@ -445,8 +445,8 @@ lsof
     -v : 显示版本信息
 ```
 
-## 远程同步命令
-### `rsync`命令
+# 远程同步命令
+## `rsync`命令
 `rsync`命令是用来远程同步数据的，可以通过LAN/WAN快速同步多台机器间的文件。`rsync`通过自己的算法来比较本地和远程文件的不同部分，而不是每次都整份传送，所以速度比`scp`快。
 `:`表明是通过远程shell连接，而`::` 和 `rsync://` 用于连接到rsync守护进程，它需要 src 或 dest 以模块名称开头
 ```bash
@@ -463,7 +463,7 @@ rsync [options] src [user@]host::dest
 # 列远程机器的文件列表，类似rsync传输，不过需要在命令中省略本地机器
 rsync [options] rsync://[user@]host[:port]/src [dest]
 
-## 参数
+# 参数
 -v, --verbose: 详细模式输出
 -q, --quiet: 精简模式输出
 -c, --checksum: 打开校验开关
@@ -533,7 +533,7 @@ rsync [options] rsync://[user@]host[:port]/src [dest]
 rsync -azi machine::user/path/dir/ /search/odin/ --exclude '*_log*'
 ```
 
-## 定时任务
+# 定时任务
 在linux上，使用 `crontab` 来创建循环性工作调度。当然为了安全，可以通过`/etc/cron.allow`和`/etc/cron.deny`来限制用户使用 `crontab`。
 当用户是用`crontab`来新建工作调度时，该项工作就会被记录到 `/var/spool/cron` 中，而且是以用户的账户来作为判别的。一般来说，不建议直接编辑`/var/spool/cron`中的文件，因为可能会由于输入语法错误，而导致 cron 不能正确执行。
 ```bash
@@ -543,8 +543,8 @@ crontab [-u username] [-l|-e|-r]
 -e: 编辑 crontab 的内容
 -r: 删除所有的 crontab 的工作内容
 
-## 示例
-## 使用 crontab -e 进入到任务编辑页面
+# 示例
+# 使用 crontab -e 进入到任务编辑页面
 crontab -e  
  0  1  *  *  * shell exec.sh
 #分 时 日 月 周   执行内容
@@ -569,7 +569,7 @@ crontab -e
 `contab -e` 是针对用户的 cron 来设计的，如果是系统例行性任务，可以直接编辑 `/etc/crontab` 这个文件。 `/etc/crontab` 是一个纯文本文件，可以用root账号编辑。
 cron 服务最低的检测限制是“分钟”，所以cron 会每分钟去读取一次 `/etc/crontab` 与 `/var/spool/cron` 中的数据，所以，只要编辑并保存这些文件，就会生效。如果不生效，可以使用 `/etc/init.d/crondrestart` 来重启 cron 服务。
 
-## bash环境中的特殊符号
+# bash环境中的特殊符号
 bash环境中，有些符号是有特殊意义的：
 
 符号   | 意义
@@ -590,10 +590,10 @@ bash环境中，有些符号是有特殊意义的：
 ()     | 中间为子shell的起始与结束
 { }    | 中间为命令块的组合
 
-## 进程查看
+# 进程查看
 我们使用 `ps` `top` 和 `pstree` 来查看进程的运行情况。
 
-### `ps` : 将某个时间点的进程运行情况选取下来
+## `ps` : 将某个时间点的进程运行情况选取下来
 一般 `ps` 有两种用法： `ps -l` 仅查看自己的bash相关的进程； `ps aux` 查看所有系统运行的程序。语法如下：
 ```bash
 ps [options]
@@ -631,7 +631,7 @@ START        | 该进程启动的时间
 TIME         | 该进程使用CPU运行时间
 COMMAND      | 该进程是哪个命令产生的
 
-### top 动态查看进程的变化
+## top 动态查看进程的变化
 `top` 命令可以持续检测程序的运行状态，使用方式如下：
 ```bash
 top [-d 数字] | top [-bnp]
@@ -652,8 +652,8 @@ top [-d 数字] | top [-bnp]
    q: 离开top
 ```
 
-### pstree 查看进程树
-```bash
+## pstree 查看进程树
+```sh
 pstree [-A|U] [-up]
 参数：
 -A: 各进程树之间的连接
@@ -671,7 +671,7 @@ init(1)-+-agetty(2112)
         |-httpd(1988)-+-httpd(884,apache)
 ```
 
-### kill 进程管理
+## kill 进程管理
 我们可以使用 kill 或者 killall 来向进程发送信号。使用如下：
 ```bash
 kill -signal PID
@@ -700,22 +700,116 @@ kill -SIGHUP $(ps aux | grep 'syslog' | grep -v 'grep' | awk '{print $2}')
 killall -i -9 bash
 ```
 
-## 文件格式化处理 -- `grep`, `sed`, `awk`
+# 文件格式化处理 -- `grep`, `sed`, `awk`
+
+## `sed`
+`sed` 是一个管道命令，有将数据进行替换、删除、新增、选取特定行等功能。
+```sh
+sed [-nerf] [动作]
+-n: 安静模式，只有经过处理的那行才会被列出来
+-e: 直接在命令行模式上进行 sed 的动作编辑
+-f: 直接将sed的动作写在一个文件中
+-r: sed支持扩展型正则表达式
+-i: 直接修改读取文件的内容
+
+动作说明
+    n1, n2: 可选内容，代表选择进行动作的行数；若动作需要在 10到20行之间进行，则 10,20 function
+    function 有如下参数：
+        a: 新增
+        c: 替换
+        d: 删除
+        i: 插入
+        p: 打印
+        s: 替换，通常s搭配正则表达式
+```
+
+假设 `/etc/passwd` 中有如下内容：
+```
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+```
+
+删除用法如下：
+```sh
+# 删除2~3行
+nl /etc/passwd | sed '2,3d'
+# 控制台输出
+     1	root:x:0:0:root:/root:/bin/bash
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+```
+
+添加用法如下：
+```sh
+# 在第二行后加上 drink tea ...... 与 drink beer?
+nl /etc/passwd | sed '2a drink tea ...... \
+> drink beer?'
+## 控制台输出
+     1	root:x:0:0:root:/root:/bin/bash
+     2	bin:x:1:1:bin:/bin:/sbin/nologin
+drink tea ...... 
+drink beer?
+     3	daemon:x:2:2:daemon:/sbin:/sbin/nologin
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+```
+
+输出指定行（使用 `-n` 安静模式）
+```sh
+# 输出第2到4行
+nl /etc/passwd | sed -n '2,4p'
+# 控制台输出如下
+     2	bin:x:1:1:bin:/bin:/sbin/nologin
+     3	daemon:x:2:2:daemon:/sbin:/sbin/nologin
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+```
+
+整行替换：
+```sh
+# 替换第 2到3行
+nl /etc/passwd | sed '2,3c No 2-3number'
+# 控制台输出如下
+     1	root:x:0:0:root:/root:/bin/bash
+No 2-3number
+     4	adm:x:3:4:adm:/var/adm:/sbin/nologin
+     5	lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+     6	sync:x:5:0:sync:/sbin:/bin/sync
+```
+
+部分数据查找替换：
+```sh
+sed 's/要被替换的字符串/新字符串/g'
+/sbin/ifconfig eth0 | grep "inet addr" |sed 's/^.*addr://g' | sed 's/Bcast.*$//g'
+# 控制台输出
+192.168.0.1
+
+# 还可以使用正则匹配捕获内容，替换中 \0 代表整行，\1 代表捕获的第一个内容
+sed -rn 's/.*filter_([0-9]+).*$/\0@@@\1/p'
+```
+
+
+
 ```bash
 ob.resin.201803281530
 cat adcost | awk '{sum+=$1} END {print "Avg= ", sum/NR}'
 
 awk 'BEGIN {max = 0} {if ($1+0 > max+0) max=$1} END {print "Max=", max}' adcost
-sed -rn 's/.*SecurityPostFilter#([0-9]+).*$/\0@@@\1/p'  | awk 'BEGIN {FS="@@@"}  {sum+=$2} END {print "AVG= ", sum/NR}' 
+sed -rn 's/.*NewBlacklistFilter_([0-9]+).*$/\0@@@\1/p'  | awk 'BEGIN {FS="@@@"}  {if $2 >0 sum+=$2} END {print "AVG= ", sum/NR}' 
 | awk '{sum+=$1} END {print "Avg= ", sum/NR}'
 
 grep -P 'cost:[0-9]+' --color
 ```
 
-### `grep` 命令
+## `grep` 命令
 
 
-### `awk` 命令
+## `awk` 命令
 `awk` 内建了如下变量：
 
 变量符号     | 变量说明
@@ -731,6 +825,71 @@ grep -P 'cost:[0-9]+' --color
 `ORS`       | 输出行的分隔符，默认是换行符
 `FILENAME`  | 当前文件名
 
+### `awk` 条件判断
+`awk` 做条件判断，可以用如下方式：
+```sh
+cat /etc/passwd | awk '{FS="":} $3 < 10 {print $1 "\t" $3}'
+# 使用 if
+cat /etc/passwd | awk '{FS="":} {if($3<10) printf "%10s\t%10s", $1, $3}' 
+```
 
-## 其他快捷方式
+### `awk` 正则匹配
+```sh
+awk '/nologin/' /etc/passwd
+## 控制台输出
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+```
+
+匹配某个字段中出现的字符：
+```sh
+awk -F ':' '$1 ~ /oo/' /etc/passwd
+# 控制台输出
+root:x:0:0:root:/root:/bin/bash
+```
+
+正则匹配某个字段中出现的字符
+```sh
+awk -F ':' '$1 ~ /o+/' /etc/passwd
+# 控制台输出
+root:x:0:0:root:/root:/bin/bash
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+```
+
+### `awk` 内建函数
+函数          | 说明
+:------------|:------------------
+`atan2(y,x)` | y/x 的反正切值
+`cos(x)`     | x 的余弦值
+`exp(x)`     | x 的指数函数
+`int(x)`     | x 的整数部分
+`log(x)`     | x 的自然对数
+`rand()`     | 返回一个随机数
+`sin(x)`     | x 的正弦值
+`sqrt(x)`    | x 的平方根
+`srand(x)`   | x 是 rand() 的随机数种子
+
+
+字符串函数：
+
+函数          | 说明
+:------------|:------------------
+`gsub(r,s)`  | 将字符串中所有出现的r替换为s,返回替换发生的次数
+`gsub(r,s,t)`| 将字符串t中所有出现的r替换为s,返回替换发生的次数
+`index(s,t)` | 返回字符串t在s中第一次出现的位置，如果t没有出现的话，返回0
+`length(s)`  | 返回s包含的字符个数
+`match(s,r)` | 测试s是否包含能被r匹配的子串，返回子串的起始位置或0；设置RSTART和RLENGTH
+`split(s,a)` | 用 FS 将 s 分隔到数组 a 中，返回字段个数
+`split(s,a,fs)`|	用fs分割s到数组a中， 返回字段的个数
+`sprintf(fmt,expr-list)`|	根据格式字符串fmt返回格式化后的expr-list
+`sub(r,s)`|	将$0的最左最长的，能被r匹配的子字符串替换为s，返回替换发生的次数
+`sub(r,s,t)`|	把t的最左最长的，能被r匹配的子字符串替换为s，返回替换发生的次数
+`substr(s,p)`|	返回s中从位置p开始的后缀
+`substr(s,p,n)`|	返回s中从位置p开始的，长度为n的子字符串
+
+
+
+# 其他快捷方式
 1. 使用快捷键 `ctrl+r` 可以快速使用历史命令

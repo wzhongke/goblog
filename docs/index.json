@@ -4,10 +4,6 @@
         "title": "sed和awk"
     },
     {
-        "uri": "/post/_less",
-        "title": "less 语法"
-    },
-    {
         "uri": "/post/_photoshop常用快捷键"
     },
     {
@@ -41,6 +37,10 @@
     {
         "uri": "/post/algorithms/字符串匹配算法",
         "title": "字符串匹配算法"
+    },
+    {
+        "uri": "/post/algorithms/字符匹配算法",
+        "title": "字符匹配算法"
     },
     {
         "uri": "/post/algorithms/找出字符串最大回文",
@@ -79,6 +79,10 @@
         "title": "设计模式"
     },
     {
+        "uri": "/post/front/_less",
+        "title": "less 语法"
+    },
+    {
         "uri": "/post/front/_vue"
     },
     {
@@ -96,6 +100,10 @@
     {
         "uri": "/post/front/css-总结",
         "title": "css使用方式总结"
+    },
+    {
+        "uri": "/post/front/es6",
+        "title": "es6"
     },
     {
         "uri": "/post/front/html标签",
@@ -198,8 +206,16 @@
         "title": "Lambda表达式和Stream"
     },
     {
+        "uri": "/post/java/maven",
+        "title": "maven"
+    },
+    {
         "uri": "/post/java/mybatis",
         "title": "mybatis"
+    },
+    {
+        "uri": "/post/java/rpc",
+        "title": "java RPC"
     },
     {
         "uri": "/post/java/spring-搭建过程中出现的问题",
@@ -224,6 +240,10 @@
     {
         "uri": "/post/java/单例实现方式",
         "title": "单例实现方式"
+    },
+    {
+        "uri": "/post/linux/docker",
+        "title": "docker"
     },
     {
         "uri": "/post/linux/linux-server",
@@ -260,6 +280,10 @@
     {
         "uri": "/post/linux/vim使用快捷键",
         "title": "vim 使用快捷键"
+    },
+    {
+        "uri": "/post/linux/搭建zookeeper集群",
+        "title": "zookeeper 集群搭建"
     },
     {
         "uri": "/post/markdown语法",

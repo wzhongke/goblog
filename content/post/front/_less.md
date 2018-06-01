@@ -4,6 +4,7 @@ date: 2017-08-11
 draft: true
 ---
 参考网站： http://www.bootcss.com/p/lesscss/
+
 # 变量
 可以用如下方式定义变量，Less中的变量只能定义一次：
 ```css
@@ -11,10 +12,12 @@ draft: true
 
 #header { color: @nice-blue;}
 ```
+
 输出如下：
 ```css
 #header { color: #5B83AD; }
 ```
+
 # 混合
 在Less中我们可以定义通用的属性集为一个class，之后可以在其他class中调用这些属性：
 ```css
@@ -28,6 +31,7 @@ draft: true
     .boardered;
 }
 ```
+
 输出如下：
 ```css
 #menu a {
@@ -36,6 +40,7 @@ draft: true
   border-bottom: solid 2px black;
 }
 ```
+
 ## 带参数的混合
 可以定义一个带参数的混合：
 ```css
@@ -49,6 +54,7 @@ draft: true
   .border-radius(4px);
 }
 ```
+
 还可以定义默认参数的混合
 ```css
 .border-radius (@radius: 5px) {
@@ -58,7 +64,7 @@ draft: true
 }
 ```
 
-# &
+# `&`
 串联选择器和伪类选择器需要使用`&`
 ```css
 .bordered {

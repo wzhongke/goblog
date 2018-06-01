@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright@Kevin Tan</copyright>
-    <lastBuildDate>Fri, 13 Apr 2018 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Apr 2018 11:28:11 +0000</lastBuildDate>
     
 	<atom:link href="https://wzhongke.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>es6</title>
+      <link>https://wzhongke.github.io/post/front/es6/</link>
+      <pubDate>Sat, 21 Apr 2018 11:28:11 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/es6/</guid>
+      <description>babel: ES6 转换成 ES5 babel 是一个将ES6转换成ES5的转码器，babel的配置文件是 .babelrc，存放在项目的根目录。 全局安装babel： $ npm install --global babel-cli</description>
+    </item>
     
     <item>
       <title>webpack</title>
