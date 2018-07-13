@@ -37,3 +37,9 @@ categories: ["MySQL"]
 
 4. MySQL语句的性能问题
     MySQL语句的性能尤为重要，尤其是对于千万级记录的表。碰到一个问题，有一个删除语句的使用 `TO_DAYS(NOW()) - TO_DAYS(create_time) > 14` 条件删除14天前的数据，因为数据有2000万条以上，所以执行起来特别慢，使得同一机器的其他数据表表的查询速度特别慢。将`create_time` 的类型从 `datetime` 修改为 `date`，并将语句修改为 `create_time > 'year-month-day'`
+
+5. MySQL 安装后，可能出现 `ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)` 问题。因为没有设置密码，登录不上去。
+   解决方案：
+   1. `sudo grep 'temporary password' /var/log/mysqld.log` 会生成一个临时密码，使用临时密码登陆后，`ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass5!';` 修改密码
+
+6. 从日志中查看 MySql 执行语句：`SET GLOBAL general_log = 'ON';`；使用 `SHOW VARIABLES LIKE "general_log%";` 查看日志目录

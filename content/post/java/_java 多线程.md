@@ -51,7 +51,7 @@ volatile变量自身具有下列特性：
 ## 线程优先级
 在Java线程中，通过一个整型成员变量`priority`来控制优先级，范围是从1-10，默认优先级是5。一般情况下优先级高的线程分配时间片的数量要多于优先级低的线程。
 针对频繁阻塞的线程需要设置的优先级较高，而需要较多CPU时间的线程，要设置较低的优先级，确保处理器不会被独占。
-```
+```java
 public class Priority {
     private static volatile boolean notStart = true;
     private static volatile boolean notEnd = true;
@@ -107,6 +107,7 @@ job priority:10 count:3710086
 job priority:10 count:3733771
 job priority:10 count:3731136
 ```
+
 ## Daemon线程
 Daemon线程是一种支持型线程，因为它主要被用作后台调度以及支持性工作。当一个Java虚拟机中不存在非Daemon线程时，Java虚拟机将会退出，此时Daemon线程都需要立即终止。
 通过调用`Thread.setDaemon(true)`将线程设置为Daemon线程。

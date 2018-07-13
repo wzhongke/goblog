@@ -550,6 +550,9 @@ th {
                 background-color: $collection-hover-bg-color;
             }
         }
+        &.selected {
+            background-color: $collection-hover-bg-color;
+        }
     }
     &.with-header {
         .collection-header {

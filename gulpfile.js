@@ -155,7 +155,6 @@ $.task('lunr', cb => {
 	const h = new lunr();
 	const file = `${prod ? publish.root : dest.root}/index.json`;
 	h.readFile = function (filePath) {
-		console.log("nothing---");
 		let self = this;
 		let ext = path.extname(filePath);
 		let uri = '/' + filePath.substring(0, filePath.lastIndexOf('.')).replace(" ", "-").toLocaleLowerCase();
@@ -165,11 +164,16 @@ $.task('lunr', cb => {
 			let data = fs.readFileSync(filePath);
 			let meta = data.toString().trim().split("---");
 			if (meta.length > 1) {
-				let datas = meta[1].trim().split("\n");
-				datas = datas[0].trim().split(":");
-				if (datas[0] && datas[0].trim() === 'title') {
-					title = datas[1].trim();
-				}
+                let datas = meta[1].trim().split("\n");
+                for (let d of datas) {
+                    let prop = d.trim().split(":");
+                    if (prop && prop[0].trim() === 'title') {
+                        title = prop[1].trim();
+                    }
+                    if (prop[0] && prop[0].trim() === 'draft' && prop[1].trim() == 'true') {
+                        return ;
+                    }
+                }
 			}
 		}
 		let item = {'uri' : uri , 'title' : title};

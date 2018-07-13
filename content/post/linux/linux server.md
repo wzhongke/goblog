@@ -21,6 +21,7 @@ ifconfig interface {options}           ## 设定与修改接口
     - netmask:  设置自屏蔽网络
     - broadcast:  广播地址
 ```
+
 在linux机器上执行`ifconfig`，会返回如下结果
 ```
 eth0      Link encap: Ethernet  HWaddr AA: AA: AA: 31: 79: 95  
@@ -31,6 +32,7 @@ eth0      Link encap: Ethernet  HWaddr AA: AA: AA: 31: 79: 95
           collisions: 0 txqueuelen: 1000 
           RX bytes: 159293308457 (148.3 GiB)  TX bytes: 106356430482 (99.0 GiB)
 ```
+
 - eth0:  网卡代号
 - HWaddr:  网卡硬件地址
 - RX:  网络由启动到目前为止的封包接收情况，packets代表封包数、errors代表封包发生错误的数量、dropped代表封包由于有问题而遭到丢弃的数量

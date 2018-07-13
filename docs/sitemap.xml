@@ -450,12 +450,6 @@
   </url>
   
   <url>
-    <loc>https://wzhongke.github.io/post/front/_vue/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wzhongke.github.io/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
@@ -612,6 +606,12 @@
     <lastmod>2017-12-06T19:42:25+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wzhongke.github.io/post/java/springboot&#43;prometheus/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>

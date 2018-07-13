@@ -1,30 +1,6 @@
 [
     {
-        "uri": "/post/_awk使用说明",
-        "title": "sed和awk"
-    },
-    {
         "uri": "/post/_photoshop常用快捷键"
-    },
-    {
-        "uri": "/post/_spark",
-        "title": "spark"
-    },
-    {
-        "uri": "/post/_tolearn",
-        "title": "to learn"
-    },
-    {
-        "uri": "/post/_webpackage",
-        "title": "webpackage"
-    },
-    {
-        "uri": "/post/_工具篇",
-        "title": "工具篇"
-    },
-    {
-        "uri": "/post/algorithms/_解决思路",
-        "title": "解决思路"
     },
     {
         "uri": "/post/algorithms/动态规划",
@@ -39,10 +15,6 @@
         "title": "字符串匹配算法"
     },
     {
-        "uri": "/post/algorithms/字符匹配算法",
-        "title": "字符匹配算法"
-    },
-    {
         "uri": "/post/algorithms/找出字符串最大回文",
         "title": "找出字符串最大回文"
     },
@@ -53,10 +25,6 @@
     {
         "uri": "/post/algorithms/缓存算法",
         "title": "缓存算法"
-    },
-    {
-        "uri": "/post/atom-插件",
-        "title": "atom 插件"
     },
     {
         "uri": "/post/designpatterns/创建型模式",
@@ -77,17 +45,6 @@
     {
         "uri": "/post/designpatterns/设计模式",
         "title": "设计模式"
-    },
-    {
-        "uri": "/post/front/_less",
-        "title": "less 语法"
-    },
-    {
-        "uri": "/post/front/_vue"
-    },
-    {
-        "uri": "/post/front/_vue学习笔记",
-        "title": "vue 学习笔记"
     },
     {
         "uri": "/post/front/apply和call的区别",
@@ -142,22 +99,6 @@
         "title": "hugo markdown 中使用javascript"
     },
     {
-        "uri": "/post/java/_hibernate",
-        "title": "Hibernate学习笔记"
-    },
-    {
-        "uri": "/post/java/_java-多线程",
-        "title": "java 多线程"
-    },
-    {
-        "uri": "/post/java/_mysql",
-        "title": "mysql"
-    },
-    {
-        "uri": "/post/java/_webservice",
-        "title": "webservice"
-    },
-    {
         "uri": "/post/java/concurrenthashmap",
         "title": "HashMap 和 ConcurrentHashMap"
     },
@@ -190,10 +131,6 @@
         "title": "java修改字符串编码"
     },
     {
-        "uri": "/post/java/java技巧",
-        "title": "java技巧"
-    },
-    {
         "uri": "/post/java/java线程池技术",
         "title": "java线程池技术"
     },
@@ -214,16 +151,12 @@
         "title": "mybatis"
     },
     {
-        "uri": "/post/java/rpc",
-        "title": "java RPC"
-    },
-    {
-        "uri": "/post/java/spring-搭建过程中出现的问题",
-        "title": "spring 搭建过程中出现的问题"
-    },
-    {
         "uri": "/post/java/spring",
         "title": "spring"
+    },
+    {
+        "uri": "/post/java/springboot+prometheus",
+        "title": "Springboot2 + Prometheus 监控"
     },
     {
         "uri": "/post/java/springlearn",
@@ -232,10 +165,6 @@
     {
         "uri": "/post/java/xpath",
         "title": "XPath 笔记"
-    },
-    {
-        "uri": "/post/java/克隆",
-        "title": "克隆"
     },
     {
         "uri": "/post/java/单例实现方式",
@@ -294,10 +223,6 @@
         "title": "mathjax 符号说明"
     },
     {
-        "uri": "/post/mysql/datasystemconcept",
-        "title": "数据库系统概念"
-    },
-    {
         "uri": "/post/mysql/mysql基础语句",
         "title": "MySQL基础语句"
     },
@@ -352,18 +277,6 @@
     {
         "uri": "/post/碰到过的问题",
         "title": "碰到过的问题"
-    },
-    {
-        "uri": "/post/读书笔记/_感谢自己的不完美",
-        "title": "感谢自己的不完美.md"
-    },
-    {
-        "uri": "/post/读书笔记/_计算机网络_自顶向下",
-        "title": "计算机网络_自顶向下"
-    },
-    {
-        "uri": "/post/读书笔记/_读书笔记-之-程序员修炼之道--从小工到专家",
-        "title": "读书笔记-之-程序员修炼之道--从小工到专家"
     },
     {
         "uri": "/post/青海四日游",

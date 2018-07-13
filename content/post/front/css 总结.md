@@ -25,6 +25,9 @@ categories: ["css"]
 
 对于单行文字居中，可以将 `line-height` 设置为父元素的高度。
 
+# `flex`
+关于 flex 布局可以参考 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
 # margin
 `margin` 属性使用百分比时，其相对元素是父元素的宽高。
 
