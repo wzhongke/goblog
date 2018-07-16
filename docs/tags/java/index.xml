@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright@Kevin Tan</copyright>
-    <lastBuildDate>Thu, 21 Sep 2017 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jan 2018 16:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wzhongke.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>spring 学习笔记</title>
+      <link>https://wzhongke.github.io/post/java/springlearn/</link>
+      <pubDate>Sun, 21 Jan 2018 16:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/springlearn/</guid>
+      <description>IoC (Inversion of Control), 也叫 DI (Dependency injection)，对象通过构造函数参数，工厂方法参数或者在工厂方法构造或返回的实例上设置属性来定义他们之间的依赖关系，容</description>
+    </item>
     
     <item>
       <title>jvm调优</title>
@@ -18,7 +27,7 @@
       <pubDate>Thu, 21 Sep 2017 12:00:00 +0000</pubDate>
       
       <guid>https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/</guid>
-      <description>在常见的线上问题中，如下问题比较常见： - 内存泄露 - 某个进程CPU突然飙升 - 线程死锁 - 响应变慢 如果遇到上述问题，我们可以基于监控工具来定位问题</description>
+      <description>垃圾回收 CMS 收集器无法处理浮动垃圾（Floating Garbage），可能会出现 Concurrent Mode Failure 失败，而导致另一次 STW 的 Full GC 的产生。 由于 CMS 并发清理阶段用户</description>
     </item>
     
     <item>

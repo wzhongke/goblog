@@ -31,176 +31,182 @@ c.publishDir = siteConf.publishDir || 'public';
 let prod = false;
 
 const src = {
-  css: 'assets/style/**/*.scss',
-  js: 'assets/script/**/*.js',
-  static: 'assets/static/**/*',
-  img: 'assets/image/**/*.{png,svg,jpg}'
+	css: 'assets/style/**/*.scss',
+	js: 'assets/script/**/*.js',
+	static: 'assets/static/**/*',
+	img: 'assets/image/**/*.{png,svg,jpg}'
 };
 
 const dest = {
-  root: '.tmp-server',
-  css: '.tmp-server/css',
-  js: '.tmp-server/js',
-  img: '.tmp-server/img'
+	root: '.tmp-server',
+	css: '.tmp-server/css',
+	js: '.tmp-server/js',
+	img: '.tmp-server/img'
 };
 
 const publish = {
-  root: c.publishDir,
-  js: c.publishDir + '/js',
-  css: c.publishDir + '/css',
-  img: c.publicDir + '/img'
+	root: c.publishDir,
+	js: c.publishDir + '/js',
+	css: c.publishDir + '/css',
+	img: c.publicDir + '/img'
 };
 $.task('clean', () =>
-  $.src([dest.root, publish.root], { read: false }).pipe(clean())
+	$.src([dest.root, publish.root], {read: false}).pipe(clean())
 );
 $.task('copy:static', () =>
-  $.src(src.static).pipe($.dest(prod ? publish.root : dest.root))
+	$.src(src.static).pipe($.dest(prod ? publish.root : dest.root))
 );
 
 $.task('style', () => {
-  return $.src(src.css)
-    .pipe(plumber())
-    .pipe(changed(dest.css))
-    .pipe($if(!prod, sourcemaps.init()))
-    .pipe(sass().on('error', sass.logError))
-    .pipe($if(!prod, sourcemaps.write()))
-    .pipe(
-      $if(
-        prod,
-        postcss([
-          require('autoprefixer')({ browsers: c.browserslist }),
-          require('cssnano')()
-        ])
-      )
-    )
-    .pipe($.dest(dest.css))
-    .pipe(bs.stream({ match: '**/*.css' }));
+	return $.src(src.css)
+		.pipe(plumber())
+		.pipe(changed(dest.css))
+		.pipe($if(!prod, sourcemaps.init()))
+		.pipe(sass().on('error', sass.logError))
+		.pipe($if(!prod, sourcemaps.write()))
+		.pipe(
+			$if(
+				prod,
+				postcss([
+					require('autoprefixer')({browsers: c.browserslist}),
+					require('cssnano')()
+				])
+			)
+		)
+		.pipe($.dest(dest.css))
+		.pipe(bs.stream({match: '**/*.css'}));
 });
 
 $.task('script', () => {
-  return $.src(src.js)
-    .pipe(plumber())
-    .pipe(changed(dest.js))
-    .pipe($if(!prod, sourcemaps.init()))
-    .pipe(
-      babel({
-        presets: [
-          [
-            'env',
-            {
-              targets: {
-                browsers: c.browserslist
-              }
-            }
-          ]
-        ]
-      })
-    )
-    .pipe($if(!prod, sourcemaps.write()))
-    .pipe($if(prod, uglify()))
-    .pipe($.dest(dest.js))
-    .pipe(bs.stream({ match: '**/*js' }));
+	return $.src(src.js)
+		.pipe(plumber())
+		.pipe(changed(dest.js))
+		.pipe($if(!prod, sourcemaps.init()))
+		.pipe(
+			babel({
+				presets: [
+					[
+						'env',
+						{
+							targets: {
+								browsers: c.browserslist
+							}
+						}
+					]
+				]
+			})
+		)
+		.pipe($if(!prod, sourcemaps.write()))
+		.pipe($if(prod, uglify()))
+		.pipe($.dest(dest.js))
+		.pipe(bs.stream({match: '**/*js'}));
 });
 
 $.task('image', () => {
-  return $.src(src.img)
-    .pipe(changed(dest.img))
-    .pipe(
-      $if(
-        prod,
-        imagemin({
-          progressive: true,
-          use: [pngquant({ quality: 90 })]
-        })
-      )
-    )
-    .pipe($.dest(dest.img));
+	return $.src(src.img)
+		.pipe(changed(dest.img))
+		.pipe(
+			$if(
+				prod,
+				imagemin({
+					progressive: true,
+					use: [pngquant({quality: 90})]
+				})
+			)
+		)
+		.pipe($.dest(dest.img));
 });
 
 $.task('hugo', cb => {
-  const args = ['-d', `./${dest.root}`];
-  const hugo = cp.spawn('hugo', prod ? args : args.concat(['-w', '-b', '/.']));
-  hugo.stdout.on('data', data => _.log(data.toString()));
-  hugo.stderr.on('data', data => _.log('error: ', data.toString()));
-  hugo.on('exit', code => {
-    _.log('hugo process exited with code', code);
-    prod && cb();
-  });
-  !prod && cb();
+	const args = ['-d', `./${dest.root}`];
+	const hugo = cp.spawn('hugo', prod ? args : args.concat(['-w', '-b', '/.']));
+	hugo.stdout.on('data', data => _.log(data.toString()));
+	hugo.stderr.on('data', data => _.log('error: ', data.toString()));
+	hugo.on('exit', code => {
+		_.log('hugo process exited with code', code);
+		prod && cb();
+	});
+	!prod && cb();
 });
 
 $.task('rev', () => {
-  const revExts = 'png,svg,jpg,css,js';
-  return $.src(`${dest.root}/**/*.{${revExts}}`)
-    .pipe(rev())
-    .pipe($.dest(publish.root))
-    .pipe(rev.manifest('rev-manifest.json'))
-    .pipe($.dest(dest.root));
+	const revExts = 'png,svg,jpg,css,js';
+	return $.src(`${dest.root}/**/*.{${revExts}}`)
+		.pipe(rev())
+		.pipe($.dest(publish.root))
+		.pipe(rev.manifest('rev-manifest.json'))
+		.pipe($.dest(dest.root));
 });
 
 $.task('ref', () => {
-  const refExts = 'html,css,js,xml';
-  return $.src(`${publish.root}/**/*.{${refExts}}`)
-    .pipe(replace({ manifest: $.src(`${dest.root}/rev-manifest.json`) }))
-    .pipe($.dest(publish.root));
+	const refExts = 'html,css,js,xml';
+	return $.src(`${publish.root}/**/*.{${refExts}}`)
+		.pipe(replace({manifest: $.src(`${dest.root}/rev-manifest.json`)}))
+		.pipe($.dest(publish.root));
 });
 
 $.task('htmlmin', () => {
-  return $.src(`${dest.root}/**/*.{html,xml}`)
-    .pipe($if('*.html', htmlmin({ collapseWhitespace: true })))
-    .pipe($.dest(publish.root));
+	return $.src(`${dest.root}/**/*.{html,xml}`)
+		.pipe($if('*.html', htmlmin({collapseWhitespace: true})))
+		.pipe($.dest(publish.root));
 });
 
 $.task('lunr', cb => {
-  const h = new lunr();
-  const file = `${prod ? publish.root : dest.root}/index.json`;
-  h.readFile = function(filePath){
-    console.log("nothing---");
-    var self = this;
-      var ext = path.extname(filePath);
-      var uri = '/' + filePath.substring(0,filePath.lastIndexOf('.')).replace(" ", "-").toLocaleLowerCase();
-      uri = uri.replace(self.baseDir +'/', '');
-      var title;
-      if (ext == '.md') {
-        var data = fs.readFileSync(filePath);
-        var meta = data.toString().trim().split("---");
-        if (meta.length > 1) {
-          var datas = meta[1].trim().split("\n");
-          datas = datas[0].trim().split(":");
-          if (datas[0] && datas[0].trim() === 'title') {
-            title = datas[1].trim();
-          }
-      }
-    }
-  }
-  h.index('content/post/**', file);
-  cb();
+	const h = new lunr();
+	const file = `${prod ? publish.root : dest.root}/index.json`;
+	h.readFile = function (filePath) {
+		let self = this;
+		let ext = path.extname(filePath);
+		let uri = '/' + filePath.substring(0, filePath.lastIndexOf('.')).replace(" ", "-").toLocaleLowerCase();
+		uri = uri.replace(self.baseDir + '/', '');
+		let title;
+		if (ext === '.md') {
+			let data = fs.readFileSync(filePath);
+			let meta = data.toString().trim().split("---");
+			if (meta.length > 1) {
+                let datas = meta[1].trim().split("\n");
+                for (let d of datas) {
+                    let prop = d.trim().split(":");
+                    if (prop && prop[0].trim() === 'title') {
+                        title = prop[1].trim();
+                    }
+                    if (prop[0] && prop[0].trim() === 'draft' && prop[1].trim() == 'true') {
+                        return ;
+                    }
+                }
+			}
+		}
+		let item = {'uri' : uri , 'title' : title};
+		self.list.push(item);
+	};
+	h.index('content/post/**', file);
+	cb();
 });
 
 $.task('build:dev', ['clean'], cb => {
-  runseq('hugo', ['style', 'script', 'image', 'copy:static'], 'lunr', cb);
+	runseq('hugo', ['style', 'script', 'image', 'copy:static'], 'lunr', cb);
 });
 
 $.task('build', ['clean'], cb => {
-  prod = true;
-  runseq('build:dev', ['rev', 'htmlmin'], 'ref', cb);
+	prod = true;
+	runseq('build:dev', ['rev', 'htmlmin'], 'ref', cb);
 });
 
 $.task('serve', ['build:dev'], () => {
-  bs.init({
-    reloadDebounce: 200,
-    port: c.port,
-    server: {
-      baseDir: dest.root
-    }
-  });
+	bs.init({
+		reloadDebounce: 200,
+		port: c.port,
+		server: {
+			baseDir: dest.root
+		}
+	});
 
-  $.watch(src.css, ['style']);
-  $.watch(src.js, ['script']);
+	$.watch(src.css, ['style']);
+	$.watch(src.js, ['script']);
 
-  const reloadSource = [
-    dest.root + '/**/*.html',
-    dest.img + '/**/*.{png,svg,jpg}'
-  ];
-  $.watch(reloadSource).on('change', () => bs.reload());
+	const reloadSource = [
+		dest.root + '/**/*.html',
+		dest.img + '/**/*.{png,svg,jpg}'
+	];
+	$.watch(reloadSource).on('change', () => bs.reload());
 });

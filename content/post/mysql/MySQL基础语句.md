@@ -31,7 +31,7 @@ RDBMS (Relational Database Management System)的特点：
 # MySQL特殊命令
 1. 按ip查看连接: `select SUBSTRING_INDEX(host,':',1) as ip , count(*) from information_schema.processlist group by ip;`
 2. 查看执行数据库执行列表: `show processlist;`
-3. 查看索引使用情况: `explain SQL;`
+3. 查看索引使用情况: `explain [SQL];`
 
 # MySQL简单的命令
 1. 查看当前服务器版本： `SELECT VERSION();`

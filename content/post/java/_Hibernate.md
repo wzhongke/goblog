@@ -490,3 +490,9 @@ TimeZone.setDefault( TimeZone.getTimeZone( "UTC" ) );
 ```xml
 <property name="hibernate.jdbc.time_zone" value="UTC"/>
 ```
+
+
+# 心得
+
+1. hibernate 的HQL查询语句中，必须使用映射后的表明，但字段可以使用数据库中的字段。
+2. hibernate 的 `org.hibernate.query.Query<R>` 的 `setParameter` 方法的下表是从 0 开始的，与jdbc从1开始不同。

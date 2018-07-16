@@ -5,6 +5,11 @@ tags: ["java"]
 categories: ["java"]
 ---
 
+# 垃圾回收
+
+CMS 收集器无法处理浮动垃圾（Floating Garbage），可能会出现 `Concurrent Mode Failure` 失败，而导致另一次 STW 的 Full GC 的产生。
+由于 CMS 并发清理阶段用户线程还在运行，伴随着程序运行自然就还会有新的垃圾不断产生，这部分垃圾出现在标记过程之后，CMS 无法在当次收集中处理掉它们，只好留到下次
+
 在常见的线上问题中，如下问题比较常见：
 - 内存泄露
 - 某个进程CPU突然飙升

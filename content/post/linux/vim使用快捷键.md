@@ -171,7 +171,8 @@ ZZ              | 若文件没有改动，则不保存离开，若文件已经�
 ## vim的一些设置
 vim设置内容往往通过修改~/.vimrc来进行一些默认的设置(其注释是 ")
 可以参考[像 IDE 一样使用 vim](https://github.com/yangyangwithgnu/use_vim_as_ide)
-```vimrc
+
+```bash
 " 开启实时搜索功能
 set incsearch
 " 搜索时大小写不敏感
