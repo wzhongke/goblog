@@ -11,7 +11,7 @@ MyBatis是定制化SQL、存储过程以及高级映射的持久层框架。MyBa
 # 开始入门
 ## maven导入MyBatis包
 在`pom.xml`的`dependencies`下添加如下依赖：
-```
+```xml
 <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 <dependency>
     <groupId>org.mybatis</groupId>
@@ -21,9 +21,10 @@ MyBatis是定制化SQL、存储过程以及高级映射的持久层框架。MyBa
 ```
 
 MyBatis是中心是`SqlSessionFactory`实例，该实例通过`SqlSessionFactoryBuilder`获得。`SqlSessionFactoryBuilder`可以通过XML配置或使用`Configuration`构建。
+
 ## 使用XML构建`SqlSessionFactory`
 XML配置文件包含了MyBatis系统的核心配置，包含数据库连接实例的数据源和决定事务作用域和控制方式的事务管理器。下面是配置中比较关键的部分：
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -47,14 +48,15 @@ XML配置文件包含了MyBatis系统的核心配置，包含数据库连接实�
 ```
 要注意XML头部的声明，该声明用来验证XML文档正确性。`environment`元素中包含了事务管理和连接池的配置。`mappers`元素包含一组`	mapper`映射器。
 我们可以通过Mybatis的一个`Resources`工具类从classpath或其他位置加载配置文件。
-```
+```java
 String resource = "mybatis.xml";
 InputStream confStream = Resources.getResourceAsStream(resource);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(confStream);
 ```
+
 ## 不使用XML构建`SqlSessionFactory`
 如果不想依赖配置构建程序，那么可以使用Java程序构建configuration，MyBatis提供了完全不用XML配置的类：
-```
+```java
 DataSource dataSource = BlogDataSourceFactory.getBlogDataSource();
 TransactionFactory transactionFactory = new JdbcTransactionFactory();
 Environment environment = new Environment("development", transactionFactory, dataSource);
@@ -62,43 +64,52 @@ Configuration configuration = new Configuration(environment);
 configuration.addMapper(BlogMapper.class);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
 ```
+
 ## 从`SqlSessionFactory`中获取`SqlSession`
 `SqlSession`中包含了面向数据库执行SQL命令所有的方法，可以通过`SqlSession`实例来直接执行已经映射的SQL语句：
-```
+```java
 try (SqlSession session = sqlSessionFactory.openSession()) {
-	Person person = session.selectOne("mybatis.mapper.PersonMapper.selectPerson", 101);
+	 Person person = session.selectOne("mybatis.mapper.PersonMapper.selectPerson", 101);
 }
 ```
+
 上例中需要`PersonMapper.xml`配置项：
-```
+```xml
 <mapper namespace="mybatis.mapper.PersonMapper">
     <select id="selectPerson" resultType="mybatis.dao.Person" parameterType="int">
         SELECT * FROM Person WHERE id = #{id}
     </select>
 </mapper>
 ```
+
 在一个XML映射文件中，可以定义任意多个映射语句，而且具有很好的自解释性。在命名空间`mybatis.mapper.PersonMapper`中定义了一个名为`selectBlog`的映射语句，这样就可以像上例中那样调用查询语句。
 我们还可以不使用XML配置，使用注解来实现同样的功能
-```
+```java
 public interface PersonMapper {
     @Select("SELECT * FROM blog WHERE id = #{id}")
     Person selectPerson(int id);
 }
 ```
+
 对于简单的语句，用Java注解简洁清晰；但是对于复杂的语句，就显得有些混乱，那么可以使用XML映射语句。这两种方式可以自由移植和切换。
+
 ## 作用域和生命周期
->如果使用依赖注入的框架，如spring，则可以直接忽略他们的生命周期。因为这些框架可以创建线程安全的、基于事务的`SqlSession`和映射器，并将他们注入到bean中。
+> 如果使用依赖注入的框架，如spring，则可以直接忽略他们的生命周期。因为这些框架可以创建线程安全的、基于事务的`SqlSession`和映射器，并将他们注入到bean中。
+
 ### `SqlSessionFactoryBuilder`
 该类可以被实例化、使用和丢弃，一旦创建了`SqlSessionFactory`，就可以不再用它了。因此`SqlSessionFactoryBuilder`实例最佳作用域是局部变量。可以重用`SqlSessionFactoryBuilder`来创建多个`SqlSessionFactory`实例。但是不要让其一直存在，避免一直占有资源。
+
 ### `SqlSessionFactory`
 `SqlSessionFactory`实例一旦创建，就应该在运行期间一直存在，对其清除和重建是浪费资源的。因此`SqlSessionFactory`的最佳作用域是应用级的，可以用单例模式或者静态单例模式创建
+
 ### `SqlSession`
 每个线程都应该有它自己的 SqlSession 实例。SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。绝对不能将 SqlSession 实例的引用放在一个类的静态域，甚至一个类的实例变量也不行。也绝不能将`SqlSession`实例的引用放在任何类型的管理作用域中。简单概括来说，就是使用之前，创建；使用完之后，马上关闭。`SqlSession`实现了`Closeable`，因此可以使用自动关闭的特性：
-```
+```java
 try (SqlSession session = sqlSessionFactory.openSession()) {
 	Person person = session.selectOne("mybatis.mapper.PersonMapper.selectPerson", 101);
 }
 ```
+
 ### 映射器实例
 映射器是用来绑定映射语句的接口，该实例是从`SqlSession`中获取的，所以映射器的作用域同`SqlSession`相同，其最佳作用域是方法作用域。
 
@@ -119,16 +130,18 @@ MyBatis配置文件的层次结构如下
    -- databaseIdProvider
    -- mappers
 ```
+
 ## `properties`
 这些属性相当于定义的变量，可以在Java属性文件中配置，也可以通过properties元素子元素传递：
-```
+```xml
 <properties resource="jdbc.properties">
     <property name="username" value="dev_user"/>
     <property name="password" value="F2Fa3!33TYyg"/>
 </properties>
 ```
+
 中期的属性可以在这个配置文件中使用：
-```
+```xml
 <dataSource type="POOLED">
     <property name="driver" value="${driver}"/>
     <property name="url" value="${url}"/>
@@ -136,23 +149,26 @@ MyBatis配置文件的层次结构如下
     <property name="password" value="${password}"/>
 </dataSource>
 ```
+
 上例中`username`和`password`会由`properties`元素中相应的值来替换，`driver`和`url`属性取自`jdbc.properties`。
 如果在多个地方配置了属性，那么会按照下面对顺序来加载：
 1. 首先读取`properties`元素体内指定的属性
 2. 然后根据`properties`中的`resource`属性读取类路径下属性文件或根据`url`属性指定读取属性文件，并覆盖已读取的同名属性。
 3. 最后读取作为方法参数传递的属性，并覆盖已读取的同名属性。
 从MyBatis3.4.2开始，可以用占位符指定一个默认值。：
-```
+```xml
 <dataSource type="POOLED">
   <property name="username" value="${username:ut_user}"/> <!-- 如果'username'不存在, username 取值为'ut_user' -->
 </dataSource>
 ```
+
 这个特性默认是关闭的，需要在`properties`下，用指定的属性来开启此特性
-```
+```xml
 <properties>
-<property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/>
+    <property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/>
 </properties>
 ```
+
 ## settings
 这是MyBatis中极为重要的调整设置，他们会改变MyBatis的运行时行为：
 
@@ -216,6 +232,7 @@ defaultExecutorType|配置默认的执行器。SIMPLE 就是普通的执行器�
     <setting name="logPrefix" value="mybatis" />
 </settings>
 ```
+
 ## typeAliases
 类型名是为Java类型设置一个短名字，只和XML配置有关，仅用来减少类完全限定名的冗余。比如：
 ```xml
@@ -230,11 +247,12 @@ defaultExecutorType|配置默认的执行器。SIMPLE 就是普通的执行器�
 ```
 这样，就可以在使用`domain.blog.Blog`的地方用`Blog`替换。
 还可以通过指定包名，来批量指定别名：
-```
+```xml
 <typeAliases>
   <package name="domain.blog"/>
 </typeAliases>
 ```
+
 这样每个在包`domain.blog`中的Java对象，在没有注解的情况下，会使用该对象的首字母小写的类名来作为它的别名。如`domain.blog.Author`的别名为`author`；如果有注解，那么以注解值为准。
 ```java
 @Alias("author")
@@ -242,6 +260,7 @@ public class Author {
     ...
 }
 ```
+
 ## typeHandlers
 无论在处理预处理语句中设置一个参数时，还是从结果集中取出一个值时，都会用到类型处理器将获取的值以合适的方式转换成Java类型。这就是类型处理器。
 我们可以重写类型处理器或创建自己的类型处理器来处理不支持的或非标准的类型。具体做法：实现`org.apache.ibatis.type.TypeHandler`接口，或者继承类`org.apache.ibatis.type.BaseTypeHandler`，然后可以选择性地将它映射到一个JDBC类型：
@@ -272,7 +291,7 @@ public class ExampleTypeHandler extends BaseTypeHandler<String> {
 这个类需要在MyBatis的配置文件中配置：
 ```xml
 <typeHandlers>
-  <typeHandler handler="org.mybatis.example.ExampleTypeHandler"/>
+    <typeHandler handler="org.mybatis.example.ExampleTypeHandler"/>
 </typeHandlers>
 ```
 使用这个的类型处理器将会覆盖已经存在的处理`Java`的`String`类型属性和`VARCHAR`参数及结果的类型处理器。
@@ -293,6 +312,7 @@ public class ExampleTypeHandler extends BaseTypeHandler<String> {
   <package name="org.mybatis.example"/>
 </typeHandlers>
 ```
+
 ## 处理枚举类
 若想映射枚举类型`Enum`，则需要从`EnumTypeHandler`或者`EnumOrdinalTypeHandler`中选一个来使用。
 
@@ -314,12 +334,14 @@ public class ExampleObjectFactory extends DefaultObjectFactory {
   }
 }
 ```
+
 ```xml
 <!-- mybatis-config.xml -->
 <objectFactory type="org.mybatis.example.ExampleObjectFactory">
   <property name="someProperty" value="100"/>
 </objectFactory>
 ```
+
 ## 插件
 MyBatis允许你在已映射语句执行过程中的某一个点进行拦截调用。MyBatis允许使用插件拦截的调用有：
 - `Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)`
@@ -363,6 +385,7 @@ public class ExamplePlugin implements Interceptor {
 </plugins>
 ```
 上面的插件将会拦截在`Executor`实例中所有的 “update” 方法调用，这里的`Executor`是负责执行低层映射语句的内部对象。
+
 ## 配置环境
 每个数据库应该对应至少一个`SqlSessionFactory`实例。
 MyBatis中有两种类型的事务管理器（`type="[JDBC|MANAGED]"`)
@@ -374,6 +397,7 @@ MyBatis中有两种类型的事务管理器（`type="[JDBC|MANAGED]"`)
 </transactionManager>
 ```
 > 如果使用 Spring + MyBatis，则没有必要配置事务管理器， 因为 Spring 模块会使用自带的管理器来覆盖前面的配置。
+
 ### dataSource 数据源
 有三种内建的数据源类型 (`type="[UNPOLLED|POOLED|JNDI]"`)
 1. UNPOOLED：每次被请求时打开和关闭连接
@@ -397,8 +421,23 @@ XML SQL映射文件中有一下几个顶级元素：
 - `update`: 更新语句
 - `delete`: 删除语句
 - `select`: 查询语句
+
 ## `select`
 查询是数据库操作中应用最频繁的语句。MyBatis简单的`select`非常简单：
 ```xml
-
+<select id="findById" parameterType="int" resultType="hashmap" timeout="1000">
+    SELECT * FROM person WHERE id=#{id}
+</select>
 ```
+
+上面语句 `findById`，接受一个 `int` 类型的参数，并返回一个 `HashMap` 类型的对象。其中的键是列名，值是结果行中对应的值。
+
+其中 `#{id}` 就是传入的参数。
+
+MyBatis 会创建一个预处理语句参数，就像：
+```java
+String selectPerson = "SELECT * FROM person WHERE id=?";
+PreparedStatement ps = conn.prepareStatement(selectPerson);
+ps.setInt(1, id);
+```
+
