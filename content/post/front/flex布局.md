@@ -275,3 +275,160 @@ Flexbox 布局最主要的思想是容器可以为了填满可用空间而修改
     order: <integer>; /* 默认是0 */
 }
 ```
+
+## `flex-grow`
+`flex-grow` 定义了 flex 元素在必要时增长的规则。它接受一个无单位的值作为一个比例。它决定了容器内元素占用剩余空间的比例。
+如果所有元素的 `flex-grow` 都是 1，那么容器内剩余的空间将会被其中的元素平均分配。如果其中一个元素的值是 2，那么该元素分配的空间将会是其他元素的 2 倍。
+```css
+.item {
+    flex-grow: <number>; /* 默认值是 0 */
+}
+```
+
+## `flex-shrink`
+`flex-shrink` 定义了元素在必要时收缩的规则。
+```css
+.item {
+    flex-shrink: <number>; /* 默认值是1 */
+}
+```
+
+## `flex-basis`
+`flex-basis` 定义了分配剩余空间之前，元素的默认大小。它的值可以是一个长度单位（20%，5rem等）或者是一个关键字。
+```css
+.item {
+    flex-basis: <length> | auto; /* 默认是auto */
+}
+```
+
+## `flex`
+`flex` 是 `flex-grow`, `flex-shrink` 和 `flex-basis` 的缩写。`flex-shrink` 和 `flex-basis` 是可选值。
+```css
+.item {
+    flex: none | [<'flex-grow'> <'flex-shrink'>?|| <'flex-basis'> ]]
+}
+```
+
+## `align-self`
+`align-self` 允许覆盖默认的对齐规则。
+```css
+.item {
+    align-self: auto| flex-start| flex-end| center| baseline| stretch;
+}
+```
+
+
+# 示例
+元素左右垂直居中：
+```css
+.parent {
+    display: flex;
+    height: 300px; /* whatever */
+}
+.child {
+    width: 100px; /* whatever */
+    height: 100px; /* whatever */
+    margin: auto;
+}
+```
+
+{{<html>}}
+<div id="flex-item">
+<ul class="flex-container">  
+<li class="flex-item">1</li>  
+<li class="flex-item">2</li>  
+<li class="flex-item">3</li>  
+<li class="flex-item">4</li>  
+<li class="flex-item">5</li>  
+<li class="flex-item">6</li>
+</ul>
+</div>
+<style>
+#flex-item .flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+#flex-item .flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+</style>
+{{</html>}}
+
+导航：
+{{<html>}}
+<div id="navigation">
+<ul class="navigation">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Products</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+</div>
+<style>
+#navigation .navigation {
+  list-style: none;
+  margin: 0;
+  background: deepskyblue;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+#navigation .navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+#navigation .navigation a:hover {
+  background: #00b7f5;
+}
+
+@media all and (max-width: 800px) {
+  #navigation .navigation {
+    justify-content: space-around;
+  }
+}
+@media all and (max-width: 600px) {
+  #navigation .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  #navigation .navigation a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  #navigation .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+</style>
+{{</html>}}

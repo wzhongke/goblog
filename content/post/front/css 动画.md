@@ -11,16 +11,119 @@ tags: ["javascript"]
 # transitions
 可以通过设置 transitions 来实现过渡效果。其用法如下：
 ```css
-transition:  [ <transition-property> |
+.example {
+    transition:  [ <transition-property> |
                <transition-duration> |
                <transition-timing-function> |
                <transition-delay> ]
+}
 ```
+
+`transition` 属性主要四个值的含义如下：
+- `transition-property`: 指定过渡或动态模拟的 css 属性
+- `transition-duration`: 指定完成过渡所需要的时间
+- `transition-timing-function`: 指定过渡的函数
+- `transition-delay`: 指定过渡开始出现的延迟时间
 
 <!-- more -->
 {{< html >}}
-<style>.wrapper{position:relative;border:1px #aaa solid;width:500px;height:500px;margin:0 auto 10px;padding:10px}.shadow{-webkit-box-shadow:5px 5px 5px #aaa;-moz-box-shadow:5px 5px 5px #aaa;box-shadow:5px 5px 5px #aaa;margin-bottom:10px}.normal,.example2,.example3{width:100px;height:100px;position:absolute;top:210px;left:210px;border-radius:50px;background-color:red;text-align:center;transition:all 1s ease-in-out}.example2{background-color:blue;transition-property:top,left;transition-duration:1s,1s;transition-delay:0s,1s}.example3{background-color:purple;transition-property:top,left,border-radius,background-color;transition-duration:2s,1s,0.5s,0.5s;transition-delay:0s,0.5s,1s,1.5s}.wrapper:hover .normal{top:0;left:0}.wrapper:hover .example2{top:398px;left:398px}.wrapper:hover .example3{top:0;left:398px;border-radius:0}.wrapper p{line-height:70px;color:white;font-weight:bold;margin-left:0 0 10px}</style><div class="wrapper shadow"><div class="normal shadow"><p>Normal</p></div><div class="example2"><p>Example2</p></div><div class="example3"><p>Example3</p></div></div>
+<style>.wrapper{position:relative;border:1px #aaa solid;width:500px;height:500px;margin:0 auto 10px;padding:10px}.shadow{-webkit-box-shadow:5px 5px 5px #aaa;-moz-box-shadow:5px 5px 5px #aaa;box-shadow:5px 5px 5px #aaa;margin-bottom:10px}.normal,.example2,.example3{width:100px;height:100px;position:absolute;top:210px;left:210px;border-radius:50px;background-color:red;text-align:center;transition:all 1s ease-in-out}.example2{background-color:blue;transition-property:top,left;transition-duration:1s,1s;transition-delay:0s,1s}.example3{background-color:purple;transition-property:top,left,border-radius,background-color;transition-duration:2s,1s,0.5s,0.5s;transition-delay:0s,0.5s,1s,1.5s}.wrapper:hover .normal{top:0;left:0}.wrapper:hover .example2{top:398px;left:398px}.wrapper:hover .example3{background-color:black;top:0;left:398px;border-radius:0}.wrapper p{line-height:70px;color:white;font-weight:bold;margin-left:0 0 10px}</style><div class="wrapper shadow"><div class="normal shadow"><p>Normal</p></div><div class="example2"><p>Example2</p></div><div class="example3"><p>Example3</p></div></div>
 {{< /html >}}
+
+示例中的样式为：
+```css
+.normal,.example2,.example3 {
+    transition-duration:1s,1s;
+    transition-property:top,left;
+    transition-delay:0s,1s ease-in-out;
+}
+.example2{
+    background-color:blue;
+    transition-duration:1s,1s;
+    transition-delay:0s,1s;
+}
+.example3{
+    background-color:purple;
+    transition-property:top,left,border-radius,background-color;
+    transition-duration:2s,1s,0.5s,0.5s;
+    transition-delay:0s,0.5s,1s,1.5s
+}
+.wrapper:hover .normal{
+    top:0;left:0;
+}
+.wrapper:hover .example2{
+    top:398px;left:398px
+}
+.wrapper:hover .example3{
+    background-color: black;
+    top:0;left:398px;
+    border-radius:0
+}
+```
+
+## 指定过渡属性
+要让 `transition` 属性能正常工作，需要给元素设置两套样式用于用户与界面的交互。通过 `transition-property` 属性来指定过渡动画的 css 属性名：
+```css
+.example {
+    transition-property: none | all | <single-transition-property> [, <single-transition-property] *
+}
+```
+
+可以一次指定多个过渡样式，如上列中的 `transition-property:top,left,border-radius,background-color;`
+
+## 指定过渡所需要的时间
+`transition-duration` 属性用来指定一个属性过渡到另一个属性所需要的时间：
+```css
+.example {
+    transition-duration: <time> [,<time>]*;
+}
+```
+
+`time` 为数值，单位是秒或者毫秒，它的默认值是 0，即没有过渡效果。可以设置多个过渡属性，每个值用逗号分隔，且每个值按顺序对应 `transition-property` 的属性值。
+```css
+.example {
+    /* duration 同 property 的值一一对应  */
+    transition-property:top,left,border-radius,background-color;
+    transition-duration:2s,1s,0.5s,0.5s;
+}
+```
+
+## 指定过渡动画
+`transition-timing-function` 属性可以指定过渡速度，以及过渡期间的操作进展。可以将某个值定义为预定义函数、阶梯函数或者三次贝塞尔曲线：
+```css
+.example {
+    transition-timing-function: <single-transition-timing-function> [, <single-transition-timing-function>] *
+}
+```
+
+`<single-transition-timing-function>` 是单一过渡函数，主要包括： `ease`, `linear`, `ease-in`, `ease-out`, `ease-in-out`.
+
+三次贝塞尔曲线定义语法如下：
+```css
+.example {
+    /* Pn 是在 [0-1] 的值 */
+    transition-timing-function: cubic-bezier(P0, P1, P2, P3);
+}
+```
+
+制作贝塞尔曲线的工具可以在互联网上找到。
+
+## 指定过渡延时时间
+`transition-delay` 用来定义过渡延时时间：
+```css
+.example {
+    transition-delay: <time>[, <time>]*
+}
+```
+
+`<time>` 的取值可以是正整数、负整数和 0。
+正整数表示元素过渡动作在设定时间之后才触发；负整数表示元素的过渡动作会从该时间点开始显示，之前的动作被截断。
+
+## css 触发过渡
+单纯通过css3代码不会触发任何过渡效果，需要用户的行为触发。
+可以通过 `:hover`, `:active`, `:focus`, `:checked` 伪元素触发;
+可以通过媒体查询触发： `@media only screen and (max-width: 960px)`;
+可以通过 JavaScript 触发。
 
 
 # transforms
