@@ -125,12 +125,113 @@ tags: ["javascript"]
 可以通过媒体查询触发： `@media only screen and (max-width: 960px)`;
 可以通过 JavaScript 触发。
 
+# 动画 `animation`
+`transition` 可以实现一些简单的过渡动画效果，但是功能有限。`animation` 动画通过关键帧控制动画的每一步，实现复杂的动画效果。
+
+在CSS中使用动画，首先要为动画指定关键帧（元素在某些时候会有什么样式）。浏览器会为你添加相应的渐变效果。语法如下：
+```CSS
+.animation {
+    animation: name duration timing-function delay iteration-count direction;
+}
+```
+
+其中 animation 的值有如下含义
+
+值         | 描述
+:----------|:---------
+animation-name | 规定需要绑定到选择器的 `@keyframe` 规则
+animation-duration| 规定完成动画所花费的时间，以秒或毫秒计数
+animation-timing-function | 规定动画的速度曲线
+animation-delay | 规定在动画开始之前的延迟
+animation-iteration-count | 规定动画应该播放的次数
+animation-direction | 规定是否应该轮流反向播放动画 (normal:默认值。动画应该正常播放; alternate    动画应该轮流反向播放)
+
+## 关键帧 `@keyframes` 规则
+举例来说，将一个元素逐渐下移 200px :
+```CSS
+@keyframes move {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+```
+
+从例子中可以看出，`@keyframes` 指定了动画的代码。动画的效果是从一个CSS样式渐变到另外一个CSS样式。在动画执行期间，我们可以多次更改CSS样式。
+
+样式可以设定百分比改变或者使用 "from" 和 "to"，"from" 相当于 0%，"to" 相当于 100%。
+为了获得最佳的浏览器支持，应该始终定义 0% 和 100% 选择器。
+@keyframes 的语法如下：
+```CSS
+@keyframes animation-name {
+    keyfromes-selector {css-styles;}
+}
+```
+
+例如：
+```CSS
+@keyframes mymove {
+    0%   {top: 0px;}
+    25%  {top: 200px;}
+    50%  {top: 100px;}
+    75%  {top: 200px;}
+    100% {top: 0px;}
+}
+```
+
+## Demo1
+
+简单的动画效果：
+```css
+@keyframes resize {
+    0% {padding: 0;}
+    50% {padding: 0 40px; background-color: rgba(255,0,0,0.2);}
+    100% {padding: 0 150px; background-color: rgba(255,0,0, 0.9);}
+}
+#animationBox {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    border: 1px red solid;
+    background-color: rgba(255,0,0,0.7);
+}
+#animationBox:hover {
+     animation: resize 1s infinite alternate
+}
+```
+
+{{< html >}}
+<style>@keyframes resize{0%{padding:0}50%{padding:0 40px;background-color:rgba(255,0,0,0.2)}100%{padding:0 150px;background-color:rgba(255,0,0,0.9)}}#animationBox{height:50px;width:50px;margin:0 auto;border:1px red solid;background-color:rgba(255,0,0,0.7)}#animationBox:hover{animation:resize 1s infinite alternate}
+</style><div id="animationBox" class="shadow"></div>
+{{< /html >}}
+
+### Demo2
+animation 动画适用于微妙、精美的动画，而不是那些特别复杂的动画。 WCAG规定，使用animation不应该包含每秒闪烁超过3次的内容。
+
+```css
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
+        border-color: rgba(0,0,255,0.5);
+    }
+    100% {
+        box-shadow: 0 0 16px rgba(66, 140, 240, 1.0), 0 0 36px rgba(0, 140, 255, 1.0);
+        border-color: rgba(0,0,255,1.0);
+    }
+}
+```
+
+{{< html >}}
+<style>#animationDemo2{width:255px;margin:10px auto}#animationDemo2 button{width:255px;height:35px;background:#cde;border:2px solid #ccc;border-color:rgba(0,0,255,0.5);font-size:18px;color:#000;text-shadow:rgba(20,20,20,0.5) 1px 1px 5px;text-align:center;border-radius:16px;box-shadow:0 0 16px rgba(66,140,240,0.5)}#animationDemo2 button:hover{background-color:#cce;animation:glow 1s ease-in-out infinite alternate}@keyframes glow{0%{box-shadow:0 0 16px rgba(66,140,240,0.5);border-color:rgba(0,0,255,0.5)}100%{box-shadow:0 0 16px rgba(66,140,240,1.0),0 0 36px rgba(0,140,255,1.0);border-color:rgba(0,0,255,1.0)}}</style>
+<div id="animationDemo2"><button class="transition hover">Hover to Pulsate</button></div>
+{{< /html >}}
 
 # transforms
 可以通过 transforms 来实现变形效果。目前有2D变形和3D变形，不过3D变形只有新的浏览器中支持。其语法如下:
 ```CSS
-transform: none|transform-functions
+.transform {
+    transform: none|transform-functions
+}
 ```
+
 它的属性值如下表
 
 值    | 含义
@@ -309,113 +410,7 @@ perspective(n) | 为 3D 转换元素定义透视视图
 </script>
 {{< /html >}}
 
-## animation
-在CSS中使用动画，首先要为动画指定关键帧（
-元素在某些时候会有什么样式）。浏览器会为你添加相应的渐变效果。语法如下：
-```CSS
-animation: name duration timing-function delay iteration-count direction;
-```
 
-其中 animation 的值有如下含义
-
-值         | 描述
-:----------|:---------
-animation-name | 规定需要绑定到选择器的 keyframe名称
-animation-duration| 规定完成动画所花费的时间，以秒或毫秒计数
-animation-timing-function | 规定动画的速度曲线
-animation-delay | 规定在动画开始之前的延迟
-animation-iteration-count | 规定动画应该播放的次数
-animation-direction | 规定是否应该轮流反向播放动画 (normal:默认值。动画应该正常播放; alternate    动画应该轮流反向播放)
-
-### @keyframes 规则
-举例来说，将一个元素逐渐下移 200px :
-```CSS
-@keyframes move {
-    from {top: 0px;}
-    to {top: 200px;}
-}
-```
-
-从例子中可以看出，`@keyframes` 指定了动画的代码。动画的效果是从一个CSS样式渐变到另外一个CSS样式。在动画执行期间，我们可以多次更改CSS样式。
-样式可以设定百分比改变或者使用 "from" 和 "to"，"from" 相当于 0%，"to" 相当于 100%。
-为了获得最佳的浏览器支持，应该始终定义 0% 和 100% 选择器。
-@keyframes 的语法如下：
-```CSS
-@keyframes animation-name {keyfromes-selector {css-styles;}}
-```
-
-例如：
-```CSS
-@keyframes mymove {
-    0%   {top: 0px;}
-    25%  {top: 200px;}
-    50%  {top: 100px;}
-    75%  {top: 200px;}
-    100% {top: 0px;}
-}
-```
-
-### Demo1
-{{< html >}}
-<style>
-@keyframes resize {
-    0% {padding: 0;}
-    50% {padding: 0 40px; background-color: rgba(255,0,0,0.2);}
-    100% {padding: 0 150px; background-color: rgba(255,0,0, 0.9);}
-}
-#animationBox {
-    height: 50px;
-    width: 50px;
-    margin: 0 auto;
-    border: 1px red solid;
-    background-color: rgba(255,0,0,0.7);
-}
-#animationBox:hover {
-     animation: resize 1s infinite alternate
-}
-</style>
-<div id="animationBox" class="shadow">
-</div>
-{{< /html >}}
-
-### Demo2
-animation 动画适用于微妙、精美的动画，而不是那些特别复杂的动画。 WCAG规定，使用animation不应该包含每秒闪烁超过3次的内容。
-
-{{< html >}}
-<style>
-#animationDemo2 {width: 255px; margin: 10px auto;}
-#animationDemo2 button {
-    width: 255px;
-    height: 35px;
-    background: #cde;
-    border: 2px solid #ccc;
-    border-color: rgba(0,0,255,0.5);
-    font-size: 18px;
-    color: #000;
-    text-shadow: rgba(20, 20, 20, 0.5) 1px 1px 5px;
-    text-align: center;
-    border-radius: 16px;
-    box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
-}
-#animationDemo2 button:hover {
-    background-color: #cce;
-    animation: glow 1s ease-in-out infinite alternate;
-}
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
-    border-color: rgba(0,0,255,0.5);
-  }
-  100% {
-    box-shadow: 0 0 16px rgba(66, 140, 240, 1.0), 0 0 36px rgba(0, 140, 255, 1.0);
-    border-color: rgba(0,0,255,1.0);
-  }
-}
-</style>
-<div id="animationDemo2">
-  <button class="transition hover">Hover to Pulsate</button>
-</div>
-{{< /html >}}
 
 ## filters
 CSS中的 filter 并不是官网标准，但是有很多浏览器支持filter样式。目前，filter 应用于整个元素和所有它的后代，不能只针对背景或边框。
