@@ -203,7 +203,7 @@ animation-direction | 规定是否应该轮流反向播放动画 (normal:默认�
 </style><div id="animationBox" class="shadow"></div>
 {{< /html >}}
 
-### Demo2
+## Demo2
 animation 动画适用于微妙、精美的动画，而不是那些特别复杂的动画。 WCAG规定，使用animation不应该包含每秒闪烁超过3次的内容。
 
 ```css
@@ -228,7 +228,7 @@ animation 动画适用于微妙、精美的动画，而不是那些特别复杂�
 可以通过 transforms 来实现变形效果。目前有2D变形和3D变形，不过3D变形只有新的浏览器中支持。其语法如下:
 ```CSS
 .transform {
-    transform: none|transform-functions
+    transform: none | transform-functions
 }
 ```
 
@@ -236,42 +236,62 @@ animation 动画适用于微妙、精美的动画，而不是那些特别复杂�
 
 值    | 含义
 :-----|:-----
-none  |  定义不进行转换。
-matrix(n,n,n,n,n,n) | 定义 2D 转换，使用六个值的矩阵。
-matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) |  定义 3D 转换，使用 16 个值的 4x4 矩阵。
-translate(x,y) | 定义 2D 转换。
-translate3d(x,y,z) | 定义 3D 转换。
-translateX(x)  | 定义转换，只是用 X 轴的值。
-translateY(y)  | 定义转换，只是用 Y 轴的值。
-translateZ(z)  | 定义 3D 转换，只是用 Z 轴的值。
-scale(x,y) | 定义 2D 缩放转换。
-scale3d(x,y,z) |  定义 3D 缩放转换。
-scaleX(x) |  通过设置 X 轴的值来定义缩放转换。
-scaleY(y)  | 通过设置 Y 轴的值来定义缩放转换。
-scaleZ(z)  | 通过设置 Z 轴的值来定义 3D 缩放转换。
-rotate(angle) |  定义 2D 旋转，在参数中规定角度。
-rotate3d(x,y,z,angle) |  定义 3D 旋转。
-rotateX(angle) | 定义沿着 X 轴的 3D 旋转。
-rotateY(angle) | 定义沿着 Y 轴的 3D 旋转。
-rotateZ(angle) | 定义沿着 Z 轴的 3D 旋转。
-skew(x-angle,y-angle) |  定义沿着 X 和 Y 轴的 2D 倾斜转换。
-skewX(angle)   | 定义沿着 X 轴的 2D 倾斜转换。
-skewY(angle)   | 定义沿着 Y 轴的 2D 倾斜转换。
-perspective(n) | 为 3D 转换元素定义透视视图
+`none`  |  定义不进行转换。
+`matrix(n,n,n,n,n,n)` | 定义 2D 转换，使用六个值的矩阵。
+`matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)` |  定义 3D 转换，使用 16 个值的 4x4 矩阵。
+`translate(x,y)` | 指定一个 2D 变形移动位移量。可以扩展两个函数 `translateX(x)`, `translateY(y)`
+`translate3d(x,y,z)` | 指定一个 3D 变形移动位移量。
+`translateZ(z)`  | 定义 3D 转换，只是用 Z 轴的值。
+`scale(x,y)` | 定义 2D 缩放转换。扩展两个函数 `scaleX(x)`, `scaleY(y)`
+`scale3d(x,y,z)` |  定义 3D 缩放转换。
+`scaleZ(z)`  | 通过设置 Z 轴的值来定义 3D 缩放转换。
+`rotate(angle)` |  定义 2D 旋转，在参数中规定角度。可以扩展两个函数 `rotateX(angle)`, `rotateY(angle)`
+`rotate3d(x,y,z,angle)` |  定义 3D 旋转。
+`rotateZ(angle)` | 定义沿着 Z 轴的 3D 旋转。
+`skew(x-angle,y-angle)` |  定义沿着 X 和 Y 轴的 2D 倾斜转换。可以扩展两个函数 `skewX(angle)`, `skewY(angle)`
+`perspective(n)` | 为 3D 转换元素定义透视视图
 
 可以将 transform 同 transition 结合使用，如下所示：
-{{< html >}}
-<style>
-#transDemo div {
-    height: 120px;width: 120px; border: 1px blue solid; margin: 10px auto; padding:10px; text-align: center; transition: all 2s ease-in-out;
+```css
+.demo {
+    transition: all 2s ease-in-out;
 }
-#transDemo .hover {cursor: pointer;}
-#transDemo div:hover {transform: rotate(720deg) scale(2,2);}
-</style>
-<div id="transDemo">
-<div class="hover" > Hover and see what will happen</div>
-</div>
+.demo:hover {
+    transform: rotate(720deg) scale(2,2);
+}
+```
+
+{{< html >}}
+<style>#transDemo div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo .hover{cursor:pointer}#transDemo div:hover{transform:rotate(720deg) scale(2,2)}</style>
+<div id="transDemo"><div class="hover" > Hover and see what will happen</div></div>
 {{< /html >}}
+
+## `transform-origin` 属性
+`transform-origin` 用来指定元素的中心点位置，默认情况下，变形的原点在元素的中心点。基本语法如下：
+```css
+.tranform {
+    transform-origin: left | center | right | top | bottom | percentage | length;
+}
+```
+
+给上例加入 `transform-origin`:
+```css
+.demo {
+    transition: all 2s ease-in-out;
+}
+.demo:hover {
+    transform: rotate(720deg) scale(2,2);
+    transform-origin: left 20%;
+}
+```
+
+{{< html >}}
+<style>#transDemo2 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo2 .hover{cursor:pointer}#transDemo div:hover{transform:rotate(720deg) scale(2,2);transform-origin: left 20%;}</style>
+<div id="transDemo2"><div class="hover" > Hover and see what will happen</div></div>
+{{< /html >}}
+
+
+
 
 ## 3D transform
 3D tranform 同 2D transform 相似，其基本属性为 `translate3d`, `scale3d`, `rotateX`, `rotateY`, `rotateZ`。如下列：
