@@ -290,8 +290,68 @@ animation 动画适用于微妙、精美的动画，而不是那些特别复杂�
 <div id="transDemo2"><div class="hover" > Hover and see what will happen</div></div>
 {{< /html >}}
 
+## `transform-style` 属性
+`transform-style` 属性是 3D 空间的一个重要属性，指定嵌套元素如何在 3D 空间中呈现：
+```css
+.transfrom {
+    transform-style: flat | preserve-3d
+}
+```
 
+- `flat`: 默认值，所有元素在 2D 平面展现
+- `preserve-3d`: 所有元素在 3D 平面展现
 
+3D 空间示例：
+```css
+ #transDemo3 div:hover {
+    transform-style: preserve-3d;
+    transform: perspective(100px) perspective(50px) rotate3d(10, 20, 30, 20deg) scale3d(1.1, 1.2, 1.3);
+    transform-origin: left 20%; 
+}
+```
+
+{{<html>}}
+<style>#transDemo3 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo3 div:hover{transform-style:preserve-3d;transform:perspective(100px) perspective(50px) rotate3d(10,20,30,20deg) scale3d(1.1,1.2,1.3);transform-origin:left 20%}#transDemo3 .hover{cursor:pointer}</style>
+<div id="transDemo3"><div class="hover" > Hover and see what will happen</div></div>
+{{</html>}}
+
+## `perspective` 属性
+`perspective` 属性设置查看者位置，并将可视内容映射到一个视锥上，继而投射到一个 2D 平面上。
+值越小，用户与 3D空间 Z 平面距离越近；值越大，用户与 3D 空间 Z 平面距离越远。其语法如下：
+```css
+.transfrom {
+    perspective: none | <length>;
+}
+```
+
+`perspective()` 函数同 `perspective` 属性类似。`perspective()` 函数用在当前函数，而 `perspective` 用在变形元素的共同父元素。
+
+```css
+#transDemo4 div div {
+    transform: rotateX(45deg);
+    transform-origin: bottom;
+}
+#transDemo4 div:nth-of-type(2) {
+    perspective: 500px; 
+}
+/* 或者用 perspective() 函数 */
+#transDemo4 div div:nth-of-type(2) {
+    transform: perspective(500px);
+}
+```
+
+{{<html>}}
+<style>#transDemo4 div{display:inline-block}#transDemo4 div div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;background-color:darkgreen;transform:rotateX(45deg);transform-origin:bottom}#transDemo4 div:nth-of-type(2){perspective:500px}</style>
+<div id="transDemo4"><div><div class="hover">rotateX(45deg);perspective: 0px;</div></div><div><div class="hover">rotateX(45deg);perspective: 500px;</div></div></div>
+{{</html>}}
+
+## `backface-visibility` 属性
+`backface-visibility` 属性决定元素旋转时背面是否可见。语法：
+```css
+.transform {
+    backface-visibility: visible | hidden;
+}
+```
 
 ## 3D transform
 3D tranform 同 2D transform 相似，其基本属性为 `translate3d`, `scale3d`, `rotateX`, `rotateY`, `rotateZ`。如下列：
