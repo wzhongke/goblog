@@ -183,3 +183,18 @@ Node 提供了 child_process 模块来创建子进程，方法如下：
 - `spawn` : 使用指定的命令行参数创建新进程
 - `fork` : `spawn` 的特殊形式，用于在子进程中运行的模块
 
+### `exec()` 方法
+`child_process.exec()` 使用子进程执行命令，缓存子进程的输出，并将子进程的输出以回调函数参数的形式返回：
+```js
+child_process.exec(command, [options,] callback)
+```
+
+参数如下：
+- `command`: 字符串，将要运行的命令
+- `options`: 对象，可以是：
+    - `cwd`: 字符串，子进程当前的工作目录
+    - `env`: 对象环境变量键值对
+    - `encoding`: 字符编码 (默认 utf8)
+    - `shell`: 字符串，将要执行命令的 shell（默认 linux下的 /bin/sh，window下的 cmd.exe）
+    - `timeout`: 超时时间
+    - `maxBuffer`: 在 `stdout` 或 `stderr` 中允许存在的最大缓冲

@@ -77,3 +77,15 @@ jinfo [option] pid
 
 ## `jmap`: Java 内存映射工具
 `jmap` 命令用于将堆转存成快照，
+
+
+[nioEventLoopGroup-3-35] ERROR io.netty.util.ResourceLeakDetector 171 - LEAK: ByteBuf.release() was not called before it's garbage-collected. See http://netty.io/wiki/reference-counted-objects.html for more information.
+Recent access records:
+#1:
+    Hint: 'HttpServerHandler#0' will handle the message from this point.
+    io.netty.buffer.AdvancedLeakAwareCompositeByteBuf.touch(AdvancedLeakAwareCompositeByteBuf.java:36)
+    io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpMessage.touch(HttpObjectAggregator.java:374)
+    io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpRequest.touch(HttpObjectAggregator.java:453)
+    io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpRequest.touch(HttpObjectAggregator.java:404)
+    io.netty.channel.DefaultChannelPipeline.touch(DefaultChannelPipeline.java:116)
+
