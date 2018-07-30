@@ -239,8 +239,8 @@ animation 动画适用于微妙、精美的动画，而不是那些特别复杂�
 `none`  |  定义不进行转换。
 `matrix(n,n,n,n,n,n)` | 定义 2D 转换，使用六个值的矩阵。
 `matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)` |  定义 3D 转换，使用 16 个值的 4x4 矩阵。
-`translate(x,y)` | 指定一个 2D 变形移动位移量。可以扩展两个函数 `translateX(x)`, `translateY(y)`
-`translate3d(x,y,z)` | 指定一个 3D 变形移动位移量。
+`translate(x,y)` | 指定一个 2D 移动位移量。可以扩展两个函数 `translateX(x)`, `translateY(y)`
+`translate3d(x,y,z)` | 指定一个 3D 移动位移量。
 `translateZ(z)`  | 定义 3D 转换，只是用 Z 轴的值。
 `scale(x,y)` | 定义 2D 缩放转换。扩展两个函数 `scaleX(x)`, `scaleY(y)`
 `scale3d(x,y,z)` |  定义 3D 缩放转换。
@@ -352,6 +352,89 @@ animation 动画适用于微妙、精美的动画，而不是那些特别复杂�
     backface-visibility: visible | hidden;
 }
 ```
+
+## 2D transform
+2D 变形是在 X 轴和 Y 轴上工作的。
+
+### 2D 位移
+`translate()` 函数可将元素从原来的位置移动，而不影响 X、Y轴上的其他组件。其语法如下：
+
+```css
+.translate {
+    transform: translate(tx, ty) | translate(tx);
+}
+```
+
+下例中，使用 `translate` 将图形做了位移：
+```css
+div:hover {
+    transform: translate(300px, 100px);
+}   
+```
+
+{{<html>}}
+<style>#transDemo5 .hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo5 .hover:hover{transform:translate(300px,100px)}</style><div id="transDemo5"><div class="hover" >Hover and see what will happen</div></div>
+{{</html>}}
+
+### 2D 缩放
+`scale()` 缩放函数让元素根据中心点对对象进行缩放。其语法格式如下：
+```css
+.scale {
+    transform: scale(sx) | scale(sx, sy);
+}
+```
+
+下例中，使用 `translate` 将图形做了缩小：
+```css
+div:hover {
+    transform: scale(0.5, 0.5);
+} 
+```
+
+{{<html>}}
+<style>#transDemo6{.hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}.hover:hover{transform:scale(.5,.5)}}</style>
+<div id="transDemo6"><div class="hover" >Hover and see what will happen</div></div>
+{{</html>}}
+
+### 2D 旋转
+`rotate()` 通过制定角度参数对元素根据指定原点进行 2D 旋转。
+```css
+.rotate {
+    transform: rotate(a);
+}
+```
+
+下例中，使用 `rotate()` 将图形旋转了 180 度：
+```css
+div:hover {
+    transform: rotate(180deg);
+} 
+```
+
+{{<html>}}
+<style>#transDemo7{.hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}.hover:hover{transform:rotate(180deg)}}</style>
+<div id="transDemo7"><div class="hover" >Hover and see what will happen</div></div>
+{{</html>}}
+
+### 2D 倾斜
+`skew()` 函数能够让元素倾斜显示，可以将一个对象以其设定的位置为中心，绕 X 轴和 Y 轴按照一定角度倾斜：
+```css
+.skew {
+    transform: skew(x) | skew(x, y);
+}
+```
+
+下例中，使用 `skew()` 将图形进行一定角度的倾斜：
+```css
+div:hover {
+    transform: skew(20deg,30deg);
+} 
+```
+
+{{<html>}}
+<style>#transDemo8{.hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}.hover:hover{transform:skew(20deg,30deg)}}</style>
+<div id="transDemo8"><div class="hover" >Hover and see what will happen</div></div>
+{{</html>}}
 
 ## 3D transform
 3D tranform 同 2D transform 相似，其基本属性为 `translate3d`, `scale3d`, `rotateX`, `rotateY`, `rotateZ`。如下列：
