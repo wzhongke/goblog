@@ -31,15 +31,6 @@
     </item>
     
     <item>
-      <title>nodejs 学习笔记</title>
-      <link>https://wzhongke.github.io/post/front/nodejs/</link>
-      <pubDate>Thu, 08 Mar 2018 12:01:00 +0000</pubDate>
-      
-      <guid>https://wzhongke.github.io/post/front/nodejs/</guid>
-      <description>创建一个应用 使用Node.js时，不仅仅在实现一个应用，同时还实现了整个HTTP服务。 Node.js有如下三部分组成： 1. 引入required</description>
-    </item>
-    
-    <item>
       <title>css 动画</title>
       <link>https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/</link>
       <pubDate>Fri, 01 Dec 2017 12:00:00 +0000</pubDate>

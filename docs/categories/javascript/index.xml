@@ -22,21 +22,21 @@
     </item>
     
     <item>
+      <title>你不知道的JavaScript读书笔记</title>
+      <link>https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/</link>
+      <pubDate>Sat, 21 Apr 2018 09:49:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/</guid>
+      <description>类型 JavaScript 有7中内置类型： - 空值 null - 未定义 undefined - 布尔值 boolean - 数字 number - 字符串 string - 对象 object - 符号 symbol （ES6新增） 我们可以用 typeof 运算符来查看值的类型，它返回的</description>
+    </item>
+    
+    <item>
       <title>webpack</title>
       <link>https://wzhongke.github.io/post/front/webpack/</link>
       <pubDate>Fri, 13 Apr 2018 12:00:00 +0000</pubDate>
       
       <guid>https://wzhongke.github.io/post/front/webpack/</guid>
       <description>安装 使用如下命令安装webpack到当前目录下 npm install webpack --save 如果需要使用 webpack 命令行，需要全局安装 npm install webpack-cli -g 如果因为权限问题，安装失败，则需要使用如下命</description>
-    </item>
-    
-    <item>
-      <title>nodejs 学习笔记</title>
-      <link>https://wzhongke.github.io/post/front/nodejs/</link>
-      <pubDate>Thu, 08 Mar 2018 12:01:00 +0000</pubDate>
-      
-      <guid>https://wzhongke.github.io/post/front/nodejs/</guid>
-      <description>创建一个应用 使用Node.js时，不仅仅在实现一个应用，同时还实现了整个HTTP服务。 Node.js有如下三部分组成： 1. 引入required</description>
     </item>
     
     <item>

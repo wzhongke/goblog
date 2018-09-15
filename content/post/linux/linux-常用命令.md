@@ -342,7 +342,7 @@ wget [参数] [url地址]
 
 # 管道命令 `|` - `cut` `grep` `sort` `uniq`
 每个`|`后面接的第一个数据必须是能够接受standard input数据的命令，而且管道命令只能处理standard output，对于error output会忽略
-1. `cut` 
+1. `cut` 命令
     ```bash
     cut –d '分隔符' –f fields
         -d : 后边接分隔符， 与-f一起使用

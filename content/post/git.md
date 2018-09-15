@@ -8,6 +8,7 @@ git是比较常用的版本控制工具。
 ## git的基本使用
 1. `git init` : 创建新的git仓库
 2. `git clone path` : 从远端服务器或本地检出仓库
+3. `git clone -b <branch> path`: 将分支clone到本地
 3. `git add filename` 或者 `git add *` : 添加改动到缓存区
 4. `git commit -m '代码提交信息'` :  实际提交改动，将改动提交到本地仓库的HEAD中
 5. `git remote add origin <server>` : 添加远程仓库
@@ -23,10 +24,12 @@ git是比较常用的版本控制工具。
 
 ## git 分支
 分支是用来将特性开发绝缘开来的。在创建仓库的时候，master是默认的。
+
 1. `git checkout –b feature` : 创建一个叫做 “feature”的分支，并切换到该分支
 2. `git checkout master` : 切换回主分支
 3. `git branch –d feature` :删除feature 分支
 4. `git push origin <branch>` : 将分支推送到远端仓库
+5. `git clone -b <branch> <url>`: 将分支check到本地
 
 ## git更新与合并
 1. `git pull` : 将更新本地仓库至最新改动

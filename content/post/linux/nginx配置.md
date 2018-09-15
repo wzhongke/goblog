@@ -8,7 +8,7 @@ categories: ["linux"]
 ## nginx配置之 `location`
 
 nginx 的 `location` 配置可以有如下多种方式：
-```conf
+```
 # 精确匹配
 location = / {
     # 精确匹配 / ，主机名后不能有任何字符串

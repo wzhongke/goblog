@@ -63,6 +63,10 @@
         "title": "es6"
     },
     {
+        "uri": "/post/front/flex布局",
+        "title": "flex 布局"
+    },
+    {
         "uri": "/post/front/html标签",
         "title": "HTML 标签"
     },
@@ -72,7 +76,7 @@
     },
     {
         "uri": "/post/front/nodejs",
-        "title": "nodejs 学习笔记"
+        "title": "包管理工具"
     },
     {
         "uri": "/post/front/vuex",
@@ -85,6 +89,10 @@
     {
         "uri": "/post/front/webpack",
         "title": "webpack"
+    },
+    {
+        "uri": "/post/front/你不知道的javascript",
+        "title": "你不知道的JavaScript读书笔记"
     },
     {
         "uri": "/post/git",
@@ -101,6 +109,10 @@
     {
         "uri": "/post/java/concurrenthashmap",
         "title": "HashMap 和 ConcurrentHashMap"
+    },
+    {
+        "uri": "/post/java/dubbox-实现 rpc 服务",
+        "title": "dubbox 实现 rpc 服务"
     },
     {
         "uri": "/post/java/java-文件处理",
@@ -149,6 +161,10 @@
     {
         "uri": "/post/java/mybatis",
         "title": "mybatis"
+    },
+    {
+        "uri": "/post/java/netty",
+        "title": "高并发 netty"
     },
     {
         "uri": "/post/java/spring",

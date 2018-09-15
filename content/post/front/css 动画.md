@@ -286,7 +286,7 @@ animation 动画适用于微妙、精美的动画，而不是那些特别复杂�
 ```
 
 {{< html >}}
-<style>#transDemo2 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo2 .hover{cursor:pointer}#transDemo div:hover{transform:rotate(720deg) scale(2,2);transform-origin: left 20%;}</style>
+<style>#transDemo2 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo2 .hover{cursor:pointer}#transDemo2 div:hover{transform:rotate(720deg) scale(2,2);transform-origin: left 20%;}</style>
 <div id="transDemo2"><div class="hover" > Hover and see what will happen</div></div>
 {{< /html >}}
 

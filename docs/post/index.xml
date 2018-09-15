@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright@Kevin Tan</copyright>
-    <lastBuildDate>Sat, 21 Apr 2018 11:28:11 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jul 2018 18:51:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wzhongke.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>高并发 netty</title>
+      <link>https://wzhongke.github.io/post/java/netty/</link>
+      <pubDate>Fri, 20 Jul 2018 18:51:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/netty/</guid>
+      <description>问题 现在我们使用应用程序或者类库来实现系统之间的通信，比如我们使用一个HTTP客户端从 web 服务器上获取信息，使用 RPC 执行远程方法调用。。 然而有时</description>
+    </item>
+    
+    <item>
+      <title>flex 布局</title>
+      <link>https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Fri, 08 Jun 2018 18:51:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/</guid>
+      <description>参考地址 Flexbox 布局模型旨在提供一种更有效的方式来布置，对齐和分配容器中的物品之间的空间，即使其尺寸未知或动态的。 Flexbox 布局最主要的思想是容器可以为了</description>
+    </item>
     
     <item>
       <title>es6</title>
@@ -19,6 +37,15 @@
       
       <guid>https://wzhongke.github.io/post/front/es6/</guid>
       <description>babel: ES6 转换成 ES5 babel 是一个将ES6转换成ES5的转码器，babel的配置文件是 .babelrc，存放在项目的根目录。 全局安装babel： $ npm install --global babel-cli</description>
+    </item>
+    
+    <item>
+      <title>你不知道的JavaScript读书笔记</title>
+      <link>https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/</link>
+      <pubDate>Sat, 21 Apr 2018 09:49:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/</guid>
+      <description>类型 JavaScript 有7中内置类型： - 空值 null - 未定义 undefined - 布尔值 boolean - 数字 number - 字符串 string - 对象 object - 符号 symbol （ES6新增） 我们可以用 typeof 运算符来查看值的类型，它返回的</description>
     </item>
     
     <item>
@@ -37,15 +64,6 @@
       
       <guid>https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</guid>
       <description>最近在做结果过滤时，碰到了一些字符串匹配效率低下的问题。在网上查找了一些字符串匹配的算法，有KMP算法，多模AC匹配算法等。 BMP算法 坏字符</description>
-    </item>
-    
-    <item>
-      <title>nodejs 学习笔记</title>
-      <link>https://wzhongke.github.io/post/front/nodejs/</link>
-      <pubDate>Thu, 08 Mar 2018 12:01:00 +0000</pubDate>
-      
-      <guid>https://wzhongke.github.io/post/front/nodejs/</guid>
-      <description>创建一个应用 使用Node.js时，不仅仅在实现一个应用，同时还实现了整个HTTP服务。 Node.js有如下三部分组成： 1. 引入required</description>
     </item>
     
     <item>
@@ -598,6 +616,15 @@
     </item>
     
     <item>
+      <title>dubbox 实现 rpc 服务</title>
+      <link>https://wzhongke.github.io/post/java/dubbox-%E5%AE%9E%E7%8E%B0-rpc-%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/java/dubbox-%E5%AE%9E%E7%8E%B0-rpc-%E6%9C%8D%E5%8A%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>java 计算对象占用内存</title>
       <link>https://wzhongke.github.io/post/java/java-%E8%AE%A1%E7%AE%97%E5%86%85%E5%AD%98/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -640,6 +667,15 @@
       
       <guid>https://wzhongke.github.io/post/linux/%E6%90%AD%E5%BB%BAzookeeper%E9%9B%86%E7%BE%A4/</guid>
       <description>安装 zookeeper 下载zookeeper，建议选择稳定版本： wget 将下载文件解压到 /usr/local/zookeeper 配置 zookeeper 集群 将 conf/zoo_sample.cfg 复制到 conf/zoo.cfg，并修改该文件： tickTime=2000 dataDir=/search/odin/zookeeper clientPort=2181 initLimit=5 syncLimit=2 server.1=10.134.96.237:2888:3888</description>
+    </item>
+    
+    <item>
+      <title>包管理工具</title>
+      <link>https://wzhongke.github.io/post/front/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/nodejs/</guid>
+      <description>npm 使用 npm 安装一个本地的包： npm install &amp;lt;package-name&amp;gt; 该命令会在当前的目录下创建一个 node_modules 的目录（如果不存在的话），然后将下载的包保存到这个目录下。 package.json 使用 package.json 是管理本地</description>
     </item>
     
     <item>
