@@ -52,3 +52,15 @@ location ~* \.(gif|png)$ {
 (location =) > (location 完整路径) > (location ^~ 路径) > (location ~,~* 正则顺序) > (location 部分起始路径) > (location /)
 
 ## nginx配置之 `rewrite`
+
+
+## nginx 问题之 返回 html 数据不完整
+问题：
+使用nginx做代理时，发现在返回的html数据量比较大时，会出现返回的数据不完整。
+过程：
+在nginx的错误日志中出现： `open() "/dev/shm/nginx/hmux_temp/0000000053" failed (2: No such file or directory) while reading upstream`
+这是因为 nginx 对于小的反向代理请求是使用内存做中转的，稍微大些的，会使用文件系统做中转。
+而当前的nginx的权限不能够访问目录 `/dev/shm/nginx/hmux_temp/`。
+解决方案：
+1. 如果目录 `/dev/shm/nginx/hmux_temp/` 不存在则新建
+2. 该目录的权限是 nobody 可以读写的。
