@@ -80,4 +80,59 @@ let select = function (callback) {
 }
 ```
 
-对于相同的SQL，保证同一个查询开始到结束的过程只有一次。SQL在进行查询时，新到来的相同调用只需在队列中等待数据就绪即可。一旦查询结束，得到的结果可以被这些调用同时使用。  
+对于相同的SQL，保证同一个查询开始到结束的过程只有一次。SQL在进行查询时，新到来的相同调用只需在队列中等待数据就绪即可。一旦查询结束，得到的结果可以被这些调用同时使用。
+
+### Promise/Deferred 模式
+异步的广泛使用使得回调、嵌套出现，但是一旦出现深度的嵌套，就会让编程和体验变得不愉快，而Promise/Deferred模式在一定程度上缓解了这个问题。CommonJS 草案目前抽象出了 Promise/A、Promises/B、Promises/C典型的 Promise/Deferred 模型。
+Promise/Deferred 模式其实包含两部分: Promise 和 Deferred。
+Promise/A 对单个异步操作的抽象定义如下：
+- Promise 操作只会处在3种状态中一种：未完成态、完成态和失败态。
+- Promise 的状态只会从未完成态向完成态或失败态转化，不能逆反。完成态和失败态不能相互转化。
+- Promise 的状态一旦转化，将不能被更改。
+
+对于 API 的定义，Promises/A 只要求 Promise 对象具备 `then()` 方法：
+- 接受完成态、错误态的回调方法。在操作完成或者出现错误时，调用对应的方法
+- 可选地支持 progress 事件回调作为第三个方法
+- `then()` 方法只接受 function 对象
+- `then()` 方法继续返回 Promise 对象，以实现链式调用
+
+以下代码是对 Promises/A 模式的一个简单模拟：
+```js
+let Promise = function () {
+    EventEmitter.call(this);
+};
+util.inherits(Promise, EventEmitter);
+
+Promise.prototype.then = function (fulfilledHandler, errorHandler, progressHandler) {
+    if (typeof fulfilledHandler === 'function') {
+        // 利用 once() 方法保证成功回调只执行一次
+        this.once('success', fulfilledHandler);
+    }
+    if (typeof errorHandler === 'function') {
+        this.once('error', errorHandler);
+    }
+    if (typeof progressHandler === 'function') {
+        this.on('progress', progressHandler);
+    }
+    return this;
+}
+```
+
+`then()` 方法将回调函数存放起来。Deferred，也被称为延迟对象，是触发执行这些回调函数的地方：
+```js
+let Deferred = function () {
+    this.state = 'unfulfilled';
+    this.promise = new Promise();
+}
+Deferred.prototype.resolve = function (obj) {
+    this.state = 'fulfilled';
+    this.promise.emit('success', obj);
+}
+Deferred.prototype.reject = function (err) {
+    this.state = 'failed';
+    this.promise.emit('error', err);
+}
+Deferred.prototype.progress = function (data) {
+    this.promise.emit('progress', data);
+}
+```
