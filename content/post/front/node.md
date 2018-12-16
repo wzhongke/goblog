@@ -289,3 +289,7 @@ readFile('file1.txt', 'utf8').then(function (file1) {
     console.log(file2);
 })
 ```
+
+让 Promise 支持链式调用，主要通过以下两个步骤：
+- 将所有的回调都存到队列中
+- Promise 完成时，逐个执行回调，一旦检测到返回了新的 Promise 对象，停止执行，然后将当前 Deferred 对象的 `promise` 引用改变为新的 Promise 对象，并将队列中余下的回调转交给它。
