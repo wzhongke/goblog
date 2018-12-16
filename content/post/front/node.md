@@ -136,3 +136,156 @@ Deferred.prototype.progress = function (data) {
     this.promise.emit('progress', data);
 }
 ```
+
+利用 Promise/A 模式，可以对一个典型的响应对象进行封装，相关代码如下：
+```js
+res.on('data', function (chunk) {
+    console.log(`BODY: ${chunk}`);
+});
+res.on('end', function () {
+    // DONE
+});
+res.on('error', function (err) {
+    // ERR
+});
+```
+
+以上代码可以转换成如下形式：
+```js
+res.then(function () {
+    // DONE
+}, function (err) {
+    // ERR
+}, function (chunk) {
+    console.log(`BODY: ${chunk}`);
+});
+```
+
+可以通过如下方式将代码改造成上面的简略形式：
+```js
+let promisify = function (res) {
+    let deferred = new Deferred();
+    let result = '';
+    res.on('data', function (chunk) {
+        result += chunk;
+        deferred.progress(chunk);
+    });
+    res.on('end', function () {
+        deferred.resolve(result);
+    });
+    res.on('error', function (err) {
+        deferred.reject(err);
+    });
+    return deferred.promise;
+}
+```
+
+### Promise 处理多异步协作
+Promise 主要是处理单个异步操作中存在的问题，当需要处理多个异步调用时，下面是一个简单的模型：
+```js
+Deferred.prototype.all = function (promises) {
+    let count = promises.length;
+    let results = [];
+    promises.forEach(function (promise, i) {
+        promise.then(function (data) {
+            count --;
+            results[i] = data;
+            if (count === 0) {
+                that.resolve(results);
+            }
+        }, function (err) {
+            that.reject(err);
+        })        
+    })
+}
+```
+
+### 支持序列化执行的 Promise
+理想的编程应该是链式调用：
+```js
+promise()
+    .then(fun1)
+    .then(fun2)
+    .then (function (data){
+
+    }, function (error) {
+
+    });
+```
+
+将代码改造实现链式调用：
+```js
+var Deferred = function () {
+    this.promise = new Promise();
+}
+// 完成态
+Deferred.prototype.resolve = function (obj) {
+    let promise = this.promise;
+    let handler;
+    while ((handler = promise.queue.shift())) {
+        if (handler && handler.fulfilled) {
+            let ret = handler.fulfilled(obj);
+            if (ret && ret.isPromise) {
+                ret.queue = promise.queue;
+                this.promise = ret;
+                return ;
+            }
+        }
+    }
+};
+
+// reject 
+Deferred.prototype.reject = function (err) {
+    let promise = this.promise;
+    let handler;
+    while ((handler = promise.queue.shift())) {
+        let ret = handler.error(err);
+        if (ret && ret.isPromise) {
+            ret.queue = promise.queue;
+            this.promise = ret;
+            return ;
+        }
+    }
+};
+
+// 回调函数
+Deferred.prototype.callback = function () {
+    let taht = this;
+    return function (err, file) {
+        return that.reject(file);
+    }
+    that.resolve(file);
+};
+
+var Promise = function () {
+    // 队列用于存储待执行的回调函数
+    this.queue = [];
+    this.isPromise = true;
+};
+
+Promise.prototype.then = function (fulfilledHandler, errorHandler, progressHandler) {
+    let handler = {};
+    if (typeof fulfilledHandler === 'function') {
+        handler.fulfilled = fulfilledHandler;
+    }
+    if (typeof errorHandler === 'function') {
+        handler.error = errorHandler;
+    } 
+    this.queue.push(handler);
+    return this;
+}
+```
+
+以读取第二个文件依赖于第一个文件为列：
+```js
+let readFile = function (file, encoding) {
+    let deferred = new Deferred();
+    fs.readFile(file, encoding, deferred.callback());
+    return deferred.promise;
+}
+readFile('file1.txt', 'utf8').then(function (file1) {
+    return readFile(file1.trim(), 'utf8');
+}).then (function (file2) {
+    console.log(file2);
+})
+```

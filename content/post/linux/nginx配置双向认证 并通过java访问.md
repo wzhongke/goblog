@@ -47,7 +47,7 @@ echo "服务器证书的生成..."
 openssl genrsa -out server/server.key 2048 
 openssl req -new -subj $SUBJECT -key server/server.key -out server/server.csr  
 
-echo "使用我们私有的 CA key 为刚才的 key 签名..."
+echo "使用我们私有的 CA key 为刚才的 key 签名，生成证书有效时间在 openssl.conf 中配置..."
 openssl ca -in server/server.csr -cert private/ca.crt -keyfile private/ca.key -out server/server.crt -config "./openssl.conf" 
 
 echo "客户端证书的生成 * 创建存放 key 的目录 users..."
