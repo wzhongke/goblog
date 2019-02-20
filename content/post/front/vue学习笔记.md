@@ -1060,8 +1060,6 @@ Vue.component('custom-input', {
 <custom-input v-model="searchText"></custom-input>
  ```
 
- 
-
 # 自定义事件
 与 components 和 props 不同，事件名称并不提供命名自动转换。触发的事件名称必须与监听时的名称完全匹配，否则无法接收到事件。
 ```js
@@ -1134,6 +1132,28 @@ Vue.component('base-checkbox', {
 <base-checkbox v-model="lovingVue"></base-checkbox>
 ```
 
+## 将原生事件绑定到组件
+如果要在根组件上监听一个原生事件，可以使用 `v-on` 的 `.native` 修饰符：
+```html
+<base-input v-on:focus.native='onFocus'></base-input>
+```
+
+如果 `base-input` 标签的根元素是 `input`，上述代码没有问题，如果根元素是 `label`:
+```js
+<label>
+  {{ label }}
+  <input
+    v-bind="$attrs"
+    v-bind:value="value"
+    v-on:input="$emit('input', $event.target.value)"
+  >
+</label>
+```
+
+Vue 有一个 `$listeners` 属性来解决这个问题，`$listeners` 是一个对象，里面包含了作用在这个组件上所有的监听器，结合`v-on="$listeners"`将所有监听器指向这个组件的特定子元素：
+```js
+
+```
 
 
 # 使用 slots 进行内容分发

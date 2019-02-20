@@ -6,7 +6,7 @@ categories: ["javascript"]
 ---
 javascript在使用中有各种各样的技巧：提高执行效率，降低执行频率等。
 
-## Web Storage 的使用
+# Web Storage 的使用
 Web Storage的目的是克服由cookie带来的一些限制，当数据需要被严格控制在客户端，无须将数据返回到服务器时。
 <!-- more -->
 - 提供一种在cookie之外的存储会话数据的途径
@@ -35,7 +35,7 @@ var WebStorage = {
 }
 ```
 
-## 使用外部变量时，超时调用
+# 使用外部变量时，超时调用
 在使用`setTimeout`进行超时调用时，其作用域是`window`，因此要注意其`this`的使用。
 ```javascript
 for (var i=0; i<10; i++) {
@@ -55,7 +55,7 @@ for (var i=0; i<10; i++) {
 }
 ```
 
-## 判断手机联网状态
+# 判断手机联网状态
 如果手机不支持如下属性，可以参考 [github](https://github.com/daniellmb/downlinkMax)
 ```javascript
 // 是否在线
@@ -68,19 +68,7 @@ navigator.connection.downlinkMax
 
 ```
 
-## 问题
-1. 对于含有小数的值，不用等于判断
-2. 使用 Zepto 监控图片 load 时间时，可能会有不触发的问题，可以使用如下方式处理：
-    ```javascript
-    // 使用 one 保证该事件只被触发一次
-    $("img").one("load", function() {
-        // do something
-    }).each (function(){
-        this.complete && $(this).trigger("load");
-    }) 
-    ```
-
-## 节流函数
+# 节流函数
 ```js
 var throttle = function (time, func){
     var timeoutId= null;
@@ -101,7 +89,7 @@ throttle(100, function () {
 })();
 ```
 
-## 元素是否在可视区域
+# 元素是否在可视区域
 ```js
 function elementInViewport2(el) {
     var top = el.offsetTop;
@@ -123,3 +111,35 @@ function elementInViewport2(el) {
     );
 }
 ```
+
+# 图片懒加载
+
+```js
+var imgLazyLoad = $(".js-pic-lazy-load").toArray();
+function processDownFresh () {
+    var scrollTop = $(window).scrollTop(),
+        winHeight = $(window).height();
+    while (imgLazyLoad.length > 0 && scrollTop + winHeight >= $(imgLazyLoad[0]).offset().top - winHeight) {
+        var load = $(imgLazyLoad.shift());
+        load.removeClass('js-pic-lazy-load');
+        load.find('img').forEach(function (item) {
+            var img = $(item);
+            img.attr("src", img.attr('data-src'));
+        });
+    }
+}
+var scrollProgress = throttle(500, processDownFresh);
+$(window).on("scroll", scrollProgress);
+```
+
+# 问题
+1. 对于含有小数的值，不用等于判断
+2. 使用 Zepto 监控图片 load 时间时，可能会有不触发的问题，可以使用如下方式处理：
+    ```javascript
+    // 使用 one 保证该事件只被触发一次
+    $("img").one("load", function() {
+        // do something
+    }).each (function(){
+        this.complete && $(this).trigger("load");
+    }) 
+    ```
