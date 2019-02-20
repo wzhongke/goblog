@@ -1,29 +1,471 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>树算法 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    树算法 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/algorithms/">Algorithms</a> <span class="breadcrumb">树算法</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#二叉搜索树">二叉搜索树</a><ul><li><a href="#查询">查询</a></li><li><a href="#最大关键字最小关键字">最大关键字最小关键字</a></li><li><a href="#后继和前驱">后继和前驱</a></li><li><a href="#插入">插入</a></li><li><a href="#删除">删除</a></li><li><a href="#随机构建二叉搜索树">随机构建二叉搜索树</a></li></ul></li><li><a href="#trie-树">Trie 树</a></li><li><a href="#红黑树">红黑树</a><ul><li><a href="#红黑树的性质">红黑树的性质</a></li><li><a href="#旋转">旋转</a></li><li><a href="#插入-1">插入</a></li></ul></li><li><a href="#b-tree">B-Tree</a><ul><li><a href="#b树定义">B树定义</a></li><li><a href="#b树上的基本操作">B树上的基本操作</a><ul><li><a href="#搜索b树">搜索B树</a></li><li><a href="#创建一棵空的-b树">创建一棵空的 B树</a></li><li><a href="#分裂结点">分裂结点</a></li><li><a href="#插入关键字">插入关键字</a></li><li><a href="#从b树种删除关键字">从B树种删除关键字</a></li></ul></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">树算法 </span><span class="card-meta"><time><span>Thu Jan 11 2018</span></time><address><a href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;</address></span><article class="article"><h1 id="二叉搜索树">二叉搜索树</h1><p>搜索树结构支持许多动态结合操作，包括SEARCH、MINMUM、MAXIMUX、PREDECESSOR、SUCCESSOR、INSERT、DELETE等。</p><p>二叉搜索树的性质如下： <strong>设 x 是二叉搜索树的一个结点，如果 y 是 x 左子树中的一个结点，那么 $y.key \leq x.key$，如果y是x右子树的一个结点，那么 $y.key \geq x.key$</strong></p><p><strong>中序遍历</strong>： 输出的子树根的关键字位于其左子树的关键字和右子树关键字之间 <strong>先序遍历</strong>： 输出的根的关键字在其左右子树关键字之前 <strong>后序遍历</strong>： 输出的根的关键字在其左右子树关键字之后</p><p>二叉树的中序遍历算法如下：</p><pre><code>INORDER-TREE-WALK(x)
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/algorithms/'>Algorithms</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">树算法</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#二叉搜索树">二叉搜索树</a>
+<ul>
+<li><a href="#查询">查询</a></li>
+<li><a href="#最大关键字最小关键字">最大关键字最小关键字</a></li>
+<li><a href="#后继和前驱">后继和前驱</a></li>
+<li><a href="#插入">插入</a></li>
+<li><a href="#删除">删除</a></li>
+<li><a href="#随机构建二叉搜索树">随机构建二叉搜索树</a></li>
+</ul></li>
+<li><a href="#trie-树">Trie 树</a></li>
+<li><a href="#红黑树">红黑树</a>
+<ul>
+<li><a href="#红黑树的性质">红黑树的性质</a></li>
+<li><a href="#旋转">旋转</a></li>
+<li><a href="#插入-1">插入</a></li>
+</ul></li>
+<li><a href="#b-tree">B-Tree</a>
+<ul>
+<li><a href="#b树定义">B树定义</a></li>
+<li><a href="#b树上的基本操作">B树上的基本操作</a>
+<ul>
+<li><a href="#搜索b树">搜索B树</a></li>
+<li><a href="#创建一棵空的-b树">创建一棵空的 B树</a></li>
+<li><a href="#分裂结点">分裂结点</a></li>
+<li><a href="#插入关键字">插入关键字</a></li>
+<li><a href="#从b树种删除关键字">从B树种删除关键字</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">树算法 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Thu Jan 11 2018</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<h1 id="二叉搜索树">二叉搜索树</h1>
+
+<p>搜索树结构支持许多动态结合操作，包括SEARCH、MINMUM、MAXIMUX、PREDECESSOR、SUCCESSOR、INSERT、DELETE等。</p>
+
+<p>二叉搜索树的性质如下：
+<strong>设 x 是二叉搜索树的一个结点，如果 y 是 x 左子树中的一个结点，那么 $y.key \leq x.key$，如果y是x右子树的一个结点，那么 $y.key \geq x.key$</strong></p>
+
+<p><strong>中序遍历</strong>： 输出的子树根的关键字位于其左子树的关键字和右子树关键字之间
+<strong>先序遍历</strong>： 输出的根的关键字在其左右子树关键字之前
+<strong>后序遍历</strong>： 输出的根的关键字在其左右子树关键字之后</p>
+
+<p>二叉树的中序遍历算法如下：</p>
+
+<pre><code>INORDER-TREE-WALK(x)
     if (x!=NIL)
         INORDER-TREE-WALK(x.left)
         print x.key
         INORDER-TREE-WALK(x.right)
-</code></pre><h2 id="查询">查询</h2><p>使用如下递归算法在二叉搜索树中查找一个具有给定关键字的结点：</p><pre><code>TREE-SEARCH(x,k)
+</code></pre>
+
+<h2 id="查询">查询</h2>
+
+<p>使用如下递归算法在二叉搜索树中查找一个具有给定关键字的结点：</p>
+
+<pre><code>TREE-SEARCH(x,k)
     if x == NIL or k == x.key
         return x
     if k &lt; x.key
         return TREE-SEARCH(x.left, key)
     else
         return TREE-SEARCH(x.right, key)
-</code></pre><p>查找过程从树根开始，并沿着这棵树中的一条简单路径向下进行。对于每个遇到的结点x，经比较关键字k与x.key。若两个值相等，返回结果。若k小于x.key，继续查找x的左子树；若k大于x.key，继续查找x的右子树。</p><p>还可以采用迭代方式代替递归，因为迭代的效率要高得多：</p><pre><code>ITERATIVE-TREE-SEARCH(x,k)
+</code></pre>
+
+<p>查找过程从树根开始，并沿着这棵树中的一条简单路径向下进行。对于每个遇到的结点x，经比较关键字k与x.key。若两个值相等，返回结果。若k小于x.key，继续查找x的左子树；若k大于x.key，继续查找x的右子树。</p>
+
+<p>还可以采用迭代方式代替递归，因为迭代的效率要高得多：</p>
+
+<pre><code>ITERATIVE-TREE-SEARCH(x,k)
     while x != NIL and k != x.key
         if k &lt; x.key
             x = x.left
         else 
             x = x.right
     return x
-</code></pre><h2 id="最大关键字最小关键字">最大关键字最小关键字</h2><p>如果结点x没有左子树，那么由于x右子树中的每个关键字都至少大于或等于x.key，则以x为根的子树中的最小关键字是x.key。 如果结点x有左子树，那么由于其右子树中没有关键字小于x.key，且在左子树中的每个关键字不大于x.key，则以x为根的子树中的最小关键字一定在x.left的子树中：</p><pre><code>TREE-MINMUM(x)
+</code></pre>
+
+<h2 id="最大关键字最小关键字">最大关键字最小关键字</h2>
+
+<p>如果结点x没有左子树，那么由于x右子树中的每个关键字都至少大于或等于x.key，则以x为根的子树中的最小关键字是x.key。
+如果结点x有左子树，那么由于其右子树中没有关键字小于x.key，且在左子树中的每个关键字不大于x.key，则以x为根的子树中的最小关键字一定在x.left的子树中：</p>
+
+<pre><code>TREE-MINMUM(x)
     while x.left != NIL
         x = x.left
     return x
@@ -32,7 +474,13 @@ TREE-MAXMUM(x)
     while x.right != NIL
         x = x.right
     return x
-</code></pre><h2 id="后继和前驱">后继和前驱</h2><p>结点x的后继是大于x.key最小关键字的结点，前驱是小于x.key的最大关键字结点。</p><pre><code>TREE-SUCCESSOR(x)
+</code></pre>
+
+<h2 id="后继和前驱">后继和前驱</h2>
+
+<p>结点x的后继是大于x.key最小关键字的结点，前驱是小于x.key的最大关键字结点。</p>
+
+<pre><code>TREE-SUCCESSOR(x)
     if x.right != NIL
         return TREE-MINMUM(x.right)
     y = x.p
@@ -40,7 +488,16 @@ TREE-MAXMUM(x)
         x = y
         y = y.p
     return y
-</code></pre><p>如果结点x的右子树非空，那么x的后继是x右子树的最左结点。如果x在右子树为空并有一个后继y，那么y就是x的最底层的祖先，并且y的左孩子也是x的一个祖先。</p><h2 id="插入">插入</h2><p>插入和删除操作会引起二叉搜索树集合的变化，一定要修改数据结构来反映这个变化。 算法从树根开始，指针x记录了一条向下的简单路径，并查找要替换的输入项z的NIL，然后将z插入NIL的位置。</p><pre><code>TREE-INSERT(T,z)
+</code></pre>
+
+<p>如果结点x的右子树非空，那么x的后继是x右子树的最左结点。如果x在右子树为空并有一个后继y，那么y就是x的最底层的祖先，并且y的左孩子也是x的一个祖先。</p>
+
+<h2 id="插入">插入</h2>
+
+<p>插入和删除操作会引起二叉搜索树集合的变化，一定要修改数据结构来反映这个变化。
+算法从树根开始，指针x记录了一条向下的简单路径，并查找要替换的输入项z的NIL，然后将z插入NIL的位置。</p>
+
+<pre><code>TREE-INSERT(T,z)
     y = NIL
     x = T.root
     while x != NIL
@@ -56,7 +513,25 @@ TREE-MAXMUM(x)
         y.left = z
     else 
         y.right = z
-</code></pre><h2 id="删除">删除</h2><p>从一棵二叉搜索树中删除一个结点 z 的整个策略分为三种基本情况： 1. 如果 z 没有孩子结点，那么只是简单将其删除，并将 z 结点的父结点指向 z 的指针用 NIL 替换 2. 如果 z 只有一个孩子结点，那么将该孩子结点提升到树 z 的位置，并修改 z 的父结点，用 z 的孩子替换 z 3. 如果z 有两个孩子，那么找到 z 的后继 y ，并让 y 占据树中 z 的位置。z 原来的右子树成为 y 的新右子树，z 的左子树成为 y 的新左子树。</p><p>第3种情况比较复杂，与 y 是否是 z 的右孩子相关。 - 如果 z 没有左孩子，那么用其右孩子来替换 z - 如果 z 仅有一个孩子且为左孩子，那么用左孩子替换 z - 如果 z 既有左孩子又有右孩子。需要查找 z 的后继 y，这个后继位于z 的右子树中并且没有左孩子。现在需要将 y 移出原来的位置进行拼接，并替换树种的 z - 如果 y 是 z 的右孩子，那么用 y 替换 z，并留下 y 的右孩子。 - y 在 z 的右子树中，但并不是 z 的右孩子。先用 y 的右孩子替换 y，然后再用 y 替换 z。</p><p>定义一个移动子树的过程，将一个子树替换为另一个子树：</p><pre><code>TRANSPLANT(T,u,v)
+</code></pre>
+
+<h2 id="删除">删除</h2>
+
+<p>从一棵二叉搜索树中删除一个结点 z 的整个策略分为三种基本情况：
+1. 如果 z 没有孩子结点，那么只是简单将其删除，并将 z 结点的父结点指向 z 的指针用 NIL 替换
+2. 如果 z 只有一个孩子结点，那么将该孩子结点提升到树 z 的位置，并修改 z 的父结点，用 z 的孩子替换 z
+3. 如果z 有两个孩子，那么找到 z 的后继 y ，并让 y 占据树中 z 的位置。z 原来的右子树成为 y 的新右子树，z 的左子树成为 y 的新左子树。</p>
+
+<p>第3种情况比较复杂，与 y 是否是 z 的右孩子相关。
+- 如果 z 没有左孩子，那么用其右孩子来替换 z
+- 如果 z 仅有一个孩子且为左孩子，那么用左孩子替换 z
+- 如果 z 既有左孩子又有右孩子。需要查找 z  的后继 y，这个后继位于z 的右子树中并且没有左孩子。现在需要将 y 移出原来的位置进行拼接，并替换树种的 z
+- 如果 y 是 z 的右孩子，那么用 y 替换 z，并留下 y 的右孩子。
+- y 在 z 的右子树中，但并不是 z 的右孩子。先用 y 的右孩子替换 y，然后再用 y 替换 z。</p>
+
+<p>定义一个移动子树的过程，将一个子树替换为另一个子树：</p>
+
+<pre><code>TRANSPLANT(T,u,v)
     if u.p == NIL
         T.root = v
     elseif u == u.p.left
@@ -65,7 +540,11 @@ TREE-MAXMUM(x)
         u.p.right = v
     if v != NIL
         v.p = u.p
-</code></pre><p>从搜索二叉树中中删除结点 z 的伪代码如下：</p><pre><code>TREE-DELETE(T,z)
+</code></pre>
+
+<p>从搜索二叉树中中删除结点 z 的伪代码如下：</p>
+
+<pre><code>TREE-DELETE(T,z)
     if z.left == NIL
         TRANSPLANT(T,z,z.right)
     else z.right == NIL
@@ -79,7 +558,45 @@ TREE-MAXMUM(x)
         TRANSPALAN(T, z, y)
         y.left = z.left
         y.left.p = y
-</code></pre><p>在高度为 $h$ 的二叉搜索树上，实现动态集合操作 INSERT 和 DELETE 的运行时间为 $O(h)$.</p><h2 id="随机构建二叉搜索树">随机构建二叉搜索树</h2><p>二叉搜索树上的每个基本操作都能在 $O(h)$ 时间内完成。然而，随着元素的插入和删除，二叉搜索树的高度也在变化。如果n个关键字按照严格递增的次序插入，那么这棵树一定是高度为n-1的一条链。但是当n个不同的关键字随机构建二叉搜索树时，期望高度时 $O(\lg n)$。</p><p>二叉搜索树的高度较低时，集合操作执行会比较快。但是，如果树的高度较高时，这些集合操作可能并不比在链表上快。因此，引入了平衡搜索树。</p><h1 id="trie-树">Trie 树</h1><h1 id="红黑树">红黑树</h1><p>红黑树是许多平衡所搜树中的一种，可以保证在最坏情况下基本动态集合操作时间复杂度为 $O(\lg n)$</p><h2 id="红黑树的性质">红黑树的性质</h2><p>每个结点上有一个存储位是用来表示结点颜色的，可以是RED或BLACK。通过对任何一条从根到叶子的简单路径上各个结点颜色的约束，使红黑树没有一条路径会比其他路径长出2倍，因而是近似平衡的。</p><p>红黑树满足如下性质： 1. 每个结点不是红色，就是黑色 2. 根结点是黑色的 3. 每个叶结点是黑色的 4. 如果一个结点是红色的，则它的两个子结点是黑色的 5. 对每个结点，从该结点到其后代所有叶节点的简单路径上，均包含相同数目的黑色结点。</p><p><strong>为了便于表示红黑树代码中的边界条件，使用一个哨兵T.nil来代表NIL</strong></p><p><strong>黑高</strong> 从某个结点（不含该结点）出发到达一个叶结点的任意一条简单路径上的黑色结点个数。</p><h2 id="旋转">旋转</h2><p>搜索树操作 TREE-INSERT 和 TREE-DELETE 在红黑树上执行时，可能会违法红黑树的性质，为了维护这些性质，需要改变树中某些结点的颜色以及指针结构</p><p>指针结构的修改是通过旋转来完成的。<strong>旋转分为左旋和右旋</strong>。 左旋：当在结点 $x$ 上做左旋时（$x$ 是右孩子不是T.nil 结点的树内任意结点），假设它的右孩子为 $y$。左旋使得 $y$ 成为该子树的根结点， $x$ 成为 $y$ 的左孩子，$y$ 的左孩子成为 $x$ 的右孩子。</p><pre><code>LEFT-ROTATE(T,x)
+</code></pre>
+
+<p>在高度为 $h$ 的二叉搜索树上，实现动态集合操作 INSERT 和 DELETE 的运行时间为 $O(h)$.</p>
+
+<h2 id="随机构建二叉搜索树">随机构建二叉搜索树</h2>
+
+<p>二叉搜索树上的每个基本操作都能在 $O(h)$ 时间内完成。然而，随着元素的插入和删除，二叉搜索树的高度也在变化。如果n个关键字按照严格递增的次序插入，那么这棵树一定是高度为n-1的一条链。但是当n个不同的关键字随机构建二叉搜索树时，期望高度时 $O(\lg n)$。</p>
+
+<p>二叉搜索树的高度较低时，集合操作执行会比较快。但是，如果树的高度较高时，这些集合操作可能并不比在链表上快。因此，引入了平衡搜索树。</p>
+
+<h1 id="trie-树">Trie 树</h1>
+
+<h1 id="红黑树">红黑树</h1>
+
+<p>红黑树是许多平衡所搜树中的一种，可以保证在最坏情况下基本动态集合操作时间复杂度为 $O(\lg n)$</p>
+
+<h2 id="红黑树的性质">红黑树的性质</h2>
+
+<p>每个结点上有一个存储位是用来表示结点颜色的，可以是RED或BLACK。通过对任何一条从根到叶子的简单路径上各个结点颜色的约束，使红黑树没有一条路径会比其他路径长出2倍，因而是近似平衡的。</p>
+
+<p>红黑树满足如下性质：
+1. 每个结点不是红色，就是黑色
+2. 根结点是黑色的
+3. 每个叶结点是黑色的
+4. 如果一个结点是红色的，则它的两个子结点是黑色的
+5. 对每个结点，从该结点到其后代所有叶节点的简单路径上，均包含相同数目的黑色结点。</p>
+
+<p><strong>为了便于表示红黑树代码中的边界条件，使用一个哨兵T.nil来代表NIL</strong></p>
+
+<p><strong>黑高</strong> 从某个结点（不含该结点）出发到达一个叶结点的任意一条简单路径上的黑色结点个数。</p>
+
+<h2 id="旋转">旋转</h2>
+
+<p>搜索树操作 TREE-INSERT 和 TREE-DELETE 在红黑树上执行时，可能会违法红黑树的性质，为了维护这些性质，需要改变树中某些结点的颜色以及指针结构</p>
+
+<p>指针结构的修改是通过旋转来完成的。<strong>旋转分为左旋和右旋</strong>。
+左旋：当在结点 $x$ 上做左旋时（$x$ 是右孩子不是T.nil 结点的树内任意结点），假设它的右孩子为 $y$。左旋使得 $y$ 成为该子树的根结点， $x$ 成为 $y$ 的左孩子，$y$ 的左孩子成为 $x$ 的右孩子。</p>
+
+<pre><code>LEFT-ROTATE(T,x)
     y = x.right
     x.right = y.left
     if y.left != T.nil
@@ -93,7 +610,11 @@ TREE-MAXMUM(x)
         x.p.right = y
     y.left = x
     x.p = y
-</code></pre><p>右旋与左旋是对称的。当在结点 $y$ 上做左旋时（$y$ 是左孩子不是T.nil 结点的树内任意结点），假设它的左孩子为 $y$。左旋使得 $x$ 成为该子树的根结点， $y$ 成为 $x$ 的右孩子，$x$ 的右孩子成为 $y$ 的左孩子。</p><pre><code>RIGHT-ROTATE(T, y)
+</code></pre>
+
+<p>右旋与左旋是对称的。当在结点 $y$ 上做左旋时（$y$ 是左孩子不是T.nil 结点的树内任意结点），假设它的左孩子为 $y$。左旋使得 $x$ 成为该子树的根结点， $y$ 成为 $x$ 的右孩子，$x$ 的右孩子成为 $y$ 的左孩子。</p>
+
+<pre><code>RIGHT-ROTATE(T, y)
     x = y.left
     y.left = x.right
     if x.left != T.nil
@@ -107,7 +628,13 @@ TREE-MAXMUM(x)
         y.p.right = x
     x.right = y
     y.p = x
-</code></pre><h2 id="插入-1">插入</h2><p>可以在 $O(\lg n)$ 时间内完成向一棵 $n$ 个结点的红黑树中插入一个新结点。插入同普通二叉搜索树相同，只是将插入的结点着为红色。</p><pre><code>RB-INSERT(T,z)
+</code></pre>
+
+<h2 id="插入-1">插入</h2>
+
+<p>可以在 $O(\lg n)$ 时间内完成向一棵 $n$ 个结点的红黑树中插入一个新结点。插入同普通二叉搜索树相同，只是将插入的结点着为红色。</p>
+
+<pre><code>RB-INSERT(T,z)
     y = T.nil
     x = T.root
     while x != T.nil
@@ -127,7 +654,11 @@ TREE-MAXMUM(x)
     z.right = T.nil
     z.color = RED
     RB-INSERT-FIXUP(T,z)
-</code></pre><p>为保证红黑树的性质，需要对结点重新着色并旋转。</p><pre><code>RB-INSERT-FIXUP(T,z)
+</code></pre>
+
+<p>为保证红黑树的性质，需要对结点重新着色并旋转。</p>
+
+<pre><code>RB-INSERT-FIXUP(T,z)
     // z.p == T.nil 
     while z.p.color == RED
         if z.p == z.p.p.left
@@ -147,7 +678,26 @@ TREE-MAXMUM(x)
         else 
             (sanme as then clause with 'right' and 'left' exchanged)
     T.root.color = BLACK
-</code></pre><p>在 z 插入时，上述5个性质可能会被破坏。因为新插入的红结点的两个子结点都是哨兵 T.nil，因此性质1、性质3和性质5继续成立。如果z是根结点，破坏了性质2；如果z的父结点是红结点，则破坏了性质4.</p><p>如果违反了性质2，那么红色根结点一定是新增结点 z，它是树中唯一的内部结点。因为 z 的父结点和两个子结点都是哨兵 T.nil,没有违反性质4. 如果违反了性质4，由于z的子结点是黑色哨兵，且该树在 z 插入之前没有违反任何性质，那么违反必然是因为 z 和 z.p 都是红色，且没有其他性质被违反。解决该问题，有以下三种情况： 1. z 的叔结点 y 是红色 这种情况在 z.p 和 y 都是红色时发生，因为 z.p.p 是黑色的，所以将 z.p 和 y 都着为黑色，来解决 z 和 z.p 都是红色的问题。然后将z.p.p作为新结点 z 来重复 while 循环。</p><ol><li>z 的叔结点 y 是黑色且 z 是一个右孩子</li><li>z 的叔结点 y 是黑色且 z 是一个左孩子 在情况2中，通过左旋可以将此情况转变为情况3，而旋转不会违反红黑树的性质。而情况3可以通过改变结点颜色，并做一次右旋，以保持性质5</li></ol><p>## 删除 红黑树上一个删除一个结点要花费 $O(\lg n)$的时间。 从一棵红黑树中删除结点是基于 TREE-DELETE 过程的：</p><pre><code>RB-TRANSPLANT(T, u, v)
+</code></pre>
+
+<p>在 z 插入时，上述5个性质可能会被破坏。因为新插入的红结点的两个子结点都是哨兵 T.nil，因此性质1、性质3和性质5继续成立。如果z是根结点，破坏了性质2；如果z的父结点是红结点，则破坏了性质4.</p>
+
+<p>如果违反了性质2，那么红色根结点一定是新增结点 z，它是树中唯一的内部结点。因为 z 的父结点和两个子结点都是哨兵 T.nil,没有违反性质4.
+如果违反了性质4，由于z的子结点是黑色哨兵，且该树在 z 插入之前没有违反任何性质，那么违反必然是因为 z 和 z.p 都是红色，且没有其他性质被违反。解决该问题，有以下三种情况：
+1. z 的叔结点 y 是红色
+ 这种情况在 z.p 和 y 都是红色时发生，因为 z.p.p 是黑色的，所以将 z.p 和 y 都着为黑色，来解决 z 和 z.p 都是红色的问题。然后将z.p.p作为新结点 z 来重复 while 循环。</p>
+
+<ol>
+<li>z 的叔结点 y 是黑色且 z 是一个右孩子</li>
+<li>z 的叔结点 y 是黑色且 z 是一个左孩子
+在情况2中，通过左旋可以将此情况转变为情况3，而旋转不会违反红黑树的性质。而情况3可以通过改变结点颜色，并做一次右旋，以保持性质5</li>
+</ol>
+
+<p>## 删除
+ 红黑树上一个删除一个结点要花费 $O(\lg n)$的时间。
+ 从一棵红黑树中删除结点是基于 TREE-DELETE 过程的：</p>
+
+<pre><code>RB-TRANSPLANT(T, u, v)
     if u.p == T.nil
         T.root = v
     elseif u == u.p.left
@@ -155,7 +705,11 @@ TREE-MAXMUM(x)
     else 
         u.p.right = v
     v.p = u.p
-</code></pre><p>过程 RB-DELETE 与 TREE-DELETE类似。但是记录了结点 y 的踪迹，因为 y 可能导致红黑树的性质被破坏。当要删除结点 z ，且此时 z 的子结点少于2个时， z 从树中删除，并让 y 成为 z。当 z 有两个结点时，y应该是z的后继，并且将 y 移至树中 z 的位置。在结点被移除或者在树中移动之前，必须记住y的颜色，并且记录结点 x 的踪迹，将 x 移至树中 y 的位置，因为结点 x 也可能破坏红黑树的性质。删除结点 z 之后，RB-DELETE 调用一个辅助过程 RB-DELETE-FIXUP，该过程通过改变颜色和执行旋转来恢复红黑性质。</p><pre><code>RB-DELETE(T, z)
+</code></pre>
+
+<p>过程 RB-DELETE 与 TREE-DELETE类似。但是记录了结点 y 的踪迹，因为 y 可能导致红黑树的性质被破坏。当要删除结点 z ，且此时 z 的子结点少于2个时， z 从树中删除，并让 y 成为 z。当 z 有两个结点时，y应该是z的后继，并且将 y 移至树中 z 的位置。在结点被移除或者在树中移动之前，必须记住y的颜色，并且记录结点 x 的踪迹，将 x 移至树中 y 的位置，因为结点 x 也可能破坏红黑树的性质。删除结点 z 之后，RB-DELETE 调用一个辅助过程 RB-DELETE-FIXUP，该过程通过改变颜色和执行旋转来恢复红黑性质。</p>
+
+<pre><code>RB-DELETE(T, z)
     y = z
     y-original-color = y.color
     if z.left == T.nil
@@ -180,7 +734,11 @@ TREE-MAXMUM(x)
         y.color = z.color
     if y-original-color == BLACK
         RB-DELETE-FIXUP(T, x)     
-</code></pre><p>RB-DELETE 同 TREE-DELETE相似，只是维持了从树中删除或者移至树内的结点y。如果最后 y 的颜色是黑色，那么就有可能破坏了红黑树的性质，所以需要恢复：</p><pre><code>RB-DELETE-FIXUP(T, x)
+</code></pre>
+
+<p>RB-DELETE 同 TREE-DELETE相似，只是维持了从树中删除或者移至树内的结点y。如果最后 y 的颜色是黑色，那么就有可能破坏了红黑树的性质，所以需要恢复：</p>
+
+<pre><code>RB-DELETE-FIXUP(T, x)
     while x != T.root and x.color == BLACK
         if x == x.p.left
             w = x.p.right
@@ -205,7 +763,42 @@ TREE-MAXMUM(x)
                 x = T.root
         else 
             same as then clause with &quot;right&quot; and &quot;left&quot; exchanged
-</code></pre><h1 id="b-tree">B-Tree</h1><p>B树是为磁盘或其他直接存取的辅助存储设备而设计的一种平衡搜索树，类似于红黑树，但在降低磁盘I/O操作数方面要更好些。许多数据库系统使用B树或者B树的变种来存储信息。</p><p>大多数系统中，<strong>B树算法的运行时间主要由它执行的磁盘读取和写入操作的次数决定</strong>，所以我们希望这些操作能够一次读或写尽可能多的信息。因此<strong>一个B树结点通常和一个完整磁盘页一样大，并且磁盘页的大小限制了一个B树结点可以含有孩子个数</strong>。</p><h2 id="b树定义">B树定义</h2><p>一棵B树T是具有以下性质的有根数： 1. 每个结点都有下面的属性： - $x.n$，当前存储在结点 $x$ 中的关键字的个数 - $x.n$ 个关键字本身以非降序存放，使得 $x.key_1 \leq x.key_2 \leq &hellip; \leq x.key_{x.n}$ - $x.leaf$，布尔值，如果 x 是叶结点，则为TRUE；若 x 是内部结点，则为 FALSE 2. 每个内部结点 x 还包含 $x.n+1$ 个指向其孩子的指针 $x.c_1, x.c_2, &hellip;, x.c_{x.n+1}$. 叶结点没有孩子，所以它们的 $c_i$ 没有定义 3. 关键字 $x.key_i$ 对存储在各子树中的关键字范围加以分割：如果 $k_i$ 为任意一个存储在以 $x.c_i$ 为根的子树中的关键字，那么有： $$k_1 \leq x.key_1 \leq k_2 \leq x.key_2 \leq ... \leq x.key_{x.n} \leq k_{x.n+1}$$ 4. 每个叶结点具有相同的深度，即树的高度h 5. 每个结点所包含的关键字个数有上界和下界。用最小度数 $t\geq 2$ 来表示这些界： - 除了根结点以外的每个结点都必须至少有 $t-1$ 个关键字。 - 每个结点至多可以有 $2t-1$ 个关键字。当一个内部结点恰有 $2t-1$ 个关键字时，称该结点是满的。</p><p><strong>常见的B树变种B+树将所有的卫星数据都存储在叶结点中，内部结点只存放关键字和孩子指针，最大化了内部结点的分支因子</strong>。</p><h2 id="b树上的基本操作">B树上的基本操作</h2><p>B树上操作有两个约定： - B树的根结点始终在主内存中，这样无需对根做 DISK-READ 操作；当根结点被需改后，需要对根结点做一次 DISK-WRITE 操作 - 任何被当做参数的结点被传递之前，都需要做一次DISK-READ操作。</p><h3 id="搜索b树">搜索B树</h3><p>搜索B树同搜索二叉树相似，只是根据结点的孩子树做多路分支选择。</p><pre><code>B-TREE-SEARCH
+</code></pre>
+
+<h1 id="b-tree">B-Tree</h1>
+
+<p>B树是为磁盘或其他直接存取的辅助存储设备而设计的一种平衡搜索树，类似于红黑树，但在降低磁盘I/O操作数方面要更好些。许多数据库系统使用B树或者B树的变种来存储信息。</p>
+
+<p>大多数系统中，<strong>B树算法的运行时间主要由它执行的磁盘读取和写入操作的次数决定</strong>，所以我们希望这些操作能够一次读或写尽可能多的信息。因此<strong>一个B树结点通常和一个完整磁盘页一样大，并且磁盘页的大小限制了一个B树结点可以含有孩子个数</strong>。</p>
+
+<h2 id="b树定义">B树定义</h2>
+
+<p>一棵B树T是具有以下性质的有根数：
+1. 每个结点都有下面的属性：
+    - $x.n$，当前存储在结点 $x$ 中的关键字的个数
+    - $x.n$ 个关键字本身以非降序存放，使得 $x.key_1 \leq x.key_2 \leq &hellip; \leq x.key_{x.n}$
+    - $x.leaf$，布尔值，如果 x 是叶结点，则为TRUE；若 x 是内部结点，则为 FALSE
+2. 每个内部结点 x 还包含 $x.n+1$ 个指向其孩子的指针 $x.c_1, x.c_2, &hellip;, x.c_{x.n+1}$. 叶结点没有孩子，所以它们的 $c_i$ 没有定义
+3. 关键字 $x.key_i$ 对存储在各子树中的关键字范围加以分割：如果 $k_i$ 为任意一个存储在以 $x.c_i$ 为根的子树中的关键字，那么有：
+    $$k_1 \leq x.key_1 \leq k_2 \leq x.key_2 \leq ... \leq x.key_{x.n} \leq k_{x.n+1}$$
+4. 每个叶结点具有相同的深度，即树的高度h
+5. 每个结点所包含的关键字个数有上界和下界。用最小度数 $t\geq 2$ 来表示这些界：
+    - 除了根结点以外的每个结点都必须至少有 $t-1$ 个关键字。
+    - 每个结点至多可以有 $2t-1$ 个关键字。当一个内部结点恰有 $2t-1$ 个关键字时，称该结点是满的。</p>
+
+<p><strong>常见的B树变种B+树将所有的卫星数据都存储在叶结点中，内部结点只存放关键字和孩子指针，最大化了内部结点的分支因子</strong>。</p>
+
+<h2 id="b树上的基本操作">B树上的基本操作</h2>
+
+<p>B树上操作有两个约定：
+- B树的根结点始终在主内存中，这样无需对根做 DISK-READ 操作；当根结点被需改后，需要对根结点做一次 DISK-WRITE 操作
+- 任何被当做参数的结点被传递之前，都需要做一次DISK-READ操作。</p>
+
+<h3 id="搜索b树">搜索B树</h3>
+
+<p>搜索B树同搜索二叉树相似，只是根据结点的孩子树做多路分支选择。</p>
+
+<pre><code>B-TREE-SEARCH
     i = 1
     while i &lt;= x.n and k &lt; x.key[i]
         i = i + 1
@@ -216,13 +809,27 @@ TREE-MAXMUM(x)
     else 
         DISK-READ(x.c[i])
             return B-TREE-SEARCH(x.c[i], k) 
-</code></pre><h3 id="创建一棵空的-b树">创建一棵空的 B树</h3><p>构造一个B树，需要在 $O(1)$ 的时间为一个新结点分配一个磁盘页：</p><pre><code>B-TREE-CREATE(T)
+</code></pre>
+
+<h3 id="创建一棵空的-b树">创建一棵空的 B树</h3>
+
+<p>构造一个B树，需要在 $O(1)$ 的时间为一个新结点分配一个磁盘页：</p>
+
+<pre><code>B-TREE-CREATE(T)
     x = ALLOCATE-NODE()
     x.leaf = TRUE
     x.n = 0
     DISK-WRITE(x)
     T.root = x
-</code></pre><h3 id="分裂结点">分裂结点</h3><p>向B树中插入关键字不能直接创建新的叶结点，然后将其插入，因为这样得到的不是合法的B树。我们需要将新的关键字插入到一个已经存在的结点上，如果该结点是满的，那么需要按其中间关键字分裂成两个各含有 t-1 个关键字的结点。中间关键字被提升到该节点的父结点中，以标识两棵新树的划分点。</p><p><strong>分裂是树长高的唯一途径</strong></p><pre><code>B-TREE-SPLIT-CHILD(x, i)
+</code></pre>
+
+<h3 id="分裂结点">分裂结点</h3>
+
+<p>向B树中插入关键字不能直接创建新的叶结点，然后将其插入，因为这样得到的不是合法的B树。我们需要将新的关键字插入到一个已经存在的结点上，如果该结点是满的，那么需要按其中间关键字分裂成两个各含有 t-1 个关键字的结点。中间关键字被提升到该节点的父结点中，以标识两棵新树的划分点。</p>
+
+<p><strong>分裂是树长高的唯一途径</strong></p>
+
+<pre><code>B-TREE-SPLIT-CHILD(x, i)
     z = ALLOCATE-NODE()
     y = x.c[i]
     z.leaf = y.leaf
@@ -243,7 +850,13 @@ TREE-MAXMUM(x)
     DISK-WRITE(y)
     DISK-WRITE(z)
     DISK-WRITE(x)
-</code></pre><h3 id="插入关键字">插入关键字</h3><p>在一棵高度为 h 的B树中，以沿树单程下行方式插入一个关键字的操作需要 $O(h)$ 次磁盘存取。</p><pre><code>B-TREE-INSERT(T,k)
+</code></pre>
+
+<h3 id="插入关键字">插入关键字</h3>
+
+<p>在一棵高度为 h 的B树中，以沿树单程下行方式插入一个关键字的操作需要 $O(h)$ 次磁盘存取。</p>
+
+<pre><code>B-TREE-INSERT(T,k)
     r = T.root
     if r.n = 2t-1
         s = ALLOCATE-NODE()
@@ -255,7 +868,11 @@ TREE-MAXMUM(x)
         B-TREE-INSERT-NONFULL(s, k)
     else 
         B-TREE-INSERT-NONFULL(r, k)
-</code></pre><p>过程 B-TREE-INSERT-NONFULL 完成将 k 插入非满的树中。</p><pre><code>B-TREE-INSERT-NONFULL(x, k)
+</code></pre>
+
+<p>过程 B-TREE-INSERT-NONFULL 完成将 k 插入非满的树中。</p>
+
+<pre><code>B-TREE-INSERT-NONFULL(x, k)
     i = x.n
     if x.leaf 
         while i&gt;=1 and k&lt;x.key[i]
@@ -274,18 +891,117 @@ TREE-MAXMUM(x)
                 i = i + 1
         B-TREE-INSERT-NONFULL(x.c[i], k)
      
-</code></pre><h3 id="从b树种删除关键字">从B树种删除关键字</h3><p>B树上的删除操作与插入操作类似，必须防止因删除操作而导致树的结构违反B树性质，保证一个结点不会因为删除一个关键字儿变得太小。当删除关键字的路径上结点（非根）有最少的关键字个数时，可能需要向上回溯。</p><p>在以 $x$ 为根的子树中删除关键字 $k$，过程中必须保证结点 $x$ 递归调用自身时，$x$ 中的关键字个数至少为最小度数 $t$（这样运行在一趟下降过程中，可以将一个关键字移到子节点中，无需回溯）。</p><p>删除情况如下： 1. 如果关键字 $k$ 在结点 $x$ 中，并且 $x$ 是叶结点，则从$x$ 中删除$k$ 2. 如果关键字 $k$ 在结点 $x$ 中，并且$x$ 是内部结点，则做如下操作： 1. 如果结点$x$ 中前于 $k$ 的子结点 $y$ 至少包含 $t$ 个关键字，则找出 $k$ 在以$y$ 为根的子树中的前驱 $k&rsquo;$. 递归删除 $k&rsquo;$，并在 $x$ 中用$k&rsquo;$替代 $k$</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">#算法</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+<h3 id="从b树种删除关键字">从B树种删除关键字</h3>
+
+<p>B树上的删除操作与插入操作类似，必须防止因删除操作而导致树的结构违反B树性质，保证一个结点不会因为删除一个关键字儿变得太小。当删除关键字的路径上结点（非根）有最少的关键字个数时，可能需要向上回溯。</p>
+
+<p>在以 $x$ 为根的子树中删除关键字 $k$，过程中必须保证结点 $x$ 递归调用自身时，$x$ 中的关键字个数至少为最小度数 $t$（这样运行在一趟下降过程中，可以将一个关键字移到子节点中，无需回溯）。</p>
+
+<p>删除情况如下：
+1. 如果关键字 $k$ 在结点 $x$ 中，并且 $x$ 是叶结点，则从$x$ 中删除$k$
+2. 如果关键字 $k$ 在结点 $x$ 中，并且$x$ 是内部结点，则做如下操作：
+    1. 如果结点$x$ 中前于 $k$ 的子结点 $y$ 至少包含 $t$ 个关键字，则找出 $k$ 在以$y$ 为根的子树中的前驱 $k&rsquo;$. 递归删除 $k&rsquo;$，并在 $x$ 中用$k&rsquo;$替代 $k$</p>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">#算法</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/" rel="prev">linux编译安装httpd</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/java/springlearn/" rel="next">spring 学习笔记</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/" rel="prev">linux编译安装httpd</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/java/springlearn/" rel="next">spring 学习笔记</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

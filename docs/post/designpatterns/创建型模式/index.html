@@ -1,10 +1,410 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>创建型模式 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    创建型模式 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/designpatterns/">Designpatterns</a> <span class="breadcrumb">创建型模式</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#创建型模式概述">创建型模式概述</a></li><li><a href="#创建产品族的抽象工厂-abstract-factory">创建产品族的抽象工厂 &ndash; Abstract Factory</a><ul><li><a href="#目的">目的</a></li><li><a href="#适用性">适用性</a></li><li><a href="#结构">结构</a></li><li><a href="#参与者">参与者</a></li><li><a href="#优缺点">优缺点</a></li><li><a href="#实现-模式组合">实现(模式组合)</a></li><li><a href="#相关模式">相关模式</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">创建型模式 </span><span class="card-meta"><time><span>Sat Nov 4 2017</span></time><address><a href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;</address></span><article class="article"><p>创建型模式包括：Abstract Factory、Builder、Factory Method、Prototype、Singleton</p><h1 id="创建型模式概述">创建型模式概述</h1><p>将通过一个为电脑创建迷宫的游戏来说明各个模式的实现，以及它们的异同。 枚举类<code>Direction</code>指定了房间的东西南北：</p><pre><code class="language-java">public enum Direction {
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/designpatterns/'>Designpatterns</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">创建型模式</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#创建型模式概述">创建型模式概述</a></li>
+<li><a href="#创建产品族的抽象工厂-abstract-factory">创建产品族的抽象工厂 &ndash; Abstract Factory</a>
+<ul>
+<li><a href="#目的">目的</a></li>
+<li><a href="#适用性">适用性</a></li>
+<li><a href="#结构">结构</a></li>
+<li><a href="#参与者">参与者</a></li>
+<li><a href="#优缺点">优缺点</a></li>
+<li><a href="#实现-模式组合">实现(模式组合)</a></li>
+<li><a href="#相关模式">相关模式</a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">创建型模式 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Sat Nov 4 2017</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<p>创建型模式包括：Abstract Factory、Builder、Factory Method、Prototype、Singleton</p>
+
+<h1 id="创建型模式概述">创建型模式概述</h1>
+
+<p>将通过一个为电脑创建迷宫的游戏来说明各个模式的实现，以及它们的异同。
+枚举类<code>Direction</code>指定了房间的东西南北：</p>
+
+<pre><code class="language-java">public enum Direction {
     North(0), South(1), East(2), West(3);
     int pos;
     Direction(int pos) {
@@ -14,10 +414,18 @@
         return pos;
     }
 }
-</code></pre><p><code>MapSite</code> 是所有迷宫组件的公共抽象类，定义了迷宫中构件之间的主要关系。因为是说明类，所以仅定义了一个操作<code>Enter</code>，决定了你在进入什么:</p><pre><code class="language-java">public interface MapSite {
+</code></pre>
+
+<p><code>MapSite</code> 是所有迷宫组件的公共抽象类，定义了迷宫中构件之间的主要关系。因为是说明类，所以仅定义了一个操作<code>Enter</code>，决定了你在进入什么:</p>
+
+<pre><code class="language-java">public interface MapSite {
     void enter();
 }
-</code></pre><p><code>Room</code>、 <code>Door</code>、<code>Wall</code> 是 <code>MapSite</code> 的子类：</p><pre><code class="language-java">public class Room implements MapSite {
+</code></pre>
+
+<p><code>Room</code>、 <code>Door</code>、<code>Wall</code> 是 <code>MapSite</code> 的子类：</p>
+
+<pre><code class="language-java">public class Room implements MapSite {
     private MapSite side[] = new MapSite[4];
     private int roomNo;
     public Room(int roomNo) {
@@ -52,7 +460,11 @@ public class Wall implements MapSite {
     public void enter() {
     }
 }
-</code></pre><p><code>Maze</code> 定义了一个房间集合：</p><pre><code class="language-java">public class Maze {
+</code></pre>
+
+<p><code>Maze</code> 定义了一个房间集合：</p>
+
+<pre><code class="language-java">public class Maze {
     private List&lt;Room&gt; rooms = new ArrayList&lt;Room&gt;();
     public void addRoom (Room room) {
         rooms.add(room);
@@ -61,7 +473,11 @@ public class Wall implements MapSite {
         return rooms.get(i);
     }
 }
-</code></pre><p><code>MazeGame</code> 用来创建一个迷宫游戏，一个简单的方式是使用一系列操作将构件增加到迷宫中，然后连接它们：</p><pre><code class="language-java">public class MazeGame {
+</code></pre>
+
+<p><code>MazeGame</code> 用来创建一个迷宫游戏，一个简单的方式是使用一系列操作将构件增加到迷宫中，然后连接它们：</p>
+
+<pre><code class="language-java">public class MazeGame {
     Maze createMaze () {
         Maze maze = new Maze();
         Room r1 = new Room(1);
@@ -75,7 +491,72 @@ public class Wall implements MapSite {
         return maze;
     }
 }
-</code></pre><p>这个函数仅用来创建一个有两个房间的迷宫，就相当复杂。虽然有办法让它变得简单——比如在 <code>Room</code> 的构造器中，可以提前用墙壁来初始化房间的每面&ndash;但这仅仅将代码移动到了其他地方。<strong>这个函数的真正问题在于它不灵活。它对迷宫的布局进行了硬编码，改变布局意味着改变这个函数，或者重定义它&ndash;这意味着重新实现这个过程，或是对它的部分进行改变&ndash;这容易产生错误并且不利于重用</strong> 创建型模式显示如何使设计更灵活，但未必会更小。 假设在一个包含魔法的迷宫中重用一个已有的迷宫布局，这样有魔法的迷宫游戏有了新的构件，像 <code>DoorNeedSpell</code> 用咒语才能打开的门； <code>EnchantedRoom</code> 有不寻常东西的房间等，如何才能更容易地改变 <code>createMaze</code> 才能创建魔法迷宫？ 这种情况下，改变最大的障碍就是对被实例化的类进行硬编码。创建型模式提供了多种不同方法从实例化它们的代码中去除这些具体类的显示引用： - 如果 <code>createMaze</code> 调用的是接口而不是构造器来创建房间等，那么可以创建一个 <code>MazeGame</code> 的子类并重新定义 <code>createMaze</code> ，从而改变被实例化的类，这是 Factory Method - 如果传递一个对象给 <code>createMaze</code> 做参数来创建房间等，那么通过传递不同的参数来改变房间等，这是 Abstract Factory - 如果传递一个对象给 <code>createMaze</code>，这个对象可以在它所创建的迷宫中使用增加房间、墙壁和门的操作，来创建一个新迷宫，那么可以使用继承来改变迷宫的一些部分或该迷宫被创建的方式，这是 Builder - 如果 <code>createMaze</code> 由多种原型房间、墙壁和门对象参数化，它拷贝并将这些对象增加到迷宫中，那么用不同的对象替换这些原型对象以改变迷宫的构成，这是 Prototype</p><h1 id="创建产品族的抽象工厂-abstract-factory">创建产品族的抽象工厂 &ndash; Abstract Factory</h1><h2 id="目的">目的</h2><p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</p><h2 id="适用性">适用性</h2><p>以下情况适用于 抽象工厂：</p><ol><li>一个系统要对立于它的产品的创建、组合和表示</li><li>一个系统要由多个产品系列中的一个来配置时</li><li>当你要强调一系列相关的产品对象的设计以便进行联合使用时</li><li>当你提供一个产品类库，而只想显示它们的接口而不是实现时</li></ol><h2 id="结构">结构</h2><p>此模式的结构图如下： <svg xmlns="http://www.w3.org/2000/svg" viewBox="43 11.364 987.909 431.303"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#fff" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="g" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="h" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#fff" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="i" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="j" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#fff" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="k" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="l" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="m" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker></defs><path fill="none" d="M43 11.364h987.91v431.303H43V11.364z"/><path fill="#9cf" stroke="#323232" stroke-width="2" d="M156 72q0-4 4-4h215q4 0 4 4v90q0 4-4 4H160q-4 0-4-4z"/><path fill="none" stroke="#323232" stroke-width="2" d="M156 98h223"/><path fill="none" d="M156 68h223v98H156z"/><text x="100.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(166 73.625)">AbstractFactory</text><g fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle"><text x="100.5" y="15.375" transform="translate(166 113.25)">createProductA()</text><text x="100.5" y="34.125" transform="translate(166 113.25)">createProductB()</text></g><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M63 256q0-4 4-4h169q4 0 4 4v82q0 4-4 4H67q-4 0-4-4z"/><path fill="none" stroke="#323232" stroke-width="2" d="M63 282h177"/><path fill="none" d="M63 252h177v90H63z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(73 257.625)">ConcreteFactory1</text><g fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle"><text x="77.5" y="15.375" transform="translate(73 293.25)">createProductA()</text><text x="77.5" y="34.125" transform="translate(73 293.25)">createProductB()</text></g><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M296 256q0-4 4-4h169q4 0 4 4v82q0 4-4 4H300q-4 0-4-4z"/><path fill="none" stroke="#323232" stroke-width="2" d="M296 282h177"/><path fill="none" d="M296 252h177v90H296z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(306 257.625)">ConcreteFactory2</text><g fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle"><text x="77.5" y="15.375" transform="translate(306 293.25)">createProductA()</text><text x="77.5" y="34.125" transform="translate(306 293.25)">createProductB()</text></g><path fill="none" stroke="#323232" stroke-width="2" d="M151.5 252v-43h116v-27.764" marker-end="url(#a)"/><path fill="none" stroke="#323232" stroke-width="2" d="M384.5 252v-43h-117v-27.764" marker-end="url(#b)"/><path fill="none" stroke="#323232" stroke-width="2" d="M473 297h50V186.5h26.764" stroke-dasharray="10 4" marker-end="url(#c)"/><path fill="none" stroke="#323232" stroke-width="2" d="M473 297h49.958v82.333h34.723" stroke-dasharray="10 4" marker-end="url(#d)"/><path fill="none" stroke="#323232" stroke-width="2" d="M151.5 342v79.825h803.076v-41.51h-8.097" stroke-dasharray="10 4" marker-end="url(#e)"/><path fill="none" stroke="#323232" stroke-width="2" d="M151.5 342v80.667h803.076V184.983h-14.764" stroke-dasharray="10 4" marker-end="url(#f)"/><path fill="#9cf" stroke="#323232" stroke-width="2" d="M658.364 73q0-4 4-4h169q4 0 4 4v36q0 4-4 4h-169q-4 0-4-4z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(668.364 81.625)">AbstractProductA</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M566.25 168q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(576.25 174.625)">ProductA1</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M764.076 168.983q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(774.076 175.608)">ProductA2</text><path fill="none" stroke="#323232" stroke-width="2" d="M646.5 164v-25.065h100.364v-10.7" marker-end="url(#g)"/><path fill="none" stroke="#323232" stroke-width="2" d="M844.326 164.983V138.99h-97.462v-10.754" marker-end="url(#h)"/><path fill="#9cf" stroke="#323232" stroke-width="2" d="M665.03 268.333q0-4 4-4h169q4 0 4 4v36q0 4-4 4h-169q-4 0-4-4z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(675.03 276.958)">AbstractProductB</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M572.917 363.333q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(582.917 369.958)">ProductB1</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M770.743 364.316q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(780.743 370.94)">ProductB2</text><path fill="none" stroke="#323232" stroke-width="2" d="M653.167 359.333v-25.065H753.53v-10.7" marker-end="url(#i)"/><path fill="none" stroke="#323232" stroke-width="2" d="M850.993 360.316v-25.99H753.53V323.57" marker-end="url(#j)"/><path fill="#9ff" stroke="#323232" stroke-width="2" d="M927.273 31.364h83.636V60.91h-83.64z"/><text x="30.818" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(937.273 36.76)">client</text><path fill="none" stroke="#323232" stroke-width="2" d="M927.273 46.136H267.5v6.628" marker-end="url(#k)"/><path fill="none" stroke="#323232" stroke-width="2" d="M969.09 60.91V91H850.6" marker-end="url(#l)"/><path fill="none" stroke="#323232" stroke-width="2" d="M969.09 60.91v225.423H857.267" marker-end="url(#m)"/></svg></p><h2 id="参与者">参与者</h2><ul><li><code>AbstractFactory</code>: 声明一个创建抽象产品对象的操作接口</li><li><code>ConcreteFactory</code>: 实现创建具体产品对象的操作</li><li><code>AbstractProduct</code>: 为一类产品对象声明一个接口</li><li><code>ConcreteProduct</code>: 定义一个将被相应的具体工厂创建的产品对象，实现<code>AbstractProduct</code> 接口</li><li><code>Client</code>: 仅使用 <code>AbstractFactory</code> 和 <code>AbstractProduct</code> 接口</li></ul><p>通常在运行时刻创建一个 <code>ConcreteFactory</code> 类的实例。这一具体的工厂创建具有特定实现的产品对象，为创建不同的产品对象，客户应使用不同的具体工厂。 <strong><code>AbstractFactory</code> 将产品对象的创建延迟到它的 <code>ConcreteFactory</code> 子类</strong></p><h2 id="优缺点">优缺点</h2><p>抽象工厂有如下的优缺点： 1. <strong>它分离了具体的类</strong>。抽象工厂模式帮助你控制一个应用创建的对象的类，封装了产品对象的责任和过程，将客户与具体类相分离，客户通过它们的抽象接口操纵实例。 2. <strong>它使得易于交换产品系列</strong>。一个具体工厂类在一个应用中只出现一次——其初始化的时候。这使得改变一个应用的具体工厂变得很容易，只需改变具体的工厂即可使用不同的产品配置。 3. <strong>它有利于产品的一致性</strong>。当一个系列中的产品对象被设计成一起工作时，一个应用只能使用同一系列的对象。 4. <strong>难以支持新种类的产品</strong>。难以扩展抽象工厂以生产新种类的产品，这是因为 AbstractFactory 接口确定了可以被创建的产品集合。支持新种类的产品就需要扩展该工厂接口，这将涉及到 AbstractFactory 类及其所有子类的改变。</p><h2 id="实现-模式组合">实现(模式组合)</h2><p>下面是 AbstractFactory 模式中一些有用的意见和建议: 1. <strong>工厂使用单例模式</strong>。一个应用中一般每个产品系列只需要一个 ConcreteFactory。 2. <strong>创建产品</strong>。AbstractFactory 仅声明一个创建产品的接口，真正创建产品是由ConcreteFactory 实现的，最通常的一个方法是为每一个产品定义一个工厂方法。具体的工厂将为每个产品重定义该工厂方法以指定产品。 3. <strong>定义可扩展的工厂</strong>。抽象工厂难以支持新增种类的产品，一个比较灵活但不太安全的设计是给创建对象的操作增加一个参数，该参数指定将被创建对象的种类，但是需要客户向下类型转换。当然也可以使用泛型方法。</p><p>你可以实现一个魔法迷宫的工厂类：</p><pre><code class="language-java">public class EnchantedMazeFactory implements MazeFactory {
+</code></pre>
+
+<p>这个函数仅用来创建一个有两个房间的迷宫，就相当复杂。虽然有办法让它变得简单——比如在 <code>Room</code> 的构造器中，可以提前用墙壁来初始化房间的每面&ndash;但这仅仅将代码移动到了其他地方。<strong>这个函数的真正问题在于它不灵活。它对迷宫的布局进行了硬编码，改变布局意味着改变这个函数，或者重定义它&ndash;这意味着重新实现这个过程，或是对它的部分进行改变&ndash;这容易产生错误并且不利于重用</strong>
+创建型模式显示如何使设计更灵活，但未必会更小。
+假设在一个包含魔法的迷宫中重用一个已有的迷宫布局，这样有魔法的迷宫游戏有了新的构件，像 <code>DoorNeedSpell</code> 用咒语才能打开的门； <code>EnchantedRoom</code> 有不寻常东西的房间等，如何才能更容易地改变 <code>createMaze</code> 才能创建魔法迷宫？
+这种情况下，改变最大的障碍就是对被实例化的类进行硬编码。创建型模式提供了多种不同方法从实例化它们的代码中去除这些具体类的显示引用：
+- 如果 <code>createMaze</code> 调用的是接口而不是构造器来创建房间等，那么可以创建一个 <code>MazeGame</code> 的子类并重新定义 <code>createMaze</code> ，从而改变被实例化的类，这是 Factory Method
+- 如果传递一个对象给 <code>createMaze</code> 做参数来创建房间等，那么通过传递不同的参数来改变房间等，这是 Abstract Factory
+- 如果传递一个对象给 <code>createMaze</code>，这个对象可以在它所创建的迷宫中使用增加房间、墙壁和门的操作，来创建一个新迷宫，那么可以使用继承来改变迷宫的一些部分或该迷宫被创建的方式，这是 Builder
+- 如果 <code>createMaze</code> 由多种原型房间、墙壁和门对象参数化，它拷贝并将这些对象增加到迷宫中，那么用不同的对象替换这些原型对象以改变迷宫的构成，这是 Prototype</p>
+
+<h1 id="创建产品族的抽象工厂-abstract-factory">创建产品族的抽象工厂 &ndash; Abstract Factory</h1>
+
+<h2 id="目的">目的</h2>
+
+<p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</p>
+
+<h2 id="适用性">适用性</h2>
+
+<p>以下情况适用于 抽象工厂：</p>
+
+<ol>
+<li>一个系统要对立于它的产品的创建、组合和表示</li>
+<li>一个系统要由多个产品系列中的一个来配置时</li>
+<li>当你要强调一系列相关的产品对象的设计以便进行联合使用时</li>
+<li>当你提供一个产品类库，而只想显示它们的接口而不是实现时</li>
+</ol>
+
+<h2 id="结构">结构</h2>
+
+<p>此模式的结构图如下：
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="43 11.364 987.909 431.303"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#fff" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="g" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="h" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#fff" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="i" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="j" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#fff" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="k" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="l" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker><marker id="m" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path fill="#323232" stroke="#323232" stroke-width="2" d="M12 3.9L0 7.797V0z"/></marker></defs><path fill="none" d="M43 11.364h987.91v431.303H43V11.364z"/><path fill="#9cf" stroke="#323232" stroke-width="2" d="M156 72q0-4 4-4h215q4 0 4 4v90q0 4-4 4H160q-4 0-4-4z"/><path fill="none" stroke="#323232" stroke-width="2" d="M156 98h223"/><path fill="none" d="M156 68h223v98H156z"/><text x="100.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(166 73.625)">AbstractFactory</text><g fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle"><text x="100.5" y="15.375" transform="translate(166 113.25)">createProductA()</text><text x="100.5" y="34.125" transform="translate(166 113.25)">createProductB()</text></g><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M63 256q0-4 4-4h169q4 0 4 4v82q0 4-4 4H67q-4 0-4-4z"/><path fill="none" stroke="#323232" stroke-width="2" d="M63 282h177"/><path fill="none" d="M63 252h177v90H63z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(73 257.625)">ConcreteFactory1</text><g fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle"><text x="77.5" y="15.375" transform="translate(73 293.25)">createProductA()</text><text x="77.5" y="34.125" transform="translate(73 293.25)">createProductB()</text></g><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M296 256q0-4 4-4h169q4 0 4 4v82q0 4-4 4H300q-4 0-4-4z"/><path fill="none" stroke="#323232" stroke-width="2" d="M296 282h177"/><path fill="none" d="M296 252h177v90H296z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(306 257.625)">ConcreteFactory2</text><g fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle"><text x="77.5" y="15.375" transform="translate(306 293.25)">createProductA()</text><text x="77.5" y="34.125" transform="translate(306 293.25)">createProductB()</text></g><path fill="none" stroke="#323232" stroke-width="2" d="M151.5 252v-43h116v-27.764" marker-end="url(#a)"/><path fill="none" stroke="#323232" stroke-width="2" d="M384.5 252v-43h-117v-27.764" marker-end="url(#b)"/><path fill="none" stroke="#323232" stroke-width="2" d="M473 297h50V186.5h26.764" stroke-dasharray="10 4" marker-end="url(#c)"/><path fill="none" stroke="#323232" stroke-width="2" d="M473 297h49.958v82.333h34.723" stroke-dasharray="10 4" marker-end="url(#d)"/><path fill="none" stroke="#323232" stroke-width="2" d="M151.5 342v79.825h803.076v-41.51h-8.097" stroke-dasharray="10 4" marker-end="url(#e)"/><path fill="none" stroke="#323232" stroke-width="2" d="M151.5 342v80.667h803.076V184.983h-14.764" stroke-dasharray="10 4" marker-end="url(#f)"/><path fill="#9cf" stroke="#323232" stroke-width="2" d="M658.364 73q0-4 4-4h169q4 0 4 4v36q0 4-4 4h-169q-4 0-4-4z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(668.364 81.625)">AbstractProductA</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M566.25 168q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(576.25 174.625)">ProductA1</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M764.076 168.983q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(774.076 175.608)">ProductA2</text><path fill="none" stroke="#323232" stroke-width="2" d="M646.5 164v-25.065h100.364v-10.7" marker-end="url(#g)"/><path fill="none" stroke="#323232" stroke-width="2" d="M844.326 164.983V138.99h-97.462v-10.754" marker-end="url(#h)"/><path fill="#9cf" stroke="#323232" stroke-width="2" d="M665.03 268.333q0-4 4-4h169q4 0 4 4v36q0 4-4 4h-169q-4 0-4-4z"/><text x="77.5" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(675.03 276.958)">AbstractProductB</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M572.917 363.333q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(582.917 369.958)">ProductB1</text><path fill="#f5927b" stroke="#323232" stroke-width="2" d="M770.743 364.316q0-4 4-4h152.5q4 0 4 4v32q0 4-4 4h-152.5q-4 0-4-4z"/><text x="69.25" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(780.743 370.94)">ProductB2</text><path fill="none" stroke="#323232" stroke-width="2" d="M653.167 359.333v-25.065H753.53v-10.7" marker-end="url(#i)"/><path fill="none" stroke="#323232" stroke-width="2" d="M850.993 360.316v-25.99H753.53V323.57" marker-end="url(#j)"/><path fill="#9ff" stroke="#323232" stroke-width="2" d="M927.273 31.364h83.636V60.91h-83.64z"/><text x="30.818" y="15.375" fill="#323232" font-size="15" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(937.273 36.76)">client</text><path fill="none" stroke="#323232" stroke-width="2" d="M927.273 46.136H267.5v6.628" marker-end="url(#k)"/><path fill="none" stroke="#323232" stroke-width="2" d="M969.09 60.91V91H850.6" marker-end="url(#l)"/><path fill="none" stroke="#323232" stroke-width="2" d="M969.09 60.91v225.423H857.267" marker-end="url(#m)"/></svg>
+</p>
+
+<h2 id="参与者">参与者</h2>
+
+<ul>
+<li><code>AbstractFactory</code>: 声明一个创建抽象产品对象的操作接口</li>
+<li><code>ConcreteFactory</code>: 实现创建具体产品对象的操作</li>
+<li><code>AbstractProduct</code>: 为一类产品对象声明一个接口</li>
+<li><code>ConcreteProduct</code>: 定义一个将被相应的具体工厂创建的产品对象，实现<code>AbstractProduct</code> 接口</li>
+<li><code>Client</code>: 仅使用 <code>AbstractFactory</code> 和 <code>AbstractProduct</code> 接口</li>
+</ul>
+
+<p>通常在运行时刻创建一个 <code>ConcreteFactory</code> 类的实例。这一具体的工厂创建具有特定实现的产品对象，为创建不同的产品对象，客户应使用不同的具体工厂。
+<strong><code>AbstractFactory</code> 将产品对象的创建延迟到它的 <code>ConcreteFactory</code> 子类</strong></p>
+
+<h2 id="优缺点">优缺点</h2>
+
+<p>抽象工厂有如下的优缺点：
+1. <strong>它分离了具体的类</strong>。抽象工厂模式帮助你控制一个应用创建的对象的类，封装了产品对象的责任和过程，将客户与具体类相分离，客户通过它们的抽象接口操纵实例。
+2. <strong>它使得易于交换产品系列</strong>。一个具体工厂类在一个应用中只出现一次——其初始化的时候。这使得改变一个应用的具体工厂变得很容易，只需改变具体的工厂即可使用不同的产品配置。
+3. <strong>它有利于产品的一致性</strong>。当一个系列中的产品对象被设计成一起工作时，一个应用只能使用同一系列的对象。
+4. <strong>难以支持新种类的产品</strong>。难以扩展抽象工厂以生产新种类的产品，这是因为 AbstractFactory 接口确定了可以被创建的产品集合。支持新种类的产品就需要扩展该工厂接口，这将涉及到 AbstractFactory 类及其所有子类的改变。</p>
+
+<h2 id="实现-模式组合">实现(模式组合)</h2>
+
+<p>下面是 AbstractFactory 模式中一些有用的意见和建议:
+1. <strong>工厂使用单例模式</strong>。一个应用中一般每个产品系列只需要一个 ConcreteFactory。
+2. <strong>创建产品</strong>。AbstractFactory 仅声明一个创建产品的接口，真正创建产品是由ConcreteFactory 实现的，最通常的一个方法是为每一个产品定义一个工厂方法。具体的工厂将为每个产品重定义该工厂方法以指定产品。
+3. <strong>定义可扩展的工厂</strong>。抽象工厂难以支持新增种类的产品，一个比较灵活但不太安全的设计是给创建对象的操作增加一个参数，该参数指定将被创建对象的种类，但是需要客户向下类型转换。当然也可以使用泛型方法。</p>
+
+<p>你可以实现一个魔法迷宫的工厂类：</p>
+
+<pre><code class="language-java">public class EnchantedMazeFactory implements MazeFactory {
     @Override
     public Maze makeMaze() {
         return new EnchantedMaze();
@@ -96,21 +577,118 @@ public class Wall implements MapSite {
         return new DoorNeedSpell(r1, r2);
     }
 }
-</code></pre><p>使用如下方式创建一个游戏</p><pre><code class="language-java">MazeGame game;
+</code></pre>
+
+<p>使用如下方式创建一个游戏</p>
+
+<pre><code class="language-java">MazeGame game;
 EnchantedMazeFactory factory;
 game.createMaze(factory);
-</code></pre><h2 id="相关模式">相关模式</h2><p>AbstractFactory 类通常用工厂方法 (FactoryMethod) 实现，也可以用 Prototype 实现。 一个具体的工厂通常是一个单件。</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#设计模式</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+<h2 id="相关模式">相关模式</h2>
+
+<p>AbstractFactory 类通常用工厂方法 (FactoryMethod) 实现，也可以用 Prototype 实现。
+一个具体的工厂通常是一个单件。</p>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#设计模式</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/" rel="prev">创建者模式之生成器</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/java/xpath/" rel="next">XPath 笔记</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/designpatterns/%E5%88%9B%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%94%9F%E6%88%90%E5%99%A8/" rel="prev">创建者模式之生成器</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/java/xpath/" rel="next">XPath 笔记</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

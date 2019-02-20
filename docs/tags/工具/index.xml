@@ -36,7 +36,7 @@
       <pubDate>Sat, 12 Aug 2017 19:48:32 +0000</pubDate>
       
       <guid>https://wzhongke.github.io/post/git/</guid>
-      <description>git是比较常用的版本控制工具。 git的基本使用 git init : 创建新的git仓库 git clone path : 从远端服务器或本地检出仓库 git add filename 或者 git add * : 添加改动到缓存区</description>
+      <description>git是比较常用的版本控制工具。 git的基本使用 git init : 创建新的git仓库 git clone path : 从远端服务器或本地检出仓库 git clone -b &amp;lt;branch&amp;gt; path: 将分支clone到本地 git</description>
     </item>
     
   </channel>

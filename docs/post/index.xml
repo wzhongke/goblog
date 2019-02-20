@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright@Kevin Tan</copyright>
-    <lastBuildDate>Fri, 20 Jul 2018 18:51:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Aug 2018 11:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wzhongke.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>javascript 基础</title>
+      <link>https://wzhongke.github.io/post/front/javascript/</link>
+      <pubDate>Fri, 17 Aug 2018 11:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/javascript/</guid>
+      <description>Boolean 类型 下表给出了各种数据类型及其对应的转换成 Boolean 类型的规则 数据类型 转换为 true 的值 转换为 false 的值 Boolean true fasle String 任何非空字符串 &amp;rdquo;&amp;rdquo; (空字符串) Number 任何非零数值(</description>
+    </item>
     
     <item>
       <title>高并发 netty</title>
@@ -306,7 +315,7 @@
       <pubDate>Sat, 12 Aug 2017 19:48:32 +0000</pubDate>
       
       <guid>https://wzhongke.github.io/post/git/</guid>
-      <description>git是比较常用的版本控制工具。 git的基本使用 git init : 创建新的git仓库 git clone path : 从远端服务器或本地检出仓库 git add filename 或者 git add * : 添加改动到缓存区</description>
+      <description>git是比较常用的版本控制工具。 git的基本使用 git init : 创建新的git仓库 git clone path : 从远端服务器或本地检出仓库 git clone -b &amp;lt;branch&amp;gt; path: 将分支clone到本地 git</description>
     </item>
     
     <item>
@@ -634,12 +643,30 @@
     </item>
     
     <item>
+      <title>jquery</title>
+      <link>https://wzhongke.github.io/post/front/jquery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/front/jquery/</guid>
+      <description>选择器 选择器 选取内容 $(div[id=&#39;id&#39;]) 选取id属性等于 &amp;lsquo;id&amp;rsquo; 的div标签 $(div[id^=&#39;id&#39;]) 选取id属性是以 &amp;lsquo;id&amp;rsquo; 开头的div标签 $(div[id$=&#39;id&#39;]) 选取id属性是以 &amp;lsquo;id&amp;rsquo; 结尾的div标签 $(div[id*$*=&#39;id&#39;]) 选取id属性包</description>
+    </item>
+    
+    <item>
       <title>maven</title>
       <link>https://wzhongke.github.io/post/java/maven/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wzhongke.github.io/post/java/maven/</guid>
       <description>maven执行命令： mvn clean install -Dmaven.test.skip=true</description>
+    </item>
+    
+    <item>
+      <title>node</title>
+      <link>https://wzhongke.github.io/post/node/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/node/</guid>
+      <description>npm 常用功能 查看帮助 npm -v 可以查看当前 npm 的版本。 npm 可以查看 npm 帮助说明。 安装依赖包 npm install &amp;lt;package&amp;gt; 安装依赖包。执行后，会在当前目录的 node_modules 目录下创建以包名为名的</description>
     </item>
     
     <item>
@@ -667,6 +694,15 @@
       
       <guid>https://wzhongke.github.io/post/linux/%E6%90%AD%E5%BB%BAzookeeper%E9%9B%86%E7%BE%A4/</guid>
       <description>安装 zookeeper 下载zookeeper，建议选择稳定版本： wget 将下载文件解压到 /usr/local/zookeeper 配置 zookeeper 集群 将 conf/zoo_sample.cfg 复制到 conf/zoo.cfg，并修改该文件： tickTime=2000 dataDir=/search/odin/zookeeper clientPort=2181 initLimit=5 syncLimit=2 server.1=10.134.96.237:2888:3888</description>
+    </item>
+    
+    <item>
+      <title>五笔</title>
+      <link>https://wzhongke.github.io/post/%E4%BA%94%E7%AC%94/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wzhongke.github.io/post/%E4%BA%94%E7%AC%94/</guid>
+      <description>五笔分布 五笔根据最基本的 一丨丿丶乙 (横竖撇捺折) 分成五个区，G到A为横，H到M为竖，T到Q为撇，Y到P为捺，N到X为折。可以根据字根第一笔来</description>
     </item>
     
     <item>

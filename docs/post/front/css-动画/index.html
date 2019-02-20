@@ -1,16 +1,448 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>css 动画 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    css 动画 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/front/css-%E5%8A%A8%E7%94%BB/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/front/">Front</a> <span class="breadcrumb">css 动画</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#transitions">transitions</a><ul><li><a href="#指定过渡属性">指定过渡属性</a></li><li><a href="#指定过渡所需要的时间">指定过渡所需要的时间</a></li><li><a href="#指定过渡动画">指定过渡动画</a></li><li><a href="#指定过渡延时时间">指定过渡延时时间</a></li><li><a href="#css-触发过渡">css 触发过渡</a></li></ul></li><li><a href="#动画-animation">动画 <code>animation</code></a><ul><li><a href="#关键帧-keyframes-规则">关键帧 <code>@keyframes</code> 规则</a></li><li><a href="#demo1">Demo1</a></li><li><a href="#demo2">Demo2</a></li></ul></li><li><a href="#transforms">transforms</a><ul><li><a href="#transform-origin-属性"><code>transform-origin</code> 属性</a></li><li><a href="#transform-style-属性"><code>transform-style</code> 属性</a></li><li><a href="#perspective-属性"><code>perspective</code> 属性</a></li><li><a href="#backface-visibility-属性"><code>backface-visibility</code> 属性</a></li><li><a href="#3d-transform">3D transform</a></li><li><a href="#filters">filters</a></li><li><a href="#示例">示例</a></li><li><a href="#参考网站">参考网站</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">css 动画 </span><span class="card-meta"><time><span>Fri Dec 1 2017</span></time></span><article class="article"><p><link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p><p>通过 CSS3，我们能够创建动画，这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript。</p><h1 id="transitions">transitions</h1><p>可以通过设置 transitions 来实现过渡效果。其用法如下：</p><pre><code class="language-css">.example {
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/front/'>Front</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">css 动画</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#transitions">transitions</a>
+<ul>
+<li><a href="#指定过渡属性">指定过渡属性</a></li>
+<li><a href="#指定过渡所需要的时间">指定过渡所需要的时间</a></li>
+<li><a href="#指定过渡动画">指定过渡动画</a></li>
+<li><a href="#指定过渡延时时间">指定过渡延时时间</a></li>
+<li><a href="#css-触发过渡">css 触发过渡</a></li>
+</ul></li>
+<li><a href="#动画-animation">动画 <code>animation</code></a>
+<ul>
+<li><a href="#关键帧-keyframes-规则">关键帧 <code>@keyframes</code> 规则</a></li>
+<li><a href="#demo1">Demo1</a></li>
+<li><a href="#demo2">Demo2</a></li>
+</ul></li>
+<li><a href="#transforms">transforms</a>
+<ul>
+<li><a href="#transform-origin-属性"><code>transform-origin</code> 属性</a></li>
+<li><a href="#transform-style-属性"><code>transform-style</code> 属性</a></li>
+<li><a href="#perspective-属性"><code>perspective</code> 属性</a></li>
+<li><a href="#backface-visibility-属性"><code>backface-visibility</code> 属性</a></li>
+<li><a href="#2d-transform">2D transform</a>
+<ul>
+<li><a href="#2d-位移">2D 位移</a></li>
+<li><a href="#2d-缩放">2D 缩放</a></li>
+<li><a href="#2d-旋转">2D 旋转</a></li>
+<li><a href="#2d-倾斜">2D 倾斜</a></li>
+</ul></li>
+<li><a href="#3d-transform">3D transform</a></li>
+<li><a href="#filters">filters</a></li>
+<li><a href="#示例">示例</a></li>
+<li><a href="#参考网站">参考网站</a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">css 动画 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Fri Dec 1 2017</span>
+            </time>
+            
+            </span>
+
+            <article class="article">
+              
+
+<p><link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
+
+<p>通过 CSS3，我们能够创建动画，这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript。</p>
+
+<h1 id="transitions">transitions</h1>
+
+<p>可以通过设置 transitions 来实现过渡效果。其用法如下：</p>
+
+<pre><code class="language-css">.example {
     transition:  [ &lt;transition-property&gt; |
                &lt;transition-duration&gt; |
                &lt;transition-timing-function&gt; |
                &lt;transition-delay&gt; ]
 }
-</code></pre><p><code>transition</code> 属性主要四个值的含义如下： - <code>transition-property</code>: 指定过渡或动态模拟的 css 属性 - <code>transition-duration</code>: 指定完成过渡所需要的时间 - <code>transition-timing-function</code>: 指定过渡的函数 - <code>transition-delay</code>: 指定过渡开始出现的延迟时间</p><!-- more --><style>.wrapper{position:relative;border:1px #aaa solid;width:500px;height:500px;margin:0 auto 10px;padding:10px}.shadow{-webkit-box-shadow:5px 5px 5px #aaa;-moz-box-shadow:5px 5px 5px #aaa;box-shadow:5px 5px 5px #aaa;margin-bottom:10px}.normal,.example2,.example3{width:100px;height:100px;position:absolute;top:210px;left:210px;border-radius:50px;background-color:red;text-align:center;transition:all 1s ease-in-out}.example2{background-color:blue;transition-property:top,left;transition-duration:1s,1s;transition-delay:0s,1s}.example3{background-color:purple;transition-property:top,left,border-radius,background-color;transition-duration:2s,1s,0.5s,0.5s;transition-delay:0s,0.5s,1s,1.5s}.wrapper:hover .normal{top:0;left:0}.wrapper:hover .example2{top:398px;left:398px}.wrapper:hover .example3{background-color:black;top:0;left:398px;border-radius:0}.wrapper p{line-height:70px;color:white;font-weight:bold;margin-left:0 0 10px}</style><div class="wrapper shadow"><div class="normal shadow"><p>Normal</p></div><div class="example2"><p>Example2</p></div><div class="example3"><p>Example3</p></div></div><p>示例中的样式为：</p><pre><code class="language-css">.normal,.example2,.example3 {
+</code></pre>
+
+<p><code>transition</code> 属性主要四个值的含义如下：
+- <code>transition-property</code>: 指定过渡或动态模拟的 css 属性
+- <code>transition-duration</code>: 指定完成过渡所需要的时间
+- <code>transition-timing-function</code>: 指定过渡的函数
+- <code>transition-delay</code>: 指定过渡开始出现的延迟时间</p>
+
+<!-- more -->
+
+
+<style>.wrapper{position:relative;border:1px #aaa solid;width:500px;height:500px;margin:0 auto 10px;padding:10px}.shadow{-webkit-box-shadow:5px 5px 5px #aaa;-moz-box-shadow:5px 5px 5px #aaa;box-shadow:5px 5px 5px #aaa;margin-bottom:10px}.normal,.example2,.example3{width:100px;height:100px;position:absolute;top:210px;left:210px;border-radius:50px;background-color:red;text-align:center;transition:all 1s ease-in-out}.example2{background-color:blue;transition-property:top,left;transition-duration:1s,1s;transition-delay:0s,1s}.example3{background-color:purple;transition-property:top,left,border-radius,background-color;transition-duration:2s,1s,0.5s,0.5s;transition-delay:0s,0.5s,1s,1.5s}.wrapper:hover .normal{top:0;left:0}.wrapper:hover .example2{top:398px;left:398px}.wrapper:hover .example3{background-color:black;top:0;left:398px;border-radius:0}.wrapper p{line-height:70px;color:white;font-weight:bold;margin-left:0 0 10px}</style><div class="wrapper shadow"><div class="normal shadow"><p>Normal</p></div><div class="example2"><p>Example2</p></div><div class="example3"><p>Example3</p></div></div>
+
+
+<p>示例中的样式为：</p>
+
+<pre><code class="language-css">.normal,.example2,.example3 {
     transition-duration:1s,1s;
     transition-property:top,left;
     transition-delay:0s,1s ease-in-out;
@@ -37,45 +469,168 @@
     top:0;left:398px;
     border-radius:0
 }
-</code></pre><h2 id="指定过渡属性">指定过渡属性</h2><p>要让 <code>transition</code> 属性能正常工作，需要给元素设置两套样式用于用户与界面的交互。通过 <code>transition-property</code> 属性来指定过渡动画的 css 属性名：</p><pre><code class="language-css">.example {
+</code></pre>
+
+<h2 id="指定过渡属性">指定过渡属性</h2>
+
+<p>要让 <code>transition</code> 属性能正常工作，需要给元素设置两套样式用于用户与界面的交互。通过 <code>transition-property</code> 属性来指定过渡动画的 css 属性名：</p>
+
+<pre><code class="language-css">.example {
     transition-property: none | all | &lt;single-transition-property&gt; [, &lt;single-transition-property] *
 }
-</code></pre><p>可以一次指定多个过渡样式，如上列中的 <code>transition-property:top,left,border-radius,background-color;</code></p><h2 id="指定过渡所需要的时间">指定过渡所需要的时间</h2><p><code>transition-duration</code> 属性用来指定一个属性过渡到另一个属性所需要的时间：</p><pre><code class="language-css">.example {
+</code></pre>
+
+<p>可以一次指定多个过渡样式，如上列中的 <code>transition-property:top,left,border-radius,background-color;</code></p>
+
+<h2 id="指定过渡所需要的时间">指定过渡所需要的时间</h2>
+
+<p><code>transition-duration</code> 属性用来指定一个属性过渡到另一个属性所需要的时间：</p>
+
+<pre><code class="language-css">.example {
     transition-duration: &lt;time&gt; [,&lt;time&gt;]*;
 }
-</code></pre><p><code>time</code> 为数值，单位是秒或者毫秒，它的默认值是 0，即没有过渡效果。可以设置多个过渡属性，每个值用逗号分隔，且每个值按顺序对应 <code>transition-property</code> 的属性值。</p><pre><code class="language-css">.example {
+</code></pre>
+
+<p><code>time</code> 为数值，单位是秒或者毫秒，它的默认值是 0，即没有过渡效果。可以设置多个过渡属性，每个值用逗号分隔，且每个值按顺序对应 <code>transition-property</code> 的属性值。</p>
+
+<pre><code class="language-css">.example {
     /* duration 同 property 的值一一对应  */
     transition-property:top,left,border-radius,background-color;
     transition-duration:2s,1s,0.5s,0.5s;
 }
-</code></pre><h2 id="指定过渡动画">指定过渡动画</h2><p><code>transition-timing-function</code> 属性可以指定过渡速度，以及过渡期间的操作进展。可以将某个值定义为预定义函数、阶梯函数或者三次贝塞尔曲线：</p><pre><code class="language-css">.example {
+</code></pre>
+
+<h2 id="指定过渡动画">指定过渡动画</h2>
+
+<p><code>transition-timing-function</code> 属性可以指定过渡速度，以及过渡期间的操作进展。可以将某个值定义为预定义函数、阶梯函数或者三次贝塞尔曲线：</p>
+
+<pre><code class="language-css">.example {
     transition-timing-function: &lt;single-transition-timing-function&gt; [, &lt;single-transition-timing-function&gt;] *
 }
-</code></pre><p><code>&lt;single-transition-timing-function&gt;</code> 是单一过渡函数，主要包括： <code>ease</code>, <code>linear</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>.</p><p>三次贝塞尔曲线定义语法如下：</p><pre><code class="language-css">.example {
+</code></pre>
+
+<p><code>&lt;single-transition-timing-function&gt;</code> 是单一过渡函数，主要包括： <code>ease</code>, <code>linear</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>.</p>
+
+<p>三次贝塞尔曲线定义语法如下：</p>
+
+<pre><code class="language-css">.example {
     /* Pn 是在 [0-1] 的值 */
     transition-timing-function: cubic-bezier(P0, P1, P2, P3);
 }
-</code></pre><p>制作贝塞尔曲线的工具可以在互联网上找到。</p><h2 id="指定过渡延时时间">指定过渡延时时间</h2><p><code>transition-delay</code> 用来定义过渡延时时间：</p><pre><code class="language-css">.example {
+</code></pre>
+
+<p>制作贝塞尔曲线的工具可以在互联网上找到。</p>
+
+<h2 id="指定过渡延时时间">指定过渡延时时间</h2>
+
+<p><code>transition-delay</code> 用来定义过渡延时时间：</p>
+
+<pre><code class="language-css">.example {
     transition-delay: &lt;time&gt;[, &lt;time&gt;]*
 }
-</code></pre><p><code>&lt;time&gt;</code> 的取值可以是正整数、负整数和 0。 正整数表示元素过渡动作在设定时间之后才触发；负整数表示元素的过渡动作会从该时间点开始显示，之前的动作被截断。</p><h2 id="css-触发过渡">css 触发过渡</h2><p>单纯通过css3代码不会触发任何过渡效果，需要用户的行为触发。 可以通过 <code>:hover</code>, <code>:active</code>, <code>:focus</code>, <code>:checked</code> 伪元素触发; 可以通过媒体查询触发： <code>@media only screen and (max-width: 960px)</code>; 可以通过 JavaScript 触发。</p><h1 id="动画-animation">动画 <code>animation</code></h1><p><code>transition</code> 可以实现一些简单的过渡动画效果，但是功能有限。<code>animation</code> 动画通过关键帧控制动画的每一步，实现复杂的动画效果。</p><p>在CSS中使用动画，首先要为动画指定关键帧（元素在某些时候会有什么样式）。浏览器会为你添加相应的渐变效果。语法如下：</p><pre><code class="language-CSS">.animation {
+</code></pre>
+
+<p><code>&lt;time&gt;</code> 的取值可以是正整数、负整数和 0。
+正整数表示元素过渡动作在设定时间之后才触发；负整数表示元素的过渡动作会从该时间点开始显示，之前的动作被截断。</p>
+
+<h2 id="css-触发过渡">css 触发过渡</h2>
+
+<p>单纯通过css3代码不会触发任何过渡效果，需要用户的行为触发。
+可以通过 <code>:hover</code>, <code>:active</code>, <code>:focus</code>, <code>:checked</code> 伪元素触发;
+可以通过媒体查询触发： <code>@media only screen and (max-width: 960px)</code>;
+可以通过 JavaScript 触发。</p>
+
+<h1 id="动画-animation">动画 <code>animation</code></h1>
+
+<p><code>transition</code> 可以实现一些简单的过渡动画效果，但是功能有限。<code>animation</code> 动画通过关键帧控制动画的每一步，实现复杂的动画效果。</p>
+
+<p>在CSS中使用动画，首先要为动画指定关键帧（元素在某些时候会有什么样式）。浏览器会为你添加相应的渐变效果。语法如下：</p>
+
+<pre><code class="language-CSS">.animation {
     animation: name duration timing-function delay iteration-count direction;
 }
-</code></pre><p>其中 animation 的值有如下含义</p><table><thead><tr><th align="left">值</th><th align="left">描述</th></tr></thead><tbody><tr><td align="left">animation-name</td><td align="left">规定需要绑定到选择器的 <code>@keyframe</code> 规则</td></tr><tr><td align="left">animation-duration</td><td align="left">规定完成动画所花费的时间，以秒或毫秒计数</td></tr><tr><td align="left">animation-timing-function</td><td align="left">规定动画的速度曲线</td></tr><tr><td align="left">animation-delay</td><td align="left">规定在动画开始之前的延迟</td></tr><tr><td align="left">animation-iteration-count</td><td align="left">规定动画应该播放的次数</td></tr><tr><td align="left">animation-direction</td><td align="left">规定是否应该轮流反向播放动画 (normal:默认值。动画应该正常播放; alternate 动画应该轮流反向播放)</td></tr></tbody></table><h2 id="关键帧-keyframes-规则">关键帧 <code>@keyframes</code> 规则</h2><p>举例来说，将一个元素逐渐下移 200px :</p><pre><code class="language-CSS">@keyframes move {
+</code></pre>
+
+<p>其中 animation 的值有如下含义</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">animation-name</td>
+<td align="left">规定需要绑定到选择器的 <code>@keyframe</code> 规则</td>
+</tr>
+
+<tr>
+<td align="left">animation-duration</td>
+<td align="left">规定完成动画所花费的时间，以秒或毫秒计数</td>
+</tr>
+
+<tr>
+<td align="left">animation-timing-function</td>
+<td align="left">规定动画的速度曲线</td>
+</tr>
+
+<tr>
+<td align="left">animation-delay</td>
+<td align="left">规定在动画开始之前的延迟</td>
+</tr>
+
+<tr>
+<td align="left">animation-iteration-count</td>
+<td align="left">规定动画应该播放的次数</td>
+</tr>
+
+<tr>
+<td align="left">animation-direction</td>
+<td align="left">规定是否应该轮流反向播放动画 (normal:默认值。动画应该正常播放; alternate    动画应该轮流反向播放)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="关键帧-keyframes-规则">关键帧 <code>@keyframes</code> 规则</h2>
+
+<p>举例来说，将一个元素逐渐下移 200px :</p>
+
+<pre><code class="language-CSS">@keyframes move {
     from {top: 0px;}
     to {top: 200px;}
 }
-</code></pre><p>从例子中可以看出，<code>@keyframes</code> 指定了动画的代码。动画的效果是从一个CSS样式渐变到另外一个CSS样式。在动画执行期间，我们可以多次更改CSS样式。</p><p>样式可以设定百分比改变或者使用 &ldquo;from&rdquo; 和 &ldquo;to&rdquo;，&rdquo;from&rdquo; 相当于 0%，&rdquo;to&rdquo; 相当于 100%。 为了获得最佳的浏览器支持，应该始终定义 0% 和 100% 选择器。 @keyframes 的语法如下：</p><pre><code class="language-CSS">@keyframes animation-name {
+</code></pre>
+
+<p>从例子中可以看出，<code>@keyframes</code> 指定了动画的代码。动画的效果是从一个CSS样式渐变到另外一个CSS样式。在动画执行期间，我们可以多次更改CSS样式。</p>
+
+<p>样式可以设定百分比改变或者使用 &ldquo;from&rdquo; 和 &ldquo;to&rdquo;，&rdquo;from&rdquo; 相当于 0%，&rdquo;to&rdquo; 相当于 100%。
+为了获得最佳的浏览器支持，应该始终定义 0% 和 100% 选择器。
+@keyframes 的语法如下：</p>
+
+<pre><code class="language-CSS">@keyframes animation-name {
     keyfromes-selector {css-styles;}
 }
-</code></pre><p>例如：</p><pre><code class="language-CSS">@keyframes mymove {
+</code></pre>
+
+<p>例如：</p>
+
+<pre><code class="language-CSS">@keyframes mymove {
     0%   {top: 0px;}
     25%  {top: 200px;}
     50%  {top: 100px;}
     75%  {top: 200px;}
     100% {top: 0px;}
 }
-</code></pre><h2 id="demo1">Demo1</h2><p>简单的动画效果：</p><pre><code class="language-css">@keyframes resize {
+</code></pre>
+
+<h2 id="demo1">Demo1</h2>
+
+<p>简单的动画效果：</p>
+
+<pre><code class="language-css">@keyframes resize {
     0% {padding: 0;}
     50% {padding: 0 40px; background-color: rgba(255,0,0,0.2);}
     100% {padding: 0 150px; background-color: rgba(255,0,0, 0.9);}
@@ -90,7 +645,18 @@
 #animationBox:hover {
      animation: resize 1s infinite alternate
 }
-</code></pre><style>@keyframes resize{0%{padding:0}50%{padding:0 40px;background-color:rgba(255,0,0,0.2)}100%{padding:0 150px;background-color:rgba(255,0,0,0.9)}}#animationBox{height:50px;width:50px;margin:0 auto;border:1px red solid;background-color:rgba(255,0,0,0.7)}#animationBox:hover{animation:resize 1s infinite alternate}</style><div id="animationBox" class="shadow"></div><h2 id="demo2">Demo2</h2><p>animation 动画适用于微妙、精美的动画，而不是那些特别复杂的动画。 WCAG规定，使用animation不应该包含每秒闪烁超过3次的内容。</p><pre><code class="language-css">@keyframes glow {
+</code></pre>
+
+
+<style>@keyframes resize{0%{padding:0}50%{padding:0 40px;background-color:rgba(255,0,0,0.2)}100%{padding:0 150px;background-color:rgba(255,0,0,0.9)}}#animationBox{height:50px;width:50px;margin:0 auto;border:1px red solid;background-color:rgba(255,0,0,0.7)}#animationBox:hover{animation:resize 1s infinite alternate}
+</style><div id="animationBox" class="shadow"></div>
+
+
+<h2 id="demo2">Demo2</h2>
+
+<p>animation 动画适用于微妙、精美的动画，而不是那些特别复杂的动画。 WCAG规定，使用animation不应该包含每秒闪烁超过3次的内容。</p>
+
+<pre><code class="language-css">@keyframes glow {
     0% {
         box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
         border-color: rgba(0,0,255,0.5);
@@ -100,37 +666,186 @@
         border-color: rgba(0,0,255,1.0);
     }
 }
-</code></pre><style>#animationDemo2{width:255px;margin:10px auto}#animationDemo2 button{width:255px;height:35px;background:#cde;border:2px solid #ccc;border-color:rgba(0,0,255,0.5);font-size:18px;color:#000;text-shadow:rgba(20,20,20,0.5) 1px 1px 5px;text-align:center;border-radius:16px;box-shadow:0 0 16px rgba(66,140,240,0.5)}#animationDemo2 button:hover{background-color:#cce;animation:glow 1s ease-in-out infinite alternate}@keyframes glow{0%{box-shadow:0 0 16px rgba(66,140,240,0.5);border-color:rgba(0,0,255,0.5)}100%{box-shadow:0 0 16px rgba(66,140,240,1.0),0 0 36px rgba(0,140,255,1.0);border-color:rgba(0,0,255,1.0)}}</style><div id="animationDemo2"><button class="transition hover">Hover to Pulsate</button></div><h1 id="transforms">transforms</h1><p>可以通过 transforms 来实现变形效果。目前有2D变形和3D变形，不过3D变形只有新的浏览器中支持。其语法如下:</p><pre><code class="language-CSS">.transform {
+</code></pre>
+
+
+<style>#animationDemo2{width:255px;margin:10px auto}#animationDemo2 button{width:255px;height:35px;background:#cde;border:2px solid #ccc;border-color:rgba(0,0,255,0.5);font-size:18px;color:#000;text-shadow:rgba(20,20,20,0.5) 1px 1px 5px;text-align:center;border-radius:16px;box-shadow:0 0 16px rgba(66,140,240,0.5)}#animationDemo2 button:hover{background-color:#cce;animation:glow 1s ease-in-out infinite alternate}@keyframes glow{0%{box-shadow:0 0 16px rgba(66,140,240,0.5);border-color:rgba(0,0,255,0.5)}100%{box-shadow:0 0 16px rgba(66,140,240,1.0),0 0 36px rgba(0,140,255,1.0);border-color:rgba(0,0,255,1.0)}}</style>
+<div id="animationDemo2"><button class="transition hover">Hover to Pulsate</button></div>
+
+
+<h1 id="transforms">transforms</h1>
+
+<p>可以通过 transforms 来实现变形效果。目前有2D变形和3D变形，不过3D变形只有新的浏览器中支持。其语法如下:</p>
+
+<pre><code class="language-CSS">.transform {
     transform: none | transform-functions
 }
-</code></pre><p>它的属性值如下表</p><table><thead><tr><th align="left">值</th><th align="left">含义</th></tr></thead><tbody><tr><td align="left"><code>none</code></td><td align="left">定义不进行转换。</td></tr><tr><td align="left"><code>matrix(n,n,n,n,n,n)</code></td><td align="left">定义 2D 转换，使用六个值的矩阵。</td></tr><tr><td align="left"><code>matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)</code></td><td align="left">定义 3D 转换，使用 16 个值的 4x4 矩阵。</td></tr><tr><td align="left"><code>translate(x,y)</code></td><td align="left">指定一个 2D 变形移动位移量。可以扩展两个函数 <code>translateX(x)</code>, <code>translateY(y)</code></td></tr><tr><td align="left"><code>translate3d(x,y,z)</code></td><td align="left">指定一个 3D 变形移动位移量。</td></tr><tr><td align="left"><code>translateZ(z)</code></td><td align="left">定义 3D 转换，只是用 Z 轴的值。</td></tr><tr><td align="left"><code>scale(x,y)</code></td><td align="left">定义 2D 缩放转换。扩展两个函数 <code>scaleX(x)</code>, <code>scaleY(y)</code></td></tr><tr><td align="left"><code>scale3d(x,y,z)</code></td><td align="left">定义 3D 缩放转换。</td></tr><tr><td align="left"><code>scaleZ(z)</code></td><td align="left">通过设置 Z 轴的值来定义 3D 缩放转换。</td></tr><tr><td align="left"><code>rotate(angle)</code></td><td align="left">定义 2D 旋转，在参数中规定角度。可以扩展两个函数 <code>rotateX(angle)</code>, <code>rotateY(angle)</code></td></tr><tr><td align="left"><code>rotate3d(x,y,z,angle)</code></td><td align="left">定义 3D 旋转。</td></tr><tr><td align="left"><code>rotateZ(angle)</code></td><td align="left">定义沿着 Z 轴的 3D 旋转。</td></tr><tr><td align="left"><code>skew(x-angle,y-angle)</code></td><td align="left">定义沿着 X 和 Y 轴的 2D 倾斜转换。可以扩展两个函数 <code>skewX(angle)</code>, <code>skewY(angle)</code></td></tr><tr><td align="left"><code>perspective(n)</code></td><td align="left">为 3D 转换元素定义透视视图</td></tr></tbody></table><p>可以将 transform 同 transition 结合使用，如下所示：</p><pre><code class="language-css">.demo {
+</code></pre>
+
+<p>它的属性值如下表</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>none</code></td>
+<td align="left">定义不进行转换。</td>
+</tr>
+
+<tr>
+<td align="left"><code>matrix(n,n,n,n,n,n)</code></td>
+<td align="left">定义 2D 转换，使用六个值的矩阵。</td>
+</tr>
+
+<tr>
+<td align="left"><code>matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)</code></td>
+<td align="left">定义 3D 转换，使用 16 个值的 4x4 矩阵。</td>
+</tr>
+
+<tr>
+<td align="left"><code>translate(x,y)</code></td>
+<td align="left">指定一个 2D 移动位移量。可以扩展两个函数 <code>translateX(x)</code>, <code>translateY(y)</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>translate3d(x,y,z)</code></td>
+<td align="left">指定一个 3D 移动位移量。</td>
+</tr>
+
+<tr>
+<td align="left"><code>translateZ(z)</code></td>
+<td align="left">定义 3D 转换，只是用 Z 轴的值。</td>
+</tr>
+
+<tr>
+<td align="left"><code>scale(x,y)</code></td>
+<td align="left">定义 2D 缩放转换。扩展两个函数 <code>scaleX(x)</code>, <code>scaleY(y)</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>scale3d(x,y,z)</code></td>
+<td align="left">定义 3D 缩放转换。</td>
+</tr>
+
+<tr>
+<td align="left"><code>scaleZ(z)</code></td>
+<td align="left">通过设置 Z 轴的值来定义 3D 缩放转换。</td>
+</tr>
+
+<tr>
+<td align="left"><code>rotate(angle)</code></td>
+<td align="left">定义 2D 旋转，在参数中规定角度。可以扩展两个函数 <code>rotateX(angle)</code>, <code>rotateY(angle)</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>rotate3d(x,y,z,angle)</code></td>
+<td align="left">定义 3D 旋转。</td>
+</tr>
+
+<tr>
+<td align="left"><code>rotateZ(angle)</code></td>
+<td align="left">定义沿着 Z 轴的 3D 旋转。</td>
+</tr>
+
+<tr>
+<td align="left"><code>skew(x-angle,y-angle)</code></td>
+<td align="left">定义沿着 X 和 Y 轴的 2D 倾斜转换。可以扩展两个函数 <code>skewX(angle)</code>, <code>skewY(angle)</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>perspective(n)</code></td>
+<td align="left">为 3D 转换元素定义透视视图</td>
+</tr>
+</tbody>
+</table>
+
+<p>可以将 transform 同 transition 结合使用，如下所示：</p>
+
+<pre><code class="language-css">.demo {
     transition: all 2s ease-in-out;
 }
 .demo:hover {
     transform: rotate(720deg) scale(2,2);
 }
-</code></pre><style>#transDemo div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo .hover{cursor:pointer}#transDemo div:hover{transform:rotate(720deg) scale(2,2)}</style><div id="transDemo"><div class="hover">Hover and see what will happen</div></div><h2 id="transform-origin-属性"><code>transform-origin</code> 属性</h2><p><code>transform-origin</code> 用来指定元素的中心点位置，默认情况下，变形的原点在元素的中心点。基本语法如下：</p><pre><code class="language-css">.tranform {
+</code></pre>
+
+
+<style>#transDemo div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo .hover{cursor:pointer}#transDemo div:hover{transform:rotate(720deg) scale(2,2)}</style>
+<div id="transDemo"><div class="hover" > Hover and see what will happen</div></div>
+
+
+<h2 id="transform-origin-属性"><code>transform-origin</code> 属性</h2>
+
+<p><code>transform-origin</code> 用来指定元素的中心点位置，默认情况下，变形的原点在元素的中心点。基本语法如下：</p>
+
+<pre><code class="language-css">.tranform {
     transform-origin: left | center | right | top | bottom | percentage | length;
 }
-</code></pre><p>给上例加入 <code>transform-origin</code>:</p><pre><code class="language-css">.demo {
+</code></pre>
+
+<p>给上例加入 <code>transform-origin</code>:</p>
+
+<pre><code class="language-css">.demo {
     transition: all 2s ease-in-out;
 }
 .demo:hover {
     transform: rotate(720deg) scale(2,2);
     transform-origin: left 20%;
 }
-</code></pre><style>#transDemo2 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo2 .hover{cursor:pointer}#transDemo div:hover{transform:rotate(720deg) scale(2,2);transform-origin: left 20%;}</style><div id="transDemo2"><div class="hover">Hover and see what will happen</div></div><h2 id="transform-style-属性"><code>transform-style</code> 属性</h2><p><code>transform-style</code> 属性是 3D 空间的一个重要属性，指定嵌套元素如何在 3D 空间中呈现：</p><pre><code class="language-css">.transfrom {
+</code></pre>
+
+
+<style>#transDemo2 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo2 .hover{cursor:pointer}#transDemo2 div:hover{transform:rotate(720deg) scale(2,2);transform-origin: left 20%;}</style>
+<div id="transDemo2"><div class="hover" > Hover and see what will happen</div></div>
+
+
+<h2 id="transform-style-属性"><code>transform-style</code> 属性</h2>
+
+<p><code>transform-style</code> 属性是 3D 空间的一个重要属性，指定嵌套元素如何在 3D 空间中呈现：</p>
+
+<pre><code class="language-css">.transfrom {
     transform-style: flat | preserve-3d
 }
-</code></pre><ul><li><code>flat</code>: 默认值，所有元素在 2D 平面展现</li><li><code>preserve-3d</code>: 所有元素在 3D 平面展现</li></ul><p>3D 空间示例：</p><pre><code class="language-css"> #transDemo3 div:hover {
+</code></pre>
+
+<ul>
+<li><code>flat</code>: 默认值，所有元素在 2D 平面展现</li>
+<li><code>preserve-3d</code>: 所有元素在 3D 平面展现</li>
+</ul>
+
+<p>3D 空间示例：</p>
+
+<pre><code class="language-css"> #transDemo3 div:hover {
     transform-style: preserve-3d;
     transform: perspective(100px) perspective(50px) rotate3d(10, 20, 30, 20deg) scale3d(1.1, 1.2, 1.3);
     transform-origin: left 20%; 
 }
-</code></pre><style>#transDemo3 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo3 div:hover{transform-style:preserve-3d;transform:perspective(100px) perspective(50px) rotate3d(10,20,30,20deg) scale3d(1.1,1.2,1.3);transform-origin:left 20%}#transDemo3 .hover{cursor:pointer}</style><div id="transDemo3"><div class="hover">Hover and see what will happen</div></div><h2 id="perspective-属性"><code>perspective</code> 属性</h2><p><code>perspective</code> 属性设置查看者位置，并将可视内容映射到一个视锥上，继而投射到一个 2D 平面上。 值越小，用户与 3D空间 Z 平面距离越近；值越大，用户与 3D 空间 Z 平面距离越远。其语法如下：</p><pre><code class="language-css">.transfrom {
+</code></pre>
+
+
+<style>#transDemo3 div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo3 div:hover{transform-style:preserve-3d;transform:perspective(100px) perspective(50px) rotate3d(10,20,30,20deg) scale3d(1.1,1.2,1.3);transform-origin:left 20%}#transDemo3 .hover{cursor:pointer}</style>
+<div id="transDemo3"><div class="hover" > Hover and see what will happen</div></div>
+
+
+<h2 id="perspective-属性"><code>perspective</code> 属性</h2>
+
+<p><code>perspective</code> 属性设置查看者位置，并将可视内容映射到一个视锥上，继而投射到一个 2D 平面上。
+值越小，用户与 3D空间 Z 平面距离越近；值越大，用户与 3D 空间 Z 平面距离越远。其语法如下：</p>
+
+<pre><code class="language-css">.transfrom {
     perspective: none | &lt;length&gt;;
 }
-</code></pre><p><code>perspective()</code> 函数同 <code>perspective</code> 属性类似。<code>perspective()</code> 函数用在当前函数，而 <code>perspective</code> 用在变形元素的共同父元素。</p><pre><code class="language-css">#transDemo4 div div {
+</code></pre>
+
+<p><code>perspective()</code> 函数同 <code>perspective</code> 属性类似。<code>perspective()</code> 函数用在当前函数，而 <code>perspective</code> 用在变形元素的共同父元素。</p>
+
+<pre><code class="language-css">#transDemo4 div div {
     transform: rotateX(45deg);
     transform-origin: bottom;
 }
@@ -141,10 +856,115 @@
 #transDemo4 div div:nth-of-type(2) {
     transform: perspective(500px);
 }
-</code></pre><style>#transDemo4 div{display:inline-block}#transDemo4 div div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;background-color:darkgreen;transform:rotateX(45deg);transform-origin:bottom}#transDemo4 div:nth-of-type(2){perspective:500px}</style><div id="transDemo4"><div><div class="hover">rotateX(45deg);perspective: 0px;</div></div><div><div class="hover">rotateX(45deg);perspective: 500px;</div></div></div><h2 id="backface-visibility-属性"><code>backface-visibility</code> 属性</h2><p><code>backface-visibility</code> 属性决定元素旋转时背面是否可见。语法：</p><pre><code class="language-css">.transform {
+</code></pre>
+
+
+<style>#transDemo4 div{display:inline-block}#transDemo4 div div{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;background-color:darkgreen;transform:rotateX(45deg);transform-origin:bottom}#transDemo4 div:nth-of-type(2){perspective:500px}</style>
+<div id="transDemo4"><div><div class="hover">rotateX(45deg);perspective: 0px;</div></div><div><div class="hover">rotateX(45deg);perspective: 500px;</div></div></div>
+
+
+<h2 id="backface-visibility-属性"><code>backface-visibility</code> 属性</h2>
+
+<p><code>backface-visibility</code> 属性决定元素旋转时背面是否可见。语法：</p>
+
+<pre><code class="language-css">.transform {
     backface-visibility: visible | hidden;
 }
-</code></pre><h2 id="3d-transform">3D transform</h2><p>3D tranform 同 2D transform 相似，其基本属性为 <code>translate3d</code>, <code>scale3d</code>, <code>rotateX</code>, <code>rotateY</code>, <code>rotateZ</code>。如下列：</p><style>#transform3D div {
+</code></pre>
+
+<h2 id="2d-transform">2D transform</h2>
+
+<p>2D 变形是在 X 轴和 Y 轴上工作的。</p>
+
+<h3 id="2d-位移">2D 位移</h3>
+
+<p><code>translate()</code> 函数可将元素从原来的位置移动，而不影响 X、Y轴上的其他组件。其语法如下：</p>
+
+<pre><code class="language-css">.translate {
+    transform: translate(tx, ty) | translate(tx);
+}
+</code></pre>
+
+<p>下例中，使用 <code>translate</code> 将图形做了位移：</p>
+
+<pre><code class="language-css">div:hover {
+    transform: translate(300px, 100px);
+}   
+</code></pre>
+
+
+<style>#transDemo5 .hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}#transDemo5 .hover:hover{transform:translate(300px,100px)}</style><div id="transDemo5"><div class="hover" >Hover and see what will happen</div></div>
+
+
+<h3 id="2d-缩放">2D 缩放</h3>
+
+<p><code>scale()</code> 缩放函数让元素根据中心点对对象进行缩放。其语法格式如下：</p>
+
+<pre><code class="language-css">.scale {
+    transform: scale(sx) | scale(sx, sy);
+}
+</code></pre>
+
+<p>下例中，使用 <code>translate</code> 将图形做了缩小：</p>
+
+<pre><code class="language-css">div:hover {
+    transform: scale(0.5, 0.5);
+} 
+</code></pre>
+
+
+<style>#transDemo6{.hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}.hover:hover{transform:scale(.5,.5)}}</style>
+<div id="transDemo6"><div class="hover" >Hover and see what will happen</div></div>
+
+
+<h3 id="2d-旋转">2D 旋转</h3>
+
+<p><code>rotate()</code> 通过制定角度参数对元素根据指定原点进行 2D 旋转。</p>
+
+<pre><code class="language-css">.rotate {
+    transform: rotate(a);
+}
+</code></pre>
+
+<p>下例中，使用 <code>rotate()</code> 将图形旋转了 180 度：</p>
+
+<pre><code class="language-css">div:hover {
+    transform: rotate(180deg);
+} 
+</code></pre>
+
+
+<style>#transDemo7{.hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}.hover:hover{transform:rotate(180deg)}}</style>
+<div id="transDemo7"><div class="hover" >Hover and see what will happen</div></div>
+
+
+<h3 id="2d-倾斜">2D 倾斜</h3>
+
+<p><code>skew()</code> 函数能够让元素倾斜显示，可以将一个对象以其设定的位置为中心，绕 X 轴和 Y 轴按照一定角度倾斜：</p>
+
+<pre><code class="language-css">.skew {
+    transform: skew(x) | skew(x, y);
+}
+</code></pre>
+
+<p>下例中，使用 <code>skew()</code> 将图形进行一定角度的倾斜：</p>
+
+<pre><code class="language-css">div:hover {
+    transform: skew(20deg,30deg);
+} 
+</code></pre>
+
+
+<style>#transDemo8{.hover{height:120px;width:120px;border:1px blue solid;margin:10px auto;padding:10px;text-align:center;transition:all 2s ease-in-out}.hover:hover{transform:skew(20deg,30deg)}}</style>
+<div id="transDemo8"><div class="hover" >Hover and see what will happen</div></div>
+
+
+<h2 id="3d-transform">3D transform</h2>
+
+<p>3D tranform 同 2D transform 相似，其基本属性为 <code>translate3d</code>, <code>scale3d</code>, <code>rotateX</code>, <code>rotateY</code>, <code>rotateZ</code>。如下列：
+
+<style>
+#transform3D div {
   transition:all 2s ease-in-out;
   perspective: 800px;
   perspective-origin: 50% 100px;
@@ -157,7 +977,20 @@
 }
 #transform3D:hover #rotateZ {
   transform:rotateZ(180deg);
-}</style><div id="transform3D" class="shadow hover"><div id="rotateX">rotate x</div><div id="rotateY">rotate y</div><div id="rotateZ">rotate z</div></div><p></p><p>还可以实现一个 3d 的图片旋转</p><style>#cubeCarousel {
+}
+</style>
+
+<div id="transform3D" class="shadow hover">
+    <div id="rotateX">rotate x</div>
+    <div id="rotateY">rotate y</div>
+    <div id="rotateZ">rotate z</div>
+</div>
+</p>
+
+<p>还可以实现一个 3d 的图片旋转
+
+<style>
+#cubeCarousel {
     -webkit-perspective: 800;
     perspective: 800;
     perspective-origin: 50% 100px;
@@ -202,7 +1035,35 @@
 }
 .trans {
     opacity: 0.5;
-}</style><div id="cubeCarousel"><div id="cubeSpinner" style=""><div class="face one"><img src="http://img02.sogoucdn.com/app/a/100520024/71a9c49ed8a2693c43a50288b719ea67"></div><div class="face two"><img src="http://img04.sogoucdn.com/app/a/100520024/a89685511fef9f796e70e63cb02d0c0f"></div><div class="face three"><img src="http://img04.sogoucdn.com/app/a/100520024/83af06dcb64a1031737577a57dba95a9"></div><div class="face four"><img src="http://img03.sogoucdn.com/app/a/100520024/02091b74ed63fe2784e98292861a6a7b"></div></div><div id="controls"><span class="selected" id="controls_1">Image 1</span> <span class="" id="controls_2">Image 2</span> <span class="" id="controls_3">Image 3</span> <span class="" id="controls_4">Image 4</span> <span id="toggleOpacity">显示图片的旋转</span><p></p></div></div><script type="text/javascript">var controls = [];
+}
+
+</style>
+<div id="cubeCarousel">
+    <div id="cubeSpinner" style="">
+      <div class="face one">
+        <img src="http://img02.sogoucdn.com/app/a/100520024/71a9c49ed8a2693c43a50288b719ea67">
+      </div>
+      <div class="face two">
+        <img src="http://img04.sogoucdn.com/app/a/100520024/a89685511fef9f796e70e63cb02d0c0f">
+      </div>
+      <div class="face three">
+        <img src="http://img04.sogoucdn.com/app/a/100520024/83af06dcb64a1031737577a57dba95a9">
+      </div>
+      <div class="face four">
+        <img src="http://img03.sogoucdn.com/app/a/100520024/02091b74ed63fe2784e98292861a6a7b">
+      </div>
+    </div>
+    <div id="controls">
+        <span class="selected" id="controls_1">Image 1</span>
+        <span class="" id="controls_2">Image 2</span>
+        <span class="" id="controls_3">Image 3</span>
+        <span class="" id="controls_4">Image 4</span>
+        <span id="toggleOpacity">显示图片的旋转</span>
+    </p>
+  </div>
+</div>
+<script type="text/javascript">
+    var controls = [];
     controls.push(document.getElementById("controls_1"));
     controls.push(document.getElementById("controls_2"));
     controls.push(document.getElementById("controls_3"));
@@ -231,7 +1092,16 @@
                 images[position].className = "trans";
             }
         }
-    });</script><p></p><h2 id="filters">filters</h2><p>CSS中的 filter 并不是官网标准，但是有很多浏览器支持filter样式。目前，filter 应用于整个元素和所有它的后代，不能只针对背景或边框。 虽然CSS滤镜涵盖了许多可能性，但是最常用的还是调整色彩，像灰度，棕褐色，饱和度，色调旋转，反转，不透明度，亮度，对比度，模糊和阴影，如下：</p><pre><code class="language-CSS">.thing_you_want_to_filter {
+    });
+</script>
+</p>
+
+<h2 id="filters">filters</h2>
+
+<p>CSS中的 filter 并不是官网标准，但是有很多浏览器支持filter样式。目前，filter 应用于整个元素和所有它的后代，不能只针对背景或边框。
+虽然CSS滤镜涵盖了许多可能性，但是最常用的还是调整色彩，像灰度，棕褐色，饱和度，色调旋转，反转，不透明度，亮度，对比度，模糊和阴影，如下：</p>
+
+<pre><code class="language-CSS">.thing_you_want_to_filter {
   /*
     these are all default values, note that hue-rotate and blur have units.
     You'll also need to include the vendor prefixes.
@@ -258,7 +1128,11 @@
   /* Drop shadow has the same syntax as box-shadow – see below for why it's amazing! */
   filter: drop-shadow(5px 5px 10px #ccc);
 }
-</code></pre><style>.filtered {
+</code></pre>
+
+
+<style>
+    .filtered {
         position:relative;
         height:281px;
         width:450px;
@@ -267,7 +1141,87 @@
     #controls {
         width: 50%;
         margin: 10px auto;
-    }</style><div class="filtered shadow"><img src="http://css3.bradshawenterprises.com/images/Turtle.jpg"></div><div id="controls"><h4>Play with the sliders…</h4><form class="form-horizontal"><div class="control-group"><label class="control-label" for="grayscale">Grayscale</label><div class="controls"><input type="range" data-default="0" value="0" min="0" max="1" step="0.1" id="grayscale"><p id="grayscale_output" class="pull-right">grayscale(0.5)</p></div></div><div class="control-group"><label class="control-label" for="sepia">Sepia</label><div class="controls"><input type="range" data-default="0" value="0" min="0" max="1" step="0.1" id="sepia"><p id="sepia_output" class="pull-right">sepia(0)</p></div></div><div class="control-group"><label class="control-label" for="saturate">Saturate</label><div class="controls"><input type="range" data-default="1" value="1" min="0" max="1" step="0.1" id="saturate"><p id="saturate_output" class="pull-right">saturate(1)</p></div></div><div class="control-group"><label class="control-label" for="hue-rotate">Hue-rotate</label><div class="controls"><input type="range" data-default="0" value="0" min="0" max="360" step="1" id="hue-rotate"><p id="hue-rotate_output" class="pull-right">hue-rotate(0deg)</p></div></div><div class="control-group"><label class="control-label" for="invert">Invert</label><div class="controls"><input type="range" data-default="0" value="0" min="0" max="1" step="0.1" id="invert"><p id="invert_output" class="pull-right">invert(0)</p></div></div><div class="control-group"><label class="control-label" for="opacity">Opacity</label><div class="controls"><input type="range" data-default="1" value="1" min="0" max="1" step="0.1" id="opacity"><p id="opacity_output" class="pull-right">opacity(1)</p></div></div><div class="control-group"><label class="control-label" for="brightness">Brightness</label><div class="controls"><input type="range" data-default="1" value="1" min="0" max="1" step="0.1" id="brightness"><p id="brightness_output" class="pull-right">brightness(1)</p></div></div><div class="control-group"><label class="control-label" for="contrast">Contrast</label><div class="controls"><input type="range" data-default="1" value="1" min="0" max="2" step="0.1" id="contrast"><p id="contrast_output" class="pull-right">contrast(1)</p></div></div><div class="control-group"><label class="control-label" for="blur">Blur</label><div class="controls"><input type="range" data-default="0" value="0" min="0" max="10" step="1" id="blur"><p id="blur_output" class="pull-right">blur(0px)</p></div></div><div class="control-group"><label class="control-label" for="reset">&nbsp;</label><div class="controls"><a href="#" id="reset" class="btn btn-info">Reset to defaults</a></div></div></form></div><script>$(document).ready(function() {
+    }
+ </style>
+<div class="filtered shadow">
+    <img src="http://css3.bradshawenterprises.com/images/Turtle.jpg">
+</div>
+<div id="controls">
+    <h4>Play with the sliders…</h4>
+    <form class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="grayscale">Grayscale</label>
+            <div class="controls">
+                <input type="range" data-default="0" value="0" min="0" max="1" step="0.1" id="grayscale">
+                <p id="grayscale_output" class="pull-right">grayscale(0.5)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="sepia">Sepia</label>
+            <div class="controls">
+                <input type="range" data-default="0" value="0" min="0" max="1" step="0.1" id="sepia">
+                <p id="sepia_output" class="pull-right">sepia(0)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="saturate">Saturate</label>
+            <div class="controls">
+                <input type="range" data-default="1" value="1" min="0" max="1" step="0.1" id="saturate">
+                <p id="saturate_output" class="pull-right">saturate(1)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="hue-rotate">Hue-rotate</label>
+            <div class="controls">
+                <input type="range" data-default="0" value="0" min="0" max="360" step="1" id="hue-rotate">
+                <p id="hue-rotate_output" class="pull-right">hue-rotate(0deg)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="invert">Invert</label>
+            <div class="controls">
+                <input type="range" data-default="0" value="0" min="0" max="1" step="0.1" id="invert">
+                <p id="invert_output" class="pull-right">invert(0)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="opacity">Opacity</label>
+            <div class="controls">
+                <input type="range" data-default="1" value="1" min="0" max="1" step="0.1" id="opacity">
+                <p id="opacity_output" class="pull-right">opacity(1)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="brightness">Brightness</label>
+            <div class="controls">
+                <input type="range" data-default="1" value="1" min="0" max="1" step="0.1" id="brightness">
+                <p id="brightness_output" class="pull-right">brightness(1)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="contrast">Contrast</label>
+            <div class="controls">
+                <input type="range" data-default="1" value="1" min="0" max="2" step="0.1" id="contrast">
+                <p id="contrast_output" class="pull-right">contrast(1)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="blur">Blur</label>
+            <div class="controls">
+                <input type="range" data-default="0" value="0" min="0" max="10" step="1" id="blur">
+                <p id="blur_output" class="pull-right">blur(0px)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="reset">&nbsp;</label>
+            <div class="controls">
+                <a href="#" id="reset" class="btn btn-info">Reset to defaults</a>
+            </div>
+        </div>
+    </form>
+</div>
+ <script>
+        $(document).ready(function() {
             var controls_input = $("#controls input"),
             image = $(".filtered img");
 
@@ -301,7 +1255,15 @@
                 updateDisplay();
                 return false;
             });
-        });</script><h2 id="示例">示例</h2><style>.shadow {
+        });
+        </script>
+
+
+<h2 id="示例">示例</h2>
+
+
+<style>
+.shadow {
     -webkit-box-shadow: 5px 5px 5px #aaa;
     -moz-box-shadow: 5px 5px 5px #aaa;
     box-shadow: 5px 5px 5px #aaa;
@@ -332,7 +1294,14 @@
 #cf4:hover img.bottom {
     transform: scale(0,0);
     transform-origin: bottom left;
-}</style><div id="cf4" class="hover"><img class="top shadow" src="http://css3.bradshawenterprises.com/images/Birdman.jpg"> <img class="bottom shadow" src="http://css3.bradshawenterprises.com/images/Rainbow%20Worm.jpg"></div><style type="text/css">#cf5 {
+}
+</style>
+<div id="cf4" class="hover">
+    <img class="top shadow" src="http://css3.bradshawenterprises.com/images/Birdman.jpg">
+    <img class="bottom shadow" src="http://css3.bradshawenterprises.com/images/Rainbow%20Worm.jpg">
+</div>
+<style type="text/css">
+    #cf5 {
         position: relative;
         height: 281px;
         width: 450px;
@@ -358,18 +1327,118 @@
     #cf5:hover img.bottom {
         filter: alpha(opacity=0);
         transform: rotate(360deg) scale(0,0);
-    }</style><div id="cf5" class="hover"><img class="bottom shadow" src="http://css3.bradshawenterprises.com/images/Turtle.jpg"> <img class="top shadow" src="http://css3.bradshawenterprises.com/images/Rainbow%20Worm.jpg"></div><h2 id="参考网站">参考网站</h2><p><a href="http://css3.bradshawenterprises.com/">CSS3 Transitions, Transforms, Animation, Filters and more!</a></p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/javascript">#javascript</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+    }
+
+
+</style>
+<div id="cf5" class="hover">
+    <img class="bottom shadow" src="http://css3.bradshawenterprises.com/images/Turtle.jpg">
+    <img class="top shadow" src="http://css3.bradshawenterprises.com/images/Rainbow%20Worm.jpg">
+ </div>
+ 
+
+<h2 id="参考网站">参考网站</h2>
+
+<p><a href="http://css3.bradshawenterprises.com/">CSS3 Transitions, Transforms, Animation, Filters and more!</a></p>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/javascript">#javascript</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/java/xpath/" rel="prev">XPath 笔记</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/" rel="next">paramiko-批量操作终端</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/java/xpath/" rel="prev">XPath 笔记</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/python/paramiko-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E7%BB%88%E7%AB%AF/" rel="next">paramiko-批量操作终端</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

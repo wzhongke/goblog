@@ -1,16 +1,450 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>mybatis | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/java/mybatis/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    mybatis | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/java/mybatis/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/java/">Java</a> <span class="breadcrumb">mybatis</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#mybatis是什么">MyBatis是什么</a></li><li><a href="#开始入门">开始入门</a><ul><li><a href="#maven导入mybatis包">maven导入MyBatis包</a></li><li><a href="#使用xml构建-sqlsessionfactory">使用XML构建<code>SqlSessionFactory</code></a></li><li><a href="#不使用xml构建-sqlsessionfactory">不使用XML构建<code>SqlSessionFactory</code></a></li><li><a href="#从-sqlsessionfactory-中获取-sqlsession">从<code>SqlSessionFactory</code>中获取<code>SqlSession</code></a></li><li><a href="#作用域和生命周期">作用域和生命周期</a><ul><li><a href="#sqlsessionfactorybuilder"><code>SqlSessionFactoryBuilder</code></a></li><li><a href="#sqlsessionfactory"><code>SqlSessionFactory</code></a></li><li><a href="#sqlsession"><code>SqlSession</code></a></li><li><a href="#映射器实例">映射器实例</a></li></ul></li></ul></li><li><a href="#xml映射配置文件">XML映射配置文件</a><ul><li><a href="#properties"><code>properties</code></a></li><li><a href="#settings">settings</a></li><li><a href="#typealiases">typeAliases</a></li><li><a href="#typehandlers">typeHandlers</a></li><li><a href="#处理枚举类">处理枚举类</a></li><li><a href="#对象工厂">对象工厂</a></li><li><a href="#插件">插件</a></li><li><a href="#配置环境">配置环境</a><ul><li><a href="#datasource-数据源">dataSource 数据源</a></li></ul></li></ul></li><li><a href="#mapper-xml映射文件">Mapper XML映射文件</a><ul><li><a href="#select"><code>select</code></a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">mybatis </span><span class="card-meta"><time><span>Thu Jul 20 2017</span></time><address><a href="https://wzhongke.github.io//categories/sql">sql</a>&nbsp;</address></span><article class="article"><h1 id="mybatis是什么">MyBatis是什么</h1><p>MyBatis是定制化SQL、存储过程以及高级映射的持久层框架。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。<!-- more --></p><h1 id="开始入门">开始入门</h1><h2 id="maven导入mybatis包">maven导入MyBatis包</h2><p>在<code>pom.xml</code>的<code>dependencies</code>下添加如下依赖：</p><pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/java/'>Java</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">mybatis</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#mybatis是什么">MyBatis是什么</a></li>
+<li><a href="#开始入门">开始入门</a>
+<ul>
+<li><a href="#maven导入mybatis包">maven导入MyBatis包</a></li>
+<li><a href="#使用xml构建-sqlsessionfactory">使用XML构建<code>SqlSessionFactory</code></a></li>
+<li><a href="#不使用xml构建-sqlsessionfactory">不使用XML构建<code>SqlSessionFactory</code></a></li>
+<li><a href="#从-sqlsessionfactory-中获取-sqlsession">从<code>SqlSessionFactory</code>中获取<code>SqlSession</code></a></li>
+<li><a href="#作用域和生命周期">作用域和生命周期</a>
+<ul>
+<li><a href="#sqlsessionfactorybuilder"><code>SqlSessionFactoryBuilder</code></a></li>
+<li><a href="#sqlsessionfactory"><code>SqlSessionFactory</code></a></li>
+<li><a href="#sqlsession"><code>SqlSession</code></a></li>
+<li><a href="#映射器实例">映射器实例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#xml映射配置文件">XML映射配置文件</a>
+<ul>
+<li><a href="#properties"><code>properties</code></a></li>
+<li><a href="#settings">settings</a></li>
+<li><a href="#typealiases">typeAliases</a></li>
+<li><a href="#typehandlers">typeHandlers</a></li>
+<li><a href="#处理枚举类">处理枚举类</a></li>
+<li><a href="#对象工厂">对象工厂</a></li>
+<li><a href="#插件">插件</a></li>
+<li><a href="#配置环境">配置环境</a>
+<ul>
+<li><a href="#datasource-数据源">dataSource 数据源</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#mapper-xml映射文件">Mapper XML映射文件</a>
+<ul>
+<li><a href="#select"><code>select</code></a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">mybatis </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Thu Jul 20 2017</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/sql">sql</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<h1 id="mybatis是什么">MyBatis是什么</h1>
+
+<p>MyBatis是定制化SQL、存储过程以及高级映射的持久层框架。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。
+<!-- more --></p>
+
+<h1 id="开始入门">开始入门</h1>
+
+<h2 id="maven导入mybatis包">maven导入MyBatis包</h2>
+
+<p>在<code>pom.xml</code>的<code>dependencies</code>下添加如下依赖：</p>
+
+<pre><code class="language-xml">&lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
     &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
     &lt;version&gt;3.4.4&lt;/version&gt;
 &lt;/dependency&gt;
-</code></pre><p>MyBatis是中心是<code>SqlSessionFactory</code>实例，该实例通过<code>SqlSessionFactoryBuilder</code>获得。<code>SqlSessionFactoryBuilder</code>可以通过XML配置或使用<code>Configuration</code>构建。</p><h2 id="使用xml构建-sqlsessionfactory">使用XML构建<code>SqlSessionFactory</code></h2><p>XML配置文件包含了MyBatis系统的核心配置，包含数据库连接实例的数据源和决定事务作用域和控制方式的事务管理器。下面是配置中比较关键的部分：</p><pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+</code></pre>
+
+<p>MyBatis是中心是<code>SqlSessionFactory</code>实例，该实例通过<code>SqlSessionFactoryBuilder</code>获得。<code>SqlSessionFactoryBuilder</code>可以通过XML配置或使用<code>Configuration</code>构建。</p>
+
+<h2 id="使用xml构建-sqlsessionfactory">使用XML构建<code>SqlSessionFactory</code></h2>
+
+<p>XML配置文件包含了MyBatis系统的核心配置，包含数据库连接实例的数据源和决定事务作用域和控制方式的事务管理器。下面是配置中比较关键的部分：</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE configuration
   PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
   &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
@@ -30,31 +464,89 @@
     &lt;mapper resource=&quot;mybatis/mapper/PersonMapper.xml&quot;/&gt;
   &lt;/mappers&gt;
 &lt;/configuration&gt;
-</code></pre><p>要注意XML头部的声明，该声明用来验证XML文档正确性。<code>environment</code>元素中包含了事务管理和连接池的配置。<code>mappers</code>元素包含一组<code>mapper</code>映射器。 我们可以通过Mybatis的一个<code>Resources</code>工具类从classpath或其他位置加载配置文件。</p><pre><code class="language-java">String resource = &quot;mybatis.xml&quot;;
+</code></pre>
+
+<p>要注意XML头部的声明，该声明用来验证XML文档正确性。<code>environment</code>元素中包含了事务管理和连接池的配置。<code>mappers</code>元素包含一组<code>mapper</code>映射器。
+我们可以通过Mybatis的一个<code>Resources</code>工具类从classpath或其他位置加载配置文件。</p>
+
+<pre><code class="language-java">String resource = &quot;mybatis.xml&quot;;
 InputStream confStream = Resources.getResourceAsStream(resource);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(confStream);
-</code></pre><h2 id="不使用xml构建-sqlsessionfactory">不使用XML构建<code>SqlSessionFactory</code></h2><p>如果不想依赖配置构建程序，那么可以使用Java程序构建configuration，MyBatis提供了完全不用XML配置的类：</p><pre><code class="language-java">DataSource dataSource = BlogDataSourceFactory.getBlogDataSource();
+</code></pre>
+
+<h2 id="不使用xml构建-sqlsessionfactory">不使用XML构建<code>SqlSessionFactory</code></h2>
+
+<p>如果不想依赖配置构建程序，那么可以使用Java程序构建configuration，MyBatis提供了完全不用XML配置的类：</p>
+
+<pre><code class="language-java">DataSource dataSource = BlogDataSourceFactory.getBlogDataSource();
 TransactionFactory transactionFactory = new JdbcTransactionFactory();
 Environment environment = new Environment(&quot;development&quot;, transactionFactory, dataSource);
 Configuration configuration = new Configuration(environment);
 configuration.addMapper(BlogMapper.class);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
-</code></pre><h2 id="从-sqlsessionfactory-中获取-sqlsession">从<code>SqlSessionFactory</code>中获取<code>SqlSession</code></h2><p><code>SqlSession</code>中包含了面向数据库执行SQL命令所有的方法，可以通过<code>SqlSession</code>实例来直接执行已经映射的SQL语句：</p><pre><code class="language-java">try (SqlSession session = sqlSessionFactory.openSession()) {
+</code></pre>
+
+<h2 id="从-sqlsessionfactory-中获取-sqlsession">从<code>SqlSessionFactory</code>中获取<code>SqlSession</code></h2>
+
+<p><code>SqlSession</code>中包含了面向数据库执行SQL命令所有的方法，可以通过<code>SqlSession</code>实例来直接执行已经映射的SQL语句：</p>
+
+<pre><code class="language-java">try (SqlSession session = sqlSessionFactory.openSession()) {
      Person person = session.selectOne(&quot;mybatis.mapper.PersonMapper.selectPerson&quot;, 101);
 }
-</code></pre><p>上例中需要<code>PersonMapper.xml</code>配置项：</p><pre><code class="language-xml">&lt;mapper namespace=&quot;mybatis.mapper.PersonMapper&quot;&gt;
+</code></pre>
+
+<p>上例中需要<code>PersonMapper.xml</code>配置项：</p>
+
+<pre><code class="language-xml">&lt;mapper namespace=&quot;mybatis.mapper.PersonMapper&quot;&gt;
     &lt;select id=&quot;selectPerson&quot; resultType=&quot;mybatis.dao.Person&quot; parameterType=&quot;int&quot;&gt;
         SELECT * FROM Person WHERE id = #{id}
     &lt;/select&gt;
 &lt;/mapper&gt;
-</code></pre><p>在一个XML映射文件中，可以定义任意多个映射语句，而且具有很好的自解释性。在命名空间<code>mybatis.mapper.PersonMapper</code>中定义了一个名为<code>selectBlog</code>的映射语句，这样就可以像上例中那样调用查询语句。 我们还可以不使用XML配置，使用注解来实现同样的功能</p><pre><code class="language-java">public interface PersonMapper {
+</code></pre>
+
+<p>在一个XML映射文件中，可以定义任意多个映射语句，而且具有很好的自解释性。在命名空间<code>mybatis.mapper.PersonMapper</code>中定义了一个名为<code>selectBlog</code>的映射语句，这样就可以像上例中那样调用查询语句。
+我们还可以不使用XML配置，使用注解来实现同样的功能</p>
+
+<pre><code class="language-java">public interface PersonMapper {
     @Select(&quot;SELECT * FROM blog WHERE id = #{id}&quot;)
     Person selectPerson(int id);
 }
-</code></pre><p>对于简单的语句，用Java注解简洁清晰；但是对于复杂的语句，就显得有些混乱，那么可以使用XML映射语句。这两种方式可以自由移植和切换。</p><h2 id="作用域和生命周期">作用域和生命周期</h2><blockquote><p>如果使用依赖注入的框架，如spring，则可以直接忽略他们的生命周期。因为这些框架可以创建线程安全的、基于事务的<code>SqlSession</code>和映射器，并将他们注入到bean中。</p></blockquote><h3 id="sqlsessionfactorybuilder"><code>SqlSessionFactoryBuilder</code></h3><p>该类可以被实例化、使用和丢弃，一旦创建了<code>SqlSessionFactory</code>，就可以不再用它了。因此<code>SqlSessionFactoryBuilder</code>实例最佳作用域是局部变量。可以重用<code>SqlSessionFactoryBuilder</code>来创建多个<code>SqlSessionFactory</code>实例。但是不要让其一直存在，避免一直占有资源。</p><h3 id="sqlsessionfactory"><code>SqlSessionFactory</code></h3><p><code>SqlSessionFactory</code>实例一旦创建，就应该在运行期间一直存在，对其清除和重建是浪费资源的。因此<code>SqlSessionFactory</code>的最佳作用域是应用级的，可以用单例模式或者静态单例模式创建</p><h3 id="sqlsession"><code>SqlSession</code></h3><p>每个线程都应该有它自己的 SqlSession 实例。SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。绝对不能将 SqlSession 实例的引用放在一个类的静态域，甚至一个类的实例变量也不行。也绝不能将<code>SqlSession</code>实例的引用放在任何类型的管理作用域中。简单概括来说，就是使用之前，创建；使用完之后，马上关闭。<code>SqlSession</code>实现了<code>Closeable</code>，因此可以使用自动关闭的特性：</p><pre><code class="language-java">try (SqlSession session = sqlSessionFactory.openSession()) {
+</code></pre>
+
+<p>对于简单的语句，用Java注解简洁清晰；但是对于复杂的语句，就显得有些混乱，那么可以使用XML映射语句。这两种方式可以自由移植和切换。</p>
+
+<h2 id="作用域和生命周期">作用域和生命周期</h2>
+
+<blockquote>
+<p>如果使用依赖注入的框架，如spring，则可以直接忽略他们的生命周期。因为这些框架可以创建线程安全的、基于事务的<code>SqlSession</code>和映射器，并将他们注入到bean中。</p>
+</blockquote>
+
+<h3 id="sqlsessionfactorybuilder"><code>SqlSessionFactoryBuilder</code></h3>
+
+<p>该类可以被实例化、使用和丢弃，一旦创建了<code>SqlSessionFactory</code>，就可以不再用它了。因此<code>SqlSessionFactoryBuilder</code>实例最佳作用域是局部变量。可以重用<code>SqlSessionFactoryBuilder</code>来创建多个<code>SqlSessionFactory</code>实例。但是不要让其一直存在，避免一直占有资源。</p>
+
+<h3 id="sqlsessionfactory"><code>SqlSessionFactory</code></h3>
+
+<p><code>SqlSessionFactory</code>实例一旦创建，就应该在运行期间一直存在，对其清除和重建是浪费资源的。因此<code>SqlSessionFactory</code>的最佳作用域是应用级的，可以用单例模式或者静态单例模式创建</p>
+
+<h3 id="sqlsession"><code>SqlSession</code></h3>
+
+<p>每个线程都应该有它自己的 SqlSession 实例。SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。绝对不能将 SqlSession 实例的引用放在一个类的静态域，甚至一个类的实例变量也不行。也绝不能将<code>SqlSession</code>实例的引用放在任何类型的管理作用域中。简单概括来说，就是使用之前，创建；使用完之后，马上关闭。<code>SqlSession</code>实现了<code>Closeable</code>，因此可以使用自动关闭的特性：</p>
+
+<pre><code class="language-java">try (SqlSession session = sqlSessionFactory.openSession()) {
     Person person = session.selectOne(&quot;mybatis.mapper.PersonMapper.selectPerson&quot;, 101);
 }
-</code></pre><h3 id="映射器实例">映射器实例</h3><p>映射器是用来绑定映射语句的接口，该实例是从<code>SqlSession</code>中获取的，所以映射器的作用域同<code>SqlSession</code>相同，其最佳作用域是方法作用域。</p><h1 id="xml映射配置文件">XML映射配置文件</h1><p>MyBatis配置文件的层次结构如下</p><pre><code>-- configuration
+</code></pre>
+
+<h3 id="映射器实例">映射器实例</h3>
+
+<p>映射器是用来绑定映射语句的接口，该实例是从<code>SqlSession</code>中获取的，所以映射器的作用域同<code>SqlSession</code>相同，其最佳作用域是方法作用域。</p>
+
+<h1 id="xml映射配置文件">XML映射配置文件</h1>
+
+<p>MyBatis配置文件的层次结构如下</p>
+
+<pre><code>-- configuration
    -- properties
    -- settings
    -- typeAliases
@@ -67,23 +559,128 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(confi
          -- dataSource
    -- databaseIdProvider
    -- mappers
-</code></pre><h2 id="properties"><code>properties</code></h2><p>这些属性相当于定义的变量，可以在Java属性文件中配置，也可以通过properties元素子元素传递：</p><pre><code class="language-xml">&lt;properties resource=&quot;jdbc.properties&quot;&gt;
+</code></pre>
+
+<h2 id="properties"><code>properties</code></h2>
+
+<p>这些属性相当于定义的变量，可以在Java属性文件中配置，也可以通过properties元素子元素传递：</p>
+
+<pre><code class="language-xml">&lt;properties resource=&quot;jdbc.properties&quot;&gt;
     &lt;property name=&quot;username&quot; value=&quot;dev_user&quot;/&gt;
     &lt;property name=&quot;password&quot; value=&quot;F2Fa3!33TYyg&quot;/&gt;
 &lt;/properties&gt;
-</code></pre><p>中期的属性可以在这个配置文件中使用：</p><pre><code class="language-xml">&lt;dataSource type=&quot;POOLED&quot;&gt;
+</code></pre>
+
+<p>中期的属性可以在这个配置文件中使用：</p>
+
+<pre><code class="language-xml">&lt;dataSource type=&quot;POOLED&quot;&gt;
     &lt;property name=&quot;driver&quot; value=&quot;${driver}&quot;/&gt;
     &lt;property name=&quot;url&quot; value=&quot;${url}&quot;/&gt;
     &lt;property name=&quot;username&quot; value=&quot;${username}&quot;/&gt;
     &lt;property name=&quot;password&quot; value=&quot;${password}&quot;/&gt;
 &lt;/dataSource&gt;
-</code></pre><p>上例中<code>username</code>和<code>password</code>会由<code>properties</code>元素中相应的值来替换，<code>driver</code>和<code>url</code>属性取自<code>jdbc.properties</code>。 如果在多个地方配置了属性，那么会按照下面对顺序来加载： 1. 首先读取<code>properties</code>元素体内指定的属性 2. 然后根据<code>properties</code>中的<code>resource</code>属性读取类路径下属性文件或根据<code>url</code>属性指定读取属性文件，并覆盖已读取的同名属性。 3. 最后读取作为方法参数传递的属性，并覆盖已读取的同名属性。 从MyBatis3.4.2开始，可以用占位符指定一个默认值。：</p><pre><code class="language-xml">&lt;dataSource type=&quot;POOLED&quot;&gt;
+</code></pre>
+
+<p>上例中<code>username</code>和<code>password</code>会由<code>properties</code>元素中相应的值来替换，<code>driver</code>和<code>url</code>属性取自<code>jdbc.properties</code>。
+如果在多个地方配置了属性，那么会按照下面对顺序来加载：
+1. 首先读取<code>properties</code>元素体内指定的属性
+2. 然后根据<code>properties</code>中的<code>resource</code>属性读取类路径下属性文件或根据<code>url</code>属性指定读取属性文件，并覆盖已读取的同名属性。
+3. 最后读取作为方法参数传递的属性，并覆盖已读取的同名属性。
+从MyBatis3.4.2开始，可以用占位符指定一个默认值。：</p>
+
+<pre><code class="language-xml">&lt;dataSource type=&quot;POOLED&quot;&gt;
   &lt;property name=&quot;username&quot; value=&quot;${username:ut_user}&quot;/&gt; &lt;!-- 如果'username'不存在, username 取值为'ut_user' --&gt;
 &lt;/dataSource&gt;
-</code></pre><p>这个特性默认是关闭的，需要在<code>properties</code>下，用指定的属性来开启此特性</p><pre><code class="language-xml">&lt;properties&gt;
+</code></pre>
+
+<p>这个特性默认是关闭的，需要在<code>properties</code>下，用指定的属性来开启此特性</p>
+
+<pre><code class="language-xml">&lt;properties&gt;
     &lt;property name=&quot;org.apache.ibatis.parsing.PropertyParser.enable-default-value&quot; value=&quot;true&quot;/&gt;
 &lt;/properties&gt;
-</code></pre><h2 id="settings">settings</h2><p>这是MyBatis中极为重要的调整设置，他们会改变MyBatis的运行时行为：</p><table><thead><tr><th align="left">设置参数</th><th align="left">描述</th><th align="left">取值</th><th align="left">默认值</th></tr></thead><tbody><tr><td align="left">cacheEnabled</td><td align="left">该配置影响所有映射器中配置的缓存的全局开关</td><td align="left">true/false</td><td align="left">true</td></tr><tr><td align="left">lazyLoadingEnabled</td><td align="left">延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置<code>fetchType</code>属性来覆盖该项的开关状态.</td><td align="left">true/false</td><td align="left">false</td></tr><tr><td align="left">aggressiveLazyLoading</td><td align="left">当开启时，任何方法的调用都会加载该对象的所有属性。否则，每个属性会按需加载（参考<code>lazyLoadTriggerMethods</code>).</td><td align="left">true\false</td><td align="left">false (true in ≤3.4.1)</td></tr><tr><td align="left">multipleResultSetsEnabled</td><td align="left">是否允许单一语句返回多结果集（需要兼容驱动）</td><td align="left">true\false</td><td align="left">true</td></tr><tr><td align="left">useColumnLabel</td><td align="left">使用列标签代替列名。不同的驱动在这方面会有不同的表现， 具体可参考相关驱动文档或通过测试这两种不同的模式来观察所用驱动的结果</td><td align="left">true\false</td><td align="left">true</td></tr><tr><td align="left">useGeneratedKeys</td><td align="left">允许 JDBC 支持自动生成主键，需要驱动兼容。 如果设置为 true 则这个设置强制使用自动生成主键，尽管一些驱动不能兼容但仍可正常工作</td><td align="left">true/false</td><td align="left">false</td></tr><tr><td align="left">autoMappingBehavior</td><td align="left">指定 MyBatis 应如何自动映射列到字段或属性。 NONE 表示取消自动映射；PARTIAL 只会自动映射没有定义嵌套结果集映射的结果集。 FULL 会自动映射任意复杂的结果集（无论是否嵌套）</td><td align="left">NONE,PARTIAL,FULL</td><td align="left">PARTIAL</td></tr><tr><td align="left">autoMappingUnknownColumnBehavior</td><td align="left">指定发现自动映射目标未知列（或者未知属性类型）的行为</td><td align="left">NONE, WARNING, FAILING</td><td align="left">NONE</td></tr><tr><td align="left">defaultExecutorType</td><td align="left">配置默认的执行器。SIMPLE 就是普通的执行器；REUSE 执行器会重用预处理语句（prepared statements）； BATCH 执行器将重用语句并执行批量更新</td><td align="left">SIMPLE REUSE BATCH</td><td align="left">SIMPLE</td></tr></tbody></table><pre><code class="language-xml">&lt;settings&gt;
+</code></pre>
+
+<h2 id="settings">settings</h2>
+
+<p>这是MyBatis中极为重要的调整设置，他们会改变MyBatis的运行时行为：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">设置参数</th>
+<th align="left">描述</th>
+<th align="left">取值</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">cacheEnabled</td>
+<td align="left">该配置影响所有映射器中配置的缓存的全局开关</td>
+<td align="left">true/false</td>
+<td align="left">true</td>
+</tr>
+
+<tr>
+<td align="left">lazyLoadingEnabled</td>
+<td align="left">延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置<code>fetchType</code>属性来覆盖该项的开关状态.</td>
+<td align="left">true/false</td>
+<td align="left">false</td>
+</tr>
+
+<tr>
+<td align="left">aggressiveLazyLoading</td>
+<td align="left">当开启时，任何方法的调用都会加载该对象的所有属性。否则，每个属性会按需加载（参考<code>lazyLoadTriggerMethods</code>).</td>
+<td align="left">true\false</td>
+<td align="left">false (true in ≤3.4.1)</td>
+</tr>
+
+<tr>
+<td align="left">multipleResultSetsEnabled</td>
+<td align="left">是否允许单一语句返回多结果集（需要兼容驱动）</td>
+<td align="left">true\false</td>
+<td align="left">true</td>
+</tr>
+
+<tr>
+<td align="left">useColumnLabel</td>
+<td align="left">使用列标签代替列名。不同的驱动在这方面会有不同的表现， 具体可参考相关驱动文档或通过测试这两种不同的模式来观察所用驱动的结果</td>
+<td align="left">true\false</td>
+<td align="left">true</td>
+</tr>
+
+<tr>
+<td align="left">useGeneratedKeys</td>
+<td align="left">允许 JDBC 支持自动生成主键，需要驱动兼容。 如果设置为 true 则这个设置强制使用自动生成主键，尽管一些驱动不能兼容但仍可正常工作</td>
+<td align="left">true/false</td>
+<td align="left">false</td>
+</tr>
+
+<tr>
+<td align="left">autoMappingBehavior</td>
+<td align="left">指定 MyBatis 应如何自动映射列到字段或属性。 NONE 表示取消自动映射；PARTIAL 只会自动映射没有定义嵌套结果集映射的结果集。 FULL 会自动映射任意复杂的结果集（无论是否嵌套）</td>
+<td align="left">NONE,PARTIAL,FULL</td>
+<td align="left">PARTIAL</td>
+</tr>
+
+<tr>
+<td align="left">autoMappingUnknownColumnBehavior</td>
+<td align="left">指定发现自动映射目标未知列（或者未知属性类型）的行为</td>
+<td align="left">NONE, WARNING, FAILING</td>
+<td align="left">NONE</td>
+</tr>
+
+<tr>
+<td align="left">defaultExecutorType</td>
+<td align="left">配置默认的执行器。SIMPLE 就是普通的执行器；REUSE 执行器会重用预处理语句（prepared statements）； BATCH 执行器将重用语句并执行批量更新</td>
+<td align="left">SIMPLE REUSE BATCH</td>
+<td align="left">SIMPLE</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-xml">&lt;settings&gt;
     &lt;!-- 该配置影响的所有映射器中配置的缓存的全局开关。 --&gt;
     &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;
     &lt;!-- 延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置fetchType属性来覆盖该项的开关状态。--&gt;
@@ -129,7 +726,13 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(confi
     &lt;!-- 指定 MyBatis 增加到日志名称的前缀。 --&gt;
     &lt;setting name=&quot;logPrefix&quot; value=&quot;mybatis&quot; /&gt;
 &lt;/settings&gt;
-</code></pre><h2 id="typealiases">typeAliases</h2><p>类型名是为Java类型设置一个短名字，只和XML配置有关，仅用来减少类完全限定名的冗余。比如：</p><pre><code class="language-xml">&lt;typeAliases&gt;
+</code></pre>
+
+<h2 id="typealiases">typeAliases</h2>
+
+<p>类型名是为Java类型设置一个短名字，只和XML配置有关，仅用来减少类完全限定名的冗余。比如：</p>
+
+<pre><code class="language-xml">&lt;typeAliases&gt;
   &lt;typeAlias alias=&quot;Author&quot; type=&quot;domain.blog.Author&quot;/&gt;
   &lt;typeAlias alias=&quot;Blog&quot; type=&quot;domain.blog.Blog&quot;/&gt;
   &lt;typeAlias alias=&quot;Comment&quot; type=&quot;domain.blog.Comment&quot;/&gt;
@@ -137,14 +740,30 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(confi
   &lt;typeAlias alias=&quot;Section&quot; type=&quot;domain.blog.Section&quot;/&gt;
   &lt;typeAlias alias=&quot;Tag&quot; type=&quot;domain.blog.Tag&quot;/&gt;
 &lt;/typeAliases&gt;
-</code></pre><p>这样，就可以在使用<code>domain.blog.Blog</code>的地方用<code>Blog</code>替换。 还可以通过指定包名，来批量指定别名：</p><pre><code class="language-xml">&lt;typeAliases&gt;
+</code></pre>
+
+<p>这样，就可以在使用<code>domain.blog.Blog</code>的地方用<code>Blog</code>替换。
+还可以通过指定包名，来批量指定别名：</p>
+
+<pre><code class="language-xml">&lt;typeAliases&gt;
   &lt;package name=&quot;domain.blog&quot;/&gt;
 &lt;/typeAliases&gt;
-</code></pre><p>这样每个在包<code>domain.blog</code>中的Java对象，在没有注解的情况下，会使用该对象的首字母小写的类名来作为它的别名。如<code>domain.blog.Author</code>的别名为<code>author</code>；如果有注解，那么以注解值为准。</p><pre><code class="language-java">@Alias(&quot;author&quot;)
+</code></pre>
+
+<p>这样每个在包<code>domain.blog</code>中的Java对象，在没有注解的情况下，会使用该对象的首字母小写的类名来作为它的别名。如<code>domain.blog.Author</code>的别名为<code>author</code>；如果有注解，那么以注解值为准。</p>
+
+<pre><code class="language-java">@Alias(&quot;author&quot;)
 public class Author {
     ...
 }
-</code></pre><h2 id="typehandlers">typeHandlers</h2><p>无论在处理预处理语句中设置一个参数时，还是从结果集中取出一个值时，都会用到类型处理器将获取的值以合适的方式转换成Java类型。这就是类型处理器。 我们可以重写类型处理器或创建自己的类型处理器来处理不支持的或非标准的类型。具体做法：实现<code>org.apache.ibatis.type.TypeHandler</code>接口，或者继承类<code>org.apache.ibatis.type.BaseTypeHandler</code>，然后可以选择性地将它映射到一个JDBC类型：</p><pre><code class="language-java">@MappedJdbcTypes(JdbcType.VARCHAR)
+</code></pre>
+
+<h2 id="typehandlers">typeHandlers</h2>
+
+<p>无论在处理预处理语句中设置一个参数时，还是从结果集中取出一个值时，都会用到类型处理器将获取的值以合适的方式转换成Java类型。这就是类型处理器。
+我们可以重写类型处理器或创建自己的类型处理器来处理不支持的或非标准的类型。具体做法：实现<code>org.apache.ibatis.type.TypeHandler</code>接口，或者继承类<code>org.apache.ibatis.type.BaseTypeHandler</code>，然后可以选择性地将它映射到一个JDBC类型：</p>
+
+<pre><code class="language-java">@MappedJdbcTypes(JdbcType.VARCHAR)
 public class ExampleTypeHandler extends BaseTypeHandler&lt;String&gt; {
     @Override
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, String s, JdbcType jdbcType) throws SQLException {
@@ -166,14 +785,43 @@ public class ExampleTypeHandler extends BaseTypeHandler&lt;String&gt; {
         return callableStatement.getString(columnIndex);
     }
 }
-</code></pre><p>这个类需要在MyBatis的配置文件中配置：</p><pre><code class="language-xml">&lt;typeHandlers&gt;
+</code></pre>
+
+<p>这个类需要在MyBatis的配置文件中配置：</p>
+
+<pre><code class="language-xml">&lt;typeHandlers&gt;
     &lt;typeHandler handler=&quot;org.mybatis.example.ExampleTypeHandler&quot;/&gt;
 &lt;/typeHandlers&gt;
-</code></pre><p>使用这个的类型处理器将会覆盖已经存在的处理<code>Java</code>的<code>String</code>类型属性和<code>VARCHAR</code>参数及结果的类型处理器。 &gt; MyBatis不会探测数据库元信息来决定使用哪种数据类型，所以必须在参数和结果映射中指明那个是<code>VARCHAR</code>类型的字段，以便能够绑定到正确的类型处理器上。</p><p>通过类型处理器的泛型，MyBatis 可以得知该类型处理器处理的 Java 类型，不过这种行为可以通过两种方法改变： - 在类型处理器的配置元素（typeHandler element）上增加一个 javaType 属性（比如：javaType=&ldquo;String&rdquo;）； - 在类型处理器的类上（TypeHandler class）增加一个 @MappedTypes 注解来指定与其关联的 Java 类型列表。 如果在 javaType 属性中也同时指定，则注解方式将被忽略。</p><p>可以通过两种方式来指定被关联的 JDBC 类型： - 在类型处理器的配置元素上增加一个 jdbcType 属性（比如：jdbcType=&ldquo;VARCHAR&rdquo;）； - 在类型处理器的类上（TypeHandler class）增加一个 @MappedJdbcTypes 注解来指定与其关联的 JDBC 类型列表。 如果在 jdbcType 属性中也同时指定，则注解方式将被忽略。</p><p>我们还可以让MyBatis自动查找类型处理器，该方式只能通过注解方式来指定JDBC类型：</p><pre><code class="language-xml">&lt;!-- mybatis-config.xml --&gt;
+</code></pre>
+
+<p>使用这个的类型处理器将会覆盖已经存在的处理<code>Java</code>的<code>String</code>类型属性和<code>VARCHAR</code>参数及结果的类型处理器。
+&gt; MyBatis不会探测数据库元信息来决定使用哪种数据类型，所以必须在参数和结果映射中指明那个是<code>VARCHAR</code>类型的字段，以便能够绑定到正确的类型处理器上。</p>
+
+<p>通过类型处理器的泛型，MyBatis 可以得知该类型处理器处理的 Java 类型，不过这种行为可以通过两种方法改变：
+- 在类型处理器的配置元素（typeHandler element）上增加一个 javaType 属性（比如：javaType=&ldquo;String&rdquo;）；
+- 在类型处理器的类上（TypeHandler class）增加一个 @MappedTypes 注解来指定与其关联的 Java 类型列表。 如果在 javaType 属性中也同时指定，则注解方式将被忽略。</p>
+
+<p>可以通过两种方式来指定被关联的 JDBC 类型：
+- 在类型处理器的配置元素上增加一个 jdbcType 属性（比如：jdbcType=&ldquo;VARCHAR&rdquo;）；
+- 在类型处理器的类上（TypeHandler class）增加一个 @MappedJdbcTypes 注解来指定与其关联的 JDBC 类型列表。 如果在 jdbcType 属性中也同时指定，则注解方式将被忽略。</p>
+
+<p>我们还可以让MyBatis自动查找类型处理器，该方式只能通过注解方式来指定JDBC类型：</p>
+
+<pre><code class="language-xml">&lt;!-- mybatis-config.xml --&gt;
 &lt;typeHandlers&gt;
   &lt;package name=&quot;org.mybatis.example&quot;/&gt;
 &lt;/typeHandlers&gt;
-</code></pre><h2 id="处理枚举类">处理枚举类</h2><p>若想映射枚举类型<code>Enum</code>，则需要从<code>EnumTypeHandler</code>或者<code>EnumOrdinalTypeHandler</code>中选一个来使用。</p><h2 id="对象工厂">对象工厂</h2><p>MyBatis 每次创建结果对象的新实例时，它都会使用一个对象工厂（ObjectFactory）实例来完成。 默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认构造方法，要么在参数映射存在的时候通过参数构造方法来实例化。 如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现。比如：</p><pre><code class="language-java">public class ExampleObjectFactory extends DefaultObjectFactory {
+</code></pre>
+
+<h2 id="处理枚举类">处理枚举类</h2>
+
+<p>若想映射枚举类型<code>Enum</code>，则需要从<code>EnumTypeHandler</code>或者<code>EnumOrdinalTypeHandler</code>中选一个来使用。</p>
+
+<h2 id="对象工厂">对象工厂</h2>
+
+<p>MyBatis 每次创建结果对象的新实例时，它都会使用一个对象工厂（ObjectFactory）实例来完成。 默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认构造方法，要么在参数映射存在的时候通过参数构造方法来实例化。 如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现。比如：</p>
+
+<pre><code class="language-java">public class ExampleObjectFactory extends DefaultObjectFactory {
   public Object create(Class type) {
     return super.create(type);
   }
@@ -187,11 +835,26 @@ public class ExampleTypeHandler extends BaseTypeHandler&lt;String&gt; {
     return Collection.class.isAssignableFrom(type);
   }
 }
-</code></pre><pre><code class="language-xml">&lt;!-- mybatis-config.xml --&gt;
+</code></pre>
+
+<pre><code class="language-xml">&lt;!-- mybatis-config.xml --&gt;
 &lt;objectFactory type=&quot;org.mybatis.example.ExampleObjectFactory&quot;&gt;
   &lt;property name=&quot;someProperty&quot; value=&quot;100&quot;/&gt;
 &lt;/objectFactory&gt;
-</code></pre><h2 id="插件">插件</h2><p>MyBatis允许你在已映射语句执行过程中的某一个点进行拦截调用。MyBatis允许使用插件拦截的调用有： - <code>Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)</code> - <code>ParameterHandler (getParameterObject, setParameters)</code> - <code>ResultSetHandler (handleResultSets, handleOutputParameters)</code> - <code>StatementHandler (prepare, parameterize, batch, update, query)</code></p><p>假设你想做的不仅仅是监控方法的调用，那么你应该很好的了解正在重写的方法的行为。 因为如果试图修改或重写已有方法，你很可能在破坏 MyBatis的核心模块。 这些都是更低层的类和方法，所以使用插件的时候要特别当心。 使用插件，只需要实现<code>Interceptor</code>接口，并指定想要拦截的方法签名即可。</p><pre><code class="language-java">@Intercepts({
+</code></pre>
+
+<h2 id="插件">插件</h2>
+
+<p>MyBatis允许你在已映射语句执行过程中的某一个点进行拦截调用。MyBatis允许使用插件拦截的调用有：
+- <code>Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)</code>
+- <code>ParameterHandler (getParameterObject, setParameters)</code>
+- <code>ResultSetHandler (handleResultSets, handleOutputParameters)</code>
+- <code>StatementHandler (prepare, parameterize, batch, update, query)</code></p>
+
+<p>假设你想做的不仅仅是监控方法的调用，那么你应该很好的了解正在重写的方法的行为。 因为如果试图修改或重写已有方法，你很可能在破坏 MyBatis的核心模块。 这些都是更低层的类和方法，所以使用插件的时候要特别当心。
+使用插件，只需要实现<code>Interceptor</code>接口，并指定想要拦截的方法签名即可。</p>
+
+<pre><code class="language-java">@Intercepts({
     @Signature(
         type = Executor.class,
         method = &quot;update&quot;,
@@ -214,32 +877,179 @@ public class ExamplePlugin implements Interceptor {
 
     }
 }
-</code></pre><p>配置文件中需要增加：</p><pre><code class="language-xml">&lt;plugins&gt;
+</code></pre>
+
+<p>配置文件中需要增加：</p>
+
+<pre><code class="language-xml">&lt;plugins&gt;
   &lt;plugin interceptor=&quot;org.mybatis.example.ExamplePlugin&quot;&gt;
     &lt;property name=&quot;someProperty&quot; value=&quot;100&quot;/&gt;
   &lt;/plugin&gt;
 &lt;/plugins&gt;
-</code></pre><p>上面的插件将会拦截在<code>Executor</code>实例中所有的 “update” 方法调用，这里的<code>Executor</code>是负责执行低层映射语句的内部对象。</p><h2 id="配置环境">配置环境</h2><p>每个数据库应该对应至少一个<code>SqlSessionFactory</code>实例。 MyBatis中有两种类型的事务管理器（<code>type=&quot;[JDBC|MANAGED]&quot;</code>) - JDBC: 这个配置就是直接使用了JDBC的提交和回滚设置，它依赖于从数据源得到的连接来管理事物作用域 - MANAGED：这个配置将管理事务的整个生命周期的任务交给了容器。默认情况下它会关闭连接，然而一些容器并不希望这样，因此需要将 closeConnection 属性设置为 false 来阻止它默认的关闭行为。例如:</p><pre><code class="language-xml">&lt;transactionManager type=&quot;MANAGED&quot;&gt;
+</code></pre>
+
+<p>上面的插件将会拦截在<code>Executor</code>实例中所有的 “update” 方法调用，这里的<code>Executor</code>是负责执行低层映射语句的内部对象。</p>
+
+<h2 id="配置环境">配置环境</h2>
+
+<p>每个数据库应该对应至少一个<code>SqlSessionFactory</code>实例。
+MyBatis中有两种类型的事务管理器（<code>type=&quot;[JDBC|MANAGED]&quot;</code>)
+- JDBC: 这个配置就是直接使用了JDBC的提交和回滚设置，它依赖于从数据源得到的连接来管理事物作用域
+- MANAGED：这个配置将管理事务的整个生命周期的任务交给了容器。默认情况下它会关闭连接，然而一些容器并不希望这样，因此需要将 closeConnection 属性设置为 false 来阻止它默认的关闭行为。例如:</p>
+
+<pre><code class="language-xml">&lt;transactionManager type=&quot;MANAGED&quot;&gt;
   &lt;property name=&quot;closeConnection&quot; value=&quot;false&quot;/&gt;
 &lt;/transactionManager&gt;
-</code></pre><blockquote><p>如果使用 Spring + MyBatis，则没有必要配置事务管理器， 因为 Spring 模块会使用自带的管理器来覆盖前面的配置。</p></blockquote><h3 id="datasource-数据源">dataSource 数据源</h3><p>有三种内建的数据源类型 (<code>type=&quot;[UNPOLLED|POOLED|JNDI]&quot;</code>) 1. UNPOOLED：每次被请求时打开和关闭连接 2. POOLED: 利用数据库连接池，避免了创建新的连接实例时所需要的初始化和认证时间，有比较多的属性可以配置： - <code>poolMaximumActiveConnections</code>: 最大连接数量 - <code>poolMaximumIdleConnections</code>: 最大空闲连接数 - <code>poolMaximumCheckoutTime</code>: 连接池中的连接被检出时间 - <code>poolTimeToWait</code>: 这是一个底层设置，如果获取连接花费的相当长的时间，它会给连接池打印状态日志并重新尝试获取一个连接 - <code>poolPingQuery</code>: 发送到数据库的侦测查询，用来检验连接是否处在正常工作秩序中并准备接受请求 - <code>poolPingEnabled</code>: 是否启用侦测查询。默认值<code>false</code>，启用是必须设置一个可执行的SQL语句作为<code>poolPingQuery</code>的值 - <code>poolPingConnectionsNotUsedFor</code>: 配置 poolPingQuery 的使用频度。 3. JNDI: 在EJB或应用服务器类容器中使用</p><h1 id="mapper-xml映射文件">Mapper XML映射文件</h1><p>XML SQL映射文件中有一下几个顶级元素： - <code>cache</code>: 给定命名空间的缓存配置 - <code>cache-ref</code>: 其他命名空间缓存配置的引用。 - <code>resultMap</code>: 是最复杂也是最强大的元素，用来描述如何从数据库结果集中来加载对象。 - <code>sql</code>: 可以被其他语句引用的重用块 - <code>insert</code>: 插入语句 - <code>update</code>: 更新语句 - <code>delete</code>: 删除语句 - <code>select</code>: 查询语句</p><h2 id="select"><code>select</code></h2><p>查询是数据库操作中应用最频繁的语句。MyBatis简单的<code>select</code>非常简单：</p><pre><code class="language-xml">&lt;select id=&quot;findById&quot; parameterType=&quot;int&quot; resultType=&quot;hashmap&quot; timeout=&quot;1000&quot;&gt;
+</code></pre>
+
+<blockquote>
+<p>如果使用 Spring + MyBatis，则没有必要配置事务管理器， 因为 Spring 模块会使用自带的管理器来覆盖前面的配置。</p>
+</blockquote>
+
+<h3 id="datasource-数据源">dataSource 数据源</h3>
+
+<p>有三种内建的数据源类型 (<code>type=&quot;[UNPOLLED|POOLED|JNDI]&quot;</code>)
+1. UNPOOLED：每次被请求时打开和关闭连接
+2. POOLED: 利用数据库连接池，避免了创建新的连接实例时所需要的初始化和认证时间，有比较多的属性可以配置：
+  - <code>poolMaximumActiveConnections</code>: 最大连接数量
+  - <code>poolMaximumIdleConnections</code>: 最大空闲连接数
+  - <code>poolMaximumCheckoutTime</code>: 连接池中的连接被检出时间
+  - <code>poolTimeToWait</code>:  这是一个底层设置，如果获取连接花费的相当长的时间，它会给连接池打印状态日志并重新尝试获取一个连接
+  - <code>poolPingQuery</code>: 发送到数据库的侦测查询，用来检验连接是否处在正常工作秩序中并准备接受请求
+  - <code>poolPingEnabled</code>: 是否启用侦测查询。默认值<code>false</code>，启用是必须设置一个可执行的SQL语句作为<code>poolPingQuery</code>的值
+  - <code>poolPingConnectionsNotUsedFor</code>: 配置 poolPingQuery 的使用频度。
+3. JNDI: 在EJB或应用服务器类容器中使用</p>
+
+<h1 id="mapper-xml映射文件">Mapper XML映射文件</h1>
+
+<p>XML SQL映射文件中有一下几个顶级元素：
+- <code>cache</code>: 给定命名空间的缓存配置
+- <code>cache-ref</code>: 其他命名空间缓存配置的引用。
+- <code>resultMap</code>: 是最复杂也是最强大的元素，用来描述如何从数据库结果集中来加载对象。
+- <code>sql</code>: 可以被其他语句引用的重用块
+- <code>insert</code>: 插入语句
+- <code>update</code>: 更新语句
+- <code>delete</code>: 删除语句
+- <code>select</code>: 查询语句</p>
+
+<h2 id="select"><code>select</code></h2>
+
+<p>查询是数据库操作中应用最频繁的语句。MyBatis简单的<code>select</code>非常简单：</p>
+
+<pre><code class="language-xml">&lt;select id=&quot;findById&quot; parameterType=&quot;int&quot; resultType=&quot;hashmap&quot; timeout=&quot;1000&quot;&gt;
     SELECT * FROM person WHERE id=#{id}
 &lt;/select&gt;
-</code></pre><p>上面语句 <code>findById</code>，接受一个 <code>int</code> 类型的参数，并返回一个 <code>HashMap</code> 类型的对象。其中的键是列名，值是结果行中对应的值。</p><p>其中 <code>#{id}</code> 就是传入的参数。</p><p>MyBatis 会创建一个预处理语句参数，就像：</p><pre><code class="language-java">String selectPerson = &quot;SELECT * FROM person WHERE id=?&quot;;
+</code></pre>
+
+<p>上面语句 <code>findById</code>，接受一个 <code>int</code> 类型的参数，并返回一个 <code>HashMap</code> 类型的对象。其中的键是列名，值是结果行中对应的值。</p>
+
+<p>其中 <code>#{id}</code> 就是传入的参数。</p>
+
+<p>MyBatis 会创建一个预处理语句参数，就像：</p>
+
+<pre><code class="language-java">String selectPerson = &quot;SELECT * FROM person WHERE id=?&quot;;
 PreparedStatement ps = conn.prepareStatement(selectPerson);
 ps.setInt(1, id);
-</code></pre></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/sql">#sql</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/sql">#sql</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/java/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cstream/" rel="prev">Lambda表达式和Stream</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/java/java%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A7%81%E8%BF%87%E7%9A%84%E7%94%A8%E6%B3%95/" rel="next">java中没有见过的用法</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/java/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cstream/" rel="prev">Lambda表达式和Stream</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/java/java%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A7%81%E8%BF%87%E7%9A%84%E7%94%A8%E6%B3%95/" rel="next">java中没有见过的用法</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

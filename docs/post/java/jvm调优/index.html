@@ -1,10 +1,416 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>jvm调优 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    jvm调优 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/java/jvm%E8%B0%83%E4%BC%98/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/java/">Java</a> <span class="breadcrumb">jvm调优</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#垃圾回收">垃圾回收</a><ul><li><a href="#jps-jvm进程状况"><code>jps</code>: JVM进程状况</a></li><li><a href="#jstat-jvm-统计信息监控工具"><code>jstat</code>: JVM 统计信息监控工具</a></li><li><a href="#jinfo-java-配置信息"><code>jinfo</code>: Java 配置信息</a></li><li><a href="#jmap-java-内存映射工具"><code>jmap</code>: Java 内存映射工具</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">jvm调优 </span><span class="card-meta"><time><span>Thu Sep 21 2017</span></time><address><a href="https://wzhongke.github.io//categories/java">java</a>&nbsp;</address></span><article class="article"><h1 id="垃圾回收">垃圾回收</h1><p>CMS 收集器无法处理浮动垃圾（Floating Garbage），可能会出现 <code>Concurrent Mode Failure</code> 失败，而导致另一次 STW 的 Full GC 的产生。 由于 CMS 并发清理阶段用户线程还在运行，伴随着程序运行自然就还会有新的垃圾不断产生，这部分垃圾出现在标记过程之后，CMS 无法在当次收集中处理掉它们，只好留到下次</p><p>在常见的线上问题中，如下问题比较常见： - 内存泄露 - 某个进程CPU突然飙升 - 线程死锁 - 响应变慢</p><p>如果遇到上述问题，我们可以基于监控工具来定位问题。java中常用的分析监控工具有： <code>jps</code>、<code>jstat</code>、<code>jinfo</code>、<code>jmap</code>、<code>jhat</code>、<code>jstack</code></p><h2 id="jps-jvm进程状况"><code>jps</code>: JVM进程状况</h2><p><code>jps</code>用来查看进程的状况，语法如下：</p><pre><code class="language-bash">jps [options] [hostid]
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/java/'>Java</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">jvm调优</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#垃圾回收">垃圾回收</a>
+<ul>
+<li><a href="#jps-jvm进程状况"><code>jps</code>: JVM进程状况</a></li>
+<li><a href="#jstat-jvm-统计信息监控工具"><code>jstat</code>: JVM 统计信息监控工具</a></li>
+<li><a href="#jinfo-java-配置信息"><code>jinfo</code>: Java 配置信息</a></li>
+<li><a href="#jmap-java-内存映射工具"><code>jmap</code>: Java 内存映射工具</a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">jvm调优 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Thu Sep 21 2017</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/java">java</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<h1 id="垃圾回收">垃圾回收</h1>
+
+<p>CMS 收集器无法处理浮动垃圾（Floating Garbage），可能会出现 <code>Concurrent Mode Failure</code> 失败，而导致另一次 STW 的 Full GC 的产生。
+由于 CMS 并发清理阶段用户线程还在运行，伴随着程序运行自然就还会有新的垃圾不断产生，这部分垃圾出现在标记过程之后，CMS 无法在当次收集中处理掉它们，只好留到下次</p>
+
+<p>在常见的线上问题中，如下问题比较常见：
+- 内存泄露
+- 某个进程CPU突然飙升
+- 线程死锁
+- 响应变慢</p>
+
+<p>如果遇到上述问题，我们可以基于监控工具来定位问题。java中常用的分析监控工具有： <code>jps</code>、<code>jstat</code>、<code>jinfo</code>、<code>jmap</code>、<code>jhat</code>、<code>jstack</code></p>
+
+<h2 id="jps-jvm进程状况"><code>jps</code>: JVM进程状况</h2>
+
+<p><code>jps</code>用来查看进程的状况，语法如下：</p>
+
+<pre><code class="language-bash">jps [options] [hostid]
 参数：
 -q: 不输出类名、jar名和传入main方法的参数
 -l: 输出main类或jar的全限名
@@ -15,23 +421,225 @@
 jps -l
     7605 sun.tools.jps.Jps
     13598 com.caucho.server.resin.Resin
-</code></pre><h2 id="jstat-jvm-统计信息监控工具"><code>jstat</code>: JVM 统计信息监控工具</h2><p><code>jstat</code> 是用于查看虚拟机各种运行状态的命令行工具，它可以显示本地或远程虚拟机中的类装载、内存、垃圾收集、jit编译等运行数据。其具体用法如下：</p><pre><code>jstat [generalOption|outputOptions vmid [interval[s|ms] [count]]]
+</code></pre>
+
+<h2 id="jstat-jvm-统计信息监控工具"><code>jstat</code>: JVM 统计信息监控工具</h2>
+
+<p><code>jstat</code> 是用于查看虚拟机各种运行状态的命令行工具，它可以显示本地或远程虚拟机中的类装载、内存、垃圾收集、jit编译等运行数据。其具体用法如下：</p>
+
+<pre><code>jstat [generalOption|outputOptions vmid [interval[s|ms] [count]]]
 generalOption: 单个常用的命令行选项，如 -help, -options
 outputOptions: 一个或多个输出选项，由单个的statOption选项组成
-</code></pre><table><thead><tr><th align="left">option</th><th align="left">用途</th><th align="left">例子</th></tr></thead><tbody><tr><td align="left">class</td><td align="left">用于查看类加载情况的统计</td><td align="left">jstat -class pid : 显示加载class的数量，所占空间等信息</td></tr><tr><td align="left">complier</td><td align="left">查看HotSpot中即时编译情况统计</td><td align="left"><code>jstat -compiler pid</code>: 显示VM实时编译数量等信息</td></tr><tr><td align="left">gc</td><td align="left">查看JVM中堆的垃圾收集情况的统计</td><td align="left"><code>jstat -gc pid</code></td></tr><tr><td align="left">gccapacity</td><td align="left">查看新生代、老生代及持久代的存储容量情况</td><td align="left"><code>jstat -gccapacity</code>: 可以显示VMware内存中三代对象的使用和占用大小</td></tr><tr><td align="left">gccause</td><td align="left">查看垃圾收集的统计情况，如果有发生垃圾收集，它还会显示最后一次及当前正在发生的垃圾收集原因</td><td align="left"><code>jstat -gccause</code>: 显示gc原因</td></tr><tr><td align="left">gcnew</td><td align="left">查看新生代垃圾内含物的情况</td><td align="left"><code>jstat -gcnew pid</code>: new 对象的信息</td></tr><tr><td align="left">gcnewcapacity</td><td align="left">用于查看新生代的存储容量情况</td><td align="left"><code>jstat -gcnewcapacity pid</code>: new 对象的信息及其占用量</td></tr><tr><td align="left">gcold</td><td align="left">查看老生代及持久代GC情况</td><td align="left"><code>jstat -gcold pid</code>: old 对象的信息</td></tr><tr><td align="left">gcoldcapacity</td><td align="left">用于查看老生代的容量</td><td align="left"><code>jstat -gcoldcapacity</code>: old对象的信息及其占用量</td></tr><tr><td align="left">gcpermacpacity</td><td align="left">用于查看持久代的容量</td><td align="left"><code>jstat -gcpermcapacity pid</code>: 持久代对象的信息</td></tr><tr><td align="left">gcutil</td><td align="left">查看新生代、老年代及持久代垃圾收集情况</td><td align="left"><code>jstat -util pid</code>: 统计gc信息</td></tr></tbody></table><p>示例</p><pre><code class="language-bash">jstat -gc 17835
-</code></pre><p>结果 S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT<br>43520.0 43520.0 0.0 0.0 611840.0 371440.0 1398272.0 1077246.3 34816.0 33485.4 3584.0 3324.3 7 1.202 32 34.763 35.966</p><p>参数说明：</p><h2 id="jinfo-java-配置信息"><code>jinfo</code>: Java 配置信息</h2><p><code>jinfo</code> 可以获取当前线程的jvm运行和启动信息，使用如下：</p><pre><code class="language-bash">jinfo [option] pid
-</code></pre><h2 id="jmap-java-内存映射工具"><code>jmap</code>: Java 内存映射工具</h2><p><code>jmap</code> 命令用于将堆转存成快照，</p><p>[nioEventLoopGroup-3-35] ERROR io.netty.util.ResourceLeakDetector 171 - LEAK: ByteBuf.release() was not called before it&rsquo;s garbage-collected. See <a href="http://netty.io/wiki/reference-counted-objects.html">http://netty.io/wiki/reference-counted-objects.html</a> for more information. Recent access records: #1: Hint: &lsquo;HttpServerHandler#0&rsquo; will handle the message from this point. io.netty.buffer.AdvancedLeakAwareCompositeByteBuf.touch(AdvancedLeakAwareCompositeByteBuf.java:36) io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpMessage.touch(HttpObjectAggregator.java:374) io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpRequest.touch(HttpObjectAggregator.java:453) io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpRequest.touch(HttpObjectAggregator.java:404) io.netty.channel.DefaultChannelPipeline.touch(DefaultChannelPipeline.java:116)</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/java">#java</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">option</th>
+<th align="left">用途</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">class</td>
+<td align="left">用于查看类加载情况的统计</td>
+<td align="left">jstat -class pid : 显示加载class的数量，所占空间等信息</td>
+</tr>
+
+<tr>
+<td align="left">complier</td>
+<td align="left">查看HotSpot中即时编译情况统计</td>
+<td align="left"><code>jstat -compiler pid</code>: 显示VM实时编译数量等信息</td>
+</tr>
+
+<tr>
+<td align="left">gc</td>
+<td align="left">查看JVM中堆的垃圾收集情况的统计</td>
+<td align="left"><code>jstat -gc pid</code></td>
+</tr>
+
+<tr>
+<td align="left">gccapacity</td>
+<td align="left">查看新生代、老生代及持久代的存储容量情况</td>
+<td align="left"><code>jstat -gccapacity</code>: 可以显示VMware内存中三代对象的使用和占用大小</td>
+</tr>
+
+<tr>
+<td align="left">gccause</td>
+<td align="left">查看垃圾收集的统计情况，如果有发生垃圾收集，它还会显示最后一次及当前正在发生的垃圾收集原因</td>
+<td align="left"><code>jstat -gccause</code>: 显示gc原因</td>
+</tr>
+
+<tr>
+<td align="left">gcnew</td>
+<td align="left">查看新生代垃圾内含物的情况</td>
+<td align="left"><code>jstat -gcnew pid</code>: new 对象的信息</td>
+</tr>
+
+<tr>
+<td align="left">gcnewcapacity</td>
+<td align="left">用于查看新生代的存储容量情况</td>
+<td align="left"><code>jstat -gcnewcapacity pid</code>: new 对象的信息及其占用量</td>
+</tr>
+
+<tr>
+<td align="left">gcold</td>
+<td align="left">查看老生代及持久代GC情况</td>
+<td align="left"><code>jstat -gcold pid</code>: old 对象的信息</td>
+</tr>
+
+<tr>
+<td align="left">gcoldcapacity</td>
+<td align="left">用于查看老生代的容量</td>
+<td align="left"><code>jstat -gcoldcapacity</code>: old对象的信息及其占用量</td>
+</tr>
+
+<tr>
+<td align="left">gcpermacpacity</td>
+<td align="left">用于查看持久代的容量</td>
+<td align="left"><code>jstat -gcpermcapacity pid</code>: 持久代对象的信息</td>
+</tr>
+
+<tr>
+<td align="left">gcutil</td>
+<td align="left">查看新生代、老年代及持久代垃圾收集情况</td>
+<td align="left"><code>jstat -util pid</code>: 统计gc信息</td>
+</tr>
+</tbody>
+</table>
+
+<p>示例</p>
+
+<pre><code class="language-bash">jstat -gc 17835
+</code></pre>
+
+<p>结果
+ S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT<br />
+43520.0 43520.0  0.0    0.0   611840.0 371440.0 1398272.0  1077246.3  34816.0 33485.4 3584.0 3324.3      7    1.202  32     34.763   35.966</p>
+
+<p>参数说明：</p>
+
+<h2 id="jinfo-java-配置信息"><code>jinfo</code>: Java 配置信息</h2>
+
+<p><code>jinfo</code> 可以获取当前线程的jvm运行和启动信息，使用如下：</p>
+
+<pre><code class="language-bash">jinfo [option] pid
+</code></pre>
+
+<h2 id="jmap-java-内存映射工具"><code>jmap</code>: Java 内存映射工具</h2>
+
+<p><code>jmap</code> 命令用于将堆转存成快照，</p>
+
+<p>[nioEventLoopGroup-3-35] ERROR io.netty.util.ResourceLeakDetector 171 - LEAK: ByteBuf.release() was not called before it&rsquo;s garbage-collected. See <a href="http://netty.io/wiki/reference-counted-objects.html">http://netty.io/wiki/reference-counted-objects.html</a> for more information.
+Recent access records:
+#1:
+    Hint: &lsquo;HttpServerHandler#0&rsquo; will handle the message from this point.
+    io.netty.buffer.AdvancedLeakAwareCompositeByteBuf.touch(AdvancedLeakAwareCompositeByteBuf.java:36)
+    io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpMessage.touch(HttpObjectAggregator.java:374)
+    io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpRequest.touch(HttpObjectAggregator.java:453)
+    io.netty.handler.codec.http.HttpObjectAggregator$AggregatedFullHttpRequest.touch(HttpObjectAggregator.java:404)
+    io.netty.channel.DefaultChannelPipeline.touch(DefaultChannelPipeline.java:116)</p>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/java">#java</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/linux/linux-server/" rel="prev">linux 网络常用命令</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/" rel="next">MySQL技巧</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/linux/linux-server/" rel="prev">linux 网络常用命令</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/mysql/mysql%E6%8A%80%E5%B7%A7/" rel="next">MySQL技巧</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

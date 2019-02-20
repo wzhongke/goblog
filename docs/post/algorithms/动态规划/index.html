@@ -1,17 +1,541 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>动态规划 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/algorithms/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    动态规划 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/algorithms/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/algorithms/">Algorithms</a> <span class="breadcrumb">动态规划</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#什么是动态规划算法">什么是动态规划算法</a></li><li><a href="#动态规划原理">动态规划原理</a><ul><li><a href="#最优子结构">最优子结构</a></li><li><a href="#是否是最优解">是否是最优解</a></li><li><a href="#重叠子问题">重叠子问题</a></li><li><a href="#重构最优解">重构最优解</a></li></ul></li><li><a href="#钢条切割">钢条切割</a><ul><li><a href="#使用动态规划方法求解最优钢条切割问题">使用动态规划方法求解最优钢条切割问题</a></li><li><a href="#子问题图">子问题图</a></li><li><a href="#重构解">重构解</a></li></ul></li><li><a href="#最长公共子序列">最长公共子序列</a><ul><li><a href="#刻画最长公共子序列特征">刻画最长公共子序列特征</a></li><li><a href="#一个递归解">一个递归解</a></li><li><a href="#计算lcs的长度">计算LCS的长度</a></li><li><a href="#构造lcs">构造LCS</a></li><li><a href="#算法改进">算法改进</a></li></ul></li><li><a href="#最优二叉搜索树">最优二叉搜索树</a><ul><li><a href="#最优二叉树的结构">最优二叉树的结构</a></li><li><a href="#一个递归算法">一个递归算法</a></li><li><a href="#计算最优二叉树搜索的期望搜索代价">计算最优二叉树搜索的期望搜索代价</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">动态规划 </span><span class="card-meta"><time><span>Fri Dec 22 2017</span></time><address><a href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;</address></span><article class="article"><h1 id="什么是动态规划算法">什么是动态规划算法</h1><p>动态规划算法同分治方法相似，都是通过组合子问题的解来求解原问题。分治算法将原问题划分为互不相交的子问题，递归地求解问题，在再将子问题的解组合起来，求出原问题的解。而动态规划应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。在这种情况向下，分治算法会做许多不必要的计算，它会反复计算公共子问题。而动态规划算法对公共子问题只求解一次，然后将其解保存在一个表格中，避免了不必要的计算。 <strong>动态规划算法通常用来求解最优化问题。</strong> 动态规划算法的设计步骤：</p><ol><li><strong>刻画一个最优解的结构特征</strong></li><li><strong>递归地定义最优解的值</strong></li><li><strong>计算最优解的值，通常采用自底向上的方法</strong></li><li><strong>利用计算出的信息构造一个解</strong>。</li></ol><h1 id="动态规划原理">动态规划原理</h1><p>动态规划算法就是将递归算法重复计算子问题的计算结果保留，这样可以避免重复计算子问题。</p><p>从工程角度看，在什么情况下应该使用动态规划算法求解问题呢？</p><p>适合应用动态规划算法求解的最优化问题，应该具备两个要素：最优子结构和子问题重叠。</p><h2 id="最优子结构">最优子结构</h2><p>用动态规划求解最优问题的第一步就是刻画最优解的结构。<strong>如果一个问题的最优解包含子问题的最优解，我们就称此问题具有最优子结构性质。</strong>具有最优子结构是使用动态规划算法的标志。</p><p>发掘最优子结构性质可以采用如下通用模式：</p><ol><li>证明问题最优解的第一个组成部分是做出一个选择，做出这个选择后会产生一个或者多个待解的子问题</li><li>给定一个问题，在其可能的第一步选择中，假定已经知道哪种选择才会得到最优解。</li><li>给定可获得的最优解后，确定这次选择会产生哪些子问题，以及如何最好地刻画子问题空间。</li><li>用“剪切-粘贴”的技术证明：作为构成原问题最优解的组成部分，每个子问题的解就是它本身的最优解。可以利用反正法：假定子问题的解不是其自身的最优解，那么我们就可以从原问题的解中“剪切”掉这些非最优解，将最优解“粘贴”进去，从而得到原问题的一个更优解，这与最初的解是原问题的最优解的前提假设矛盾。</li></ol><p>一个刻画问题的好经验就是：<strong>保持子问题空间尽量简单，只有在必要时才扩展它。</strong>（使用几维数组保存子问题的解）。</p><p>我们可以用子问题的总数和每个子问题需要考察多少种选择这两个因素的乘积来粗略分析动态规划算法的运行时间。对于钢条切割问题，共有n个子问题，每个子问题最多需要考察n中选择，因此运行时间是 $O(n^2)$. 动态规划方法中，我们通常会自底向上地使用最优子结构，首先求解子问题的最优解，然后求解原问题的最优解。在求解原问题过程中，我们需要在涉及的子问题中做出选择，选出能得到原问题最优解的子问题。</p><h2 id="是否是最优解">是否是最优解</h2><p>在尝试使用动态规划时要注意问题是否有最优子结构。尤其注意两个子问题是否是无关的，即同一个原问题的一个子问题的解不影响另一个子问题的解。</p><h2 id="重叠子问题">重叠子问题</h2><p>适合动态规划方法求解的最优化问题应该具备的第二个性质是 <strong>问题的递归算法会反复地求解相同的子问题，而不是一直生成新的问题</strong> 一般来讲，不同子问题的总数是输入规模的多项式函数最好。如果递归算法反复求解相同的子问题，我们就称最优化问题具有重叠子问题性质。与之相对，适合用分治方法求解的问题通常在递归的每一步都生成全新的问题。 <strong>一个问题的自然递归算法的递归调用树中出现相同的子问题，而不同的子问题的总数很少时，动态规划算都能提高效率</strong>。</p><h2 id="重构最优解">重构最优解</h2><p>我们通常将每个子问题所做的选择存储在一个表里，这样就不用根据代价重构这些信息。就如钢条切割问题中的带备忘机制的递归算法。</p><h1 id="钢条切割">钢条切割</h1><p>钢条切割问题：给定一段长度为n英寸的钢条和一个价格表 $p_i(i=1,2,&hellip;,n)$，求钢条的切割方案，使得销售收益 $r_n$ 最大。价格表如下：</p><table><thead><tr><th align="left">长度</th><th align="left">1</th><th align="left">2</th><th align="left">3</th><th align="left">4</th><th align="left">5</th><th align="left">6</th><th align="left">7</th><th align="left">8</th><th align="left">9</th><th align="left">10</th></tr></thead><tbody><tr><td align="left">价格</td><td align="left">1</td><td align="left">5</td><td align="left">8</td><td align="left">9</td><td align="left">10</td><td align="left">17</td><td align="left">17</td><td align="left">20</td><td align="left">24</td><td align="left">30</td></tr></tbody></table><p>长度为$n$英寸的钢条共有 $2^{(n-1)}$ 种不同的切割方案，因为在距离钢条左端 $i$ 英寸处，可以选择切割或不切割。我们用加号表示切割方案，$7=2+2+3$ 表示将长度为7的钢条切成三段。如果最优解将钢条切割为k段($1\leq k\leq n$)，那么最优的切割方案 $$ n = i_1 + i_2 + &hellip; + i_k $$ 该方案的最大收益是 $$ r_n = p_{i1} + p_{i2} + &hellip; + p_{ik} $$ 更直接的，我们可以将钢条的最优切割收益记做： $$ r_n = \max \left(p_n, r_1 + r_{n-1}, r_2 + r_{n-2}, &hellip;, r_{n-1} + r_1\right)$$ 第一个参数 $p_n$ 对应不切割，直接出售长度为n的钢条的方案。其他n-1个参数对应另外n-1种方案：对于每个 $i=1,2&hellip;,n-1$，首先将钢条切割成长度为 $i$ 和 $n-i$ 的两段，接着求解这两段的最优切割收益 $r_i$和$r_{n-i}$，因为无法预知哪种方案会获得最优收益，我们需要考虑所有可能的i，选择其中收益最大者。 为了求解规模为n的原问题，我们先求解形式完全一样，但规模更小的子问题。即当完成首次切割以后，我们将两段钢条看成两个独立的钢条切割问题，通过组合两个相关子问题的最优解，并在所有可能的两段切割方案中选区组合收益最大者，构成原问题的解，该问题是满足最优子结构的。 我们首先使用递归方式求解该问题，其递归式可以写为： $r_n = \max (p_i + r_{n-i}) 1\leq i \leq n$ 其伪代码如下：</p><pre><code>CUT-ROD(p,n)
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/algorithms/'>Algorithms</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">动态规划</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#什么是动态规划算法">什么是动态规划算法</a></li>
+<li><a href="#动态规划原理">动态规划原理</a>
+<ul>
+<li><a href="#最优子结构">最优子结构</a></li>
+<li><a href="#是否是最优解">是否是最优解</a></li>
+<li><a href="#重叠子问题">重叠子问题</a></li>
+<li><a href="#重构最优解">重构最优解</a></li>
+</ul></li>
+<li><a href="#钢条切割">钢条切割</a>
+<ul>
+<li><a href="#使用动态规划方法求解最优钢条切割问题">使用动态规划方法求解最优钢条切割问题</a></li>
+<li><a href="#子问题图">子问题图</a></li>
+<li><a href="#重构解">重构解</a></li>
+</ul></li>
+<li><a href="#最长公共子序列">最长公共子序列</a>
+<ul>
+<li><a href="#刻画最长公共子序列特征">刻画最长公共子序列特征</a></li>
+<li><a href="#一个递归解">一个递归解</a></li>
+<li><a href="#计算lcs的长度">计算LCS的长度</a></li>
+<li><a href="#构造lcs">构造LCS</a></li>
+<li><a href="#算法改进">算法改进</a></li>
+</ul></li>
+<li><a href="#最优二叉搜索树">最优二叉搜索树</a>
+<ul>
+<li><a href="#最优二叉树的结构">最优二叉树的结构</a></li>
+<li><a href="#一个递归算法">一个递归算法</a></li>
+<li><a href="#计算最优二叉树搜索的期望搜索代价">计算最优二叉树搜索的期望搜索代价</a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">动态规划 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Fri Dec 22 2017</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<h1 id="什么是动态规划算法">什么是动态规划算法</h1>
+
+<p>动态规划算法同分治方法相似，都是通过组合子问题的解来求解原问题。分治算法将原问题划分为互不相交的子问题，递归地求解问题，在再将子问题的解组合起来，求出原问题的解。而动态规划应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。在这种情况向下，分治算法会做许多不必要的计算，它会反复计算公共子问题。而动态规划算法对公共子问题只求解一次，然后将其解保存在一个表格中，避免了不必要的计算。
+<strong>动态规划算法通常用来求解最优化问题。</strong>
+动态规划算法的设计步骤：</p>
+
+<ol>
+<li><strong>刻画一个最优解的结构特征</strong></li>
+<li><strong>递归地定义最优解的值</strong></li>
+<li><strong>计算最优解的值，通常采用自底向上的方法</strong></li>
+<li><strong>利用计算出的信息构造一个解</strong>。</li>
+</ol>
+
+<h1 id="动态规划原理">动态规划原理</h1>
+
+<p>动态规划算法就是将递归算法重复计算子问题的计算结果保留，这样可以避免重复计算子问题。</p>
+
+<p>从工程角度看，在什么情况下应该使用动态规划算法求解问题呢？</p>
+
+<p>适合应用动态规划算法求解的最优化问题，应该具备两个要素：最优子结构和子问题重叠。</p>
+
+<h2 id="最优子结构">最优子结构</h2>
+
+<p>用动态规划求解最优问题的第一步就是刻画最优解的结构。<strong>如果一个问题的最优解包含子问题的最优解，我们就称此问题具有最优子结构性质。</strong>具有最优子结构是使用动态规划算法的标志。</p>
+
+<p>发掘最优子结构性质可以采用如下通用模式：</p>
+
+<ol>
+<li>证明问题最优解的第一个组成部分是做出一个选择，做出这个选择后会产生一个或者多个待解的子问题</li>
+<li>给定一个问题，在其可能的第一步选择中，假定已经知道哪种选择才会得到最优解。</li>
+<li>给定可获得的最优解后，确定这次选择会产生哪些子问题，以及如何最好地刻画子问题空间。</li>
+<li>用“剪切-粘贴”的技术证明：作为构成原问题最优解的组成部分，每个子问题的解就是它本身的最优解。可以利用反正法：假定子问题的解不是其自身的最优解，那么我们就可以从原问题的解中“剪切”掉这些非最优解，将最优解“粘贴”进去，从而得到原问题的一个更优解，这与最初的解是原问题的最优解的前提假设矛盾。</li>
+</ol>
+
+<p>一个刻画问题的好经验就是：<strong>保持子问题空间尽量简单，只有在必要时才扩展它。</strong>（使用几维数组保存子问题的解）。</p>
+
+<p>我们可以用子问题的总数和每个子问题需要考察多少种选择这两个因素的乘积来粗略分析动态规划算法的运行时间。对于钢条切割问题，共有n个子问题，每个子问题最多需要考察n中选择，因此运行时间是 $O(n^2)$.
+动态规划方法中，我们通常会自底向上地使用最优子结构，首先求解子问题的最优解，然后求解原问题的最优解。在求解原问题过程中，我们需要在涉及的子问题中做出选择，选出能得到原问题最优解的子问题。</p>
+
+<h2 id="是否是最优解">是否是最优解</h2>
+
+<p>在尝试使用动态规划时要注意问题是否有最优子结构。尤其注意两个子问题是否是无关的，即同一个原问题的一个子问题的解不影响另一个子问题的解。</p>
+
+<h2 id="重叠子问题">重叠子问题</h2>
+
+<p>适合动态规划方法求解的最优化问题应该具备的第二个性质是 <strong>问题的递归算法会反复地求解相同的子问题，而不是一直生成新的问题</strong>
+一般来讲，不同子问题的总数是输入规模的多项式函数最好。如果递归算法反复求解相同的子问题，我们就称最优化问题具有重叠子问题性质。与之相对，适合用分治方法求解的问题通常在递归的每一步都生成全新的问题。
+<strong>一个问题的自然递归算法的递归调用树中出现相同的子问题，而不同的子问题的总数很少时，动态规划算都能提高效率</strong>。</p>
+
+<h2 id="重构最优解">重构最优解</h2>
+
+<p>我们通常将每个子问题所做的选择存储在一个表里，这样就不用根据代价重构这些信息。就如钢条切割问题中的带备忘机制的递归算法。</p>
+
+<h1 id="钢条切割">钢条切割</h1>
+
+<p>钢条切割问题：给定一段长度为n英寸的钢条和一个价格表 $p_i(i=1,2,&hellip;,n)$，求钢条的切割方案，使得销售收益 $r_n$ 最大。价格表如下：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">长度</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th align="left">3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+<th align="left">10</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">价格</td>
+<td align="left">1</td>
+<td align="left">5</td>
+<td align="left">8</td>
+<td align="left">9</td>
+<td align="left">10</td>
+<td align="left">17</td>
+<td align="left">17</td>
+<td align="left">20</td>
+<td align="left">24</td>
+<td align="left">30</td>
+</tr>
+</tbody>
+</table>
+
+<p>长度为$n$英寸的钢条共有 $2^{(n-1)}$ 种不同的切割方案，因为在距离钢条左端 $i$ 英寸处，可以选择切割或不切割。我们用加号表示切割方案，$7=2+2+3$ 表示将长度为7的钢条切成三段。如果最优解将钢条切割为k段($1\leq k\leq n$)，那么最优的切割方案
+    $$ n = i_1 + i_2 + &hellip; + i_k $$
+该方案的最大收益是
+    $$ r_n = p_{i1} + p_{i2} + &hellip; + p_{ik} $$
+更直接的，我们可以将钢条的最优切割收益记做：
+   $$ r_n = \max \left(p_n, r_1 + r_{n-1}, r_2 + r_{n-2}, &hellip;, r_{n-1} + r_1\right)$$
+第一个参数 $p_n$ 对应不切割，直接出售长度为n的钢条的方案。其他n-1个参数对应另外n-1种方案：对于每个 $i=1,2&hellip;,n-1$，首先将钢条切割成长度为 $i$ 和 $n-i$ 的两段，接着求解这两段的最优切割收益 $r_i$和$r_{n-i}$，因为无法预知哪种方案会获得最优收益，我们需要考虑所有可能的i，选择其中收益最大者。
+为了求解规模为n的原问题，我们先求解形式完全一样，但规模更小的子问题。即当完成首次切割以后，我们将两段钢条看成两个独立的钢条切割问题，通过组合两个相关子问题的最优解，并在所有可能的两段切割方案中选区组合收益最大者，构成原问题的解，该问题是满足最优子结构的。
+我们首先使用递归方式求解该问题，其递归式可以写为： $r_n = \max (p_i + r_{n-i}) 1\leq i \leq n$
+其伪代码如下：</p>
+
+<pre><code>CUT-ROD(p,n)
     if n == 0
         return 0
     q = -∞
     for i=1 to n
         q = max(q, p[i] + CUT-ROD(p, n-i))
     return q
-</code></pre><p>该算法的时间复杂度是 $2^n$。可以看到该算法反复地用相同的参数值对自身进行递归调用，即它反复地求解相同的子问题。而动态规划算法可以仔细安排求解顺序，对每个子问题都只求解一次，并将结果保持下来。如果随后需要再次使用该解，只需查询保存的结果，而不必重新计算。动态规划是用额外的存储空间来节省时间的算法，可能将一个指数时间的解转化成一个多项式时间的解。</p><h2 id="使用动态规划方法求解最优钢条切割问题">使用动态规划方法求解最优钢条切割问题</h2><p>朴素递归算法之所以效率很低，是因为它反复地求解相同的子问题。<strong>动态规划方法仔细安排求解顺序，对每个子问题只求解一次，并将结果保存下来</strong>。如果随后要在此需要子问题的解，只需要查询保存的结果，而不用重新计算。<strong>动态规划算法付出额外的内存空间来节省时间</strong> 动态规划有两种等价的实现方式：</p><ol><li><p><strong>带备忘录的自顶向下法</strong>。 此方法仍按自然的递归形式编写过程，但过程中会保存每个子问题的解（数组或散列表等）。当需要一个子问题的解时，首先检查是否已经保存过此解，从而节省计算时间。</p><pre><code>MEMOIZED-CUT-ROD(p, u)
+</code></pre>
+
+<p>该算法的时间复杂度是 $2^n$。可以看到该算法反复地用相同的参数值对自身进行递归调用，即它反复地求解相同的子问题。而动态规划算法可以仔细安排求解顺序，对每个子问题都只求解一次，并将结果保持下来。如果随后需要再次使用该解，只需查询保存的结果，而不必重新计算。动态规划是用额外的存储空间来节省时间的算法，可能将一个指数时间的解转化成一个多项式时间的解。</p>
+
+<h2 id="使用动态规划方法求解最优钢条切割问题">使用动态规划方法求解最优钢条切割问题</h2>
+
+<p>朴素递归算法之所以效率很低，是因为它反复地求解相同的子问题。<strong>动态规划方法仔细安排求解顺序，对每个子问题只求解一次，并将结果保存下来</strong>。如果随后要在此需要子问题的解，只需要查询保存的结果，而不用重新计算。<strong>动态规划算法付出额外的内存空间来节省时间</strong>
+动态规划有两种等价的实现方式：</p>
+
+<ol>
+<li><p><strong>带备忘录的自顶向下法</strong>。 此方法仍按自然的递归形式编写过程，但过程中会保存每个子问题的解（数组或散列表等）。当需要一个子问题的解时，首先检查是否已经保存过此解，从而节省计算时间。</p>
+
+<pre><code>MEMOIZED-CUT-ROD(p, u)
     let r[0...n] be a new array
     for i=0 to n
         r[i] = -∞
@@ -26,7 +550,11 @@ MEMOIZED-CUT-ROD-AUX(p, n, r)
         q = -∞
         for i=1 to n
             q = max(q, p[i] + MEMOIZED-CUT-ROD-AUX(p, n-i, r))
-</code></pre></li><li><p><strong>自底向上法</strong>。 此方法一般需要恰当定义子问题的“规模”，使得任何子问题的求解都只依赖于“更小的”子问题的解。因此我们将子问题按照规模排序，按由小到大的顺序求解。当求解某个问题时，它所依赖的那些更小的子问题都已经求解完毕，结果已经保存，每个子问题都只需要求解一次。</p><pre><code>BOTTOM-UP-ROD(p, n)
+</code></pre></li>
+
+<li><p><strong>自底向上法</strong>。 此方法一般需要恰当定义子问题的“规模”，使得任何子问题的求解都只依赖于“更小的”子问题的解。因此我们将子问题按照规模排序，按由小到大的顺序求解。当求解某个问题时，它所依赖的那些更小的子问题都已经求解完毕，结果已经保存，每个子问题都只需要求解一次。</p>
+
+<pre><code>BOTTOM-UP-ROD(p, n)
     let r[0...n] and s[0...n] be a new array
     n[0] = 0;
     for j=1 to n
@@ -37,12 +565,72 @@ MEMOIZED-CUT-ROD-AUX(p, n, r)
                 s[j] = i;
             r[j] = q
     return r and s
-</code></pre></li></ol><p>这两种方法具有渐近运行时间，由于没有频繁的递归函数调用开销，自底向上法的时间复杂度具有更小的系数。</p><h2 id="子问题图">子问题图</h2><p>当考虑一个动态规划问题时，我们应该弄清楚所设计的子问题以及子问题之间的依赖关系。 问题的子问题图准确地表达了问题间的依赖关系。它是一个有向图，每个顶点唯一地对应一个子问题。若子问题x的最优解需要直接用到子问题y的最优解，那么久会在子问题图中有一条从子问题x到子问题y的顶点的有向边。 <svg xmlns="http://www.w3.org/2000/svg" viewBox="224.6 102 238.4 313"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="g" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="h" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="i" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="j" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker></defs><path d="M224.6 102H463v313H224.6V102z" fill="none"/><path d="M341 199c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 190.875)">3</text><path d="M341 259c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 250.875)">2</text><path d="M341 320c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 311.875)">1</text><path d="M341 138c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 129.875)">4</text><path d="M356 154v15.382" stroke="#323232" fill="none" marker-end="url(#a)"/><path d="M356 215v14.382" stroke="#323232" fill="none" marker-end="url(#b)"/><path d="M356 275v15.382" stroke="#323232" fill="none" marker-end="url(#c)"/><path d="M341 138c-48.4 0-48.4 121-15.236 121" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M341 138c-72.8 0-72.8 182-15.236 182" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#e)"/><path d="M341 379c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 370.875)">0</text><path d="M341 138c-96.4 0-96.4 241-15.236 241" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#f)"/><path d="M356 336v13.382" stroke="#323232" fill="none" marker-end="url(#g)"/><path d="M371 199c48.4 0 48.4 121 15.236 121" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#h)"/><path d="M371 199c72 0 72 180 15.236 180" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#i)"/><path d="M341 259c-48 0-48 120-15.236 120" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#j)"/></svg></p><p>子问题图 $G=(V, E)$ 的规模可以帮助我们确定动态规划算法的运行时间，由于每个子问题只求解一次，因此算法运行时间等于每个子问题求解时间之和。通常，一个子问题的求解时间与子问题图中对应顶点的度（出射边的数目）成正比，而子问题的数目等于子问题图的顶点数。因此，<strong>动态规划算法的运行时间与定点和边的数量呈线性关系</strong>。</p><h2 id="重构解">重构解</h2><p>在上述的 <code>BOTTOM-UP-CUT-ROD</code> 中，我们通过数组<code>s</code>保存了每个子问题的最优收益值。我们可以通过如下方式获取最优切割方案：</p><pre><code>PRINT-CUT-ROD-SOLUTION (p, n)
+</code></pre></li>
+</ol>
+
+<p>这两种方法具有渐近运行时间，由于没有频繁的递归函数调用开销，自底向上法的时间复杂度具有更小的系数。</p>
+
+<h2 id="子问题图">子问题图</h2>
+
+<p>当考虑一个动态规划问题时，我们应该弄清楚所设计的子问题以及子问题之间的依赖关系。
+问题的子问题图准确地表达了问题间的依赖关系。它是一个有向图，每个顶点唯一地对应一个子问题。若子问题x的最优解需要直接用到子问题y的最优解，那么久会在子问题图中有一条从子问题x到子问题y的顶点的有向边。
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="224.6 102 238.4 313"><defs><marker id="a" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="b" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="c" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="d" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="e" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="f" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="g" markerUnits="userSpaceOnUse" orient="auto" markerWidth="14.118" markerHeight="9.174" viewBox="-0.5 -0.688 14.118 9.174" refX="-.5" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" fill="#323232"/></marker><marker id="h" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="i" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker><marker id="j" markerUnits="userSpaceOnUse" orient="auto" markerWidth="16.236" markerHeight="10.551" viewBox="-1 -1.376 16.236 10.551" refX="-1" refY="3.899"><path d="M12 3.9L0 7.797V0z" stroke="#323232" stroke-width="2" fill="#323232"/></marker></defs><path d="M224.6 102H463v313H224.6V102z" fill="none"/><path d="M341 199c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 190.875)">3</text><path d="M341 259c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 250.875)">2</text><path d="M341 320c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 311.875)">1</text><path d="M341 138c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 129.875)">4</text><path d="M356 154v15.382" stroke="#323232" fill="none" marker-end="url(#a)"/><path d="M356 215v14.382" stroke="#323232" fill="none" marker-end="url(#b)"/><path d="M356 275v15.382" stroke="#323232" fill="none" marker-end="url(#c)"/><path d="M341 138c-48.4 0-48.4 121-15.236 121" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#d)"/><path d="M341 138c-72.8 0-72.8 182-15.236 182" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#e)"/><path d="M341 379c0-21.333 30-21.333 30 0s-30 21.333-30 0z" stroke="#323232" stroke-width="2" fill="#c0d4a3"/><text fill="#323232" font-size="13" x="4" y="13.325" font-family="Arial" font-weight="bold" text-anchor="middle" transform="translate(351 370.875)">0</text><path d="M341 138c-96.4 0-96.4 241-15.236 241" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#f)"/><path d="M356 336v13.382" stroke="#323232" fill="none" marker-end="url(#g)"/><path d="M371 199c48.4 0 48.4 121 15.236 121" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#h)"/><path d="M371 199c72 0 72 180 15.236 180" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#i)"/><path d="M341 259c-48 0-48 120-15.236 120" stroke="#323232" stroke-width="2" fill="none" marker-end="url(#j)"/></svg>
+</p>
+
+<p>子问题图 $G=(V, E)$ 的规模可以帮助我们确定动态规划算法的运行时间，由于每个子问题只求解一次，因此算法运行时间等于每个子问题求解时间之和。通常，一个子问题的求解时间与子问题图中对应顶点的度（出射边的数目）成正比，而子问题的数目等于子问题图的顶点数。因此，<strong>动态规划算法的运行时间与定点和边的数量呈线性关系</strong>。</p>
+
+<h2 id="重构解">重构解</h2>
+
+<p>在上述的 <code>BOTTOM-UP-CUT-ROD</code> 中，我们通过数组<code>s</code>保存了每个子问题的最优收益值。我们可以通过如下方式获取最优切割方案：</p>
+
+<pre><code>PRINT-CUT-ROD-SOLUTION (p, n)
     (r,s) = BOTTOM-UP-CUT-ROD(p,n)
     while n &gt; 0
         print s[n]
         n = n - s[n]
-</code></pre><h1 id="最长公共子序列">最长公共子序列</h1><p>子序列定义：给定一个序列 $X={x_1,x_2,&hellip;,x_m}$, 另一个序列 $Z={z_1,z_2,&hellip;z_k}$ 满足如下条件时 $Z$ 是 $X$ 的子序列，即存在一个严格递增的 $X$ 的下标序列 ${i_1,i_2,&hellip;,i_k}$, 对于所有的$j=1,2,&hellip;k$, 满足 $x_{ij}$ = $z_i$。</p><p>公共子序列：给定两个序列X和Y，如果Z既是X的子序列，也是Y的子序列，那么成Z是X和Y的公共子序列</p><p>最长子序列问题(LCS)：给定两个序列 $X={x_1,x_2,&hellip;,x_m}$ 和 $Y={y_1,y_2,&hellip;,y_n}$, 求X和Y的公共子序列.</p><h2 id="刻画最长公共子序列特征">刻画最长公共子序列特征</h2><p>如果用暴力搜索方法求解LCS，就要穷举X的所有子序列，对每个子序列都要检查是否是Y的子序列，记录找到的最长子序列。X的每个子序列对应X的元素集合的一个子集，有2^m个子序列，因此暴力方法的运行时间为指数级。</p><p>但是LCS问题具有最优子结构。令Z为X和Y的任意LCS：</p><ol><li>如果$x_m = y_n$, 则$z_k = x_m = y_n$, 且 $Z_{k-1}$ 是 $X_{m-1}$ 和 $Y_{n-1}$ 的一个LCS</li><li>如果$x_m \neq y_n$, 那么$z_k \neq x_m$, 意味着 $Z$ 是$X_{m-1}$ 和 $Y$ 的一个LCS</li><li>如果$x_m \neq y_n$, 那么$z_k \neq y_n$, 意味着 $Z$ 是 $X$ 和 $Y_{n-1}$的一个LCS</li></ol><h2 id="一个递归解">一个递归解</h2><p>求解 $X$ 和 $Y$ 的一个 LCS时，我们需要求解一个或两个子问题。如果$x_m = y_n$, 我们应该求解 $X_{m-1}$ 和 $Y_{n-1}$ 的一个LCS。将$x_m = y_n$追加到这个LCS的末尾；如果$x_m \neq y_n$，我们必须求解两个子问题：$X_{m-1}$ 和 $Y$ 的一个LCS 和 $X$和 $Y_{n-1}$ 的一个LCS，两个中较长者为$X$和$Y$的一个LCS. 由于<strong>这些情况覆盖了所有可能性</strong>，因此我们知道必然有一个子问题的最优出现在$X$和$Y$的LCS中。 很容易看出LCS问题具有重叠子问题性质。 设计LCS问题的递归算法首先要建立最优解的d递归式。我们定义$c[i, j]$表示$X_i$和$Y_j$的LCS长度。根据LCS问题的最优子结构性质，可得如下公式： $$c[i,j] = \left\{ \begin{array}{ll} 0 & \textrm{if $i=0$ or $j=0$}\\ c[i-1,j-1]+1 & \textrm{if $i,j>0$ and $x_i \neq y_j$}\\ max(c[i,j-1], c[i-1,j]) & \textrm{if $i,j>0$ and $x_i \neq y_j$} \end{array} \right.$$</p><h2 id="计算lcs的长度">计算LCS的长度</h2><p>根据上面的公式，我们可以很容易地写出一个指数时间的递归算法来计算两个序列的LCS的长度。但是LCS问题只有 $\Theta$ 个不同的子问题，因此，我们可以使用动态规划方法自底向上地计算。</p><p>过程LCS-LENGTH接受两个序列$X={x_1, x_2, &hellip;, x_m}$和$Y={y_1, y_2, &hellip; , y_n}$为输入。它将值保存在$c[0&hellip;m,0&hellip;n]$中，并按<strong>行主次序</strong>计算表项（即首先由左至右计算c的第一行，然后计算第二行，依此类推）。过程还维护一个表$b[1&hellip;m, 1&hellip;n]$帮助构造最优解。</p><pre><code>LCS-LENGTH(X, Y)
+</code></pre>
+
+<h1 id="最长公共子序列">最长公共子序列</h1>
+
+<p>子序列定义：给定一个序列 $X={x_1,x_2,&hellip;,x_m}$, 另一个序列 $Z={z_1,z_2,&hellip;z_k}$ 满足如下条件时 $Z$ 是 $X$ 的子序列，即存在一个严格递增的 $X$ 的下标序列 ${i_1,i_2,&hellip;,i_k}$, 对于所有的$j=1,2,&hellip;k$, 满足 $x_{ij}$ = $z_i$。</p>
+
+<p>公共子序列：给定两个序列X和Y，如果Z既是X的子序列，也是Y的子序列，那么成Z是X和Y的公共子序列</p>
+
+<p>最长子序列问题(LCS)：给定两个序列 $X={x_1,x_2,&hellip;,x_m}$ 和 $Y={y_1,y_2,&hellip;,y_n}$, 求X和Y的公共子序列.</p>
+
+<h2 id="刻画最长公共子序列特征">刻画最长公共子序列特征</h2>
+
+<p>如果用暴力搜索方法求解LCS，就要穷举X的所有子序列，对每个子序列都要检查是否是Y的子序列，记录找到的最长子序列。X的每个子序列对应X的元素集合的一个子集，有2^m个子序列，因此暴力方法的运行时间为指数级。</p>
+
+<p>但是LCS问题具有最优子结构。令Z为X和Y的任意LCS：</p>
+
+<ol>
+<li>如果$x_m = y_n$, 则$z_k = x_m = y_n$, 且 $Z_{k-1}$ 是 $X_{m-1}$ 和 $Y_{n-1}$ 的一个LCS</li>
+<li>如果$x_m \neq y_n$, 那么$z_k \neq x_m$, 意味着 $Z$ 是$X_{m-1}$ 和 $Y$ 的一个LCS</li>
+<li>如果$x_m \neq y_n$, 那么$z_k \neq y_n$, 意味着 $Z$ 是 $X$ 和 $Y_{n-1}$的一个LCS</li>
+</ol>
+
+<h2 id="一个递归解">一个递归解</h2>
+
+<p>求解 $X$ 和 $Y$ 的一个 LCS时，我们需要求解一个或两个子问题。如果$x_m = y_n$, 我们应该求解 $X_{m-1}$ 和 $Y_{n-1}$ 的一个LCS。将$x_m = y_n$追加到这个LCS的末尾；如果$x_m \neq y_n$，我们必须求解两个子问题：$X_{m-1}$ 和 $Y$ 的一个LCS 和 $X$和 $Y_{n-1}$ 的一个LCS，两个中较长者为$X$和$Y$的一个LCS. 由于<strong>这些情况覆盖了所有可能性</strong>，因此我们知道必然有一个子问题的最优出现在$X$和$Y$的LCS中。
+很容易看出LCS问题具有重叠子问题性质。
+设计LCS问题的递归算法首先要建立最优解的d递归式。我们定义$c[i, j]$表示$X_i$和$Y_j$的LCS长度。根据LCS问题的最优子结构性质，可得如下公式：
+
+$$c[i,j] = \left\{ \begin{array}{ll}
+0 & \textrm{if $i=0$ or $j=0$}\\
+c[i-1,j-1]+1 & \textrm{if $i,j>0$ and $x_i \neq y_j$}\\
+max(c[i,j-1], c[i-1,j]) & \textrm{if $i,j>0$ and $x_i \neq y_j$}
+\end{array} \right.$$
+</p>
+
+<h2 id="计算lcs的长度">计算LCS的长度</h2>
+
+<p>根据上面的公式，我们可以很容易地写出一个指数时间的递归算法来计算两个序列的LCS的长度。但是LCS问题只有 $\Theta$ 个不同的子问题，因此，我们可以使用动态规划方法自底向上地计算。</p>
+
+<p>过程LCS-LENGTH接受两个序列$X={x_1, x_2, &hellip;, x_m}$和$Y={y_1, y_2, &hellip; , y_n}$为输入。它将值保存在$c[0&hellip;m,0&hellip;n]$中，并按<strong>行主次序</strong>计算表项（即首先由左至右计算c的第一行，然后计算第二行，依此类推）。过程还维护一个表$b[1&hellip;m, 1&hellip;n]$帮助构造最优解。</p>
+
+<pre><code>LCS-LENGTH(X, Y)
     m = X.length
     n = Y.length
     let c[0...m,0...n] and b[1...m, 1...n] be new table
@@ -61,7 +649,13 @@ MEMOIZED-CUT-ROD-AUX(p, n, r)
             elseif
                 b[i,j] = &quot;left&quot;
     return c and b
-</code></pre><h2 id="构造lcs">构造LCS</h2><p>我们可以用LCS-LENGTH返回的b快速构造X和Y的LCS，只需从$b[m,n]$开始，按位置追踪下去即可</p><pre><code>PRINT-LCS(b, X, i, j)
+</code></pre>
+
+<h2 id="构造lcs">构造LCS</h2>
+
+<p>我们可以用LCS-LENGTH返回的b快速构造X和Y的LCS，只需从$b[m,n]$开始，按位置追踪下去即可</p>
+
+<pre><code>PRINT-LCS(b, X, i, j)
     if i == 0 or j == 0
         return
     if b[i,j] == &quot;left-top&quot;
@@ -70,7 +664,56 @@ MEMOIZED-CUT-ROD-AUX(p, n, r)
     elseif b[i,j] == &quot;top&quot;
         PRINT-LCS(b, X, i-1, j)
     else PRINT-LCS(b, X, i, j-1)
-</code></pre><h2 id="算法改进">算法改进</h2><p>一旦设计出一个算法，通常情况下都会有在时空开销上有改进的余地。对LCS算法，可以完全去掉表b，每个$c[i,j]$项只依赖于表c中的其他三项：$c[i-1,j], c[i,j-1],c[i-1,j-1]$，我们可以在$O(1)$的时间根据$c[i,j]$判断出使用了三项中的哪一项</p><h1 id="最优二叉搜索树">最优二叉搜索树</h1><p><strong>最优二叉搜索树</strong> 的形式化定义如下： 给定一个n个不同关键字的已排序的序列$K=\langle k_1,k_2, &hellip;, k_n \rangle$(因此$k_1&lt;k_2&lt;&hellip;&lt;k_n$)，对每个关键字$k_i$，都有一个概率$p_i$表示其搜索频率。有些要搜索的值可能不在$K$中，因此还有$n+1$个“伪关键字”$d_0, d_1, &hellip;, d_n$表示不在$K$中的值。$d_0$表示所有小于$k_1$的值，$d_n$表示所有大于$k_n$的值，对$i=1,2,&hellip;,n-1$，伪关键字$d_i$表示所有在$k_i$和$k_{i+1}$之间的值。对每个伪关键字$d_i$，也都有一个概率$p_i$表示对应的搜索频率。 那么最优二叉搜索树是指对于给定的集合我们希望构造一棵期望搜索代价最小的二叉搜索树。</p><p>知道每个关键字和伪关键字的搜索概率，因而可以确定在一棵给定的二叉搜索树$T$中进行一次搜索的期望代价。假定一次搜索的代价等于访问的结点数，即此次搜索找到的结点在$T$中的深度再加1，那么在$T$中一次搜索的代价期望为: $$E[T]=\sum_{i=1}^n(depth_T(k_i)+1)\cdot p_i + \sum_{i=0}^n(depth_T(d_i)+1)\cdot q_i=1+\sum_{i=1}^ndepth_T(k_i)\cdot p_i + \sum_{i=0}^ndepth_T(d_i)\cdot q_i$$</p><h2 id="最优二叉树的结构">最优二叉树的结构</h2><p>如果一棵最优二叉搜索要$T$有一棵包含关键字$k_i, &hellip; k_j$的子树$T_1$ ，那么T必然包含关键字$k_i, &hellip; k_j$和伪关键字$d_{i-1}, &hellip; d_j$的子问题的最优解。可以用剪切——粘贴法来证明：如果存在子树$T_2$，其期望搜索代价比$T_1$低，那么我们将$T_1$从$T$中删除，将$T_2$粘贴到相应位置，从而得到一棵期望搜索代价低于$T$的二叉搜索树，与$T$最优假设矛盾。</p><h2 id="一个递归算法">一个递归算法</h2><p>选取子问题域为：求解包含关键字$k_i, &hellip; k_j$的最优二叉搜索树，其中$i\ge 1, j\le n$且$j\ge i-1$，定义$e[i,j]$为在包含关键字$k_i, &hellip; k_j$的最优二叉搜索树中进行一次搜索的期望代价。最终，希望计算出$e[1,n]$.</p><p>$j=i-1$的情况最为简单，由于子树只包含伪关键字 $d_{i-1}$，期望搜索代价为$e[i,i-1]=q_{i-1}$. 当$j\geq i$时，需要从$k_i,&hellip;,k_j$中选择一个根结点 $k_r$，然后构造一棵包含关键字$k_i,&hellip;,k_{r-1}$的最优二叉搜索树作为其左子树，以及一想要包含关键字$k_{r+1},&hellip;,k_j$的二叉搜索树作为其右子树。由于每个结点的深度都增加了1，这棵子树的期望搜索代价的增加值应为所有概率之和。对于包含关键字$k_i,&hellip;,k_j$的子树，所有概率之和为 $$\omega(i,j)=\sum_{l=i}^j{p_l} + \sum_{l=i-1}^j{q_i}$$</p><p>因此，若$k_r$为包含关键字$k_i,&hellip;,k_j$的最优二叉搜索树的根结点，有如下公式： $$e[i,j] = p_r + (e[i,r-1] + \omega(i,r-1)) + (e[r+1,j] + \omega(r+1,j))$$ 根据 $\omega(i,j)=\omega(i,r-1)+p_r+\omega(r+1,j)$ ，有： $$e[i,j]=e[i,r-1]+e[r+1,j]+\omega(i,j)$$</p><p>最终递归公式为： $$e[i,j]=\left\{ \begin{array}{ll} q_{i-1}& \textrm{if $j=i-1$}\\ \min_{i\le r\le j}(e[i,r-1]+e[r+1,j]+\omega(i,j)) & \textrm{if $i\le j$} \end{array} \right. $$</p><h2 id="计算最优二叉树搜索的期望搜索代价">计算最优二叉树搜索的期望搜索代价</h2><p>二叉搜索树的子问题是由连续的下标子域组成。其伪代码如下：</p><pre><code>OPTIMAL-BST(p, q, n)
+</code></pre>
+
+<h2 id="算法改进">算法改进</h2>
+
+<p>一旦设计出一个算法，通常情况下都会有在时空开销上有改进的余地。对LCS算法，可以完全去掉表b，每个$c[i,j]$项只依赖于表c中的其他三项：$c[i-1,j], c[i,j-1],c[i-1,j-1]$，我们可以在$O(1)$的时间根据$c[i,j]$判断出使用了三项中的哪一项</p>
+
+<h1 id="最优二叉搜索树">最优二叉搜索树</h1>
+
+<p><strong>最优二叉搜索树</strong> 的形式化定义如下：
+给定一个n个不同关键字的已排序的序列$K=\langle k_1,k_2, &hellip;, k_n \rangle$(因此$k_1&lt;k_2&lt;&hellip;&lt;k_n$)，对每个关键字$k_i$，都有一个概率$p_i$表示其搜索频率。有些要搜索的值可能不在$K$中，因此还有$n+1$个“伪关键字”$d_0, d_1, &hellip;, d_n$表示不在$K$中的值。$d_0$表示所有小于$k_1$的值，$d_n$表示所有大于$k_n$的值，对$i=1,2,&hellip;,n-1$，伪关键字$d_i$表示所有在$k_i$和$k_{i+1}$之间的值。对每个伪关键字$d_i$，也都有一个概率$p_i$表示对应的搜索频率。
+那么最优二叉搜索树是指对于给定的集合我们希望构造一棵期望搜索代价最小的二叉搜索树。</p>
+
+<p>知道每个关键字和伪关键字的搜索概率，因而可以确定在一棵给定的二叉搜索树$T$中进行一次搜索的期望代价。假定一次搜索的代价等于访问的结点数，即此次搜索找到的结点在$T$中的深度再加1，那么在$T$中一次搜索的代价期望为:
+
+$$E[T]=\sum_{i=1}^n(depth_T(k_i)+1)\cdot p_i + \sum_{i=0}^n(depth_T(d_i)+1)\cdot q_i=1+\sum_{i=1}^ndepth_T(k_i)\cdot p_i + \sum_{i=0}^ndepth_T(d_i)\cdot q_i$$
+</p>
+
+<h2 id="最优二叉树的结构">最优二叉树的结构</h2>
+
+<p>如果一棵最优二叉搜索要$T$有一棵包含关键字$k_i, &hellip; k_j$的子树$T_1$ ，那么T必然包含关键字$k_i, &hellip; k_j$和伪关键字$d_{i-1}, &hellip; d_j$的子问题的最优解。可以用剪切——粘贴法来证明：如果存在子树$T_2$，其期望搜索代价比$T_1$低，那么我们将$T_1$从$T$中删除，将$T_2$粘贴到相应位置，从而得到一棵期望搜索代价低于$T$的二叉搜索树，与$T$最优假设矛盾。</p>
+
+<h2 id="一个递归算法">一个递归算法</h2>
+
+<p>选取子问题域为：求解包含关键字$k_i, &hellip; k_j$的最优二叉搜索树，其中$i\ge 1, j\le n$且$j\ge i-1$，定义$e[i,j]$为在包含关键字$k_i, &hellip; k_j$的最优二叉搜索树中进行一次搜索的期望代价。最终，希望计算出$e[1,n]$.</p>
+
+<p>$j=i-1$的情况最为简单，由于子树只包含伪关键字 $d_{i-1}$，期望搜索代价为$e[i,i-1]=q_{i-1}$.
+当$j\geq i$时，需要从$k_i,&hellip;,k_j$中选择一个根结点 $k_r$，然后构造一棵包含关键字$k_i,&hellip;,k_{r-1}$的最优二叉搜索树作为其左子树，以及一想要包含关键字$k_{r+1},&hellip;,k_j$的二叉搜索树作为其右子树。由于每个结点的深度都增加了1，这棵子树的期望搜索代价的增加值应为所有概率之和。对于包含关键字$k_i,&hellip;,k_j$的子树，所有概率之和为
+$$\omega(i,j)=\sum_{l=i}^j{p_l} + \sum_{l=i-1}^j{q_i}$$</p>
+
+<p>因此，若$k_r$为包含关键字$k_i,&hellip;,k_j$的最优二叉搜索树的根结点，有如下公式：
+
+$$e[i,j] = p_r + (e[i,r-1] + \omega(i,r-1)) + (e[r+1,j] + \omega(r+1,j))$$
+
+根据 $\omega(i,j)=\omega(i,r-1)+p_r+\omega(r+1,j)$ ，有：
+$$e[i,j]=e[i,r-1]+e[r+1,j]+\omega(i,j)$$</p>
+
+<p>最终递归公式为：
+
+$$e[i,j]=\left\{ \begin{array}{ll}
+q_{i-1}& \textrm{if $j=i-1$}\\
+\min_{i\le r\le j}(e[i,r-1]+e[r+1,j]+\omega(i,j)) & \textrm{if $i\le j$}
+\end{array} \right.
+$$
+</p>
+
+<h2 id="计算最优二叉树搜索的期望搜索代价">计算最优二叉树搜索的期望搜索代价</h2>
+
+<p>二叉搜索树的子问题是由连续的下标子域组成。其伪代码如下：</p>
+
+<pre><code>OPTIMAL-BST(p, q, n)
     let e[1..n+1,0..n], w[1..n+1,0..n], root[1..n,1..n] be new tables
     for i=1 to n+1
         e[i,i-1] = q[i-1]
@@ -86,18 +729,110 @@ MEMOIZED-CUT-ROD-AUX(p, n, r)
                     e[i,j] = t
                     root[i,j] = r
     return e and root
-</code></pre><ul><li>other thing</li></ul></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">#算法</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+<ul>
+<li>other thing</li>
+</ul>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">#算法</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/algorithms/%E5%9B%BE/" rel="prev">图算法</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/" rel="next">hugo markdown 中使用javascript</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/algorithms/%E5%9B%BE/" rel="prev">图算法</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/hugo-markdown%E4%B8%AD%E4%BD%BF%E7%94%A8javascript/" rel="next">hugo markdown 中使用javascript</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

@@ -1,27 +1,499 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>markdown 语法 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/markdown%E8%AF%AD%E6%B3%95/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    markdown 语法 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/markdown%E8%AF%AD%E6%B3%95/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <span class="breadcrumb">markdown 语法</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><ul><li><a href="#斜体">斜体</a></li><li><a href="#粗体">粗体</a></li><li><a href="#带删除线">带删除线</a></li><li><a href="#下划线">下划线</a></li><li><a href="#超链接">超链接</a></li><li><a href="#引用">引用</a></li><li><a href="#锚点">锚点</a></li><li><a href="#列表">列表</a><ul><li><a href="#无序列表">无序列表</a></li><li><a href="#有序列表">有序列表</a></li></ul></li></ul></li><li><a href="#列表嵌套">列表嵌套</a><ul><li><ul><li><a href="#代办列表">代办列表</a></li></ul></li><li><a href="#代码">代码</a></li><li><a href="#表格">表格</a></li><li><a href="#分割线">分割线</a></li><li><a href="#图片">图片</a></li><li><a href="#插入原生html">插入原生html</a></li><li><a href="#mathjax">MathJax</a></li><li><a href="#插入uml">插入UML</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">markdown 语法 </span><span class="card-meta"><time><span>Sat Jun 17 2017</span></time><address><a href="https://wzhongke.github.io//categories/markdown">markdown</a>&nbsp;</address></span><article class="article"><h2 id="斜体">斜体</h2><pre><code>*这是斜体1*
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">markdown 语法</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#斜体">斜体</a></li>
+<li><a href="#粗体">粗体</a></li>
+<li><a href="#带删除线">带删除线</a></li>
+<li><a href="#下划线">下划线</a></li>
+<li><a href="#超链接">超链接</a></li>
+<li><a href="#引用">引用</a></li>
+<li><a href="#锚点">锚点</a></li>
+<li><a href="#列表">列表</a>
+<ul>
+<li><a href="#无序列表">无序列表</a></li>
+<li><a href="#有序列表">有序列表</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#列表嵌套">列表嵌套</a>
+<ul>
+<li>
+<ul>
+<li><a href="#代办列表">代办列表</a></li>
+</ul></li>
+<li><a href="#代码">代码</a></li>
+<li><a href="#表格">表格</a></li>
+<li><a href="#分割线">分割线</a></li>
+<li><a href="#图片">图片</a></li>
+<li><a href="#插入原生html">插入原生html</a></li>
+<li><a href="#mathjax">MathJax</a></li>
+<li><a href="#插入uml">插入UML</a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">markdown 语法 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Sat Jun 17 2017</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/markdown">markdown</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<h2 id="斜体">斜体</h2>
+
+<pre><code>*这是斜体1*
 _这是斜体2_
-</code></pre><p><em>这是斜体1</em> <em>这是斜体2</em><!-- more --></p><h2 id="粗体">粗体</h2><pre><code>**这是粗体**
+</code></pre>
+
+<p><em>这是斜体1</em>
+<em>这是斜体2</em>
+<!-- more --></p>
+
+<h2 id="粗体">粗体</h2>
+
+<pre><code>**这是粗体**
 __这是粗体__
-</code></pre><p><strong>这是粗体</strong> <strong>这是粗体</strong></p><h2 id="带删除线">带删除线</h2><pre><code class="language-md">~~删除线.~~
-</code></pre><p><del>删除线.</del></p><h2 id="下划线">下划线</h2><pre><code>&lt;span style=&quot;text-decoration:underline&quot;&gt;我带下划线&lt;/span&gt;
+</code></pre>
+
+<p><strong>这是粗体</strong>
+<strong>这是粗体</strong></p>
+
+<h2 id="带删除线">带删除线</h2>
+
+<pre><code class="language-md">~~删除线.~~
+</code></pre>
+
+<p><del>删除线.</del></p>
+
+<h2 id="下划线">下划线</h2>
+
+<pre><code>&lt;span style=&quot;text-decoration:underline&quot;&gt;我带下划线&lt;/span&gt;
 &lt;span style=&quot;text-decoration:overline&quot;&gt;我带上划线&lt;/span&gt;
-</code></pre><h2 id="超链接">超链接</h2><pre><code>[text](https://www.sogou.com)
+</code></pre>
+
+<h2 id="超链接">超链接</h2>
+
+<pre><code>[text](https://www.sogou.com)
 &lt;https://www.sogo.com&gt;
-</code></pre><p><a href="https://www.sogou.com">text</a> <a href="https://www.sogo.com">https://www.sogo.com</a></p><h2 id="引用">引用</h2><p>引用的区块也可以使用其他的Markdown语法</p><pre><code>&gt; 这是一个引用
+</code></pre>
+
+<p><a href="https://www.sogou.com">text</a>
+<a href="https://www.sogo.com">https://www.sogo.com</a></p>
+
+<h2 id="引用">引用</h2>
+
+<p>引用的区块也可以使用其他的Markdown语法</p>
+
+<pre><code>&gt; 这是一个引用
 &gt; &gt; 这是第二级引用
-</code></pre><blockquote><p>这是一个引用 &gt; 这是第二级引用</p></blockquote><h2 id="锚点">锚点</h2><p><a href="#user-content-斜体">问内链接</a>;</p><h2 id="列表">列表</h2><h3 id="无序列表">无序列表</h3><pre><code>- Red
+</code></pre>
+
+<blockquote>
+<p>这是一个引用
+&gt; 这是第二级引用</p>
+</blockquote>
+
+<h2 id="锚点">锚点</h2>
+
+<p><a href="#user-content-斜体">问内链接</a>;</p>
+
+<h2 id="列表">列表</h2>
+
+<h3 id="无序列表">无序列表</h3>
+
+<pre><code>- Red
 - Green
 - Blue
-</code></pre><ul><li>Red</li><li>Green</li><li>Blue</li></ul><h3 id="有序列表">有序列表</h3><pre><code>1. 1
+</code></pre>
+
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+
+<h3 id="有序列表">有序列表</h3>
+
+<pre><code>1. 1
 2. 2
 3. 3
-</code></pre><ol><li>1</li><li>2</li><li>3</li></ol><h1 id="列表嵌套">列表嵌套</h1><pre><code>1. 列出所有元素：
+</code></pre>
+
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ol>
+
+<h1 id="列表嵌套">列表嵌套</h1>
+
+<pre><code>1. 列出所有元素：
     - 无序列表元素 A
         1. 元素 A 的有序子列表
     - 前面加四个空格
@@ -40,56 +512,267 @@ __这是粗体__
     ```
 
         或者直接空八个，引入代码块
-</code></pre><ol><li>列出所有元素：<ul><li>无序列表元素 A<ol><li>元素 A 的有序子列表</li></ol></li><li>前面加四个空格</li></ul></li><li>列表里的多段换行： 前面必须加四个空格， 这样换行，整体的格式不会乱</li><li><p>列表里引用：</p><blockquote><p>前面空一行 仍然需要在 &gt; 前面加四个空格</p></blockquote></li><li><p>列表里代码段：</p><pre><code>前面四个空格，之后按代码语法 \`\`\` 书写
-</code></pre><pre><code>或者直接八个空格，引入代码块
-</code></pre></li></ol><h3 id="代办列表">代办列表</h3><pre><code>- [ ] 不勾选
+</code></pre>
+
+<ol>
+<li>列出所有元素：
+
+<ul>
+<li>无序列表元素 A
+
+<ol>
+<li>元素 A 的有序子列表</li>
+</ol></li>
+<li>前面加四个空格</li>
+</ul></li>
+<li>列表里的多段换行：
+前面必须加四个空格，
+这样换行，整体的格式不会乱</li>
+
+<li><p>列表里引用：</p>
+
+<blockquote>
+<p>前面空一行
+仍然需要在 &gt;  前面加四个空格</p>
+</blockquote></li>
+
+<li><p>列表里代码段：</p>
+
+<pre><code>前面四个空格，之后按代码语法 \`\`\` 书写
+</code></pre>
+
+<pre><code>或者直接八个空格，引入代码块
+</code></pre></li>
+</ol>
+
+<h3 id="代办列表">代办列表</h3>
+
+<pre><code>- [ ] 不勾选
 - [x] 勾选 (为aiks)
-</code></pre><ul class="task-list"><li><label><input type="checkbox" disabled="disabled" class="task-list-item"> 不勾选</label></li><li><label><input type="checkbox" checked="checked" disabled="disabled" class="task-list-item"> 勾选 (为aiks)</label></li></ul><h2 id="代码">代码</h2><pre><code class="language-java">\`\`\`java
+</code></pre>
+
+<ul class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> 不勾选</label></li>
+<li><label><input type="checkbox" checked disabled class="task-list-item"> 勾选 (为aiks)</label></li>
+</ul>
+
+<h2 id="代码">代码</h2>
+
+<pre><code class="language-java">\`\`\`java
 new String();
 \`\`\`
-</code></pre><pre><code class="language-java">new String();
-</code></pre><h2 id="表格">表格</h2><pre><code>First Header | Second Header | Third Header
+</code></pre>
+
+<pre><code class="language-java">new String();
+</code></pre>
+
+<h2 id="表格">表格</h2>
+
+<pre><code>First Header | Second Header | Third Header
 :----------- | :-----------: | -----------:
 Left         | Center        | Right
 Left         | Center        | Right
 
-</code></pre><table><thead><tr><th align="left">First Header</th><th align="center">Second Header</th><th align="right">Third Header</th></tr></thead><tbody><tr><td align="left">Left</td><td align="center">Center</td><td align="right">Right</td></tr><tr><td align="left">Left</td><td align="center">Center</td><td align="right">Right</td></tr></tbody></table><h2 id="分割线">分割线</h2><pre><code>---
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">First Header</th>
+<th align="center">Second Header</th>
+<th align="right">Third Header</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Left</td>
+<td align="center">Center</td>
+<td align="right">Right</td>
+</tr>
+
+<tr>
+<td align="left">Left</td>
+<td align="center">Center</td>
+<td align="right">Right</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="分割线">分割线</h2>
+
+<pre><code>---
 ***
-</code></pre><hr><hr><h2 id="图片">图片</h2><pre><code>![Alt text][1]
+</code></pre>
+
+<hr />
+
+<hr />
+
+<h2 id="图片">图片</h2>
+
+<pre><code>![Alt text][1]
 
 
 ![Alt text](https://www.sogou.com/index/images/logo_440x140.v.1.png)
-</code></pre><p><img src="https://www.sogou.com/index/images/logo_440x140.v.1.png" alt="Alt text" title="搜狗搜索 optional title"> <img src="https://www.sogou.com/index/images/logo_440x140.v.1.png" alt="Alt text"></p><h2 id="插入原生html">插入原生html</h2><pre><code class="language-markdown">{% raw %}
+</code></pre>
+
+<p><img src="https://www.sogou.com/index/images/logo_440x140.v.1.png" alt="Alt text" title="搜狗搜索 optional title" />
+<img src="https://www.sogou.com/index/images/logo_440x140.v.1.png" alt="Alt text" /></p>
+
+<h2 id="插入原生html">插入原生html</h2>
+
+<pre><code class="language-markdown">{% raw %}
 &lt;em&gt;your html&lt;/em&gt;
 {% endraw %}
-</code></pre><p>{% raw %} <em>your html</em> {% endraw %}</p><h2 id="mathjax">MathJax</h2><p>MathJax通过JavaScript将特定的符号转换成HTML，SVG或者MathML，来在浏览器中显示数学表达式。 将MathJax的JavaScript引入到页面中:</p><pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; async
+</code></pre>
+
+<p>{% raw %}
+<em>your html</em>
+{% endraw %}</p>
+
+<h2 id="mathjax">MathJax</h2>
+
+<p>MathJax通过JavaScript将特定的符号转换成HTML，SVG或者MathML，来在浏览器中显示数学表达式。
+将MathJax的JavaScript引入到页面中:</p>
+
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; async
   src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;
 &lt;/script&gt;
-</code></pre><p><code>$</code>行内表达式默认是不启用的，需要在引入 Mathjax 后添加如下代码：</p><pre><code>&lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+</code></pre>
+
+<p><code>$</code>行内表达式默认是不启用的，需要在引入 Mathjax 后添加如下代码：</p>
+
+<pre><code>&lt;script type=&quot;text/x-mathjax-config&quot;&gt;
     MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
     });
 &lt;/script&gt;
-</code></pre><p>有两种类型的表达式：一种是行内的；一种是单独一行的。 默认的数学分隔符是：<code>$$...$$</code> 和 <code>\[...\]</code>，行内数学表达式是<code>\(...\)</code>。例如：</p><pre><code>$$2^n$$123
+</code></pre>
+
+<p>有两种类型的表达式：一种是行内的；一种是单独一行的。
+默认的数学分隔符是：<code>$$...$$</code> 和 <code>\[...\]</code>，行内数学表达式是<code>\(...\)</code>。例如：</p>
+
+<pre><code>$$2^n$$123
 \(2^5\)123
-</code></pre><p>$$2^n$$123 (2^5)123</p><p>在 vscode 中使用 markdown 公式预览插件： markdown+Math</p><pre><code class="language-shell">cd $HOME/.vscode/extensions
+</code></pre>
+
+<p>$$2^n$$123
+(2^5)123</p>
+
+<p>在 vscode 中使用 markdown 公式预览插件： markdown+Math</p>
+
+<pre><code class="language-shell">cd $HOME/.vscode/extensions
 git clone https://github.com/goessner/mdmath.git
 cd mdmath
 npm install
-</code></pre><h2 id="插入uml">插入UML</h2><p>在写markdown文档时，可能会用到UML图，但是我们不想使用图片，因为这样我们要使用在线图片或者自己有限的空间。那么我们可以使用svg。 <a href="https://www.processon.com/">ProcessOn 在线作图</a>，该在线网站生成的svg代码可能较大，可以使用 <a href="https://jakearchibald.github.io/svgomg/?utm_source=next.36kr.com">SVGOMG</a>压缩</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/markdown">#markdown</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+<h2 id="插入uml">插入UML</h2>
+
+<p>在写markdown文档时，可能会用到UML图，但是我们不想使用图片，因为这样我们要使用在线图片或者自己有限的空间。那么我们可以使用svg。
+<a href="https://www.processon.com/">ProcessOn 在线作图</a>，该在线网站生成的svg代码可能较大，可以使用 <a href="https://jakearchibald.github.io/svgomg/?utm_source=next.36kr.com">SVGOMG</a>压缩</p>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/markdown">#markdown</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev">正则表达式</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/linux/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="next">linux 常用命令</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev">正则表达式</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/linux/linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="next">linux 常用命令</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

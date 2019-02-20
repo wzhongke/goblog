@@ -1,31 +1,717 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>shell 编程 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/linux/shell/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    shell 编程 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/linux/shell/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/linux/">Linux</a> <span class="breadcrumb">shell 编程</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><ul><li><a href="#shell程序执行">shell程序执行</a></li><li><a href="#shell基本说明">shell基本说明</a></li><li><a href="#test测试命令">test测试命令</a><ul><li><a href="#检测文件类型-test-e-filename">检测文件类型 <code>test -e filename</code></a></li><li><a href="#检测文件权限-test-r-filename">检测文件权限 <code>test -r filename</code></a></li><li><a href="#两个文件间比较-test-file1-nt-file2">两个文件间比较 <code>test file1 -nt file2</code></a></li><li><a href="#整数之间的判断-test-n1-eq-n2">整数之间的判断 <code>test n1 -eq n2</code></a></li><li><a href="#判定字符串的数据">判定字符串的数据</a></li><li><a href="#多条件判定-test-r-filename-a-x-filename">多条件判定 <code>test -r filename -a -x filename</code></a></li><li><a href="#使用判断符号">使用判断符号 <code>[]</code></a></li></ul></li><li><a href="#shell脚本的默认变量">shell脚本的默认变量</a><ul><li><a href="#shift"><code>shift</code></a></li></ul></li><li><a href="#条件判断">条件判断</a><ul><li><a href="#if-then"><code>if ... then...</code></a></li><li><a href="#使用-case-esac-判断">使用 <code>case...esac</code>判断</a></li></ul></li><li><a href="#function">function</a></li><li><a href="#循环">循环</a><ul><li><a href="#不定循环-while-do-done-util-do-done">不定循环：<code>while do done</code>, <code>util do done</code></a></li><li><a href="#for-do-done"><code>for...do...done</code></a></li></ul></li><li><a href="#shell脚本调试">shell脚本调试</a></li><li><a href="#环境变量">环境变量</a></li></ul></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">shell 编程 </span><span class="card-meta"><time><span>Sat Aug 19 2017</span></time><address><a href="https://wzhongke.github.io//categories/linux">linux</a>&nbsp; <a href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;</address></span><article class="article"><p>shell script虽然是程序，但是它处理数据的速度是不够的。因为shell用的是外部的命令bash shell的一些默认工具，所以它经常会调用外部的函数库。 shell 经常被用来管理系统，而不是处理数据。<!-- more --></p><h2 id="shell程序执行">shell程序执行</h2><p>有两种方式可以执行shell脚本： 1. 直接命令执行：这种方式要求文件有rx权限 - 绝对路径 <code>/home/user/shell.sh</code> - 相对路径 <code>./shell.sh</code> - 放到<code>PATH</code>路径下，直接执行 <code>shell.sh</code> 2. 通过<code>bash shell.sh</code>或者 <code>sh shell.sh</code>来执行</p><h2 id="shell基本说明">shell基本说明</h2><pre><code class="language-shell">#!/bin/bash
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/linux/'>Linux</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">shell 编程</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#shell程序执行">shell程序执行</a></li>
+<li><a href="#shell基本说明">shell基本说明</a></li>
+<li><a href="#test测试命令">test测试命令</a>
+<ul>
+<li><a href="#检测文件类型-test-e-filename">检测文件类型  <code>test -e filename</code></a></li>
+<li><a href="#检测文件权限-test-r-filename">检测文件权限 <code>test -r filename</code></a></li>
+<li><a href="#两个文件间比较-test-file1-nt-file2">两个文件间比较 <code>test file1 -nt file2</code></a></li>
+<li><a href="#整数之间的判断-test-n1-eq-n2">整数之间的判断 <code>test n1 -eq n2</code></a></li>
+<li><a href="#判定字符串的数据">判定字符串的数据</a></li>
+<li><a href="#多条件判定-test-r-filename-a-x-filename">多条件判定 <code>test -r filename -a -x filename</code></a></li>
+<li><a href="#使用判断符号">使用判断符号 <code>[]</code></a></li>
+</ul></li>
+<li><a href="#shell脚本的默认变量">shell脚本的默认变量</a>
+<ul>
+<li><a href="#shift"><code>shift</code></a></li>
+</ul></li>
+<li><a href="#条件判断">条件判断</a>
+<ul>
+<li><a href="#if-then"><code>if ... then...</code></a></li>
+<li><a href="#使用-case-esac-判断">使用 <code>case...esac</code>判断</a></li>
+</ul></li>
+<li><a href="#function">function</a></li>
+<li><a href="#循环">循环</a>
+<ul>
+<li><a href="#不定循环-while-do-done-util-do-done">不定循环：<code>while do done</code>, <code>util do done</code></a></li>
+<li><a href="#for-do-done"><code>for...do...done</code></a></li>
+</ul></li>
+<li><a href="#shell脚本调试">shell脚本调试</a></li>
+<li><a href="#环境变量">环境变量</a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">shell 编程 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Sat Aug 19 2017</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/linux">linux</a>&nbsp; 
+              
+              <a href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<p>shell script虽然是程序，但是它处理数据的速度是不够的。因为shell用的是外部的命令bash shell的一些默认工具，所以它经常会调用外部的函数库。
+shell 经常被用来管理系统，而不是处理数据。
+<!-- more --></p>
+
+<h2 id="shell程序执行">shell程序执行</h2>
+
+<p>有两种方式可以执行shell脚本：
+1. 直接命令执行：这种方式要求文件有rx权限
+   - 绝对路径 <code>/home/user/shell.sh</code>
+   - 相对路径 <code>./shell.sh</code>
+   - 放到<code>PATH</code>路径下，直接执行 <code>shell.sh</code>
+2. 通过<code>bash shell.sh</code>或者 <code>sh shell.sh</code>来执行</p>
+
+<h2 id="shell基本说明">shell基本说明</h2>
+
+<pre><code class="language-shell">#!/bin/bash
 # Program: shell脚本用途说明
 # 修改时间，作者相关信息
 read -p &quot;name: &quot; name
 echo -e &quot;\nname is $name&quot;
-</code></pre><p>shell 脚本通常以<code>#!/bin/bash</code> 开头，来声明这个文件使用bash语法。在文件执行时，能够加载bash的相关环境配置文件</p><h2 id="test测试命令">test测试命令</h2><p>test命令经常用来检测文件或者是其相关属性</p><h3 id="检测文件类型-test-e-filename">检测文件类型 <code>test -e filename</code></h3><table><thead><tr><th align="left">测试标志</th><th align="left">代表含义</th></tr></thead><tbody><tr><td align="left">-e</td><td align="left">该文件名是否存在</td></tr><tr><td align="left">-f</td><td align="left">该文件名是否存在且为文件</td></tr><tr><td align="left">-d</td><td align="left">该文件名是否存在且为目录</td></tr><tr><td align="left">-L</td><td align="left">该文件名是否存在且为一个连接文件</td></tr></tbody></table><h3 id="检测文件权限-test-r-filename">检测文件权限 <code>test -r filename</code></h3><table><thead><tr><th align="left">测试标志</th><th align="left">代表含义</th></tr></thead><tbody><tr><td align="left">-r</td><td align="left">检测文件名是否存在且具有可读权限</td></tr><tr><td align="left">-w</td><td align="left">检测文件名是否存在且具有可写权限</td></tr><tr><td align="left">-x</td><td align="left">检测文件名是否存在且具有可执行权限</td></tr><tr><td align="left">-u</td><td align="left">检测文件名是否存在且具有SUID属性</td></tr><tr><td align="left">-s</td><td align="left">检测文件名是否存在且为 非空白文件</td></tr></tbody></table><h3 id="两个文件间比较-test-file1-nt-file2">两个文件间比较 <code>test file1 -nt file2</code></h3><table><thead><tr><th align="left">测试标志</th><th align="left">代表含义</th></tr></thead><tbody><tr><td align="left">-nt</td><td align="left">(newer than) 判断file1是否比file2新</td></tr><tr><td align="left">-ot</td><td align="left">(older than) 判断file1是否比file2旧</td></tr><tr><td align="left">-ef</td><td align="left">判断file1与file2是否为同一个文件，可用在hard link的判断上</td></tr></tbody></table><h3 id="整数之间的判断-test-n1-eq-n2">整数之间的判断 <code>test n1 -eq n2</code></h3><table><thead><tr><th align="left">测试标志</th><th align="left">代表含义</th></tr></thead><tbody><tr><td align="left">-eq</td><td align="left">两数值相等</td></tr><tr><td align="left">-ne</td><td align="left">两数值不相等</td></tr><tr><td align="left">-gt</td><td align="left">n1 大于 n2</td></tr><tr><td align="left">-lt</td><td align="left">n1 小于 n2</td></tr><tr><td align="left">-ge</td><td align="left">n1 大于等于 n2</td></tr><tr><td align="left">-le</td><td align="left">n1 小于等于 n2</td></tr></tbody></table><h3 id="判定字符串的数据">判定字符串的数据</h3><table><thead><tr><th align="left">测试标志</th><th align="left">代表含义</th></tr></thead><tbody><tr><td align="left">test -z string</td><td align="left">判定字符串是否为0，若string为字符串，则为true</td></tr><tr><td align="left">test -n string</td><td align="left">判定字符串是否为0，若string为字符串，则为false, -n可以省略</td></tr><tr><td align="left">test st1 = str2</td><td align="left">判断str1是否等于str2，若相等，则为true</td></tr><tr><td align="left">test st1 != str2</td><td align="left">判断str1是否等于str2，若相等，则为false</td></tr></tbody></table><h3 id="多条件判定-test-r-filename-a-x-filename">多条件判定 <code>test -r filename -a -x filename</code></h3><table><thead><tr><th align="left">测试标志</th><th align="left">代表含义</th></tr></thead><tbody><tr><td align="left">-a</td><td align="left">两个条件同时成立</td></tr><tr><td align="left">-o</td><td align="left">任何一个条件成立</td></tr><tr><td align="left">!</td><td align="left">反向状态，not</td></tr></tbody></table><h3 id="使用判断符号">使用判断符号 <code>[]</code></h3><p>可以使用<code>[]</code>来代替<code>test</code>进行判断</p><pre><code class="language-shell">[ -z &quot;$HOME&quot; ]
-</code></pre><p>使用<code>[]</code>必须要特别注意，在bash语法中使用时，必须要注意中括号内的每个组件都需要有空格键来分隔，中括号中的变量最好都以双引号括起来</p><h2 id="shell脚本的默认变量">shell脚本的默认变量</h2><p>向shell脚本中传递参数和获取参数的方法如下：</p><pre><code>scriptname opt1 opt2 opt3 ...
+</code></pre>
+
+<p>shell 脚本通常以<code>#!/bin/bash</code> 开头，来声明这个文件使用bash语法。在文件执行时，能够加载bash的相关环境配置文件</p>
+
+<h2 id="test测试命令">test测试命令</h2>
+
+<p>test命令经常用来检测文件或者是其相关属性</p>
+
+<h3 id="检测文件类型-test-e-filename">检测文件类型  <code>test -e filename</code></h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">测试标志</th>
+<th align="left">代表含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-e</td>
+<td align="left">该文件名是否存在</td>
+</tr>
+
+<tr>
+<td align="left">-f</td>
+<td align="left">该文件名是否存在且为文件</td>
+</tr>
+
+<tr>
+<td align="left">-d</td>
+<td align="left">该文件名是否存在且为目录</td>
+</tr>
+
+<tr>
+<td align="left">-L</td>
+<td align="left">该文件名是否存在且为一个连接文件</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="检测文件权限-test-r-filename">检测文件权限 <code>test -r filename</code></h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">测试标志</th>
+<th align="left">代表含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-r</td>
+<td align="left">检测文件名是否存在且具有可读权限</td>
+</tr>
+
+<tr>
+<td align="left">-w</td>
+<td align="left">检测文件名是否存在且具有可写权限</td>
+</tr>
+
+<tr>
+<td align="left">-x</td>
+<td align="left">检测文件名是否存在且具有可执行权限</td>
+</tr>
+
+<tr>
+<td align="left">-u</td>
+<td align="left">检测文件名是否存在且具有SUID属性</td>
+</tr>
+
+<tr>
+<td align="left">-s</td>
+<td align="left">检测文件名是否存在且为 非空白文件</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="两个文件间比较-test-file1-nt-file2">两个文件间比较 <code>test file1 -nt file2</code></h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">测试标志</th>
+<th align="left">代表含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-nt</td>
+<td align="left">(newer than) 判断file1是否比file2新</td>
+</tr>
+
+<tr>
+<td align="left">-ot</td>
+<td align="left">(older than) 判断file1是否比file2旧</td>
+</tr>
+
+<tr>
+<td align="left">-ef</td>
+<td align="left">判断file1与file2是否为同一个文件，可用在hard link的判断上</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="整数之间的判断-test-n1-eq-n2">整数之间的判断 <code>test n1 -eq n2</code></h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">测试标志</th>
+<th align="left">代表含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-eq</td>
+<td align="left">两数值相等</td>
+</tr>
+
+<tr>
+<td align="left">-ne</td>
+<td align="left">两数值不相等</td>
+</tr>
+
+<tr>
+<td align="left">-gt</td>
+<td align="left">n1 大于 n2</td>
+</tr>
+
+<tr>
+<td align="left">-lt</td>
+<td align="left">n1 小于 n2</td>
+</tr>
+
+<tr>
+<td align="left">-ge</td>
+<td align="left">n1 大于等于 n2</td>
+</tr>
+
+<tr>
+<td align="left">-le</td>
+<td align="left">n1 小于等于 n2</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="判定字符串的数据">判定字符串的数据</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">测试标志</th>
+<th align="left">代表含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">test -z string</td>
+<td align="left">判定字符串是否为0，若string为字符串，则为true</td>
+</tr>
+
+<tr>
+<td align="left">test -n string</td>
+<td align="left">判定字符串是否为0，若string为字符串，则为false, -n可以省略</td>
+</tr>
+
+<tr>
+<td align="left">test st1 = str2</td>
+<td align="left">判断str1是否等于str2，若相等，则为true</td>
+</tr>
+
+<tr>
+<td align="left">test st1 != str2</td>
+<td align="left">判断str1是否等于str2，若相等，则为false</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="多条件判定-test-r-filename-a-x-filename">多条件判定 <code>test -r filename -a -x filename</code></h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">测试标志</th>
+<th align="left">代表含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-a</td>
+<td align="left">两个条件同时成立</td>
+</tr>
+
+<tr>
+<td align="left">-o</td>
+<td align="left">任何一个条件成立</td>
+</tr>
+
+<tr>
+<td align="left">!</td>
+<td align="left">反向状态，not</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="使用判断符号">使用判断符号 <code>[]</code></h3>
+
+<p>可以使用<code>[]</code>来代替<code>test</code>进行判断</p>
+
+<pre><code class="language-shell">[ -z &quot;$HOME&quot; ]
+</code></pre>
+
+<p>使用<code>[]</code>必须要特别注意，在bash语法中使用时，必须要注意中括号内的每个组件都需要有空格键来分隔，中括号中的变量最好都以双引号括起来</p>
+
+<h2 id="shell脚本的默认变量">shell脚本的默认变量</h2>
+
+<p>向shell脚本中传递参数和获取参数的方法如下：</p>
+
+<pre><code>scriptname opt1 opt2 opt3 ...
 $0         $1   $2   $3
-</code></pre><p>其他的一些参数： - <code>$#</code> : 后接参数个数 - <code>$@</code> : 所有的参数</p><h3 id="shift"><code>shift</code></h3><p><code>shift</code>会移动变量，后面可以跟数字，表示一次移除多少变量</p><h2 id="条件判断">条件判断</h2><h3 id="if-then"><code>if ... then...</code></h3><p><code>if ... then...</code> 是最常见的条件判断式。 当只有一个判断要进行时，可以使用如下方式：</p><pre><code class="language-shell">if [ 条件测试语句 ]; then
+</code></pre>
+
+<p>其他的一些参数：
+- <code>$#</code> : 后接参数个数
+- <code>$@</code> : 所有的参数</p>
+
+<h3 id="shift"><code>shift</code></h3>
+
+<p><code>shift</code>会移动变量，后面可以跟数字，表示一次移除多少变量</p>
+
+<h2 id="条件判断">条件判断</h2>
+
+<h3 id="if-then"><code>if ... then...</code></h3>
+
+<p><code>if ... then...</code> 是最常见的条件判断式。
+当只有一个判断要进行时，可以使用如下方式：</p>
+
+<pre><code class="language-shell">if [ 条件测试语句 ]; then
     条件成立
 fi
-</code></pre><p>可以通过<code>&amp;&amp;</code>或者<code>||</code>来分隔两个条件判断式，如：</p><pre><code class="language-shell">if [ &quot;$yn&quot; == &quot;Y&quot; || &quot;$yn&quot; == &quot;y&quot;]; then
+</code></pre>
+
+<p>可以通过<code>&amp;&amp;</code>或者<code>||</code>来分隔两个条件判断式，如：</p>
+
+<pre><code class="language-shell">if [ &quot;$yn&quot; == &quot;Y&quot; || &quot;$yn&quot; == &quot;y&quot;]; then
     &quot;do something&quot;
 fi
-</code></pre><p>对于多重、复杂条件判断，可以用如下方式：</p><pre><code class="language-shell">if [ 条件判断式一 ]; then
+</code></pre>
+
+<p>对于多重、复杂条件判断，可以用如下方式：</p>
+
+<pre><code class="language-shell">if [ 条件判断式一 ]; then
     &quot;do something&quot;
 elif [ 条件判断式二 ]; then
     &quot;do something&quot;
 else 
     &quot;do something&quot;
 fi
-</code></pre><h3 id="使用-case-esac-判断">使用 <code>case...esac</code>判断</h3><p>这种判断经常用来做固定字符串来执行某些操作的需求 <code>case</code> 语法如下：</p><pre><code class="language-shell">case $变量 in
+</code></pre>
+
+<h3 id="使用-case-esac-判断">使用 <code>case...esac</code>判断</h3>
+
+<p>这种判断经常用来做固定字符串来执行某些操作的需求
+<code>case</code> 语法如下：</p>
+
+<pre><code class="language-shell">case $变量 in
     &quot;第一个变量内容&quot; )
         &quot;do something&quot;
         ;;   #需要用两个分号结尾
@@ -33,10 +719,21 @@ fi
         其他条件执行内容
         ;;
 esac
-</code></pre><h2 id="function">function</h2><p>shell中函数的语法如下：</p><pre><code class="language-shell">function fname () {
+</code></pre>
+
+<h2 id="function">function</h2>
+
+<p>shell中函数的语法如下：</p>
+
+<pre><code class="language-shell">function fname () {
     'do some thing'
 }
-</code></pre><p>因为shell脚本的执行方式是由下而上的，由左而右的，因此，function的设置一定要在程序的最前面，这样才能在执行时被找到可用的程序段。 function中也有内置变量，函数名为$0, 而后续连接的变量也是以$1, $2&hellip; 来代替的。</p><pre><code class="language-shell">#!/bin/bash
+</code></pre>
+
+<p>因为shell脚本的执行方式是由下而上的，由左而右的，因此，function的设置一定要在程序的最前面，这样才能在执行时被找到可用的程序段。
+function中也有内置变量，函数名为$0, 而后续连接的变量也是以$1, $2&hellip; 来代替的。</p>
+
+<pre><code class="language-shell">#!/bin/bash
 function print () {
     echo &quot;Choice is $1&quot; 
 }
@@ -53,7 +750,15 @@ case $1 in
        echo &quot;Usage $0 (one|two)&quot;
        ;;
 esac
-</code></pre><h2 id="循环">循环</h2><h3 id="不定循环-while-do-done-util-do-done">不定循环：<code>while do done</code>, <code>util do done</code></h3><p>两种方式的循环如下：</p><pre><code class="language-shell"># 当满足条件condition时，执行循环体
+</code></pre>
+
+<h2 id="循环">循环</h2>
+
+<h3 id="不定循环-while-do-done-util-do-done">不定循环：<code>while do done</code>, <code>util do done</code></h3>
+
+<p>两种方式的循环如下：</p>
+
+<pre><code class="language-shell"># 当满足条件condition时，执行循环体
 while [ condition ]
 do
     'do something'
@@ -64,14 +769,24 @@ until [condition]
 do
     'do something'
 done
-</code></pre><p>自加运算如下：</p><pre><code class="language-shell">s=0
+</code></pre>
+
+<p>自加运算如下：</p>
+
+<pre><code class="language-shell">s=0
 i=0
 while [ &quot;$i&quot; != &quot;100&quot; ]
 do
     i=$(($i+1))
     s=$(($s+$i))
 done
-</code></pre><h3 id="for-do-done"><code>for...do...done</code></h3><p>语法如下：</p><pre><code class="language-shell">for var in con1 con2 con3 ...
+</code></pre>
+
+<h3 id="for-do-done"><code>for...do...done</code></h3>
+
+<p>语法如下：</p>
+
+<pre><code class="language-shell">for var in con1 con2 con3 ...
 do
     'do something'
 done
@@ -80,7 +795,11 @@ for ( ( 初始值; 限制数; 执行步长 ))
 do
     'do something'
 done   
-</code></pre><p>可以对其他输出内容进行遍历</p><pre><code class="language-shell">users=$( cut -d ':' -f1 /etc/passwd )
+</code></pre>
+
+<p>可以对其他输出内容进行遍历</p>
+
+<pre><code class="language-shell">users=$( cut -d ':' -f1 /etc/passwd )
 for username in $users
 do
     id $username
@@ -104,22 +823,116 @@ for ( ( i=1; i&lt;=$nu; i=i+1))
 do
     s=$( ($s+$i))
 done
-</code></pre><h2 id="shell脚本调试">shell脚本调试</h2><p>可以利用shell脚本参数来检查shell的正确性</p><pre><code class="language-shell">sh [-nvx] script.sh
+</code></pre>
+
+<h2 id="shell脚本调试">shell脚本调试</h2>
+
+<p>可以利用shell脚本参数来检查shell的正确性</p>
+
+<pre><code class="language-shell">sh [-nvx] script.sh
 -n: 不执行script，只检查语法
 -v: 执行script前，将script内容输出到屏幕上
 -x: 将使用到的script内容显示到屏幕上
-</code></pre><h2 id="环境变量">环境变量</h2><p>可以用 <code>export</code> 来将自定义变量转换成环境变量</p></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/linux">#linux</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+<h2 id="环境变量">环境变量</h2>
+
+<p>可以用 <code>export</code> 来将自定义变量转换成环境变量</p>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/linux">#linux</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/sublime/" rel="prev">sublime 配置</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/sublime/" rel="prev">sublime 配置</a>
+          </span>  
+          
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>

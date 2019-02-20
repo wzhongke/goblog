@@ -1,10 +1,492 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>vue 学习笔记 | World of Wang</title><meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1"><link rel="canonical" href="https://wzhongke.github.io/post/front/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet"><link rel="stylesheet" href="https://wzhongke.github.io//css/index-5eb34aa86f.css"><link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang"><link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon"><script>window.origin = "https://wzhongke.github.io/";
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    vue 学习笔记 | World of Wang
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://wzhongke.github.io/post/front/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+
+  
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/ocean.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://wzhongke.github.io//css/index.css">
+  
+  <link href="https://wzhongke.github.io/index.xml" rel="alternate" type="application/rss+xml" title="World of Wang" />
+  <link href="https://wzhongke.github.io/index.xml" rel="feed" type="application/rss+xml" title="World of Wang" />
+
+  
+  <link href="https://wzhongke.github.io//favicon.ico" rel="shortcut icon">
+
+  <script>
+    window.origin = "https://wzhongke.github.io/";
     
     var outer = document.createElement('div');
     outer.style.cssText = "visibility:hidden;width:100%;overflow:scroll";
     document.documentElement.appendChild(outer);
     window.scrollWidth = outer.offsetWidth - outer.clientWidth;
-    document.documentElement.removeChild(outer);</script></head><body><div id="modal-search" class="modal"><div class="modal-content"><form><div class="row"><div class="input-field col s12"><input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"> <label for="in-search">Search</label></div></div></form><div class="out-wrapper row"><div id="out-search" class="collection col s12"></div></div></div></div><div class="navbar-fixed"><nav class="navbar"><div class="nav-wrapper container"><a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a> <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> World of Wang</a><ul class="right hide-on-small-and-down"><li><a class="modal-trigger" href="#modal-search"><i class="material-icons">search</i></a></li><li><a href="https://wzhongke.github.io/index.xml" target="_blank"><i class="material-icons">rss_feed</i></a></li></ul><ul class="center tabs tabs-transparent hide-on-med-and-down"><li class="tab"><a href="https://wzhongke.github.io//" class="">Home</a></li><li class="tab"><a href="https://wzhongke.github.io//archive/" class="">Archive</a></li><li class="tab"><a href="https://wzhongke.github.io//about/" class="">About</a></li><li class="tab"><a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class="">碰到过的问题</a></li></ul></div></nav></div><aside class="side-panel"><div class="inner"><div class="profile"><div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg-7c6e6a1672.jpg')"></div><img class="profile__avatar" src="https://wzhongke.github.io//img/sign-d1f802b4e8.jpg" alt="avatar"><h3 class="profile__name">壹冶知秋</h3><p class="profile__desc">Do not ride on fear...</p></div><ul class="nav-group show-on-medium-and-down menu"><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//"><i class="material-icons">home</i> <span class="content">Home</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/"><i class="material-icons">archive</i> <span class="content">Archive</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/"><i class="material-icons">person</i> <span class="content">About</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/"><i class="material-icons">bookmark</i> <span class="content">碰到过的问题</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="nav-group show-on-small tools"><li><a class="collapsible-header waves-effect waves-indigo modal-trigger" href="#modal-search"><i class="material-icons">search</i> <span class="content">Search</span> <i class="material-icons">chevron_right</i></a></li><li><a class="collapsible-header waves-effect waves-indigo" target="_blank" href="https://wzhongke.github.io/index.xml"><i class="material-icons">rss_feed</i> <span class="content">RSS Feed</span> <i class="material-icons">chevron_right</i></a></li></ul><ul class="collapsible nav-group" data-collapsible="accordion"><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons">whatshot</i> <span class="content">Latest</span> <i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> <a class="collection-item" href="https://wzhongke.github.io/post/linux/make%E5%AE%89%E8%A3%85httpd/">linux编译安装httpd</a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">class</i></i> <span class="content">Category </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//categories/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/javascript">javascript<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95">算法<span class="badge">7</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/markdown">markdown<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/vue">vue<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B">编程<span class="badge">1</span></a></div></div></li><li><div class="collapsible-header waves-effect waves-indigo"><i class="material-icons"><i class="material-icons">local_offer</i></i> <span class="content">Tag </span><i class="material-icons angle">expand_more</i></div><div class="collapsible-body"><div class="collection"><a class="collection-item" href="https://wzhongke.github.io//tags/java">java<span class="badge">11</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/linux">linux<span class="badge">9</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/javascript">javascript<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95">算法<span class="badge">6</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/python">python<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式<span class="badge">5</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/other">other<span class="badge">4</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7">工具<span class="badge">3</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/css">css<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/markdown">markdown<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/mysql">mysql<span class="badge">2</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/error">error<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs">nodejs<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/sql">sql<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/svg">svg<span class="badge">1</span></a> <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C">旅行<span class="badge">1</span></a></div></div></li></ul><ul class="nav-group external-link"><li><a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank"><svg class="svg-icons svg-icons-github"><use xlink:href="#svg-icons-github"></use></svg> <span class="content">Github<small>@wzhongke</small></span> <i class="material-icons">chevron_right</i></a></li></ul></div></aside><main id="single" role="main" class="main-panel"><section class="container"><div class="inner"><div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation"><a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/">Post</a> <a class="breadcrumb" href="https://wzhongke.github.io/post/front/">Front</a> <span class="breadcrumb">vue 学习笔记</span></div><section class="post-wrapper"><div class="toc-panel"><nav id="TableOfContents"><ul><li><a href="#属性和方法">属性和方法</a></li><li><a href="#实例的生命周期">实例的生命周期</a></li><li><a href="#模板语法">模板语法</a><ul><li><a href="#插值">插值</a><ul><li><a href="#文本">文本</a></li><li><a href="#原始html">原始HTML</a></li><li><a href="#特性">特性</a></li><li><a href="#在插值中使用javascript表达式">在插值中使用JavaScript表达式</a></li></ul></li><li><a href="#指令">指令</a><ul><li><a href="#参数">参数</a></li><li><a href="#修饰符">修饰符</a></li></ul></li><li><a href="#缩写">缩写</a></li></ul></li><li><a href="#计算属性">计算属性</a></li><li><a href="#侦听器">侦听器</a></li><li><a href="#条件渲染">条件渲染</a><ul><li><a href="#用-key-管理可复用元素">用 <code>key</code> 管理可复用元素</a></li><li><a href="#v-show"><code>v-show</code></a></li></ul></li><li><a href="#列表渲染">列表渲染</a><ul><li><a href="#遍历对象">遍历对象</a></li><li><a href="#数组变化检测">数组变化检测</a></li><li><a href="#数组替换">数组替换</a></li><li><a href="#对象变化检测">对象变化检测</a></li><li><a href="#使用计算属性或者方法">使用计算属性或者方法</a></li><li><a href="#使用-v-for-在整数值范围内迭代">使用 <code>v-for</code> 在整数值范围内迭代</a></li><li><a href="#使用-template-来渲染多个模块">使用 <code>&lt;template&gt;</code> 来渲染多个模块</a></li><li><a href="#v-for-中的-v-if"><code>v-for</code> 中的 <code>v-if</code></a></li></ul></li><li><a href="#事件处理">事件处理</a><ul><li><a href="#在-methods-中定义事件处理函数">在 <code>methods</code> 中定义事件处理函数</a></li><li><a href="#事件修饰符">事件修饰符</a></li><li><a href="#按键修饰符">按键修饰符</a></li><li><a href="#系统辅助按键">系统辅助按键</a></li></ul></li><li><a href="#表单绑定">表单绑定</a><ul><li><a href="#input"><code>input</code></a></li><li><a href="#checkbox"><code>checkbox</code></a></li><li><a href="#radio"><code>radio</code></a></li><li><a href="#select"><code>select</code></a></li><li><a href="#同-value-属性绑定">同 <code>value</code> 属性绑定</a></li><li><a href="#修饰符-1">修饰符</a></li></ul></li><li><a href="#组件">组件</a><ul><li><a href="#注册组件">注册组件</a></li><li><a href="#模块系统">模块系统</a></li><li><a href="#使用-props-向子组件中传递数据">使用 <code>props</code> 向子组件中传递数据</a><ul><li><a href="#单向数据流">单向数据流</a></li><li><a href="#prop-验证">prop 验证</a></li></ul></li><li><a href="#使用-events-向父组件发送消息">使用 <code>events</code> 向父组件发送消息</a></li></ul></li><li><a href="#自定义事件">自定义事件</a><ul><li><a href="#定制组件-v-model">定制组件 <code>v-model</code></a></li></ul></li><li><a href="#使用-slots-进行内容分发">使用 slots 进行内容分发</a><ul><li><a href="#命名-slot">命名 <code>slot</code></a><ul><li><a href="#默认-slot-内容">默认 slot 内容</a></li><li><a href="#编译时的作用域">编译时的作用域</a></li></ul></li></ul></li><li><a href="#动态组件">动态组件</a><ul><li><a href="#异步组件">异步组件</a></li></ul></li><li><a href="#dom-模板解析注意事项">DOM 模板解析注意事项</a></li><li><a href="#mixin">mixin</a></li><li><a href="#自定义指令">自定义指令</a><ul><li><a href="#钩子函数">钩子函数</a></li></ul></li><li><a href="#渲染函数">渲染函数</a><ul><li><a href="#createelement"><code>createElement</code></a></li><li><a href="#深入-data-对象">深入 <code>data</code> 对象</a></li><li><a href="#v-model"><code>v-model</code></a></li><li><a href="#事件和按键修饰符">事件和按键修饰符</a></li><li><a href="#函数式组件">函数式组件</a></li></ul></li><li><a href="#插件">插件</a></li><li><a href="#过滤器">过滤器</a></li></ul></nav></div><div class="post"><div class="card"><div class="card-content"><span class="card-title">vue 学习笔记 </span><span class="card-meta"><time><span>Sat Jan 21 2017</span></time><address><a href="https://wzhongke.github.io//categories/javascript">javascript</a>&nbsp;</address></span><article class="article"><h1 id="属性和方法">属性和方法</h1><p>每个vue实例都会代理其data对象的所有属性</p><pre><code class="language-js">var data = { a: 1 }
+    document.documentElement.removeChild(outer);
+  </script>
+</head>
+
+ 
+
+<body>
+  
+  <div id="modal-search" class="modal">
+    <div class="modal-content">
+      <form>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="in-search" type="text" required aria-required="true" autofocus autocomplete="off"/>
+            <label for='in-search'>Search</label>
+          </div>
+        </div>
+      </form>
+      <div class="out-wrapper row">
+        <div id="out-search" class="collection col s12"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-fixed">
+    <nav class="navbar">
+      <div class="nav-wrapper container">
+        <a href="javascript:void(0)" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="https://wzhongke.github.io/" class="brand-logo"><i class="material-icons">restaurant_menu</i> 
+          World of Wang
+        </a>
+
+        <ul class="right hide-on-small-and-down">
+          
+          <li><a class="modal-trigger" href='#modal-search'><i class="material-icons">search</i></a></li>
+          <li><a href='https://wzhongke.github.io/index.xml' target="_blank"><i class="material-icons">rss_feed</i></a></li>
+        </ul>
+        
+        <ul class="center tabs tabs-transparent hide-on-med-and-down">
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//" class=''>
+                Home
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//archive/" class=''>
+                Archive
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//about/" class=''>
+                About
+              </a>
+          </li>
+          
+          <li class="tab">
+            <a href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/" class=''>
+                碰到过的问题
+              </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+  </div> <aside class="side-panel">
+  <div class="inner">
+    <div class="profile">
+      <div class="profile__bg" style="background-image:url('https://wzhongke.github.io//img/profile-bg.jpg')"></div>
+      <img class="profile__avatar" src="https://wzhongke.github.io//img/sign.jpg" alt="avatar" /> 
+      <h3 class="profile__name">壹冶知秋</h3> 
+      <p class="profile__desc">Do not ride on fear...</p>
+    </div>
+    <ul class="nav-group show-on-medium-and-down menu ">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//">
+          <i class='material-icons'>home</i>
+          <span class="content">Home</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//archive/">
+          <i class='material-icons'>archive</i>
+          <span class="content">Archive</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//about/">
+          <i class='material-icons'>person</i>
+          <span class="content">About</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://wzhongke.github.io//post/%E7%A2%B0%E5%88%B0%E8%BF%87%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <i class='material-icons'>bookmark</i>
+          <span class="content">碰到过的问题</span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+    <ul class="nav-group show-on-small tools">
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo modal-trigger" href='#modal-search'>
+            <i class="material-icons">search</i>
+            <span class="content">Search</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" target="_blank" href='https://wzhongke.github.io/index.xml'>
+            <i class="material-icons">rss_feed</i>
+            <span class="content">RSS Feed</span>
+            <i class="material-icons">chevron_right</i>
+          </a>
+      </li>
+    </ul>
+    <ul class="collapsible nav-group" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons">whatshot</i>
+          <span class="content">Latest</span>
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/javascript/">javascript 基础</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/netty/">高并发 netty</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/flex%E5%B8%83%E5%B1%80/">flex 布局</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/es6/">es6</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">你不知道的JavaScript读书笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/webpack/">webpack</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/front/css-%E6%80%BB%E7%BB%93/">css使用方式总结</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/java/springlearn/">spring 学习笔记</a> 
+            
+            <a class="collection-item" href="https://wzhongke.github.io/post/algorithms/%E6%A0%91/">树算法</a> 
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>class</i></i>
+          <span class="content">Category </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/javascript"> javascript<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%AE%97%E6%B3%95"> 算法<span class="badge">7</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/markdown"> markdown<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/vue"> vue<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//categories/%E7%BC%96%E7%A8%8B"> 编程<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+      <li>
+        <div class="collapsible-header waves-effect waves-indigo">
+          <i class="material-icons"><i class='material-icons'>local_offer</i></i>
+          <span class="content">Tag </span>
+          
+          <i class="material-icons angle">expand_more</i>
+        </div>
+        <div class="collapsible-body">
+          <div class="collection">
+            
+            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/java"> java<span class="badge">11</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/linux"> linux<span class="badge">9</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/javascript"> javascript<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E7%AE%97%E6%B3%95"> 算法<span class="badge">6</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/python"> python<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"> 设计模式<span class="badge">5</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/other"> other<span class="badge">4</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E5%B7%A5%E5%85%B7"> 工具<span class="badge">3</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/css"> css<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/markdown"> markdown<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/mysql"> mysql<span class="badge">2</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/error"> error<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/nodejs"> nodejs<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/sql"> sql<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/svg"> svg<span class="badge">1</span></a>            
+            
+            <a class="collection-item" href="https://wzhongke.github.io//tags/%E6%97%85%E8%A1%8C"> 旅行<span class="badge">1</span></a>            
+            
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <ul class="nav-group external-link">
+       
+      <li>
+        <a class="collapsible-header waves-effect waves-indigo" href="https://github.com/wzhongke" target="_blank">
+          <svg class='svg-icons svg-icons-github'><use xlink:href='#svg-icons-github'></use></svg>
+          <span class="content">Github<small>@wzhongke</small></span>
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+       
+    </ul>
+  </div>
+</aside>
+
+<main id="single" role="main" class="main-panel ">
+  <section class="container">
+    <div class="inner">
+       <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+   
+   
+   
+  
+    <a class="breadcrumb" href="https://wzhongke.github.io/"><i class="material-icons">location_on</i>Home</a>
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/'>Post</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <a class="breadcrumb" href='https://wzhongke.github.io/post/front/'>Front</a>
+         
+       
+    
+       
+      
+      
+      
+       
+        
+          <span class="breadcrumb">vue 学习笔记</span>
+         
+       
+    
+       
+      
+      
+      
+       
+     
+</div>
+       <section class="post-wrapper">
+      <div class="toc-panel">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#属性和方法">属性和方法</a></li>
+<li><a href="#实例的生命周期">实例的生命周期</a></li>
+<li><a href="#模板语法">模板语法</a>
+<ul>
+<li><a href="#插值">插值</a>
+<ul>
+<li><a href="#文本">文本</a></li>
+<li><a href="#原始html">原始HTML</a></li>
+<li><a href="#特性">特性</a></li>
+<li><a href="#在插值中使用javascript表达式">在插值中使用JavaScript表达式</a></li>
+</ul></li>
+<li><a href="#指令">指令</a>
+<ul>
+<li><a href="#参数">参数</a></li>
+<li><a href="#修饰符">修饰符</a></li>
+</ul></li>
+<li><a href="#缩写">缩写</a></li>
+</ul></li>
+<li><a href="#计算属性">计算属性</a></li>
+<li><a href="#侦听器">侦听器</a></li>
+<li><a href="#条件渲染">条件渲染</a>
+<ul>
+<li><a href="#用-key-管理可复用元素">用 <code>key</code> 管理可复用元素</a></li>
+<li><a href="#v-show"><code>v-show</code></a></li>
+</ul></li>
+<li><a href="#列表渲染">列表渲染</a>
+<ul>
+<li><a href="#遍历对象">遍历对象</a></li>
+<li><a href="#数组变化检测">数组变化检测</a></li>
+<li><a href="#数组替换">数组替换</a></li>
+<li><a href="#对象变化检测">对象变化检测</a></li>
+<li><a href="#使用计算属性或者方法">使用计算属性或者方法</a></li>
+<li><a href="#使用-v-for-在整数值范围内迭代">使用 <code>v-for</code> 在整数值范围内迭代</a></li>
+<li><a href="#使用-template-来渲染多个模块">使用 <code>&lt;template&gt;</code> 来渲染多个模块</a></li>
+<li><a href="#v-for-中的-v-if"><code>v-for</code> 中的 <code>v-if</code></a></li>
+</ul></li>
+<li><a href="#事件处理">事件处理</a>
+<ul>
+<li><a href="#在-methods-中定义事件处理函数">在 <code>methods</code> 中定义事件处理函数</a></li>
+<li><a href="#事件修饰符">事件修饰符</a></li>
+<li><a href="#按键修饰符">按键修饰符</a></li>
+<li><a href="#系统辅助按键">系统辅助按键</a></li>
+</ul></li>
+<li><a href="#表单绑定">表单绑定</a>
+<ul>
+<li><a href="#input"><code>input</code></a></li>
+<li><a href="#checkbox"><code>checkbox</code></a></li>
+<li><a href="#radio"><code>radio</code></a></li>
+<li><a href="#select"><code>select</code></a></li>
+<li><a href="#同-value-属性绑定">同 <code>value</code> 属性绑定</a></li>
+<li><a href="#修饰符-1">修饰符</a></li>
+</ul></li>
+<li><a href="#组件">组件</a>
+<ul>
+<li><a href="#注册组件">注册组件</a></li>
+<li><a href="#模块系统">模块系统</a></li>
+<li><a href="#使用-props-向子组件中传递数据">使用 <code>props</code> 向子组件中传递数据</a>
+<ul>
+<li><a href="#单向数据流">单向数据流</a></li>
+<li><a href="#prop-验证">prop 验证</a></li>
+</ul></li>
+<li><a href="#使用-events-向父组件发送消息">使用 <code>events</code> 向父组件发送消息</a></li>
+</ul></li>
+<li><a href="#自定义事件">自定义事件</a>
+<ul>
+<li><a href="#定制组件-v-model">定制组件 <code>v-model</code></a></li>
+<li><a href="#将原生事件绑定到组件">将原生事件绑定到组件</a></li>
+</ul></li>
+<li><a href="#使用-slots-进行内容分发">使用 slots 进行内容分发</a>
+<ul>
+<li><a href="#命名-slot">命名 <code>slot</code></a>
+<ul>
+<li><a href="#默认-slot-内容">默认 slot 内容</a></li>
+<li><a href="#编译时的作用域">编译时的作用域</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#动态组件">动态组件</a>
+<ul>
+<li><a href="#异步组件">异步组件</a></li>
+</ul></li>
+<li><a href="#dom-模板解析注意事项">DOM 模板解析注意事项</a></li>
+<li><a href="#mixin">mixin</a></li>
+<li><a href="#自定义指令">自定义指令</a>
+<ul>
+<li><a href="#钩子函数">钩子函数</a></li>
+</ul></li>
+<li><a href="#渲染函数">渲染函数</a>
+<ul>
+<li><a href="#createelement"><code>createElement</code></a></li>
+<li><a href="#深入-data-对象">深入 <code>data</code> 对象</a></li>
+<li><a href="#v-model"><code>v-model</code></a></li>
+<li><a href="#事件和按键修饰符">事件和按键修饰符</a></li>
+<li><a href="#函数式组件">函数式组件</a></li>
+</ul></li>
+<li><a href="#插件">插件</a></li>
+<li><a href="#过滤器">过滤器</a></li>
+</ul>
+</nav>
+      </div>
+      <div class="post">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">vue 学习笔记 </span>
+            <span class="card-meta">
+              <time>
+                
+                <span>Sat Jan 21 2017</span>
+            </time>
+            
+            <address>
+              
+              <a href="https://wzhongke.github.io//categories/javascript">javascript</a>&nbsp; 
+              
+            </address>
+            
+            </span>
+
+            <article class="article">
+              
+
+<h1 id="属性和方法">属性和方法</h1>
+
+<p>每个vue实例都会代理其data对象的所有属性</p>
+
+<pre><code class="language-js">var data = { a: 1 }
 var vm = new Vue({
   data: data
 })
@@ -15,7 +497,12 @@ data.a // -&gt; 2
 // ... and vice-versa
 data.a = 3
 vm.a // -&gt; 3
-</code></pre><p>在vue中只有被代理的属性才会被监控，如果在创建Vue后，data 新添加属性，是不会被监控的，也就是更新值没有任何响应。可以通过 <code>$watch</code> 方法加入响应 。 Vue中自带一些以<code>$</code>开头的属性和方法：</p><pre><code class="language-js">var data = { a: 1 }
+</code></pre>
+
+<p>在vue中只有被代理的属性才会被监控，如果在创建Vue后，data 新添加属性，是不会被监控的，也就是更新值没有任何响应。可以通过 <code>$watch</code> 方法加入响应 。
+Vue中自带一些以<code>$</code>开头的属性和方法：</p>
+
+<pre><code class="language-js">var data = { a: 1 }
 var vm = new Vue({
     el: '#example',
     data: data
@@ -26,7 +513,15 @@ vm.$el === document.getElementById('example') // -&gt; true
 vm.$watch('a', function (newVal, oldVal) {
     // this callback will be called when `vm.a` changes
 })
-</code></pre><h1 id="实例的生命周期">实例的生命周期</h1><p>下面的图是vue实例的整个生命周期。 <img src="http://vuejs.org/images/lifecycle.png" alt=""> 在vue实例创建的过程中，有一些hook会被调用。我们可以通过修改这些hook来执行自定义的操作。 hook有<code>created</code>, <code>mounted</code>, <code>updated</code>, <code>destroyed</code>.</p><pre><code class="language-js">var vm = new Vue({
+</code></pre>
+
+<h1 id="实例的生命周期">实例的生命周期</h1>
+
+<p>下面的图是vue实例的整个生命周期。
+<img src="http://vuejs.org/images/lifecycle.png" alt="" />
+在vue实例创建的过程中，有一些hook会被调用。我们可以通过修改这些hook来执行自定义的操作。 hook有<code>created</code>, <code>mounted</code>, <code>updated</code>, <code>destroyed</code>.</p>
+
+<pre><code class="language-js">var vm = new Vue({
   data: {
     a: 1
   },
@@ -36,24 +531,101 @@ vm.$watch('a', function (newVal, oldVal) {
   }
 })
 // -&gt; &quot;a is: 1&quot;
-</code></pre><h1 id="模板语法">模板语法</h1><p>Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM 绑定到底层 Vue 实例的上述。 在底层实现上，Vue 将模板编译成虚拟 DOM 渲染函数，结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数降到最少。</p><h2 id="插值">插值</h2><h3 id="文本">文本</h3><p>数据绑定最常见的形式就是使用“Mustache”语法(双大括号)的文本插值：</p><pre><code class="language-html">&lt;span&gt;Message: {{msg}}&lt;/span&gt;
+</code></pre>
+
+<h1 id="模板语法">模板语法</h1>
+
+<p>Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM 绑定到底层 Vue 实例的上述。
+在底层实现上，Vue 将模板编译成虚拟 DOM 渲染函数，结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数降到最少。</p>
+
+<h2 id="插值">插值</h2>
+
+<h3 id="文本">文本</h3>
+
+<p>数据绑定最常见的形式就是使用“Mustache”语法(双大括号)的文本插值：</p>
+
+<pre><code class="language-html">&lt;span&gt;Message: {{msg}}&lt;/span&gt;
 &lt;!-- 使用 v-once 指令，只能执行一次性插值，当数据改变时，插值内容不会更改 --&gt;
 &lt;span v-once&gt;这个将不会改变: {{ msg }}&lt;/span&gt;
-</code></pre><h3 id="原始html">原始HTML</h3><p>文本插值只能将数据转换成普通文本。需要使用 <code>v-html</code> 来输出真正的 HTML</p><pre><code class="language-html">&lt;p&gt; using v-html: &lt;span v-html=&quot;rawHtml&quot;&gt;&lt;/span&gt;&lt;/p?
-</code></pre><p>上例中 <code>span</code> 的内容将会被替换成 <code>rawHtml</code>，但是不会解析 <code>rawHtml</code> 中的数据绑定。</p><h3 id="特性">特性</h3><p>Mustache 语法不能在HTML标签的属性上使用，需要使用 <code>v-bind</code> 指令：</p><pre><code class="language-html">&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;
-</code></pre><p>在属性取值是布尔值的情况下，它们存在即为 <code>true</code>:</p><pre><code class="language-html">&lt;button v-bind:disabled=&quot;isButtonDisabled&quot;&gt;Button&lt;/button&gt;
-</code></pre><h3 id="在插值中使用javascript表达式">在插值中使用JavaScript表达式</h3><p>对于所有的数据绑定，Vue都提供了完全的JavaScript表达式支持：</p><pre><code class="language-html">{{number + 1}}
+</code></pre>
+
+<h3 id="原始html">原始HTML</h3>
+
+<p>文本插值只能将数据转换成普通文本。需要使用 <code>v-html</code> 来输出真正的 HTML</p>
+
+<pre><code class="language-html">&lt;p&gt; using v-html: &lt;span v-html=&quot;rawHtml&quot;&gt;&lt;/span&gt;&lt;/p?
+</code></pre>
+
+<p>上例中 <code>span</code> 的内容将会被替换成 <code>rawHtml</code>，但是不会解析 <code>rawHtml</code> 中的数据绑定。</p>
+
+<h3 id="特性">特性</h3>
+
+<p>Mustache 语法不能在HTML标签的属性上使用，需要使用 <code>v-bind</code> 指令：</p>
+
+<pre><code class="language-html">&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<p>在属性取值是布尔值的情况下，它们存在即为 <code>true</code>:</p>
+
+<pre><code class="language-html">&lt;button v-bind:disabled=&quot;isButtonDisabled&quot;&gt;Button&lt;/button&gt;
+</code></pre>
+
+<h3 id="在插值中使用javascript表达式">在插值中使用JavaScript表达式</h3>
+
+<p>对于所有的数据绑定，Vue都提供了完全的JavaScript表达式支持：</p>
+
+<pre><code class="language-html">{{number + 1}}
 {{ ok? 'YES':'NO'}}
 {{ message.split('').reverse().join() }}
 &lt;div v-bind:id=&quot;'list' + id&quot;&gt;&lt;/div&gt;
-</code></pre><h2 id="指令">指令</h2><p>指令是带有 <code>v-</code> 前缀的特殊属性，比如：</p><pre><code class="language-html">&lt;p v-if=&quot;seen&quot;&gt;now you see me&lt;/p&gt;
-</code></pre><p><code>v-if</code> 会根据表达式 <code>seen</code> 的值的真假来插入或者移除 <code>&lt;p&gt;</code> 元素</p><h3 id="参数">参数</h3><p>一些指令能够接收一个参数，在指令名称后用冒号表示：</p><pre><code class="language-html">&lt;a v-bind:href=&quot;url&quot; v-on:click=&quot;doSomething&quot;&gt;&lt;/a&gt;
-</code></pre><p>这里的 <code>href</code> 是参数，其作用是告知 <code>v-bind</code> 指令将该元素的 <code>href</code> 属性与表达式 <code>url</code> 的值绑定。</p><p><code>v-on</code> 也是指令，它用于监听 DOM 事件。</p><h3 id="修饰符">修饰符</h3><p>修饰符是以半角句号 <code>.</code> 指明的特殊后缀，用于指出一个指令应该以特殊的方式绑定。</p><pre><code class="language-html">&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;
-</code></pre><p>上例中的 <code>.prevent</code> 修饰符告诉 <code>v-on</code> 指令对于触发的事件，调用 <code>event.preventDefault()</code></p><h2 id="缩写">缩写</h2><p><code>v-</code> 前缀作为视觉提示，用来识别模板中 vue 特定的特性。但是对于频繁用到的指令来说，<code>v-</code> 前缀就显得比较累赘了。因此可以将如下指令进行简写： - <code>v-bind:href=&quot;url&quot;</code> 可以缩写为 <code>:href=&quot;url&quot;</code> - <code>v-on:click=&quot;fun&quot;</code> 可以缩写为 <code>@click=&quot;fun&quot;</code></p><h1 id="计算属性">计算属性</h1><p>模板内使用表达式可以非常方便地进行简单计算，但是如果进行复制计算，就会让模板过重而且难以维护。因此，对于任何复杂逻辑，都应该使用计算属性。</p><pre><code class="language-html">&lt;div id=&quot;example&quot;&gt;
+</code></pre>
+
+<h2 id="指令">指令</h2>
+
+<p>指令是带有 <code>v-</code> 前缀的特殊属性，比如：</p>
+
+<pre><code class="language-html">&lt;p v-if=&quot;seen&quot;&gt;now you see me&lt;/p&gt;
+</code></pre>
+
+<p><code>v-if</code> 会根据表达式 <code>seen</code> 的值的真假来插入或者移除 <code>&lt;p&gt;</code> 元素</p>
+
+<h3 id="参数">参数</h3>
+
+<p>一些指令能够接收一个参数，在指令名称后用冒号表示：</p>
+
+<pre><code class="language-html">&lt;a v-bind:href=&quot;url&quot; v-on:click=&quot;doSomething&quot;&gt;&lt;/a&gt;
+</code></pre>
+
+<p>这里的 <code>href</code> 是参数，其作用是告知 <code>v-bind</code> 指令将该元素的 <code>href</code> 属性与表达式 <code>url</code> 的值绑定。</p>
+
+<p><code>v-on</code> 也是指令，它用于监听 DOM 事件。</p>
+
+<h3 id="修饰符">修饰符</h3>
+
+<p>修饰符是以半角句号 <code>.</code> 指明的特殊后缀，用于指出一个指令应该以特殊的方式绑定。</p>
+
+<pre><code class="language-html">&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;
+</code></pre>
+
+<p>上例中的 <code>.prevent</code> 修饰符告诉 <code>v-on</code> 指令对于触发的事件，调用 <code>event.preventDefault()</code></p>
+
+<h2 id="缩写">缩写</h2>
+
+<p><code>v-</code> 前缀作为视觉提示，用来识别模板中 vue 特定的特性。但是对于频繁用到的指令来说，<code>v-</code> 前缀就显得比较累赘了。因此可以将如下指令进行简写：
+- <code>v-bind:href=&quot;url&quot;</code> 可以缩写为 <code>:href=&quot;url&quot;</code>
+- <code>v-on:click=&quot;fun&quot;</code> 可以缩写为 <code>@click=&quot;fun&quot;</code></p>
+
+<h1 id="计算属性">计算属性</h1>
+
+<p>模板内使用表达式可以非常方便地进行简单计算，但是如果进行复制计算，就会让模板过重而且难以维护。因此，对于任何复杂逻辑，都应该使用计算属性。</p>
+
+<pre><code class="language-html">&lt;div id=&quot;example&quot;&gt;
     &lt;p&gt;Original message: &quot;{{ message }}&quot;&lt;/p&gt;
     &lt;p&gt;Computed reversed message: &quot;{{ reversedMessage }}&quot;&lt;/p&gt;
 &lt;/div&gt;
-</code></pre><pre><code class="language-js">var vm = new Vue({
+</code></pre>
+
+<pre><code class="language-js">var vm = new Vue({
    el: &quot;#example&quot;,
     data: {
         message: &quot;hello&quot;
@@ -66,10 +638,23 @@ vm.$watch('a', function (newVal, oldVal) {
         }
     }
 });
-</code></pre><p>上例中，我们声明了一个计算属性 <code>reversedMessage</code>，我们提供的函数将作为 <code>reversedMessage</code> 的 getter 函数：</p><pre><code class="language-js">console.log(vm.reversedMessage) // 'olleh'
+</code></pre>
+
+<p>上例中，我们声明了一个计算属性 <code>reversedMessage</code>，我们提供的函数将作为 <code>reversedMessage</code> 的 getter 函数：</p>
+
+<pre><code class="language-js">console.log(vm.reversedMessage) // 'olleh'
 vm.message = 'Goodbye'
 console.log(vm.reversedMessage) // 'eybdooG'
-</code></pre><p>我们可以将 <code>reversedMessage</code> 作为 <code>vm</code> 的属性使用，而且它的值取决于 <code>vm.message</code> 的值。 计算属性相比方法的优点是<strong>计算属性是基于它们的依赖进行缓存的</strong>。计算属性只有在它的相关依赖发生变化时才会重新求值，而方法会在每次触发重新渲染时都会执行函数。 假设我们有一个性能开销比较大的的计算属性 A，它需要遍历一个巨大的数组并做大量的计算。然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！ 如果你不希望有缓存，请用方法来替代。</p><p>计算属性默认情况下，只有 getter。当然，在需要时可以提供一个 setter：</p><pre><code class="language-js">//...
+</code></pre>
+
+<p>我们可以将 <code>reversedMessage</code> 作为 <code>vm</code> 的属性使用，而且它的值取决于 <code>vm.message</code> 的值。
+计算属性相比方法的优点是<strong>计算属性是基于它们的依赖进行缓存的</strong>。计算属性只有在它的相关依赖发生变化时才会重新求值，而方法会在每次触发重新渲染时都会执行函数。
+假设我们有一个性能开销比较大的的计算属性 A，它需要遍历一个巨大的数组并做大量的计算。然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！
+如果你不希望有缓存，请用方法来替代。</p>
+
+<p>计算属性默认情况下，只有 getter。当然，在需要时可以提供一个 setter：</p>
+
+<pre><code class="language-js">//...
 computed: {
     fullName: {
         get: function () {
@@ -85,7 +670,13 @@ computed: {
 // ...
 // 现在可以用如下方式更新 fullName
 vm.fullName = 'John Doe';
-</code></pre><h1 id="侦听器">侦听器</h1><p>虽然计算属性在大多数情况下更合适，但是有时也需要自定义的侦听器。<strong>侦听器更适合在数据变化时执行异步或者开销较大的操作时使用</strong></p><pre><code class="language-html">&lt;div id=&quot;watch-example&quot;&gt;
+</code></pre>
+
+<h1 id="侦听器">侦听器</h1>
+
+<p>虽然计算属性在大多数情况下更合适，但是有时也需要自定义的侦听器。<strong>侦听器更适合在数据变化时执行异步或者开销较大的操作时使用</strong></p>
+
+<pre><code class="language-html">&lt;div id=&quot;watch-example&quot;&gt;
     &lt;p&gt;
         Ask a yes/no question:
         &lt;input v-model=&quot;question&quot;&gt;
@@ -137,9 +728,19 @@ var watchExampleVM = new Vue({
     }
 })
 &lt;/script&gt;
-</code></pre><h1 id="条件渲染">条件渲染</h1><p>可以使用 <code>v-if</code> 和 <code>v-else</code> 指令来实现条件渲染：</p><pre><code class="language-html">&lt;h1 v-if=&quot;ok&quot;&gt;Yes&lt;h1&gt;
+</code></pre>
+
+<h1 id="条件渲染">条件渲染</h1>
+
+<p>可以使用 <code>v-if</code> 和 <code>v-else</code> 指令来实现条件渲染：</p>
+
+<pre><code class="language-html">&lt;h1 v-if=&quot;ok&quot;&gt;Yes&lt;h1&gt;
 &lt;h1 v-else&gt;No&lt;/h1&gt;
-</code></pre><p>还可以使用 <code>v-else-if</code> :</p><pre><code class="language-html">&lt;div v-if=&quot;type === 'A'&quot;&gt;
+</code></pre>
+
+<p>还可以使用 <code>v-else-if</code> :</p>
+
+<pre><code class="language-html">&lt;div v-if=&quot;type === 'A'&quot;&gt;
   A
 &lt;/div&gt;
 &lt;div v-else-if=&quot;type === 'B'&quot;&gt;
@@ -151,7 +752,13 @@ var watchExampleVM = new Vue({
 &lt;div v-else&gt;
   Not A/B/C
 &lt;/div&gt;
-</code></pre><h2 id="用-key-管理可复用元素">用 <code>key</code> 管理可复用元素</h2><p>Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做除了使 Vue 变得非常快之外，还有其它一些好处。例如，如果你允许用户在不同的登录方式之间切换：</p><pre><code class="language-html">&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
+</code></pre>
+
+<h2 id="用-key-管理可复用元素">用 <code>key</code> 管理可复用元素</h2>
+
+<p>Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做除了使 Vue 变得非常快之外，还有其它一些好处。例如，如果你允许用户在不同的登录方式之间切换：</p>
+
+<pre><code class="language-html">&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
     &lt;label&gt;Username&lt;/label&gt;
     &lt;input placeholder=&quot;Enter your username&quot;&gt;
 &lt;/template&gt;
@@ -159,7 +766,13 @@ var watchExampleVM = new Vue({
     &lt;label&gt;Email&lt;/label&gt;
     &lt;input placeholder=&quot;Enter your email address&quot;&gt;
 &lt;/template&gt;
-</code></pre><p>那么在上面的代码中切换 <code>loginType</code> 将不会清除用户已经输入的内容。因为两个模板使用了相同的元素，<code>&lt;input&gt;</code> 不会被替换掉——仅仅是替换了它的 <code>placeholder</code>。</p><p>这样也不一定能符合实际需求，所以可以通过 <code>key</code> 属性来表达两个元素完全是独立的，不复用他们：</p><pre><code class="language-html">&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
+</code></pre>
+
+<p>那么在上面的代码中切换 <code>loginType</code> 将不会清除用户已经输入的内容。因为两个模板使用了相同的元素，<code>&lt;input&gt;</code> 不会被替换掉——仅仅是替换了它的 <code>placeholder</code>。</p>
+
+<p>这样也不一定能符合实际需求，所以可以通过 <code>key</code> 属性来表达两个元素完全是独立的，不复用他们：</p>
+
+<pre><code class="language-html">&lt;template v-if=&quot;loginType === 'username'&quot;&gt;
     &lt;label&gt;Username&lt;/label&gt;
     &lt;input placeholder=&quot;Enter your username&quot; key=&quot;username-input&quot;&gt;
 &lt;/template&gt;
@@ -167,8 +780,28 @@ var watchExampleVM = new Vue({
     &lt;label&gt;Email&lt;/label&gt;
     &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;
 &lt;/template&gt;
-</code></pre><h2 id="v-show"><code>v-show</code></h2><p>另一个根据条件展示元素的指令是 <code>v-show</code>:</p><pre><code class="language-js">&lt;h1 v-show=&quot;ok&quot;&gt;Hello&lt;/h1&gt;
-</code></pre><p><code>v-if</code> 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。</p><p><code>v-if</code> 也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</p><p><code>v-show</code> 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。</p><p>一般来说，<code>v-if</code> 有更高的切换开销，而 <code>v-show</code> 有更高的初始渲染开销。因此，<strong>如果需要非常频繁地切换，则使用 <code>v-show</code> 较好；如果在运行时条件很少改变，则使用 <code>v-if</code> 较好。</strong></p><h1 id="列表渲染">列表渲染</h1><p><code>v-for</code> 指令可以将一个数组渲染成列表。格式为 <code>v-for=&quot;item in itmes&quot;</code>，其中 <code>items</code> 是原始数组数据，<code>item</code> 是数组中每个迭代元素的别名。</p><pre><code class="language-html">&lt;ul id=&quot;example&quot;&gt;
+</code></pre>
+
+<h2 id="v-show"><code>v-show</code></h2>
+
+<p>另一个根据条件展示元素的指令是 <code>v-show</code>:</p>
+
+<pre><code class="language-js">&lt;h1 v-show=&quot;ok&quot;&gt;Hello&lt;/h1&gt;
+</code></pre>
+
+<p><code>v-if</code> 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。</p>
+
+<p><code>v-if</code> 也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</p>
+
+<p><code>v-show</code> 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。</p>
+
+<p>一般来说，<code>v-if</code> 有更高的切换开销，而 <code>v-show</code> 有更高的初始渲染开销。因此，<strong>如果需要非常频繁地切换，则使用 <code>v-show</code> 较好；如果在运行时条件很少改变，则使用 <code>v-if</code> 较好。</strong></p>
+
+<h1 id="列表渲染">列表渲染</h1>
+
+<p><code>v-for</code> 指令可以将一个数组渲染成列表。格式为 <code>v-for=&quot;item in itmes&quot;</code>，其中 <code>items</code> 是原始数组数据，<code>item</code> 是数组中每个迭代元素的别名。</p>
+
+<pre><code class="language-html">&lt;ul id=&quot;example&quot;&gt;
     &lt;li v-for=&quot;item in items&quot;&gt;
         {{item.message}}
     &lt;/li&gt;
@@ -184,12 +817,22 @@ var watchExampleVM = new Vue({
         }
     });
 &lt;/script&gt;
-</code></pre><p><code>v-for</code> 还支持可选的第二个参数，作为当前项的索引：</p><pre><code class="language-html">&lt;ul id=&quot;example&quot;&gt;
+</code></pre>
+
+<p><code>v-for</code> 还支持可选的第二个参数，作为当前项的索引：</p>
+
+<pre><code class="language-html">&lt;ul id=&quot;example&quot;&gt;
     &lt;li v-for=&quot;(item,index) in items&quot;&gt;
         {{index}} - {{item.message}}
     &lt;/li&gt;
 &lt;/ul&gt;
-</code></pre><h2 id="遍历对象">遍历对象</h2><p><code>v-for</code> 也支持遍历对象属性，它是按照 <code>Object.keys()</code> 得出 <code>key</code> 的枚举顺序来遍历的：</p><pre><code class="language-html">&lt;div v-for=&quot;value in object&quot;&gt;
+</code></pre>
+
+<h2 id="遍历对象">遍历对象</h2>
+
+<p><code>v-for</code> 也支持遍历对象属性，它是按照 <code>Object.keys()</code> 得出 <code>key</code> 的枚举顺序来遍历的：</p>
+
+<pre><code class="language-html">&lt;div v-for=&quot;value in object&quot;&gt;
     {{ value }}
 &lt;/div&gt;
 &lt;div v-for=&quot;(value, key) in object&quot;&gt;
@@ -198,10 +841,37 @@ var watchExampleVM = new Vue({
 &lt;div v-for=&quot;(value, key, index) in object&quot;&gt;
     {{ index }}. {{ key }}: {{ value }}
 &lt;/div&gt;
-</code></pre><h2 id="数组变化检测">数组变化检测</h2><p>Vue 对下列数组方法包装，以便在调用时触发视图更新： - <code>push()</code> - <code>pop()</code> - <code>shift()</code> - <code>unshift()</code> - <code>splice()</code> - <code>sort()</code> - <code>reverse()</code></p><h2 id="数组替换">数组替换</h2><p>有一些方式不是对数据进行替换，而是返回一个新的数组，例如 <code>filter()</code>, <code>concat()</code> 和 <code>slice()</code>。当使用非变化数组方法时，可以将就数组替换为新数组：</p><pre><code class="language-js">example.items = example.items.filter(function (item) {
+</code></pre>
+
+<h2 id="数组变化检测">数组变化检测</h2>
+
+<p>Vue 对下列数组方法包装，以便在调用时触发视图更新：
+- <code>push()</code>
+- <code>pop()</code>
+- <code>shift()</code>
+- <code>unshift()</code>
+- <code>splice()</code>
+- <code>sort()</code>
+- <code>reverse()</code></p>
+
+<h2 id="数组替换">数组替换</h2>
+
+<p>有一些方式不是对数据进行替换，而是返回一个新的数组，例如 <code>filter()</code>, <code>concat()</code> 和 <code>slice()</code>。当使用非变化数组方法时，可以将就数组替换为新数组：</p>
+
+<pre><code class="language-js">example.items = example.items.filter(function (item) {
     return item.message.match(/Foo/)
 })
-</code></pre><p>因为 JavaScript 语法限制，<strong>Vue 无法检测到以下数组变动</strong>： 1. 使用索引直接设置一项： <code>example.items[index] = newValue</code>，可以用 Vue 提供的方法设置： <code>vm.$set(vm.items, index, newValue)</code> 2. 修改数组长度：<code>example.items.length = newLength</code>，可以使用 <code>vm.items.splice(newLength)</code> 方法代替</p><h2 id="对象变化检测">对象变化检测</h2><p>Vue 无法检测对象属性的添加或者删除，但是可以通过 <code>Vue.set(object, key, value)</code> 来将响应式属性添加到嵌套对象上。</p><pre><code class="language-js">var vm = new Vue({
+</code></pre>
+
+<p>因为 JavaScript 语法限制，<strong>Vue 无法检测到以下数组变动</strong>：
+1. 使用索引直接设置一项： <code>example.items[index] = newValue</code>，可以用 Vue 提供的方法设置： <code>vm.$set(vm.items, index, newValue)</code>
+2. 修改数组长度：<code>example.items.length = newLength</code>，可以使用 <code>vm.items.splice(newLength)</code> 方法代替</p>
+
+<h2 id="对象变化检测">对象变化检测</h2>
+
+<p>Vue 无法检测对象属性的添加或者删除，但是可以通过 <code>Vue.set(object, key, value)</code> 来将响应式属性添加到嵌套对象上。</p>
+
+<pre><code class="language-js">var vm = new Vue({
   data: {
     a: 1
   }
@@ -222,7 +892,13 @@ var vm = new Vue({
 Vue.set(vm.userProfile, 'age', 27)
 // 或者
 vm.$set(vm.userProfile, 'age', 27)
-</code></pre><h2 id="使用计算属性或者方法">使用计算属性或者方法</h2><p>如果要显示一个数组过滤或者排序后的副本，可以使用计算属性，当计算属性不适用的情况下，可以使用 method 方法：</p><pre><code class="language-html">&lt;li v-for=&quot;n in evenNumbers&quot;&gt; {{n}} &lt;/li&gt;
+</code></pre>
+
+<h2 id="使用计算属性或者方法">使用计算属性或者方法</h2>
+
+<p>如果要显示一个数组过滤或者排序后的副本，可以使用计算属性，当计算属性不适用的情况下，可以使用 method 方法：</p>
+
+<pre><code class="language-html">&lt;li v-for=&quot;n in evenNumbers&quot;&gt; {{n}} &lt;/li&gt;
 &lt;script&gt;
     data: {
         numbers: [1, 2, 3, 4, 5]
@@ -250,19 +926,39 @@ vm.$set(vm.userProfile, 'age', 27)
         }
     }
 &lt;/script&gt;
-</code></pre><h2 id="使用-v-for-在整数值范围内迭代">使用 <code>v-for</code> 在整数值范围内迭代</h2><pre><code class="language-html">&lt;div&gt;
+</code></pre>
+
+<h2 id="使用-v-for-在整数值范围内迭代">使用 <code>v-for</code> 在整数值范围内迭代</h2>
+
+<pre><code class="language-html">&lt;div&gt;
     &lt;span v-for=&quot;n in 10&quot;&gt;{{n}} &lt;/span&gt;
 &lt;/div&gt;
-</code></pre><h2 id="使用-template-来渲染多个模块">使用 <code>&lt;template&gt;</code> 来渲染多个模块</h2><pre><code class="language-html">&lt;ul&gt;
+</code></pre>
+
+<h2 id="使用-template-来渲染多个模块">使用 <code>&lt;template&gt;</code> 来渲染多个模块</h2>
+
+<pre><code class="language-html">&lt;ul&gt;
     &lt;template v-for=&quot;item in items&quot;&gt;
         &lt;li&gt; {{item.msg}} &lt;/li&gt;
         &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
     &lt;/template&gt;
 &lt;/ul&gt;
-</code></pre><h2 id="v-for-中的-v-if"><code>v-for</code> 中的 <code>v-if</code></h2><p>当他们处于一个节点时，<code>v-for</code> 的优先级比 <code>v-if</code> 高，这意味着 <code>v-if</code> 将分别在循环中的每次迭代上运行：</p><pre><code class="language-html">&lt;li v-for=&quot;todo in todos&quot; v-if=&quot;!todo.isComplete&quot;&gt;
+</code></pre>
+
+<h2 id="v-for-中的-v-if"><code>v-for</code> 中的 <code>v-if</code></h2>
+
+<p>当他们处于一个节点时，<code>v-for</code> 的优先级比 <code>v-if</code> 高，这意味着 <code>v-if</code> 将分别在循环中的每次迭代上运行：</p>
+
+<pre><code class="language-html">&lt;li v-for=&quot;todo in todos&quot; v-if=&quot;!todo.isComplete&quot;&gt;
     {{todo}}
 &lt;/li&gt;
-</code></pre><h1 id="事件处理">事件处理</h1><p><code>v-on</code> 指令用于监听 DOM 事件，并在事件被触发时，执行一些 JavaScript 代码。</p><pre><code class="language-html">&lt;div id=&quot;example&quot;&gt;
+</code></pre>
+
+<h1 id="事件处理">事件处理</h1>
+
+<p><code>v-on</code> 指令用于监听 DOM 事件，并在事件被触发时，执行一些 JavaScript 代码。</p>
+
+<pre><code class="language-html">&lt;div id=&quot;example&quot;&gt;
     &lt;button v-on:click=&quot;counter += 1&quot;&gt;增加1&lt;/button&gt;
     &lt;p&gt; 上面的按钮被点击了 {{counter}} 次 &lt;/p&gt;
 &lt;/div&gt;
@@ -274,7 +970,13 @@ vm.$set(vm.userProfile, 'age', 27)
         }
     })
 &lt;/script&gt;
-</code></pre><h2 id="在-methods-中定义事件处理函数">在 <code>methods</code> 中定义事件处理函数</h2><p>对于复杂的事件处理逻辑，可以调用定义在 <code>methods</code> 中的方法：</p><pre><code class="language-html">&lt;div id=&quot;example2&quot;&gt;
+</code></pre>
+
+<h2 id="在-methods-中定义事件处理函数">在 <code>methods</code> 中定义事件处理函数</h2>
+
+<p>对于复杂的事件处理逻辑，可以调用定义在 <code>methods</code> 中的方法：</p>
+
+<pre><code class="language-html">&lt;div id=&quot;example2&quot;&gt;
     &lt;!-- 绑定到方法名 --&gt;
     &lt;button @click=&quot;greet&quot;&gt;Greet&lt;/button&gt;
     &lt;!-- 直接运行 JavaScript 方法，可以通过 $event 将原始 DOM 事件对象传递给方法 --&gt;
@@ -298,7 +1000,18 @@ vm.$set(vm.userProfile, 'age', 27)
         }
     })
 &lt;/script&gt;
-</code></pre><h2 id="事件修饰符">事件修饰符</h2><p>在事件处理程序中调用 <code>event.preventDefault()</code> 或者 <code>event.stopPropagation()</code> 是非常常见的需求。<code>v-on</code> 指令提供了修饰符，可以隐藏 DOM 事件细节： - <code>.stop</code> - <code>.prevent</code> - <code>.capture</code> - <code>.self</code> - <code>.once</code></p><pre><code class="language-html">&lt;!-- 停止点击事件冒泡 --&gt;
+</code></pre>
+
+<h2 id="事件修饰符">事件修饰符</h2>
+
+<p>在事件处理程序中调用 <code>event.preventDefault()</code> 或者 <code>event.stopPropagation()</code> 是非常常见的需求。<code>v-on</code> 指令提供了修饰符，可以隐藏 DOM 事件细节：
+- <code>.stop</code>
+- <code>.prevent</code>
+- <code>.capture</code>
+- <code>.self</code>
+- <code>.once</code></p>
+
+<pre><code class="language-html">&lt;!-- 停止点击事件冒泡 --&gt;
 &lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;
 
 &lt;!-- 提交事件不再重新载入页面 --&gt;
@@ -317,23 +1030,74 @@ vm.$set(vm.userProfile, 'age', 27)
 &lt;!-- 只有在 event.target 是元素自身时，才触发处理函数。 --&gt;
 &lt;!-- 也就是说，event.target 是子元素时，不触发处理函数 --&gt;
 &lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;
-</code></pre><blockquote><p>使用修饰符时的顺序会产生一些影响，因为相关的代码会以相同的顺序生成。所以，使用<code>v-on:click.prevent.self</code> 会阻止所有点击，而 <code>v-on:click.self.prevent</code> 只阻止元素自身的点击。</p></blockquote><h2 id="按键修饰符">按键修饰符</h2><p>在监听键盘事件时，我们经常需要查找常用按键对应的 code 值。Vue可以在 <code>v-on</code> 上添加按键修饰符，用于监听按键事件：</p><pre><code class="language-html">&lt;!-- 只在 `keyCode` 是 13 时，调用 `vm.submit()` --&gt;
+</code></pre>
+
+<blockquote>
+<p>使用修饰符时的顺序会产生一些影响，因为相关的代码会以相同的顺序生成。所以，使用<code>v-on:click.prevent.self</code> 会阻止所有点击，而 <code>v-on:click.self.prevent</code> 只阻止元素自身的点击。</p>
+</blockquote>
+
+<h2 id="按键修饰符">按键修饰符</h2>
+
+<p>在监听键盘事件时，我们经常需要查找常用按键对应的 code 值。Vue可以在 <code>v-on</code> 上添加按键修饰符，用于监听按键事件：</p>
+
+<pre><code class="language-html">&lt;!-- 只在 `keyCode` 是 13 时，调用 `vm.submit()` --&gt;
 &lt;input v-on:keyup.13=&quot;submit&quot;&gt;
-</code></pre><p>Vue 提供了常用按键的别名： - <code>.enter</code> - <code>.tab</code> - <code>.delete</code> - <code>.esc</code> - <code>.space</code> - <code>.up</code> - <code>.down</code> - <code>.left</code> - <code>.right</code></p><h2 id="系统辅助按键">系统辅助按键</h2><p>修饰符对应的按键被按下时，才会触发鼠标或键盘事件监听器： - <code>.ctrl</code> - <code>.alt</code> - <code>.shift</code> - <code>.meta</code></p><pre><code class="language-html">&lt;!-- Alt + C --&gt;
+</code></pre>
+
+<p>Vue 提供了常用按键的别名：
+- <code>.enter</code>
+- <code>.tab</code>
+- <code>.delete</code>
+- <code>.esc</code>
+- <code>.space</code>
+- <code>.up</code>
+- <code>.down</code>
+- <code>.left</code>
+- <code>.right</code></p>
+
+<h2 id="系统辅助按键">系统辅助按键</h2>
+
+<p>修饰符对应的按键被按下时，才会触发鼠标或键盘事件监听器：
+- <code>.ctrl</code>
+- <code>.alt</code>
+- <code>.shift</code>
+- <code>.meta</code></p>
+
+<pre><code class="language-html">&lt;!-- Alt + C --&gt;
 &lt;input @keyup.alt.67=&quot;clear&quot;&gt;
 
 &lt;!-- Ctrl + Click --&gt;
 &lt;div @click.ctrl=&quot;doSomething&quot;&gt;做一些操作&lt;/div&gt;
-</code></pre><h1 id="表单绑定">表单绑定</h1><p><code>v-model</code> 指令可以将表单中的数据绑定起来。</p><h2 id="input"><code>input</code></h2><p>使用 <code>v-model</code> 指令将表单中的 <code>input</code> 和 <code>textarea</code> 元素上创建双向数据绑定。</p><pre><code class="language-html">&lt;input v-model=&quot;message&quot; placeholder=&quot;编辑&quot;&gt;
+</code></pre>
+
+<h1 id="表单绑定">表单绑定</h1>
+
+<p><code>v-model</code> 指令可以将表单中的数据绑定起来。</p>
+
+<h2 id="input"><code>input</code></h2>
+
+<p>使用 <code>v-model</code> 指令将表单中的 <code>input</code> 和 <code>textarea</code> 元素上创建双向数据绑定。</p>
+
+<pre><code class="language-html">&lt;input v-model=&quot;message&quot; placeholder=&quot;编辑&quot;&gt;
 &lt;p&gt;message 是：{{ message }}&lt;/p&gt;
 
 &lt;span&gt;多行 message 是：&lt;/span&gt;
 &lt;p style=&quot;white-space: pre-line;&quot;&gt;{{ message }}&lt;/p&gt;
 &lt;br&gt;
 &lt;textarea v-model=&quot;message&quot; placeholder=&quot;添加多行&quot;&gt;&lt;/textarea&gt;
-</code></pre><h2 id="checkbox"><code>checkbox</code></h2><p>单选 checkbox:</p><pre><code class="language-html">&lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot; v-model=&quot;checked&quot;&gt;
+</code></pre>
+
+<h2 id="checkbox"><code>checkbox</code></h2>
+
+<p>单选 checkbox:</p>
+
+<pre><code class="language-html">&lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot; v-model=&quot;checked&quot;&gt;
 &lt;label for=&quot;checkbox&quot;&gt;{{ checked }}&lt;/label&gt;
-</code></pre><p>多选 checkbox，绑定到同一个数组：</p><pre><code class="language-html">&lt;div id='example2'&gt;
+</code></pre>
+
+<p>多选 checkbox，绑定到同一个数组：</p>
+
+<pre><code class="language-html">&lt;div id='example2'&gt;
     &lt;input type=&quot;checkbox&quot; id=&quot;jack&quot; value=&quot;Jack&quot; v-model=&quot;checkedNames&quot;&gt;
     &lt;label for=&quot;jack&quot;&gt;Jack&lt;/label&gt;
     &lt;input type=&quot;checkbox&quot; id=&quot;john&quot; value=&quot;John&quot; v-model=&quot;checkedNames&quot;&gt;
@@ -351,7 +1115,11 @@ new Vue({
     }
 })
 &lt;/script&gt;
-</code></pre><h2 id="radio"><code>radio</code></h2><pre><code class="language-html">&lt;div id=&quot;example3&quot;&gt;
+</code></pre>
+
+<h2 id="radio"><code>radio</code></h2>
+
+<pre><code class="language-html">&lt;div id=&quot;example3&quot;&gt;
     &lt;input type=&quot;radio&quot; id=&quot;one&quot; value=&quot;one&quot; v-model=&quot;picked&quot;&gt;
     &lt;label for=&quot;one&quot;&gt;One&lt;/label&gt;
     &lt;input type=&quot;radio&quot; id=&quot;two&quot; value=&quot;Two&quot; v-model=&quot;picked&quot;&gt;
@@ -366,7 +1134,13 @@ new Vue({
         }
     })
 &lt;/script&gt;
-</code></pre><h2 id="select"><code>select</code></h2><p>单选：</p><pre><code class="language-html">&lt;div id=&quot;example4&quot;&gt;
+</code></pre>
+
+<h2 id="select"><code>select</code></h2>
+
+<p>单选：</p>
+
+<pre><code class="language-html">&lt;div id=&quot;example4&quot;&gt;
     &lt;select v-model=&quot;selected&quot;&gt;
         &lt;option disabled value=&quot;&quot;&gt;请选择其中一项&lt;/option&gt;
         &lt;option&gt;A&lt;/option&gt;
@@ -383,7 +1157,11 @@ new Vue({
         }
     })
 &lt;/script&gt;
-</code></pre><p>多选：</p><pre><code class="language-html">&lt;div id=&quot;example5&quot; &gt;
+</code></pre>
+
+<p>多选：</p>
+
+<pre><code class="language-html">&lt;div id=&quot;example5&quot; &gt;
     多选
     &lt;select v-model=&quot;selected&quot; multiple&gt;
         &lt;option v-for=&quot;option in options&quot; v-bind:value=&quot;option.value&quot;&gt;
@@ -405,7 +1183,13 @@ new Vue({
         }
     })
 &lt;/script&gt;
-</code></pre><h2 id="同-value-属性绑定">同 <code>value</code> 属性绑定</h2><p><code>v-model</code> 将 radio, checkbox, select的option选项与静态字符串 <code>value</code> 属性关联在一起。有时也可能需要把 value 与 Vue 实例上的动态属性绑定到一起，可以通过 <code>v-bind</code> 来实现。</p><pre><code class="language-html">&lt;!-- checkbox --&gt;
+</code></pre>
+
+<h2 id="同-value-属性绑定">同 <code>value</code> 属性绑定</h2>
+
+<p><code>v-model</code> 将 radio, checkbox, select的option选项与静态字符串 <code>value</code> 属性关联在一起。有时也可能需要把 value 与 Vue 实例上的动态属性绑定到一起，可以通过 <code>v-bind</code> 来实现。</p>
+
+<pre><code class="language-html">&lt;!-- checkbox --&gt;
 &lt;input
   type=&quot;checkbox&quot;
   v-model=&quot;toggle&quot;
@@ -421,11 +1205,31 @@ new Vue({
     &lt;!-- 内联对象字面量 --&gt;
     &lt;option v-bind:value=&quot;{ number: 123 }&quot;&gt;123&lt;/option&gt;
 &lt;/select&gt;
-</code></pre><h2 id="修饰符-1">修饰符</h2><p>默认情况下， <code>v-model</code> 会在每次 <code>input</code> 事件触发后，将数据同步到 <code>input</code> 元素中。可以添加 <code>lazy</code> 修饰符，转为触发 <code>change</code> 事件后同步：</p><pre><code class="language-html">&lt;!-- 在触发 &quot;change&quot; 事件后同步，而不是在触发 &quot;input&quot; 事件后更新 --&gt;
+</code></pre>
+
+<h2 id="修饰符-1">修饰符</h2>
+
+<p>默认情况下， <code>v-model</code> 会在每次 <code>input</code> 事件触发后，将数据同步到 <code>input</code> 元素中。可以添加 <code>lazy</code> 修饰符，转为触发 <code>change</code> 事件后同步：</p>
+
+<pre><code class="language-html">&lt;!-- 在触发 &quot;change&quot; 事件后同步，而不是在触发 &quot;input&quot; 事件后更新 --&gt;
 &lt;input v-model.lazy=&quot;msg&quot; &gt;
-</code></pre><p>将用户的输入，自动转换为 Number 类型:</p><pre><code class="language-html">&lt;input v-model.number=&quot;age&quot; type=&quot;number&quot;&gt;
-</code></pre><p>将用户的输入，自动过滤掉首尾空格:</p><pre><code class="language-html">&lt;input v-model.trim=&quot;msg&quot;&gt;
-</code></pre><h1 id="组件">组件</h1><p>以下是一个简单的 Vue 组件示例：</p><pre><code class="language-js">// 定义一个新的组件，名称是 button-counter
+</code></pre>
+
+<p>将用户的输入，自动转换为 Number 类型:</p>
+
+<pre><code class="language-html">&lt;input v-model.number=&quot;age&quot; type=&quot;number&quot;&gt;
+</code></pre>
+
+<p>将用户的输入，自动过滤掉首尾空格:</p>
+
+<pre><code class="language-html">&lt;input v-model.trim=&quot;msg&quot;&gt;
+</code></pre>
+
+<h1 id="组件">组件</h1>
+
+<p>以下是一个简单的 Vue 组件示例：</p>
+
+<pre><code class="language-js">// 定义一个新的组件，名称是 button-counter
 Vue.component('button-counter', {
     data: function () {
         return {
@@ -434,7 +1238,14 @@ Vue.component('button-counter', {
     },
     template: '&lt;button v-on:click=&quot;count++&quot;&gt;你点击了 {{ count }} 次。&lt;/button&gt;'
 })
-</code></pre><p><strong>组件中的 <code>data</code> 必须是一个函数</strong>，这是便于每个实例都可以维护彼此独立的数据副本。</p><p>上面代码中定义了一个组件，组件时具有 <code>name</code> 名称的可复用的 Vue 实例。 使用 <code>new Vue</code> 创建一个 Vue 根实例，然后可以将该组件作为其中的一个元素：</p><pre><code class="language-html">&lt;div id=&quot;components&quot;&gt;
+</code></pre>
+
+<p><strong>组件中的 <code>data</code> 必须是一个函数</strong>，这是便于每个实例都可以维护彼此独立的数据副本。</p>
+
+<p>上面代码中定义了一个组件，组件时具有 <code>name</code> 名称的可复用的 Vue 实例。
+使用 <code>new Vue</code> 创建一个 Vue 根实例，然后可以将该组件作为其中的一个元素：</p>
+
+<pre><code class="language-html">&lt;div id=&quot;components&quot;&gt;
     &lt;button-counter&gt;&lt;/button-counter&gt;
     &lt;button-counter&gt;&lt;/button-counter&gt;
     &lt;button-counter&gt;&lt;/button-counter&gt;
@@ -442,7 +1253,17 @@ Vue.component('button-counter', {
 &lt;script&gt;
     new Vue({el: '#components'})
 &lt;/script&gt;
-</code></pre><blockquote><p>当点击按钮时，每个按钮都维护彼此独立的 <code>count</code>，因为每次使用组件，都会创建出一个新的组件实例。</p></blockquote><h2 id="注册组件">注册组件</h2><p>注册组件有两种方式：全局注册和局部注册：</p><pre><code class="language-js">// 全局注册方式
+</code></pre>
+
+<blockquote>
+<p>当点击按钮时，每个按钮都维护彼此独立的 <code>count</code>，因为每次使用组件，都会创建出一个新的组件实例。</p>
+</blockquote>
+
+<h2 id="注册组件">注册组件</h2>
+
+<p>注册组件有两种方式：全局注册和局部注册：</p>
+
+<pre><code class="language-js">// 全局注册方式
 Vue.component('my-component-name', {
     // ... options ...
 })
@@ -458,12 +1279,24 @@ new Vue ({
         'component-b': componentB
     }
 })
-</code></pre><p><code>components</code> 对象的每个属性，key是自定义元素的名称，value 是组件对象。</p><p><strong>局部注册的组件在子组件中无法访问</strong>，若想在 <code>componentB</code> 中访问 <code>componentA</code>，就必须在 <code>componentB</code> 中引入 <code>componentA</code>：</p><pre><code class="language-js">var componentB = {
+</code></pre>
+
+<p><code>components</code> 对象的每个属性，key是自定义元素的名称，value 是组件对象。</p>
+
+<p><strong>局部注册的组件在子组件中无法访问</strong>，若想在 <code>componentB</code> 中访问 <code>componentA</code>，就必须在 <code>componentB</code> 中引入 <code>componentA</code>：</p>
+
+<pre><code class="language-js">var componentB = {
     components: {
         'component-a': componentA
     }
 }
-</code></pre><h2 id="模块系统">模块系统</h2><p>模块系统中，推荐将组件文件放到 <code>components</code> 目录下。然后在局部注册组件前，需要预先导入每个需要用到的组件：</p><pre><code class="language-js">import componentA from './componentA'
+</code></pre>
+
+<h2 id="模块系统">模块系统</h2>
+
+<p>模块系统中，推荐将组件文件放到 <code>components</code> 目录下。然后在局部注册组件前，需要预先导入每个需要用到的组件：</p>
+
+<pre><code class="language-js">import componentA from './componentA'
 
 // 可以在这个模块使用 componentA 组件
 
@@ -472,7 +1305,11 @@ export default {
         componentA
     },
 }
-</code></pre><p>对于许多相对通用的组件，可以注册成全局组件，避免每个模块都引入一些列的基本组件：</p><pre><code class="language-js">import Vue from 'vue'
+</code></pre>
+
+<p>对于许多相对通用的组件，可以注册成全局组件，避免每个模块都引入一些列的基本组件：</p>
+
+<pre><code class="language-js">import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
@@ -506,14 +1343,28 @@ requireComponent.keys().forEach(fileName =&gt; {
         componentConfig.default || componentConfig
     )
 })
-</code></pre><h2 id="使用-props-向子组件中传递数据">使用 <code>props</code> 向子组件中传递数据</h2><p><code>props</code> 是注册在组件选项上的自定义属性。当一个值被放置在 <code>props</code> 中，作为其中一个 <code>prop</code>，这个值就会成为组件实例上的一个可访问的属性：</p><pre><code class="language-js">Vue.component('blog-post', {
+</code></pre>
+
+<h2 id="使用-props-向子组件中传递数据">使用 <code>props</code> 向子组件中传递数据</h2>
+
+<p><code>props</code> 是注册在组件选项上的自定义属性。当一个值被放置在 <code>props</code> 中，作为其中一个 <code>prop</code>，这个值就会成为组件实例上的一个可访问的属性：</p>
+
+<pre><code class="language-js">Vue.component('blog-post', {
     props: ['title'],
     template: '&lt;h3&gt;{{title}}&lt;/h3&gt;'
 })
-</code></pre><p>在预先注册好一个 <code>prop</code> 属性之后，就可以将数据作为自定义属性传递给这个 <code>prop</code> 属性：</p><pre><code class="language-html">&lt;!-- 静态 props --&gt;
+</code></pre>
+
+<p>在预先注册好一个 <code>prop</code> 属性之后，就可以将数据作为自定义属性传递给这个 <code>prop</code> 属性：</p>
+
+<pre><code class="language-html">&lt;!-- 静态 props --&gt;
 &lt;blog-post title=&quot;我的 Vue 旅程&quot;&gt;&lt;/blog-post&gt;
 &lt;blog-post title=&quot;用 Vue 写博客&quot;&gt;&lt;/blog-post&gt;
-</code></pre><p>也可以将 <code>data</code> 中的 <code>posts</code> 设为一个数组：</p><pre><code class="language-js">new Vue({
+</code></pre>
+
+<p>也可以将 <code>data</code> 中的 <code>posts</code> 设为一个数组：</p>
+
+<pre><code class="language-js">new Vue({
     el: '#blog-post-demo',
     data: {
         posts: [
@@ -523,13 +1374,21 @@ requireComponent.keys().forEach(fileName =&gt; {
         ]
     }
 })
-</code></pre><p>然后将每条数据渲染为一个组件，动态的 props，使用 <code>v-bind</code> 来绑定：</p><pre><code class="language-html">&lt;!-- 动态 props --&gt;
+</code></pre>
+
+<p>然后将每条数据渲染为一个组件，动态的 props，使用 <code>v-bind</code> 来绑定：</p>
+
+<pre><code class="language-html">&lt;!-- 动态 props --&gt;
 &lt;blog-post
     v-for=&quot;post in posts&quot;
     v-bind:key=&quot;post.id&quot;
     v-bind:title=&quot;post.title&quot;&gt;
 &lt;/blog-post&gt;
-</code></pre><p>HTML 属性名称对大小写不敏感，浏览器会将所有大写字符解释为小写字符。因此，<strong>在 DOM 模板中写 prop 时，应当将驼峰式转写为等价的串联式</strong>：</p><pre><code class="language-html">&lt;div id=&quot;example&quot;&gt;
+</code></pre>
+
+<p>HTML 属性名称对大小写不敏感，浏览器会将所有大写字符解释为小写字符。因此，<strong>在 DOM 模板中写 prop 时，应当将驼峰式转写为等价的串联式</strong>：</p>
+
+<pre><code class="language-html">&lt;div id=&quot;example&quot;&gt;
     &lt;blog-post post-title=&quot;hello!&quot;&gt;&lt;/blog-post&gt;
 &lt;/div&gt;
  &lt;script&gt;
@@ -542,7 +1401,40 @@ requireComponent.keys().forEach(fileName =&gt; {
         el: '#example'
     })
 &lt;/script&gt;
-</code></pre><h3 id="单向数据流">单向数据流</h3><p>所有 <code>props</code> 都在父组件和子组件之间形成一个单向往下流动的数据绑定：当父组件的属性更新时，数据就会向下流动到子组件；但是，子组件的属性更新时，父组件并不会感知。这种机制可以防止子组件意外地修改了父组件的状态，造成应用程序的数据流变得难以理解。 一般，我们会在两种情况下修改子组的 prop： 1. prop 用于传递初始值，之后子组件将 prop 转换为一个局部数据属性。这种情况下，最好定义一个局部的 data 属性，然后将 prop 的值，作为局部属性的初始值： <code>js props: ['initialCounter'], data: function () { return { counter: this.initialCounter } }</code> 2. prop 用于传递一个需要转换的未加工值。这种情况下，最好预先定义一个 computed 属性，然后在函数内部引用 prop 的值： <code>js props: ['size'], computed: { normalizedSize: function () { return this.size.trim().toLowerCase() } }</code></p><blockquote><p>JavaScript 中的对象和数组都是通过引用传递的，如果 prop 是一个数组或对象，则在子组件内部改变对象或数组本身，仍然会影响到父组件的状态。</p></blockquote><h3 id="prop-验证">prop 验证</h3><p>可以为 props 指定一些接收条件，如果某个接收条件未满足验证，Vue 就会在浏览器的 JavaScript 控制台中发出警告。这时 <code>props</code> 的值就是一个带有验证条件的对象：</p><pre><code class="language-js">Vue.component('my-component', {
+</code></pre>
+
+<h3 id="单向数据流">单向数据流</h3>
+
+<p>所有 <code>props</code> 都在父组件和子组件之间形成一个单向往下流动的数据绑定：当父组件的属性更新时，数据就会向下流动到子组件；但是，子组件的属性更新时，父组件并不会感知。这种机制可以防止子组件意外地修改了父组件的状态，造成应用程序的数据流变得难以理解。
+一般，我们会在两种情况下修改子组的 prop：
+1. prop 用于传递初始值，之后子组件将 prop 转换为一个局部数据属性。这种情况下，最好定义一个局部的 data 属性，然后将 prop 的值，作为局部属性的初始值：
+    <code>js
+    props: ['initialCounter'],
+    data: function () {
+        return {
+            counter: this.initialCounter
+        }
+    }
+</code>
+2. prop 用于传递一个需要转换的未加工值。这种情况下，最好预先定义一个 computed 属性，然后在函数内部引用 prop 的值：
+    <code>js
+    props: ['size'],
+    computed: {
+        normalizedSize: function () {
+            return this.size.trim().toLowerCase()
+        }
+    }
+</code></p>
+
+<blockquote>
+<p>JavaScript 中的对象和数组都是通过引用传递的，如果 prop 是一个数组或对象，则在子组件内部改变对象或数组本身，仍然会影响到父组件的状态。</p>
+</blockquote>
+
+<h3 id="prop-验证">prop 验证</h3>
+
+<p>可以为 props 指定一些接收条件，如果某个接收条件未满足验证，Vue 就会在浏览器的 JavaScript 控制台中发出警告。这时 <code>props</code> 的值就是一个带有验证条件的对象：</p>
+
+<pre><code class="language-js">Vue.component('my-component', {
     props: {
         // 基本类型(base type)的检查（`null` 表示接受所有类型）
         propA: Number,
@@ -576,7 +1468,22 @@ requireComponent.keys().forEach(fileName =&gt; {
         }
     }
 })
-</code></pre><p>props 会在组件实例创建之前进行验证，因此在 <code>default</code> 或 <code>validator</code> 这些验证函数中，无法访问到实例上的属性，例如<code>data</code>, <code>computed</code>.</p><p>其中类型 <code>type</code> 可以是以下原生构造函数： - String - Number - Boolean - Function - Object - Array - Symbol</p><p>还可以自定义函数，Vue 会通过 <code>instanceof</code> 对 props 值进行类型推断：</p><pre><code class="language-js">function Person(firstName, lastName) {
+</code></pre>
+
+<p>props 会在组件实例创建之前进行验证，因此在 <code>default</code> 或 <code>validator</code> 这些验证函数中，无法访问到实例上的属性，例如<code>data</code>, <code>computed</code>.</p>
+
+<p>其中类型 <code>type</code> 可以是以下原生构造函数：
+- String
+- Number
+- Boolean
+- Function
+- Object
+- Array
+- Symbol</p>
+
+<p>还可以自定义函数，Vue 会通过 <code>instanceof</code> 对 props 值进行类型推断：</p>
+
+<pre><code class="language-js">function Person(firstName, lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
 }
@@ -586,7 +1493,13 @@ Vue.component('blog-post', {
         author: Person
     }
 })
-</code></pre><h2 id="使用-events-向父组件发送消息">使用 <code>events</code> 向父组件发送消息</h2><p>当子组件要向父组件通信时，可以调用实例中内置的 <code>$emit</code> 方法来向父组件中发送事件：</p><pre><code class="language-js">Vue.component('blog-post', {
+</code></pre>
+
+<h2 id="使用-events-向父组件发送消息">使用 <code>events</code> 向父组件发送消息</h2>
+
+<p>当子组件要向父组件通信时，可以调用实例中内置的 <code>$emit</code> 方法来向父组件中发送事件：</p>
+
+<pre><code class="language-js">Vue.component('blog-post', {
     props: ['post'],
     template: `
         &lt;div class=&quot;blog-post&quot;&gt;
@@ -596,7 +1509,11 @@ Vue.component('blog-post', {
         &lt;/div&gt;
     `
 })
-</code></pre><p>在父组件中也需要 <code>v-on</code> 来监听这个事件：</p><pre><code class="language-html">&lt;div id=&quot;components3&quot;&gt;
+</code></pre>
+
+<p>在父组件中也需要 <code>v-on</code> 来监听这个事件：</p>
+
+<pre><code class="language-html">&lt;div id=&quot;components3&quot;&gt;
     &lt;div :style=&quot;{ fontSize: postFontSize + 'em' }&quot;&gt;
         &lt;blog-post
             v-for=&quot;post in posts&quot;
@@ -606,9 +1523,21 @@ Vue.component('blog-post', {
         &gt;&lt;/blog-post&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</code></pre><p>当然，也可以在 <code>event</code> 事件中发送一个特定的值，可以使用 <code>$emit</code> 的第二个参数：</p><pre><code class="language-html">&lt;button @click=&quot;$emit('enlarge-text', 0.1)&quot;&gt;放大文本&lt;/button&gt;
-</code></pre><p>然后，在父实例中监听这个事件，并通过 <code>$event</code> 来访问这次事件的值：</p><pre><code class="language-html">&lt;blog-post v-on:enlarge-text=&quot;postFontSize += $event&quot;&gt;&lt;/blog-post&gt;
-</code></pre><p>如果事件处理函数是一个方法：</p><pre><code class="language-html">&lt;blog-post v-on:enlarge-text=&quot;onEnlargeText&quot;&gt;&lt;/blog-post&gt;
+</code></pre>
+
+<p>当然，也可以在 <code>event</code> 事件中发送一个特定的值，可以使用 <code>$emit</code> 的第二个参数：</p>
+
+<pre><code class="language-html">&lt;button @click=&quot;$emit('enlarge-text', 0.1)&quot;&gt;放大文本&lt;/button&gt;
+</code></pre>
+
+<p>然后，在父实例中监听这个事件，并通过 <code>$event</code> 来访问这次事件的值：</p>
+
+<pre><code class="language-html">&lt;blog-post v-on:enlarge-text=&quot;postFontSize += $event&quot;&gt;&lt;/blog-post&gt;
+</code></pre>
+
+<p>如果事件处理函数是一个方法：</p>
+
+<pre><code class="language-html">&lt;blog-post v-on:enlarge-text=&quot;onEnlargeText&quot;&gt;&lt;/blog-post&gt;
 &lt;script&gt;
     methods: {
         onEnlargeText: function (enlargeAmount) {
@@ -616,11 +1545,25 @@ Vue.component('blog-post', {
         }
     }
 &lt;/script&gt;
-</code></pre><p>还可以使用 <code>v-model</code> 来创建自定义事件：</p><pre><code class="language-html">&lt;input v-model=&quot;searchText&quot;&gt;
+</code></pre>
+
+<p>还可以使用 <code>v-model</code> 来创建自定义事件：</p>
+
+<pre><code class="language-html">&lt;input v-model=&quot;searchText&quot;&gt;
 &lt;!-- input 等同于 --&gt;
 &lt;input v-bind:value=&quot;searchText&quot; v-on:input=&quot;$event.target.value&quot;&gt;
-</code></pre><p>对于组件，<code>v-model</code> 可以替换如下：</p><pre><code class="language-html">&lt;custom-input v-bind:value=&quot;searchText&quot; v-on:input=&quot;searchText = $event&quot;&gt;&lt;/custom-input&gt;
-</code></pre><p>为了组件内部能够有效运行，组件内的 <code>&lt;input&gt;</code> 必须： - 将 <code>value</code> 属性绑定到 <code>value</code> 的 prop - 在 <code>input</code> 输入框中，在自定义的 <code>input</code> 事件中，发送一个新值</p><pre><code class="language-js">Vue.component('custom-input', {
+</code></pre>
+
+<p>对于组件，<code>v-model</code> 可以替换如下：</p>
+
+<pre><code class="language-html">&lt;custom-input v-bind:value=&quot;searchText&quot; v-on:input=&quot;searchText = $event&quot;&gt;&lt;/custom-input&gt;
+</code></pre>
+
+<p>为了组件内部能够有效运行，组件内的 <code>&lt;input&gt;</code> 必须：
+- 将 <code>value</code> 属性绑定到 <code>value</code> 的 prop
+- 在 <code>input</code> 输入框中，在自定义的 <code>input</code> 事件中，发送一个新值</p>
+
+<pre><code class="language-js">Vue.component('custom-input', {
     props: ['value'],
     template: `
         &lt;input 
@@ -628,10 +1571,32 @@ Vue.component('blog-post', {
             v-on:input=&quot;$emit('input', $event.target.value)&quot;&gt;
     `
 })
-</code></pre><p>现在 <code>custom-input</code> 组件，应该可以实现 <code>v-model</code> 的完美运行：</p><pre><code class="language-html">&lt;custom-input v-model=&quot;searchText&quot;&gt;&lt;/custom-input&gt;
-</code></pre><h1 id="自定义事件">自定义事件</h1><p>与 components 和 props 不同，事件名称并不提供命名自动转换。触发的事件名称必须与监听时的名称完全匹配，否则无法接收到事件。</p><pre><code class="language-js">this.$emit(&quot;myEvent&quot;);
-</code></pre><p>以下方式无法接收到事件：</p><pre><code class="language-html">&lt;my-component v-on:my-event=&quot;doSomething&quot;&gt;&lt;/my-component&gt;
-</code></pre><p><strong>总是使用串联式命名(kebab-cased)来命名事件名称</strong></p><h2 id="定制组件-v-model">定制组件 <code>v-model</code></h2><p>自定义事件还可以用来创建出 “实现 <code>v-model</code> 机制的自定义输入框”：</p><pre><code class="language-html">&lt;input v-model=&quot;searchText&quot;&gt;
+</code></pre>
+
+<p>现在 <code>custom-input</code> 组件，应该可以实现 <code>v-model</code> 的完美运行：</p>
+
+<pre><code class="language-html">&lt;custom-input v-model=&quot;searchText&quot;&gt;&lt;/custom-input&gt;
+</code></pre>
+
+<h1 id="自定义事件">自定义事件</h1>
+
+<p>与 components 和 props 不同，事件名称并不提供命名自动转换。触发的事件名称必须与监听时的名称完全匹配，否则无法接收到事件。</p>
+
+<pre><code class="language-js">this.$emit(&quot;myEvent&quot;);
+</code></pre>
+
+<p>以下方式无法接收到事件：</p>
+
+<pre><code class="language-html">&lt;my-component v-on:my-event=&quot;doSomething&quot;&gt;&lt;/my-component&gt;
+</code></pre>
+
+<p><strong>总是使用串联式命名(kebab-cased)来命名事件名称</strong></p>
+
+<h2 id="定制组件-v-model">定制组件 <code>v-model</code></h2>
+
+<p>自定义事件还可以用来创建出 “实现 <code>v-model</code> 机制的自定义输入框”：</p>
+
+<pre><code class="language-html">&lt;input v-model=&quot;searchText&quot;&gt;
 &lt;!-- 等同于 --&gt;
 &lt;input v-bind:value=&quot;searchText&quot;
        v-on:input=&quot;searchText = $event.target.value&quot;&gt;
@@ -640,7 +1605,13 @@ Vue.component('blog-post', {
     v-bind:value=&quot;searchText&quot;
     v-on:input=&quot;searchText = $event&quot;
 &gt;&lt;/custom-input&gt;
-</code></pre><p>为了组件内部能够有效运行，组件内的 <code>&lt;input&gt;</code> 必须： - 将 <code>value</code> 属性绑定到 <code>value</code> prop - 在 <code>input</code> 输入框中，在自定义的 <code>input</code> 事件中，发送一个新的值：</p><pre><code class="language-js">Vue.component('custom-input', {
+</code></pre>
+
+<p>为了组件内部能够有效运行，组件内的 <code>&lt;input&gt;</code> 必须：
+- 将 <code>value</code> 属性绑定到 <code>value</code> prop
+- 在 <code>input</code> 输入框中，在自定义的 <code>input</code> 事件中，发送一个新的值：</p>
+
+<pre><code class="language-js">Vue.component('custom-input', {
     props: ['value'],
     template: `
         &lt;input 
@@ -649,8 +1620,16 @@ Vue.component('blog-post', {
         &gt;
     `
 })
-</code></pre><p>现在我们的组件可以用 <code>v-model</code> 完美运行：</p><pre><code class="language-html">&lt;custom-input v-model=&quot;searchText&quot;&gt;&lt;/custom-input&gt;
-</code></pre><p>在一个组件中，<code>v-model</code> 默认使用 <code>value</code> 作为 prop，已经默认使用 <code>input</code> 作为监听事件。然而对于CheckBox和radio等input元素，由于他们的input元素本身具有不同的语法，可能会占用 <code>value</code> 的特性。使用组件的 <code>model</code> 选项可以避免冲突：</p><pre><code class="language-js">Vue.component('base-checkbox', {
+</code></pre>
+
+<p>现在我们的组件可以用 <code>v-model</code> 完美运行：</p>
+
+<pre><code class="language-html">&lt;custom-input v-model=&quot;searchText&quot;&gt;&lt;/custom-input&gt;
+</code></pre>
+
+<p>在一个组件中，<code>v-model</code> 默认使用 <code>value</code> 作为 prop，已经默认使用 <code>input</code> 作为监听事件。然而对于CheckBox和radio等input元素，由于他们的input元素本身具有不同的语法，可能会占用 <code>value</code> 的特性。使用组件的 <code>model</code> 选项可以避免冲突：</p>
+
+<pre><code class="language-js">Vue.component('base-checkbox', {
     model: {
         prop: 'checked',
         event: 'change'
@@ -666,19 +1645,67 @@ Vue.component('blog-post', {
         &gt;
     `
 })
-</code></pre><p>现在可以在这个组件中使用 <code>v-model</code>:</p><pre><code class="language-html">&lt;base-checkbox v-model=&quot;lovingVue&quot;&gt;&lt;/base-checkbox&gt;
-</code></pre><h1 id="使用-slots-进行内容分发">使用 slots 进行内容分发</h1><p>内容分发机制，可以构建如下组件：</p><pre><code class="language-html">&lt;navigation-link url=&quot;#&quot;&gt;
+</code></pre>
+
+<p>现在可以在这个组件中使用 <code>v-model</code>:</p>
+
+<pre><code class="language-html">&lt;base-checkbox v-model=&quot;lovingVue&quot;&gt;&lt;/base-checkbox&gt;
+</code></pre>
+
+<h2 id="将原生事件绑定到组件">将原生事件绑定到组件</h2>
+
+<p>如果要在根组件上监听一个原生事件，可以使用 <code>v-on</code> 的 <code>.native</code> 修饰符：</p>
+
+<pre><code class="language-html">&lt;base-input v-on:focus.native='onFocus'&gt;&lt;/base-input&gt;
+</code></pre>
+
+<p>如果 <code>base-input</code> 标签的根元素是 <code>input</code>，上述代码没有问题，如果根元素是 <code>label</code>:</p>
+
+<pre><code class="language-js">&lt;label&gt;
+  {{ label }}
+  &lt;input
+    v-bind=&quot;$attrs&quot;
+    v-bind:value=&quot;value&quot;
+    v-on:input=&quot;$emit('input', $event.target.value)&quot;
+  &gt;
+&lt;/label&gt;
+</code></pre>
+
+<p>Vue 有一个 <code>$listeners</code> 属性来解决这个问题，<code>$listeners</code> 是一个对象，里面包含了作用在这个组件上所有的监听器，结合<code>v-on=&quot;$listeners&quot;</code>将所有监听器指向这个组件的特定子元素：</p>
+
+<pre><code class="language-js">
+</code></pre>
+
+<h1 id="使用-slots-进行内容分发">使用 slots 进行内容分发</h1>
+
+<p>内容分发机制，可以构建如下组件：</p>
+
+<pre><code class="language-html">&lt;navigation-link url=&quot;#&quot;&gt;
     Your Profile
 &lt;/navigation-link&gt;
-</code></pre><p>在 <code>&lt;navigation-link&gt;</code> 模板中，可以是：</p><pre><code class="language-html">&lt;a v-bind:href=&quot;url&quot; class=&quot;nav-link&quot;&gt;
+</code></pre>
+
+<p>在 <code>&lt;navigation-link&gt;</code> 模板中，可以是：</p>
+
+<pre><code class="language-html">&lt;a v-bind:href=&quot;url&quot; class=&quot;nav-link&quot;&gt;
     &lt;slot&gt;&lt;/slot&gt;
 &lt;/a&gt;
-</code></pre><p>在组件渲染时，<code>&lt;slot&gt;</code> 元素就会被替换成 Your Profile。在 slot 位置，可以包含任何模板代码，可以是 HTML，也可以是其他组件：</p><pre><code class="language-html">&lt;navigation-link url=&quot;/profile&quot;&gt;
+</code></pre>
+
+<p>在组件渲染时，<code>&lt;slot&gt;</code> 元素就会被替换成 Your Profile。在 slot 位置，可以包含任何模板代码，可以是 HTML，也可以是其他组件：</p>
+
+<pre><code class="language-html">&lt;navigation-link url=&quot;/profile&quot;&gt;
     &lt;!-- 使用一个组件添加一个图标 --&gt;
     &lt;font-awesome-icon name=&quot;user&quot;&gt;&lt;/font-awesome-icon&gt;
     Your Profile
 &lt;/navigation-link&gt;
-</code></pre><h2 id="命名-slot">命名 <code>slot</code></h2><p>可以向组件中传入多个 <code>slot</code>:</p><pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+</code></pre>
+
+<h2 id="命名-slot">命名 <code>slot</code></h2>
+
+<p>可以向组件中传入多个 <code>slot</code>:</p>
+
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
     &lt;header&gt;
         &lt;!-- 在这里我们需要 header 内容 --&gt;
     &lt;/header&gt;
@@ -738,34 +1765,96 @@ Vue.component('blog-post', {
         &lt;p&gt;这里是一些联系信息&lt;/p&gt;
     &lt;/footer&gt;
 &lt;/div&gt;
-</code></pre><h3 id="默认-slot-内容">默认 slot 内容</h3><p>slot 可以预先提供默认内容：</p><pre><code class="language-html">&lt;button type=&quot;submit&quot;&gt;
+</code></pre>
+
+<h3 id="默认-slot-内容">默认 slot 内容</h3>
+
+<p>slot 可以预先提供默认内容：</p>
+
+<pre><code class="language-html">&lt;button type=&quot;submit&quot;&gt;
     &lt;slot&gt;Submit&lt;/slot&gt;
 &lt;/button
-</code></pre><p>如果父组件模板中，向 slot 位置提供了内容，子组件中默认内容就会被替换。</p><h3 id="编译时的作用域">编译时的作用域</h3><p>在 slot 内部需要访问当前作用域下的数据：</p><pre><code class="language-html">&lt;navigation-link url=&quot;/profile&quot;&gt;
+</code></pre>
+
+<p>如果父组件模板中，向 slot 位置提供了内容，子组件中默认内容就会被替换。</p>
+
+<h3 id="编译时的作用域">编译时的作用域</h3>
+
+<p>在 slot 内部需要访问当前作用域下的数据：</p>
+
+<pre><code class="language-html">&lt;navigation-link url=&quot;/profile&quot;&gt;
     Logged in as {{ user.name }}
 &lt;/navigation-link&gt;
-</code></pre><p>slot 中的内容不可以访问 <code>&lt;navigation-link&gt;</code> 组件内部的作用域。 父组件模板的内容，全部在父组件作用域内编译；字组件模板的内容，全部在子组件作用域内编译。</p><h1 id="动态组件">动态组件</h1><p>通过向 Vue 的 <code>&lt;component&gt;</code> 元素传入 <code>is</code> 特性，可以实现动态效果：</p><pre><code class="language-html">&lt;component v-bind:is=&quot;currentTabComponent&quot;&gt;&lt;/component&gt;
-</code></pre><p>在上面的示例中， <code>currentTabComponent</code> 也可以是以下之一： - 已注册的注册名称 - 一个组件选项对象</p><p>如果需要组件的实例在第一次创建后就缓存起来，可以使用 <code>&lt;keep-alive&gt;</code> 元素将动态组件包裹起来：</p><pre><code class="language-html">&lt;keep-alive&gt;
+</code></pre>
+
+<p>slot 中的内容不可以访问 <code>&lt;navigation-link&gt;</code> 组件内部的作用域。
+父组件模板的内容，全部在父组件作用域内编译；字组件模板的内容，全部在子组件作用域内编译。</p>
+
+<h1 id="动态组件">动态组件</h1>
+
+<p>通过向 Vue 的 <code>&lt;component&gt;</code> 元素传入 <code>is</code> 特性，可以实现动态效果：</p>
+
+<pre><code class="language-html">&lt;component v-bind:is=&quot;currentTabComponent&quot;&gt;&lt;/component&gt;
+</code></pre>
+
+<p>在上面的示例中， <code>currentTabComponent</code> 也可以是以下之一：
+- 已注册的注册名称
+- 一个组件选项对象</p>
+
+<p>如果需要组件的实例在第一次创建后就缓存起来，可以使用 <code>&lt;keep-alive&gt;</code> 元素将动态组件包裹起来：</p>
+
+<pre><code class="language-html">&lt;keep-alive&gt;
     &lt;component v-bind:is=&quot;currentTabComponent&quot;&gt;&lt;/component&gt;
 &lt;/keep-alive&gt;
-</code></pre><h2 id="异步组件">异步组件</h2><p>在大型应用程序中，可能需要将应用程序拆分为多个小的分块，并且在实际用到时，才从服务器加载某个组件。为了简化异步拉取机制，Vue将组件定义为一个工厂函数，该函数可以异步解析组件定义对象。Vue 只在真正需要渲染组件的时候，才会去触发工厂函数，并将解析后的记过缓存，用来将来再次渲染。</p><pre><code class="language-js">Vue.component('async-example', function (resolve, reject) {
+</code></pre>
+
+<h2 id="异步组件">异步组件</h2>
+
+<p>在大型应用程序中，可能需要将应用程序拆分为多个小的分块，并且在实际用到时，才从服务器加载某个组件。为了简化异步拉取机制，Vue将组件定义为一个工厂函数，该函数可以异步解析组件定义对象。Vue 只在真正需要渲染组件的时候，才会去触发工厂函数，并将解析后的记过缓存，用来将来再次渲染。</p>
+
+<pre><code class="language-js">Vue.component('async-example', function (resolve, reject) {
     setTimeout(function() {
         resolve({template: '&lt;div&gt;This is async&lt;/div&gt;'})
     }, 1000)
 })
-</code></pre><p>配合 webpack 代码分离功能：</p><pre><code class="language-js">Vue.component('async-webpack-example', function (resolve) {
+</code></pre>
+
+<p>配合 webpack 代码分离功能：</p>
+
+<pre><code class="language-js">Vue.component('async-webpack-example', function (resolve) {
     // 这个特殊的 require 语法
     // 将指示 webpack 自动将构建后的代码，
     // 拆分到不同的 bundle 中，然后通过 Ajax 请求加载。
     require(['./my-async-component'], resolve)
 })
-</code></pre><h1 id="dom-模板解析注意事项">DOM 模板解析注意事项</h1><p>有些 HTML 元素，例如 <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code> 和 <code>&lt;select&gt;</code> 这些元素，会对于出现在其内部的元素有所限制；而另一些 HTML 元素，例如 <code>&lt;li&gt;</code>, <code>&lt;tr&gt;</code> 和 <code>&lt;option&gt;</code> 这些元素，只可以出现在前面那些元素的内部。</p><pre><code class="language-html">&lt;table&gt;
+</code></pre>
+
+<h1 id="dom-模板解析注意事项">DOM 模板解析注意事项</h1>
+
+<p>有些 HTML 元素，例如 <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code> 和 <code>&lt;select&gt;</code> 这些元素，会对于出现在其内部的元素有所限制；而另一些 HTML 元素，例如 <code>&lt;li&gt;</code>, <code>&lt;tr&gt;</code> 和 <code>&lt;option&gt;</code> 这些元素，只可以出现在前面那些元素的内部。</p>
+
+<pre><code class="language-html">&lt;table&gt;
     &lt;blog-post&gt;&lt;/blog-post&gt;
 &lt;/table&gt;
-</code></pre><p>自定义组件 <code>&lt;blog-post&gt;</code> 会被当作无效内容，提升到 <code>table</code> 元素之外，从而导致最终渲染输出后的错误。<code>is</code> 特性提供了一种解决方案：</p><pre><code class="language-html">&lt;table&gt;
+</code></pre>
+
+<p>自定义组件 <code>&lt;blog-post&gt;</code> 会被当作无效内容，提升到 <code>table</code> 元素之外，从而导致最终渲染输出后的错误。<code>is</code> 特性提供了一种解决方案：</p>
+
+<pre><code class="language-html">&lt;table&gt;
 &lt;tr is=&quot;blog-post&quot;&gt;&lt;/tr&gt;
 &lt;/table&gt;
-</code></pre><p>但是，以下字符串模板之一的场景中，并不适用： - 字符串模板 <code>template: \</code>`<code>- 单文件组件 (</code>.vue<code>) -</code><script type="text/x-template"></script>`</p><h1 id="mixin">mixin</h1><p>mixin 是分发 Vue 组件的可复用功能的一种非常灵活的方式。每个 mixin 对象可以包含全部组件选项。当组件使用 mixin 对象时，mixin 对象中的全部选项都会被混入到组件中</p><pre><code class="language-js">var myMixin = {
+</code></pre>
+
+<p>但是，以下字符串模板之一的场景中，并不适用：
+- 字符串模板 <code>template: \</code>`<code>
+- 单文件组件 (</code>.vue<code>)
+-</code><script type="text/x-template"></script>`</p>
+
+<h1 id="mixin">mixin</h1>
+
+<p>mixin 是分发 Vue 组件的可复用功能的一种非常灵活的方式。每个 mixin 对象可以包含全部组件选项。当组件使用 mixin 对象时，mixin 对象中的全部选项都会被混入到组件中</p>
+
+<pre><code class="language-js">var myMixin = {
     created: function () {
         this.hello()
     },
@@ -782,7 +1871,13 @@ var component = Vue.extend({
 })
 
 var component = new Component() // =&gt; &quot;来自 mixin 对象的 hello！&quot;
-</code></pre><p>当 mixin 对象和组件自身的选项对象，在二者选项名称相同时，Vue 会选择合适的合并策略。 单个属性合并时，优先使用组件的 data; 具有相同名称的钩子函数，将合并到一个数组中，最终它们会被依次调用。此外，需要注意，mixin 对象中的同名钩子函数，会在组件自身的钩子函数之前调用。</p><pre><code class="language-js">var mixin = {
+</code></pre>
+
+<p>当 mixin 对象和组件自身的选项对象，在二者选项名称相同时，Vue 会选择合适的合并策略。
+单个属性合并时，优先使用组件的 data;
+具有相同名称的钩子函数，将合并到一个数组中，最终它们会被依次调用。此外，需要注意，mixin 对象中的同名钩子函数，会在组件自身的钩子函数之前调用。</p>
+
+<pre><code class="language-js">var mixin = {
     created: function () {
         console.log('mixin 对象的钩子函数被调用')
     },
@@ -806,7 +1901,14 @@ new Vue({
         console.log('组件的钩子函数被调用')
     }
 })
-</code></pre><h1 id="自定义指令">自定义指令</h1><p>除了核心功能默认内置的指令（<code>v-model</code> 和 <code>v-show</code>），Vue 也允许注册自定义指令。 如果要在页面加载时，某元素获得焦点（移动端 Safari 上 <code>autofocus</code> 不生效）。现在用指令来实现这个功能：</p><pre><code class="language-js">// 注册一个全局自定义指令 `v-focus`
+</code></pre>
+
+<h1 id="自定义指令">自定义指令</h1>
+
+<p>除了核心功能默认内置的指令（<code>v-model</code> 和 <code>v-show</code>），Vue 也允许注册自定义指令。
+如果要在页面加载时，某元素获得焦点（移动端 Safari 上 <code>autofocus</code> 不生效）。现在用指令来实现这个功能：</p>
+
+<pre><code class="language-js">// 注册一个全局自定义指令 `v-focus`
 Vue.directive('focus', {
     // 当被绑定的元素插入到 DOM 中时……
     inserted: function (el) {
@@ -827,8 +1929,35 @@ Vue.directive('focus', {
     },
     template: `&lt;input v-focus type=&quot;text&quot;/&gt;`
 })
-</code></pre><h2 id="钩子函数">钩子函数</h2><p>可以为一个自定义指令提供如下钩子函数： - <code>bind</code>: 只在指令第一次绑定到元素时调用 - <code>inserted</code>: 被绑定元素插入父节点时调用 - <code>update</code>: 所在组件的VNode 更新时调用 - <code>componentUpdated</code>: 指令所在组件的 VNode 全部更新后调用 - <code>unbind</code>: 在指令与元素解绑时调用</p><p>指令钩子函数会被传入以下参数： - <code>el</code>: 指令绑定的元素，可以直接操作 DOM - <code>binding</code>: 一个对象，包含如下属性： - <code>name</code>: 指令名，不包含 <code>v-</code> 前缀 - <code>value</code>: 指令绑定的值 - <code>oldValue</code>: 指令绑定的前一个值，仅在 <code>update</code> 和 <code>componentUpdated</code> 钩子函数中可用 - <code>expression</code>: 字符串形式的指令表达式。例如 <code>v-my-directive=&quot;1 + 1&quot;</code> 中，表达式为 <code>&quot;1 + 1&quot;</code>。 - <code>arg</code>: 传给指令的参数，可选。例如：<code>v-directive:foo</code> 中的 <code>foo</code> - <code>vnode</code>: Vue 编译生成的虚拟节点</p><blockquote><p>除了 <code>el</code> 之外，其他参数都应该是只读的，切勿修改</p></blockquote><pre><code class="language-html">&lt;div id=&quot;hook-arguments-example&quot; v-demo:foo.a.b=&quot;message&quot;&gt;&lt;/div&gt;
-</code></pre><pre><code class="language-js">new Vue({
+</code></pre>
+
+<h2 id="钩子函数">钩子函数</h2>
+
+<p>可以为一个自定义指令提供如下钩子函数：
+- <code>bind</code>: 只在指令第一次绑定到元素时调用
+- <code>inserted</code>: 被绑定元素插入父节点时调用
+- <code>update</code>: 所在组件的VNode 更新时调用
+- <code>componentUpdated</code>: 指令所在组件的 VNode 全部更新后调用
+- <code>unbind</code>: 在指令与元素解绑时调用</p>
+
+<p>指令钩子函数会被传入以下参数：
+- <code>el</code>: 指令绑定的元素，可以直接操作 DOM
+- <code>binding</code>: 一个对象，包含如下属性：
+    - <code>name</code>: 指令名，不包含 <code>v-</code> 前缀
+    - <code>value</code>: 指令绑定的值
+    - <code>oldValue</code>: 指令绑定的前一个值，仅在 <code>update</code> 和 <code>componentUpdated</code> 钩子函数中可用
+    - <code>expression</code>: 字符串形式的指令表达式。例如 <code>v-my-directive=&quot;1 + 1&quot;</code> 中，表达式为 <code>&quot;1 + 1&quot;</code>。
+    - <code>arg</code>: 传给指令的参数，可选。例如：<code>v-directive:foo</code> 中的 <code>foo</code>
+- <code>vnode</code>: Vue 编译生成的虚拟节点</p>
+
+<blockquote>
+<p>除了 <code>el</code> 之外，其他参数都应该是只读的，切勿修改</p>
+</blockquote>
+
+<pre><code class="language-html">&lt;div id=&quot;hook-arguments-example&quot; v-demo:foo.a.b=&quot;message&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-js">new Vue({
     el: '#hook-arguments-example',
     directives: {
         demo: {
@@ -848,8 +1977,20 @@ Vue.directive('focus', {
         message: 'hello!'
     }
 })
-</code></pre><h1 id="渲染函数">渲染函数</h1><p>template 创建 HTML 在大多数情况下是适用的。但是有些情况下，需要 JavaScript 的完全编程能力，这时候可以使用 <code>render</code> 函数。</p><p>在 HTML 层，我们定义组件接口：</p><pre><code class="language-html">&lt;anchored-heading :level=&quot;1&quot;&gt;Hello world!&lt;/anchored-heading&gt;
-</code></pre><p>当有一个通过 <code>level</code> 属性动态生成 heading 标签的组件时：</p><pre><code class="language-html">&lt;script type=&quot;text/x-template&quot; id=&quot;anchored-heading-template&quot;&gt;
+</code></pre>
+
+<h1 id="渲染函数">渲染函数</h1>
+
+<p>template 创建 HTML 在大多数情况下是适用的。但是有些情况下，需要 JavaScript 的完全编程能力，这时候可以使用 <code>render</code> 函数。</p>
+
+<p>在 HTML 层，我们定义组件接口：</p>
+
+<pre><code class="language-html">&lt;anchored-heading :level=&quot;1&quot;&gt;Hello world!&lt;/anchored-heading&gt;
+</code></pre>
+
+<p>当有一个通过 <code>level</code> 属性动态生成 heading 标签的组件时：</p>
+
+<pre><code class="language-html">&lt;script type=&quot;text/x-template&quot; id=&quot;anchored-heading-template&quot;&gt;
     &lt;h1 v-if=&quot;level === 1&quot;&gt;
         &lt;slot&gt;&lt;/slot&gt;
     &lt;/h1&gt;
@@ -880,7 +2021,13 @@ Vue.directive('focus', {
         }
     })
 &lt;/script&gt;
-</code></pre><p>可以看到，这种场景中使用 <code>template</code> 并不是很好的选择，不但代码冗长，而且需要重复使用 <code>&lt;slot&gt;&lt;/slot&gt;</code>.</p><p>可以尝试使用 <code>render</code> 函数重写该例：</p><pre><code class="language-js"> Vue.component('anchored-heading', {
+</code></pre>
+
+<p>可以看到，这种场景中使用 <code>template</code> 并不是很好的选择，不但代码冗长，而且需要重复使用 <code>&lt;slot&gt;&lt;/slot&gt;</code>.</p>
+
+<p>可以尝试使用 <code>render</code> 函数重写该例：</p>
+
+<pre><code class="language-js"> Vue.component('anchored-heading', {
     render: function(createElement) {
         return createElement( 
             `h${this.level}`,   // tag name 标签名称
@@ -894,7 +2041,13 @@ Vue.directive('focus', {
         }
     }
 })
-</code></pre><h2 id="createelement"><code>createElement</code></h2><p><code>createElement</code> 函数返回的是一个虚拟的DOM，其接受的参数如下：</p><pre><code class="language-js">// @returns {VNode}
+</code></pre>
+
+<h2 id="createelement"><code>createElement</code></h2>
+
+<p><code>createElement</code> 函数返回的是一个虚拟的DOM，其接受的参数如下：</p>
+
+<pre><code class="language-js">// @returns {VNode}
 createElement(
     // {String | Object | Function}
     // 一个 HTML 标签字符串，组件选项对象，或者
@@ -921,7 +2074,13 @@ createElement(
         })
     ]
 )
-</code></pre><h2 id="深入-data-对象">深入 <code>data</code> 对象</h2><p><code>createElement</code> 中的数据对象可以是如下内容：</p><pre><code class="language-js">{
+</code></pre>
+
+<h2 id="深入-data-对象">深入 <code>data</code> 对象</h2>
+
+<p><code>createElement</code> 中的数据对象可以是如下内容：</p>
+
+<pre><code class="language-js">{
     // 和`v-bind:class`一样的 API
     // 接收一个字符串、对象或字符串和对象组成的数组
     'class': {
@@ -981,7 +2140,11 @@ createElement(
     key: 'myKey',
     ref: 'myRef'
 }
-</code></pre><p>示例如下：</p><pre><code class="language-js">Vue.component('anchored-heading', {
+</code></pre>
+
+<p>示例如下：</p>
+
+<pre><code class="language-js">Vue.component('anchored-heading', {
     render: function (createElement) {
         var headingId = getChildrenTextContent(this.$slots.default)
             .toLowerCase().replace(/\W+/g, '-').replace(/(^\-|\-$)/g, '');
@@ -1015,7 +2178,13 @@ createElement(
         }
     }
 })
-</code></pre><h2 id="v-model"><code>v-model</code></h2><p>render 函数中没有与 <code>v-model</code> 相应的 api，必须自己实现相应的逻辑：</p><pre><code class="language-js">props: ['value'],
+</code></pre>
+
+<h2 id="v-model"><code>v-model</code></h2>
+
+<p>render 函数中没有与 <code>v-model</code> 相应的 api，必须自己实现相应的逻辑：</p>
+
+<pre><code class="language-js">props: ['value'],
 render: function (createElement) {
     var self = this
     return createElement('input', {
@@ -1029,12 +2198,55 @@ render: function (createElement) {
         }
     })
 }
-</code></pre><h2 id="事件和按键修饰符">事件和按键修饰符</h2><table><thead><tr><th align="left">修饰符</th><th align="left">前缀</th></tr></thead><tbody><tr><td align="left"><code>.passive</code></td><td align="left"><code>&amp;</code></td></tr><tr><td align="left"><code>.capture</code></td><td align="left"><code>!</code></td></tr><tr><td align="left"><code>.once</code></td><td align="left"><code>~</code></td></tr><tr><td align="left"><code>.capture.once</code> or <code>.once.capture</code></td><td align="left"><code>~!</code></td></tr></tbody></table><p>例如：</p><pre><code class="language-js">on: {
+</code></pre>
+
+<h2 id="事件和按键修饰符">事件和按键修饰符</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="left">前缀</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>.passive</code></td>
+<td align="left"><code>&amp;</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>.capture</code></td>
+<td align="left"><code>!</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>.once</code></td>
+<td align="left"><code>~</code></td>
+</tr>
+
+<tr>
+<td align="left"><code>.capture.once</code> or  <code>.once.capture</code></td>
+<td align="left"><code>~!</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>例如：</p>
+
+<pre><code class="language-js">on: {
     '!click': this.doClick,
     '~keyup': this.doThisOnce,
     '~!mouseover': this.doMouseOver
 }
-</code></pre><h2 id="函数式组件">函数式组件</h2><p>函数式组件是指那些无状态，没有 <code>this</code> 上下文的组件，标记为 <code>functional</code>：</p><pre><code class="language-js">Vue.component('my-component', {
+</code></pre>
+
+<h2 id="函数式组件">函数式组件</h2>
+
+<p>函数式组件是指那些无状态，没有 <code>this</code> 上下文的组件，标记为 <code>functional</code>：</p>
+
+<pre><code class="language-js">Vue.component('my-component', {
     functional: true,
     // Props 可选
     props: {
@@ -1046,7 +2258,20 @@ render: function (createElement) {
         // ...
     }
 })
-</code></pre><h1 id="插件">插件</h1><p>插件通常会为 Vue 添加全局功能。插件的范围没有限制，一般有如下几种： 1. 添加全局方法或者属性，如 <a href="https://github.com/karol-f/vue-custom-element">vue-custom-element</a> 2. 添加全局资源：指令、过滤器、过渡等，如 <a href="https://github.com/vuejs/vue-touch">vue-touch</a> 3. 通过全局 <code>mixin</code> 方法添加一些组件选项，如 <a href="https://github.com/vuejs/vue-router">vue-router</a> 4. 添加 Vue 实例方法，如添加 <code>Vue.prototype</code> 上 5. 一个库，提供自己的API，如 <a href="https://github.com/vuejs/vue-router">vue-router</a></p><p>Vue.js 的插件应该有一个公共方法 <code>install</code>。该方法的第一个参数是 <code>Vue</code> 构造器，第二个参数是一个可选选项：</p><pre><code class="language-js">MyPlugin.install = function (Vue, options) {
+</code></pre>
+
+<h1 id="插件">插件</h1>
+
+<p>插件通常会为 Vue 添加全局功能。插件的范围没有限制，一般有如下几种：
+1. 添加全局方法或者属性，如 <a href="https://github.com/karol-f/vue-custom-element">vue-custom-element</a>
+2. 添加全局资源：指令、过滤器、过渡等，如 <a href="https://github.com/vuejs/vue-touch">vue-touch</a>
+3. 通过全局 <code>mixin</code> 方法添加一些组件选项，如 <a href="https://github.com/vuejs/vue-router">vue-router</a>
+4. 添加 Vue 实例方法，如添加 <code>Vue.prototype</code> 上
+5. 一个库，提供自己的API，如 <a href="https://github.com/vuejs/vue-router">vue-router</a></p>
+
+<p>Vue.js 的插件应该有一个公共方法 <code>install</code>。该方法的第一个参数是 <code>Vue</code> 构造器，第二个参数是一个可选选项：</p>
+
+<pre><code class="language-js">MyPlugin.install = function (Vue, options) {
     // 1. 添加全局方法或属性
     Vue.myGlobalMethod = function () {
         // 逻辑...
@@ -1073,21 +2298,41 @@ render: function (createElement) {
         // 逻辑...
     }
 }
-</code></pre><p>通过全局方法 <code>Vue.use()</code> 来使用插件：</p><pre><code class="language-js">Vue.use(MyPlugin)
+</code></pre>
+
+<p>通过全局方法 <code>Vue.use()</code> 来使用插件：</p>
+
+<pre><code class="language-js">Vue.use(MyPlugin)
 Vue.use(MyPlugin, { someOption: true })
-</code></pre><p><a href="https://github.com/vuejs/awesome-vue#components--libraries">awesome-vue</a> 中有很多优秀的插件和库</p><h1 id="过滤器">过滤器</h1><p>Vue 可以自定义过滤器，过滤器可以用在两个地方：双括号插值和 <code>v-bind</code> 表达式。过滤器应该添加到 JavaScript 表达式尾部。</p><pre><code class="language-html">&lt;!-- 在双花括号中 --&gt;
+</code></pre>
+
+<p><a href="https://github.com/vuejs/awesome-vue#components--libraries">awesome-vue</a> 中有很多优秀的插件和库</p>
+
+<h1 id="过滤器">过滤器</h1>
+
+<p>Vue 可以自定义过滤器，过滤器可以用在两个地方：双括号插值和 <code>v-bind</code> 表达式。过滤器应该添加到 JavaScript 表达式尾部。</p>
+
+<pre><code class="language-html">&lt;!-- 在双花括号中 --&gt;
 {{ message | capitalize }}
 
 &lt;!-- 在 `v-bind` 中 --&gt;
 &lt;div v-bind:id=&quot;rawId | formatId&quot;&gt;&lt;/div&gt;
-</code></pre><p>可以在一个组件的选项中定义本地的过滤器：</p><pre><code class="language-js">filters: {
+</code></pre>
+
+<p>可以在一个组件的选项中定义本地的过滤器：</p>
+
+<pre><code class="language-js">filters: {
     capitalize: function (value) {
         if (!value) return ''
         value = value.toString()
         return value.charAt(0).toUpperCase() + value.slice(1)
     }
 }
-</code></pre><p>也可以在创建 Vue 实例之前定义全局过滤器：</p><pre><code class="language-js">Vue.filter('capitalize', function (value) {
+</code></pre>
+
+<p>也可以在创建 Vue 实例之前定义全局过滤器：</p>
+
+<pre><code class="language-js">Vue.filter('capitalize', function (value) {
     if (!value) return ''
     value = value.toString()
     return value.charAt(0).toUpperCase() + value.slice(1)
@@ -1096,19 +2341,111 @@ Vue.use(MyPlugin, { someOption: true })
 new Vue({
     // ...
 })
-</code></pre><p>当然我们也可以将过滤器串联使用：</p><pre><code>{{ message | filterA | filterB }}
-</code></pre></article></div><div class="card-action"><i class="material-icons">local_offer</i> <a class="tag" href="https://wzhongke.github.io//tags/javascript">#javascript</a>&nbsp;</div><div class="card-action"><div class="comments"><div id="disqus_thread"></div></div><script type="text/javascript">var disqus_shortname = 'wzhongke';
+</code></pre>
+
+<p>当然我们也可以将过滤器串联使用：</p>
+
+<pre><code>{{ message | filterA | filterB }}
+</code></pre>
+
+            </article>
+
+          </div>
+          
+          <div class="card-action">
+            <i class="material-icons">local_offer</i> 
+            <a class="tag" href="https://wzhongke.github.io//tags/javascript">#javascript</a>&nbsp; 
+          </div>
+          
+          <div class="card-action">
+            
+ <div class="comments"><div id="disqus_thread"></div></div>
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'wzhongke';
 
      
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div><div class="pagination-single"><span class="pagination-item previous"><i class="material-icons">navigate_before</i> <a href="https://wzhongke.github.io/post/linux/linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/" rel="prev">linux 忘记root密码</a> </span><span class="pagination-item next"><i class="material-icons">navigate_next</i> <a href="https://wzhongke.github.io/post/python/python3-%E5%AE%89%E8%A3%85protobuf%E6%A8%A1%E5%9D%97/" rel="next">python3 安装protobuf模块</a></span></div></div></section></div></section><footer class="page-footer"><div class="container"><div class="row"><div class="col l6 s12"><h5 class="white-text">World of Wang</h5><p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p></div><div class="col l4 offset-l2 s12"><h5 class="white-text">My Friends</h5><ul><li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Copyright@Kevin Tan</div></div></footer></main><script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script><script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+          </div>
+        </div>
+        
+          <div class="pagination-single">
+             
+            <span class="pagination-item previous">
+            <i class="material-icons">navigate_before</i>
+            <a href="https://wzhongke.github.io/post/linux/linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/" rel="prev">linux 忘记root密码</a>
+          </span>  
+          
+            <span class="pagination-item next">
+            <i class="material-icons">navigate_next</i>
+            <a href="https://wzhongke.github.io/post/python/python3-%E5%AE%89%E8%A3%85protobuf%E6%A8%A1%E5%9D%97/" rel="next">python3 安装protobuf模块</a> 
+          </span> 
+          </div>
+        
+      </div>
+    </section>
+    </div>
+  </section>
+  
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">World of Wang</h5>
+        <p class="grey-text text-lighten-4">Theme <a href="https://github.com/stkevintan/hugo-YAMT-theme" target="_blank">YAMT</a> designed by <a href="https://github.com/stkevintan" target="_blank">Kevin Tan</a> with ❤</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">My Friends</h5>
+        <ul>
+          
+          <li><a class="grey-text text-lighten-3" href="https://frantic1048.logdown.com/" target="_blank">Frantic1048</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">Copyright@Kevin Tan</div>
+  </div>
+</footer>
+
+</main>
+
+ 
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/lunr.js/2.1.2/lunr.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']]
       }
-    });</script><script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script><script type="text/javascript" src="https://wzhongke.github.io//js/index-1c463e212c.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    });
+</script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/materialize.min.js"></script>
+<script type="text/javascript" src="https://wzhongke.github.io//js/index.js"></script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9350854994277981",
         enable_page_level_ads: true
-    });</script></body></html>
+    });
+</script>
+</body>
+
+</html>
