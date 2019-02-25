@@ -1,17 +1,39 @@
 ---
-title: java 计算对象占用内存
+title: java 使用代码计算内存
+date: 2019-02-22 11:02:00
+tags: ["java"]
+categories: ["java"]
 ---
 
-可以使用如下代码计算对象占用内存：
+# 原始类型
+在java中，原始类型占用的内存大小是固定的：
+类型     |  大小 (byte)
+:-------|:---------
+boolean | 1
+byte    | 1
+short   | 2
+char    | 2
+int     | 4
+float   | 4
+long    | 8
+double  | 8
+
+
+# 对象大小计算
+对象大小可以使用 `java.lang.instrument.Instrumentation` 类来计算。改类提供了一个 `getObjectSize` 的方法来计算对象的大小，但是这个方法返回的对象大小中不包括其成员变量所引用的对象。
+但是这个方法不能直接调用，必须实现一个 `instrumentation` 代理类并且打包。
+
+定义代理类：
 ```java
+package com;
+
 import java.lang.instrument.Instrumentation;  
 import java.lang.reflect.Array;  
 import java.lang.reflect.Field;  
 import java.lang.reflect.Modifier;  
 import java.util.IdentityHashMap;  
 import java.util.Map;  
-import java.util.Stack;  
-  
+import java.util.Stack;
 /** 
  * 借助 Instrumentation 接口的 getObjectSize 方法计算对象占用空间 
  * 原来的 sizeOf 只能计算本对象占用空间， 无法计算继承下来的占用空间， 
@@ -119,52 +141,41 @@ public class SizeOfAgent {
         }  
         return result;  
     }  
-}  
+}
 ```
 
-该方式需要在 java 的 JavaAgent 模式下运行，JavaAgent 是运行在 `main` 方法之前的拦截器，需要在运行时，在 `java` 参数中指定。
+## 将代理类打包
+为了让JVM知道代理类，必须将其打进jar包并且设定 `manifest.mf` 文件中的书记邢：
+```
+Premain-Class: com.SizeOfAgent
+Can-Redefine-Classes: true
+```
 
-首先将该类打包成 jar 文件，推荐使用maven的方式
+可以通过 maven 进行打包，打包的时候执行 `manifest.mf` 属性，在 `pom.xml` 文件的 `<bulid>` 元素中添加如下的 `<plugins>`:
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>size</groupId>
-    <artifactId>agent.size</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <finalName>SizeOfAgent</finalName>
-                    <archive>
-                        <manifestEntries>
-                            <Premain-class>com.SizeOfAgent</Premain-class>
-                            <Boot-Class-Path></Boot-Class-Path>
-                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
-                        </manifestEntries>
-                        <addMavenDescriptor>false</addMavenDescriptor>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+<build>
+    <plugins>
+        <!-- maven 打包插件, 可指定生成的 META-INF/manifest.mf 文件中的属性 -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.1</version>
+            <configuration>
+                <archive>
+                    <!-- 生成 manifest.mf 时添加的属性 -->
+                    <manifestEntries>
+                        <Premain-Class>com.SizeOfAgent</Premain-Class>
+                        <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                    </manifestEntries>
+                </archive>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
-将 jar 包引入到工程目录下，并在 JVM 参数中添加
+## 使用jar包
+使用时，必须配置启动参数来指定jar文件：
 ```
--javaagent:/path/to/SizeOfAgent.jar
+-javaagent: pathToJar
 ```
-
-```java
-System.out.println(SizeOfAgent.fullSizeOf(new String()));
-```
-
-执行就可以了。
