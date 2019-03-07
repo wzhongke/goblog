@@ -117,32 +117,31 @@ CMS 垃圾回收有两次 SWT (stop the world)，其中一次是 Initial Mark。
 
 在日志中对应的信息是：
 ```log
-
+2019-03-05T09:13:03.124+0800: 59223.296: [GC (CMS Initial Mark) [1 CMS-initial-mark: 6051135K(8437760K)] 6279638K(10258240K), 0.0252641 secs] [Times: user=0.16 sys=0.00, real=0.02 secs]
 ```
 
-- 2018-04-12T13:48:26.233+0800: 15578.148：GC 开始的时间，以及相对于 JVM 启动的相对时间（单位是秒，这里大概是4.33h），与前面 ParNew 类似，下面的分析中就直接跳过这个了；
+- 2019-03-05T09:13:03.124+0800: 59223.296：GC 开始的时间，以及相对于 JVM 启动的相对时间（单位是秒），与前面 ParNew 类似；
 - CMS-initial-mark：初始标记阶段，它会收集所有 GC Roots 以及其直接引用的对象；
-- 6294851K：当前老年代使用的容量，这里是 6G；
-- (20971520K)：老年代可用的最大容量，这里是 20G；
-- 6354687K：整个堆目前使用的容量，这里是 6.06G；
-- (24746432K)：堆可用的容量，这里是 23.6G；
-- 0.0466580 secs：这个阶段的持续时间；
-- [Times: user=0.04 sys=0.00, real=0.04 secs]：与前面的类似，这里是相应 user、system and real 的时间统计。
+- 6051135K：当前老年代使用的容量，这里是 5.77G；
+- (8437760K)：老年代可用的最大容量，这里是 8G；
+- 6279638K：整个堆目前使用的容量，这里是 5.99G；
+- (10258240K)：堆可用的容量，这里是 9.78G；
+- 0.0252641 secs：这个阶段的持续时间；
+- [Times: user=0.16 sys=0.00, real=0.02 secs]：与前面的类似，这里是相应 user、system and real 的时间统计。
 
 ## Concurrent Mark
 在这个阶段会根据上一个阶段的 GC Roots 遍历老年代，并标记所有存活的对象。
 
 并发标记阶段与用户的应用程序并发运行，但并不是所有的老年代存活对象都会被标记，因为在标记期间用户的应用程序可能会改变一些引用。
-
 ```log
-
+2019-03-05T09:13:03.149+0800: 59223.321: [CMS-concurrent-mark-start]
+2019-03-05T09:13:04.627+0800: 59224.799: [CMS-concurrent-mark: 1.403/1.478 secs] [Times: user=4.45 sys=0.10, real=1.47 secs]
 ```
 
 这里详细对上面的日志解释，如下所示：
-
 - CMS-concurrent-mark：并发收集阶段，这个阶段会遍历老年代，并标记所有存活的对象；
-- 0.138/0.138 secs：这个阶段的持续时间与时钟时间；
-- [Times: user=1.01 sys=0.21, real=0.14 secs]：如前面所示，但是这部的时间，其实意义不大，因为它是从并发标记的开始时间开始计算，这期间因为是并发进行，不仅仅包含 GC 线程的工作。
+- 1.403/1.478 secs：这个阶段的持续时间与时钟时间；
+- [Times: user=4.45 sys=0.10, real=1.47 secs]：如前面所示，但是这部的时间，其实意义不大，因为它是从并发标记的开始时间开始计算，这期间因为是并发进行，不仅仅包含 GC 线程的工作。
 
 
 ## Concurrent Preclean
@@ -152,25 +151,28 @@ CMS 垃圾回收有两次 SWT (stop the world)，其中一次是 Initial Mark。
 
 日志信息如下：
 ```log
-
+2019-03-05T09:13:04.627+0800: 59224.799: [CMS-concurrent-preclean-start]
+2019-03-05T09:13:04.653+0800: 59224.825: [CMS-concurrent-preclean: 0.025/0.026 secs] [Times: user=0.03 sys=0.00, real=0.03 secs]
 ```
 
 含义为：
 - CMS-concurrent-preclean：Concurrent Preclean 阶段，对在前面并发标记阶段中引用发生变化的对象进行标记；
-- 0.056/0.057 secs：这个阶段的持续时间与时钟时间；
-- [Times: user=0.20 sys=0.12, real=0.06 secs]：同并发标记阶段中的含义。
+- 0.025/0.026 secs：这个阶段的持续时间与时钟时间；
+- [Times: user=0.03 sys=0.00, real=0.03 secs]：同并发标记阶段中的含义。
 
 ## Concurrent Abortable Preclean
 这个阶段是为了尽量承担 STW 中最终标记阶段的工作。这个阶段是在重复做很多相同的工作，直至满足一些条件，如：重复迭代的次数、完成的工作量或者时钟时间等。
 
 日志信息如下：
 ```log
+2019-03-05T09:13:04.653+0800: 59224.825: [CMS-concurrent-abortable-preclean-start]
+2019-03-05T09:13:08.918+0800: 59229.089: [CMS-concurrent-abortable-preclean: 3.843/4.264 secs] [Times: user=9.57 sys=0.19, real=4.26 secs]
 ```
 
 含义为：
 - CMS-concurrent-abortable-preclean：Concurrent Abortable Preclean 阶段；
-- 3.506/3.514 secs：这个阶段的持续时间与时钟时间，本质上，这里的 gc 线程会在 STW 之前做更多的工作，通常会持续 5s 左右；
-- [Times: user=11.93 sys=6.77, real=3.51 secs]：同前面。
+- 3.843/4.264 secs：这个阶段的持续时间与时钟时间，本质上，这里的 gc 线程会在 STW 之前做更多的工作，通常会持续 5s 左右；
+- [Times: user=9.57 sys=0.19, real=4.26 secs]：同前面。
 
 ## Final Remark
 这是第二个 STW 的阶段，这个阶段是标记所有老年代存活的对象。因为之前的阶段是并发执行的，gc 线程可能跟不上应用程序的变化，为了完成标记，STW 就非常必要了。
@@ -178,17 +180,18 @@ CMS 垃圾回收有两次 SWT (stop the world)，其中一次是 Initial Mark。
 通常 CMS 的 Final Remark 阶段会在年轻代尽可能干净的时候运行，目的是为了减少连续 STW 发生的可能性（年轻代存活对象过多的话，也会导致老年代涉及的存活对象会很多）。这个阶段会比前面的几个阶段更复杂一些，相关日志如下：
 
 ```log
+2019-03-05T09:13:08.923+0800: 59229.094: [GC (CMS Final Remark) [YG occupancy: 1319324 K (1820480 K)]2019-03-05T09:13:08.923+0800: 59229.095: [Rescan (parallel) , 0.0853762 secs]2019-03-05T09:13:09.008+0800: 59229.180: [weak refs processing, 0.0046217 secs]2019-03-05T09:13:09.013+0800: 59229.185: [class unloading, 0.0673909 secs]2019-03-05T09:13:09.080+0800: 59229.252: [scrub symbol table, 0.0129999 secs]2019-03-05T09:13:09.093+0800: 59229.265: [scrub string table, 0.0029732 secs][1 CMS-remark: 6161078K(8437760K)] 7480403K(10258240K), 0.1744124 secs] [Times: user=0.69 sys=0.00, real=0.17 secs]
 ```
 
-- YG occupancy: 1805641 K (3774912 K)：年轻代当前占用量及容量，这里分别是 1.71G 和 3.6G；
+- YG occupancy: 1319324 K (1820480 K)：年轻代当前占用量及容量，这里分别是 1.26G 和 1.74G；
 - ParNew:...：触发了一次 young GC，这里触发的原因是为了减少年轻代的存活对象，尽量使年轻代更干净一些；
-- [Rescan (parallel) , 0.0429390 secs]：这个 Rescan 是当应用暂停的情况下完成对所有存活对象的标记，这个阶段是并行处理的，这里花费了 0.0429390s；
-- [weak refs processing, 0.0027800 secs]：第一个子阶段，它的工作是处理弱引用；
-- [class unloading, 0.0033120 secs]：第二个子阶段，它的工作是：unloading the unused classes；
-- [scrub symbol table, 0.0016780 secs] ... [scrub string table, 0.0004780 secs]：最后一个子阶段，它的目的是：cleaning up symbol and string tables which hold class-level metadata and internalized string respectively，时钟的暂停也包含在这里；
-- 6299829K(20971520K)：这个阶段之后，老年代的使用量与总量，这里分别是 6G 和 20G；
-- 6348225K(24746432K)：这个阶段之后，堆的使用量与总量（包括年轻代，年轻代在前面发生过 GC），这里分别是 6.05G 和 23.6G；
-- 0.1365130 secs：这个阶段的持续时间；
+- [Rescan (parallel) , 0.0853762 secs]：这个 Rescan 是当应用暂停的情况下完成对所有存活对象的标记，这个阶段是并行处理的，这里花费了 0.0853762s；
+- [weak refs processing, 0.0046217 secs]：第一个子阶段，它的工作是处理弱引用；
+- [class unloading, 0.0673909 secs]：第二个子阶段，它的工作是：unloading the unused classes；
+- [scrub symbol table, 0.0129999 secs] ... [scrub string table, 0.0029732 secs]：最后一个子阶段，它的目的是：cleaning up symbol and string tables which hold class-level metadata and internalized string respectively，时钟的暂停也包含在这里；
+- 6161078K(8437760K)：这个阶段之后，老年代的使用量与总量，这里分别是 5.88G 和 8.05G；
+- 7480403K(10258240K)：这个阶段之后，堆的使用量与总量（包括年轻代，年轻代在前面发生过 GC），这里分别是 7.13G 和 9.78G；
+- 0.1744124 secs：这个阶段的持续时间；
 - [Times: user=1.24 sys=0.00, real=0.14 secs]：对应的时间信息。
 
 ## Concurrent Sweep
@@ -196,20 +199,23 @@ CMS 垃圾回收有两次 SWT (stop the world)，其中一次是 Initial Mark。
 
 这个阶段不用 STW。对应的日志如下：
 ```log
+2019-03-05T09:13:09.097+0800: 59229.269: [CMS-concurrent-sweep-start]
+2019-03-04T16:46:44.118+0800: 44.290: [CMS-concurrent-sweep: 0.561/0.590 secs] [Times: user=1.75 sys=0.05, real=0.59 secs]
 ```
 
 - CMS-concurrent-sweep：这个阶段主要是清除那些没有被标记的对象，回收它们的占用空间；
-- 8.193/8.284 secs：这个阶段的持续时间与时钟时间；
+- 0.561/0.590 secs：这个阶段的持续时间与时钟时间；
 - [Times: user=30.34 sys=16.44, real=8.28 secs]：同前面；
 
 ## Concurrent Reset
 这个阶段也是并发执行的，它会重设 CMS 内部的数据结构，为下次 GC 做准备，日志信息如下：
 ```
-
+2019-03-04T16:46:44.118+0800: 44.290: [CMS-concurrent-reset-start]
+2019-03-04T16:46:44.137+0800: 44.309: [CMS-concurrent-reset: 0.018/0.018 secs] [Times: user=0.08 sys=0.00, real=0.02 secs]
 ```
 
 - CMS-concurrent-reset：这个阶段的开始，目的如前面所述；
-- 0.044/0.044 secs：这个阶段的持续时间与时钟时间；
+- 0.018/0.018 secs：这个阶段的持续时间与时钟时间；
 - [Times: user=0.15 sys=0.10, real=0.04 secs]：同前面。
 
 ## CMS 的一些问题
