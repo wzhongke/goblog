@@ -110,7 +110,16 @@ CMS 全称 Concurrent Mark Sweep，是一款并发的、使用标记-清除算�
 
 **使用场景**：GC过程短暂停，适合对延迟要求较高的服务，用户线程不允许长时间的停顿。
 
-CMS 涉及的阶段比较多，以下是其主要的阶段
+CMS 涉及的阶段比较多，以下是其主要的阶段：
+
+## Yong GC
+将存活的对象从 Eden 和 Survivor 区拷贝到另外一个 Survivor区。所有达到年龄阈值的对象被放到老年代。
+
+![](/image/yonggc1.png)
+![](/image/yonggc2.png)
+
+Yong GC 后，Eden 和其中一个 Survivor 区被清空
+![](/image/yonggc3.png)
 
 ## Initial Mark
 CMS 垃圾回收有两次 SWT (stop the world)，其中一次是 Initial Mark。这个阶段的目标是：标记那些**直接**被 GC Roots 引用或者被年轻代存活的对象所引用的对象。
@@ -250,6 +259,8 @@ G1 将一组或多组区域（回收集 CSet）中的存活对象以增量、并
 
 ## 年轻代回收
 G1 可以满足添加到 eden 区域集的大多数分配请求。在年轻代垃圾回收期间，G1 会同时回收 Eden 区域和上次垃圾回收的存活区域。Eden 和存活区的对象将被复制或疏散到新的区域集。足够老的对象疏散到老年代，否则疏散到存活区，并将包含在下一次年轻代或混合垃圾回收的 CSet 中
+![](/image/g1yong.png)
+![](/image/g1yong1.png)
 
 ## 混合垃圾回收
 G1 在完成并发标记周期后，从执行年轻代垃圾回收切换为执行混合垃圾回收。
@@ -266,3 +277,8 @@ G1 在完成并发标记周期后，从执行年轻代垃圾回收切换为执�
 相比 CMS，G1 有以下特色：
 - G1有一个整理内存的过程，不会产生很多内存碎片
 - G1的 STW 更可控，它在停顿时间上添加了预测机制，用户可以指定期望停顿时间
+
+
+
+# 参考
+https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html
