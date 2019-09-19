@@ -165,6 +165,28 @@ echo "" > clear.txt
     find . | xargs grep xxx: 查找当前目录下含有x的文件
     ```
 
+5. xargs: 给其他命令传递参数的一个过滤器，可以将标准输出数据转换成命令行参数
+```bash
+> cat test.txt
+a b c d e f g
+h i j k l m n
+o p q
+> cat test.txt | xargs
+a b c d e f g h i j k l m n o p q
+> cat test.txt | xargs -n3
+a b c
+d e f
+g h i
+j k l
+m n o
+p q 
+
+> cat arg.txt | xargs -I {} ./sk.sh -p {} -l
+-p aaa -l
+-p bbb -l
+-p ccc -l
+```
+
 # 更改权限
 权限分数为： r(read)=4, w(write)=2, x(execute)=1
     ```bash
@@ -238,6 +260,17 @@ echo "" > clear.txt
     ```
 
 另外可以修改 /etc/issue文件来改变终端的提示信息
+
+# 文件分割
+`split` 命令可以用来分割文件：
+```bash
+split -l 50000  4-2019-09-02-15-54-17.log -d -a 2  sp/4-2019-09-02-15-54-17_
+```
+
+参数说明：
+- `l`: 每个文件拆分的行数
+- `d`: 拆分之后的文件用数字计数，没有该参数的话，用字母
+- `a`： 拆分后生成顺序文件名的长度
 
 # 压缩
 1. zip

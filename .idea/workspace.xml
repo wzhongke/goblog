@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1faf4a47-b96f-4ff4-8057-2daf69909e74" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/about/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/archive/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/css/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/css/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/error/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/error/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/error/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/java/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/java/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/java/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/javascript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/javascript/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/javascript/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/linux/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/linux/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/linux/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/markdown/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/markdown/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/markdown/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/mysql/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/mysql/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/mysql/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/nodejs/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/nodejs/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/nodejs/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/other/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/other/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/other/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/python/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/python/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/python/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/sql/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/sql/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/sql/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/svg/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/svg/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/svg/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/vue/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/vue/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/vue/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/工具/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/工具/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/工具/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/旅行/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/旅行/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/旅行/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/算法/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/算法/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/算法/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/编程/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/编程/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/编程/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/设计模式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/设计模式/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/categories/设计模式/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Bold.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Bold.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Light.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Light.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Medium.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Medium.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Thin.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/fonts/roboto/Roboto-Thin.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/img/avatar-66318e716f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/img/profile-bg-7c6e6a1672.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/img/sign-d1f802b4e8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/index.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/index-1c463e212c.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/materialize.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/2/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/3/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/4/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/5/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/6/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/7/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/page/8/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/_photoshop常用快捷键/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/algorithms/动态规划/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/algorithms/图/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/algorithms/字符串匹配算法/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/algorithms/找出字符串最大回文/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/algorithms/树/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/algorithms/缓存算法/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/designpatterns/创建型模式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/designpatterns/创建者模式之生成器/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/designpatterns/结构型模式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/designpatterns/行为模式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/designpatterns/设计模式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/apply和call的区别/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/css-动画/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/css-总结/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/es6/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/html标签/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/javascript-常用技巧/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/nodejs/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/vuex/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/vue学习笔记/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/front/webpack/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/git/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/hello-world/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/hugo-markdown中使用javascript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/concurrenthashmap/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java-文件处理/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java-泛型/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java-计算内存/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java中override与overload的区别/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java中没有见过的用法/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java中的先赋值再定义/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java修改字符串编码/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/java线程池技术/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/jvm调优/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/lambda表达式和stream/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/maven/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/mybatis/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/spring/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/springboot+prometheus/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/springlearn/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/xpath/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/java/单例实现方式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/docker/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/linux-server/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/linux-常用命令/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/linux-忘记root密码/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/make安装httpd/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/nginx配置/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/nginx配置双向认证-并通过java访问/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/shell/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/unexpected-end-of-file/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/vim使用快捷键/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/linux/搭建zookeeper集群/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/markdown语法/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/mathjax/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/mysql/mysql基础语句/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/mysql/mysql技巧/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/2/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/3/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/4/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/5/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/6/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/7/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/page/8/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/python/paramiko-批量操作终端/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/python/pycurl-https-error-unable-to-get-local-issuer-certificate/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/python/pycurl-快速开始指南/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/python/python-讨厌的memoryerror/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/python/python3-安装protobuf模块/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/sublime/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/svg动画/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/webpackage/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/二叉树的分层遍历/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/有价值的参考网站/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/正则表达式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/碰到过的问题/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/post/青海四日游/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/sitemap.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/svg/icon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/css/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/css/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/error/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/error/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/error/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/java/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/java/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/java/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/javascript/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/javascript/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/javascript/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/linux/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/linux/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/linux/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/markdown/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/markdown/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/markdown/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/mysql/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/mysql/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/mysql/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/nodejs/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/nodejs/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/nodejs/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/other/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/other/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/other/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/python/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/python/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/python/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/sql/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/sql/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/sql/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/svg/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/svg/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/svg/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/工具/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/工具/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/工具/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/旅行/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/旅行/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/旅行/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/算法/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/算法/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/算法/page/1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/设计模式/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/设计模式/index.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/tags/设计模式/page/1/index.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="config.toml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.toml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layouts/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/script/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2831">
+              <caret line="149" column="46" lean-forward="false" selection-start-line="149" selection-start-column="46" selection-end-line="149" selection-end-column="46" />
+              <folding>
+                <marker date="1528262083807" expanded="true" signature="8:12" ph="{...}" />
+                <marker date="1528262083807" expanded="true" signature="8173:8209" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layouts/partials/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="26" column="65" lean-forward="false" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="disqus.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layouts/partials/disqus.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>in-s</find>
+      <find>modal-search</find>
+      <find>collection-item nowrap</find>
+      <find>out-search</find>
+      <find>card-title</find>
+      <find>single</find>
+      <find>index.json</find>
+      <find>field</find>
+      <find>index</find>
+      <find>single.</find>
+      <find>disqus.html</find>
+      <find>list.html</find>
+      <find>header.html</find>
+      <find>_default</find>
+      <find>index.js</find>
+      <find>index.css</find>
+      <find>css/index.css</find>
+    </findStrings>
+    <dirStrings>
+      <dir>E:\git\goblog\layouts</dir>
+      <dir>E:\git\goblog\</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/layouts/archive/single.html" />
+        <option value="$PROJECT_DIR$/layouts/archive/search.html" />
+        <option value="$PROJECT_DIR$/layouts/_default/json.html" />
+        <option value="$PROJECT_DIR$/.tmp-server/index.json" />
+        <option value="$PROJECT_DIR$/assets/script/index.js" />
+        <option value="$PROJECT_DIR$/node_modules/hugo-lunr/lib/index.js" />
+        <option value="$PROJECT_DIR$/docs/index.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+      </GulpfileState>
+    </gulpfiles>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1928" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="goblog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="goblog" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\git\goblog\layouts\_default" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1faf4a47-b96f-4ff4-8057-2daf69909e74" name="Default" comment="" />
+      <created>1514112273882</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1514112273882</updated>
+      <workItem from="1514112276984" duration="6870000" />
+      <workItem from="1515037302651" duration="346000" />
+      <workItem from="1516534600094" duration="259000" />
+      <workItem from="1520329398664" duration="405000" />
+      <workItem from="1550657115835" duration="2615000" />
+      <workItem from="1552100581704" duration="1006000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11501000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17659463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/docs/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="2" lean-forward="false" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/disqus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="323">
+            <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/archive/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/script/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1919">
+          <caret line="101" column="46" lean-forward="false" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+          <folding>
+            <marker date="1528262083807" expanded="true" signature="8:12" ph="{...}" />
+            <marker date="1528262083807" expanded="true" signature="8173:8209" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/disqus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/archive/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/hugo-lunr/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/script/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1919">
+          <caret line="101" column="46" lean-forward="false" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+          <folding>
+            <marker date="1528262083807" expanded="true" signature="8:12" ph="{...}" />
+            <marker date="1528262083807" expanded="true" signature="8173:8209" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/disqus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3097">
+          <caret line="163" column="19" lean-forward="false" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/archive/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/script/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1919">
+          <caret line="101" column="46" lean-forward="false" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+          <folding>
+            <marker date="1528262083807" expanded="true" signature="8:12" ph="{...}" />
+            <marker date="1528262083807" expanded="true" signature="8173:8209" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/disqus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2945">
+          <caret line="155" column="7" lean-forward="false" selection-start-line="155" selection-start-column="7" selection-end-line="155" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/archive/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2945">
+          <caret line="155" column="7" lean-forward="true" selection-start-line="155" selection-start-column="7" selection-end-line="155" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/disqus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/script/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="84" column="14" lean-forward="true" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
+          <folding>
+            <marker date="1528262083807" expanded="true" signature="8:12" ph="{...}" />
+            <marker date="1528262083807" expanded="true" signature="8173:8209" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/sitemap.xml" />
+    <entry file="file://$PROJECT_DIR$/.tmp-server/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1083">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/autoprefixer/lib/processor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="23" column="54" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/orchestrator/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/_default/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/disqus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/_default/disqus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/_default/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="11" column="73" lean-forward="false" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/gray-matter/gray-matter.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/remove-markdown/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/_default/json.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.tmp-server/index.json" />
+    <entry file="file://$PROJECT_DIR$/assets/script/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2831">
+          <caret line="149" column="46" lean-forward="false" selection-start-line="149" selection-start-column="46" selection-end-line="149" selection-end-column="46" />
+          <folding>
+            <marker date="1528262083807" expanded="true" signature="8:12" ph="{...}" />
+            <marker date="1528262083807" expanded="true" signature="8173:8209" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/hugo-lunr/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="92" column="5" lean-forward="false" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/archive/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/index.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.tmp-server/page/1/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="119" lean-forward="false" selection-start-line="0" selection-start-column="119" selection-end-line="0" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="2" lean-forward="false" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/gulp/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/partials/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="65" lean-forward="false" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="14">
+            <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.tmp-server/rev-manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
