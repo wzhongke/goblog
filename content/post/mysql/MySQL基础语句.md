@@ -168,7 +168,6 @@ SELECT * FROM tb_name;
 ```
 
 ### CASE WHEN
-
 可以在 `select` 的列中使用 `case when condition then val1 else val2 end` 来进行查询操作
 
 ```sql
@@ -466,3 +465,10 @@ SELECT * FROM test1 INTO OUTFILE '/tmp/test1.txt'
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' 
 LINES TERMINATED BY '\r\n'
 ```
+
+## `REPLACE` 函数
+`REPLACE` 是用来替换的函数，其用语法为： `REPLACE(str, from_str, to_str)`，将所有在 `str` 中出现的 `from_str` 替换为 `to_str`;
+**在 `to_str` 中不能使用 `+` 操作**
+
+## 时间格式转换
+获取时间戳： `select UNIX_TIMESTAMP(utime) from table_name`
