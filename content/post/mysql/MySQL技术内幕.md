@@ -1,5 +1,5 @@
 ---
-title: 数据库系统概念
+title: MySQL技术内幕
 date: 2020-3-4 19:22:00
 categories: ["MySQL"]
 tags: ["MySQL"]
