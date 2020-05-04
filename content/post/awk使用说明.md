@@ -3,7 +3,6 @@ title: sed和awk
 date: 2017-09-01 14:20:00
 tag: ["linux"]
 categories: ['linux']
-draft: true
 ---
 
 `awk`和`sed`有很多共同点：
