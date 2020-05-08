@@ -128,6 +128,7 @@ REPLACE [INTO] ta_name [(field1, field2,...fieldN)] VALUES (val1, val2, ..., val
 INSERT INTO tb_name (`name`, `birthday`) VALUES ("Jhon", "1991-11-23");
 -- 结果: 受影响的行: 1，时间: 0.003s
 ```
+
 如果 `field` 的名字同 MySQL 关键字的名字相同，需要使用 `\`` 来将 `field` 括起来
 
 如果需要从另一张表中导入数据到一张表，可以用 `INSERT INTO ... SELECT`，其语法如下：
