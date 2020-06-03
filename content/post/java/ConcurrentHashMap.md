@@ -207,8 +207,6 @@ if (oldTab != null) {
 }
 ```
 
-
-
 在多线程环境下，使用HashMap的`put()`会导致程序进入死循环，是因为多线程会导致HashMap的冲突链表形成环形数据。一旦新城环形数据结构，Node的`next`永远不为空，导致死循环。
 <!-- more -->
 ### HashTable效率低下
@@ -233,8 +231,10 @@ public synchronized V get(Object key) {
 ```
 
 ### ConcurrentHashMap的锁分段技术
+
 锁分段技术就是容器中使用多把锁，每个锁用于容器中的部分数据。这样当多个线程并发访问不同数据段的数据时，线程就不会竞争锁，提高并发访问效率。
-在ConcurrentHashMap的`put()`方法中，对于向非空桶中加入数据时，才使用同步锁。
+
+在ConcurrentHashMap的 `put()` 方法中，对于向非空桶中加入数据时，才使用同步锁。
 ```java
 final V putVal(K key, V value, boolean onlyIfAbsent) {
     if (key == null || value == null) throw new NullPointerException();
@@ -302,4 +302,4 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 }
 ```
 
-而ConcurrentHashMap的`get()`方法是没有锁的。这是因为`get()`方法中使用的共享变量都定义成`volatile`类型，而`volatile`类型的变量能够在多线程之间保持可见性，能够保证多个线程读取的时候不会读到过期的值。
+而ConcurrentHashMap的 `get()` 方法是没有锁的。这是因为 `get()` 方法中使用的共享变量都定义成`volatile`类型，而`volatile`类型的变量能够在多线程之间保持可见性，能够保证多个线程读取的时候不会读到过期的值。
