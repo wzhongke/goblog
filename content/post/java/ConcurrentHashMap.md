@@ -210,7 +210,8 @@ if (oldTab != null) {
 
 **jdk1.8以前**在多线程环境下，使用HashMap的`put()`会导致程序进入死循环，是因为多线程会导致HashMap的冲突链表形成环形数据。一旦新城环形数据结构，Node的`next`永远不为空，导致死循环。
 
-## HashTable效率低下
+<!-- more -->
+### HashTable效率低下
 以下是HashTable的`put()`和`get()`方法的源码。可以看到我们经常用到的`put()`和`get()`方法的同步是对象的同步。在线程竞争激烈的情况下，当一个线程访问HashTable的同步方法时，其他访问同步方法的线程只能进入阻塞或轮询状态。因此，HashTable在多线程下的效率非常低，连读写锁都没有采用。
 ```java
 public synchronized V put(K key, V value) {
@@ -304,4 +305,4 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 }
 ```
 
-而ConcurrentHashMap的`get()`方法是没有锁的。这是因为`get()`方法中使用的共享变量都定义成`volatile`类型，而`volatile`类型的变量能够在多线程之间保持可见性，能够保证多个线程读取的时候不会读到过期的值。
+而ConcurrentHashMap的 `get()` 方法是没有锁的。这是因为 `get()` 方法中使用的共享变量都定义成`volatile`类型，而`volatile`类型的变量能够在多线程之间保持可见性，能够保证多个线程读取的时候不会读到过期的值。
