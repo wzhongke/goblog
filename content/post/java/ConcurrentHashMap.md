@@ -7,6 +7,7 @@ categories: ["算法"]
 
 ## 并发编程为什么使用ConcurrentHashMap
 HashMap并不是线程安全的，HashTable虽然是线程安全的，但是HashTable的效率非常低下。
+<!-- more -->
 
 ### HashMap不是线程安全的
 The HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits nulls.
@@ -207,11 +208,9 @@ if (oldTab != null) {
 }
 ```
 
+**jdk1.8以前**在多线程环境下，使用HashMap的`put()`会导致程序进入死循环，是因为多线程会导致HashMap的冲突链表形成环形数据。一旦新城环形数据结构，Node的`next`永远不为空，导致死循环。
 
-
-在多线程环境下，使用HashMap的`put()`会导致程序进入死循环，是因为多线程会导致HashMap的冲突链表形成环形数据。一旦新城环形数据结构，Node的`next`永远不为空，导致死循环。
-<!-- more -->
-### HashTable效率低下
+## HashTable效率低下
 以下是HashTable的`put()`和`get()`方法的源码。可以看到我们经常用到的`put()`和`get()`方法的同步是对象的同步。在线程竞争激烈的情况下，当一个线程访问HashTable的同步方法时，其他访问同步方法的线程只能进入阻塞或轮询状态。因此，HashTable在多线程下的效率非常低，连读写锁都没有采用。
 ```java
 public synchronized V put(K key, V value) {
@@ -232,9 +231,13 @@ public synchronized V get(Object key) {
 }
 ```
 
-### ConcurrentHashMap的锁分段技术
+## ConcurrentHashMap的锁分段技术
 锁分段技术就是容器中使用多把锁，每个锁用于容器中的部分数据。这样当多个线程并发访问不同数据段的数据时，线程就不会竞争锁，提高并发访问效率。
+
 在ConcurrentHashMap的`put()`方法中，对于向非空桶中加入数据时，才使用同步锁。
+
+`ConcurrentHashMap` 键值都不允许为 `null`
+
 ```java
 final V putVal(K key, V value, boolean onlyIfAbsent) {
     if (key == null || value == null) throw new NullPointerException();
@@ -244,39 +247,38 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
         Node<K,V> f; int n, i, fh;
         if (tab == null || (n = tab.length) == 0)
             tab = initTable();
-        // 定位的桶中没有元素，不需要同步
-        else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
+        else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {  // 定位的桶中没有元素，不需要同步
             if (casTabAt(tab, i, null,
-                         new Node<K,V>(hash, key, value, null)))
+                         new Node<K,V>(hash, key, value, null)))  // 使用乐观锁，失败后会在 for 循环中继续尝试
                 break;                   // no lock when adding to empty bin
         }
-        else if ((fh = f.hash) == MOVED)
+        else if ((fh = f.hash) == MOVED) // 在 MOVED 状态，即 resize 
             tab = helpTransfer(tab, f);
         else {
             V oldVal = null;
-            synchronized (f) {
-                if (tabAt(tab, i) == f) {
+            synchronized (f) {  // 在该桶上加锁，就是 tab[i]
+                if (tabAt(tab, i) == f) { // 再次确认该位置是 f
                     if (fh >= 0) {
                         binCount = 1;
                         for (Node<K,V> e = f;; ++binCount) {
                             K ek;
                             if (e.hash == hash &&
                                 ((ek = e.key) == key ||
-                                 (ek != null && key.equals(ek)))) {
+                                 (ek != null && key.equals(ek)))) { // 当值存在时，根据 key 修改 value
                                 oldVal = e.val;
                                 if (!onlyIfAbsent)
                                     e.val = value;
                                 break;
                             }
                             Node<K,V> pred = e;
-                            if ((e = e.next) == null) {
+                            if ((e = e.next) == null) { // 将键值添加到链表的末尾
                                 pred.next = new Node<K,V>(hash, key,
                                                           value, null);
                                 break;
                             }
                         }
                     }
-                    else if (f instanceof TreeBin) {
+                    else if (f instanceof TreeBin) {  // 如果是红黑树
                         Node<K,V> p;
                         binCount = 2;
                         if ((p = ((TreeBin<K,V>)f).putTreeVal(hash, key,
@@ -289,7 +291,7 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                 }
             }
             if (binCount != 0) {
-                if (binCount >= TREEIFY_THRESHOLD)
+                if (binCount >= TREEIFY_THRESHOLD) // 桶大小超过阈值时转换成红黑树
                     treeifyBin(tab, i);
                 if (oldVal != null)
                     return oldVal;
